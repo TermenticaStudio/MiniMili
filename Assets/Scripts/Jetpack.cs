@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class Jetpack : MonoBehaviour
 {
-    [SerializeField] private Joystick joystick;
-    [SerializeField] private Rigidbody2D rigid;
     [SerializeField] private float jetPackForce;
     [SerializeField] private float jetPackLaunchForce;
     [SerializeField] private float jetPackFuel = 10;
@@ -22,11 +20,15 @@ public class Jetpack : MonoBehaviour
     private Coroutine jetPackActivation;
     private Coroutine chargeFuelDelay;
 
+    private Rigidbody2D rigid;
     private PlayerMovement playerMovement;
+    private PlayerInput playerInput;
 
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        rigid = GetComponent<Rigidbody2D>();
+        playerInput = GetComponent<PlayerInput>();
 
         initFuel = jetPackFuel;
     }
@@ -48,11 +50,11 @@ public class Jetpack : MonoBehaviour
 
     private void JetpackMove()
     {
-        if (joystick.Direction.y <= 0 || jetPackFuel == 0)
+        if (playerInput.MovementJoystickDirection.y <= 0 || jetPackFuel == 0)
         {
             jetPackActive = false;
 
-            if (joystick.Direction.y <= 0)
+            if (playerInput.MovementJoystickDirection.y <= 0)
             {
                 ChargeFuel();
 
@@ -70,7 +72,7 @@ public class Jetpack : MonoBehaviour
 
         if (playerMovement.IsGrounded)
         {
-            if (joystick.Direction.y < 0.9f)
+            if (playerInput.MovementJoystickDirection.y < 0.9f)
                 return;
 
             rigid.AddForce(Vector2.up * jetPackLaunchForce, ForceMode2D.Impulse);
@@ -86,7 +88,7 @@ public class Jetpack : MonoBehaviour
         if (jetPackActive)
         {
             UseFuel();
-            rigid.AddForce((Vector2.up * jetPackForce * joystick.Direction.y) + (Vector2.right * (jetPackForce / 2f) * joystick.Direction.x), ForceMode2D.Force);
+            rigid.AddForce((Vector2.up * jetPackForce * playerInput.MovementJoystickDirection.y) + (Vector2.right * (jetPackForce / 2f) * playerInput.MovementJoystickDirection.x), ForceMode2D.Force);
             rigid.velocity = Vector2.ClampMagnitude(rigid.velocity, maxVelocity);
         }
     }
