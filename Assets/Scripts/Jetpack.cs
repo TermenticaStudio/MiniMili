@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,30 +13,32 @@ public class Jetpack : MonoBehaviour
     [SerializeField] private Slider fuelSlider;
     [SerializeField] private float fuelUsageMultiplier = 2f;
     [SerializeField] private float fuelChargeMutliplier = 1f;
-    [SerializeField] private Collider2D groundCheckCollider;
     [SerializeField] private float fallingMaxVelocity;
-    [SerializeField] private LayerMask groundLayer;
 
     private float initFuel;
-    private bool isGrounded;
     private bool jetPackActive;
     private bool isChargingFuel;
 
     private Coroutine jetPackActivation;
     private Coroutine chargeFuelDelay;
 
-    // Start is called before the first frame update
-    void Start()
+    private PlayerMovement playerMovement;
+
+    private void Start()
     {
+        playerMovement = GetComponent<PlayerMovement>();
+
         initFuel = jetPackFuel;
     }
 
     private void Update()
     {
-        isGrounded = CheckGround();
-
-        JetpackMove();
         UpdateUI();
+    }
+
+    private void FixedUpdate()
+    {
+        JetpackMove();
     }
 
     private void UpdateUI()
@@ -58,6 +59,7 @@ public class Jetpack : MonoBehaviour
                 if (chargeFuelDelay == null)
                     chargeFuelDelay = StartCoroutine(ChargeFuelCoroutine());
             }
+
             if (jetPackActivation == null)
                 rigid.velocity = Vector2.ClampMagnitude(rigid.velocity, fallingMaxVelocity);
 
@@ -66,7 +68,7 @@ public class Jetpack : MonoBehaviour
 
         chargeFuelDelay = null;
 
-        if (isGrounded)
+        if (playerMovement.IsGrounded)
         {
             if (joystick.Direction.y < 0.9f)
                 return;
@@ -110,12 +112,6 @@ public class Jetpack : MonoBehaviour
     {
         jetPackFuel -= Time.deltaTime * fuelUsageMultiplier;
         jetPackFuel = Mathf.Clamp(jetPackFuel, 0, initFuel);
-    }
-
-    private bool CheckGround()
-    {
-        var distanceToGround = groundCheckCollider.bounds.extents.y;
-        return Physics2D.Raycast(transform.position, Vector2.down, distanceToGround + 0.1f, groundLayer);
     }
 
     private IEnumerator StartJetpackDelayed()
