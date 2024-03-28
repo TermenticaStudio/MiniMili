@@ -73,6 +73,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Footstep()
     {
+        if (!IsGrounded)
+            return;
+
         if (footstepClips.Length == 0)
             return;
 
@@ -80,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         lastFootstepPos = transform.position;
-        footstepAS.PlayOneShot(footstepClips[Random.Range(0, footstepClips.Length)]);
+        var currentClip = footstepClips[Random.Range(0, footstepClips.Length)];
+        footstepAS.clip = currentClip;
+        footstepAS.Play();
     }
 }

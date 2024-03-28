@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Jetpack : MonoBehaviour
 {
@@ -8,10 +7,10 @@ public class Jetpack : MonoBehaviour
     [SerializeField] private float jetPackLaunchForce;
     [SerializeField] private float jetPackFuel = 10;
     [SerializeField] private float maxVelocity;
-    [SerializeField] private Slider fuelSlider;
     [SerializeField] private float fuelUsageMultiplier = 2f;
     [SerializeField] private float fuelChargeMutliplier = 1f;
     [SerializeField] private float fallingMaxVelocity;
+    [SerializeField] private ParticleSystem[] jetpackParticles;
 
     private float initFuel;
     private bool jetPackActive;
@@ -36,6 +35,7 @@ public class Jetpack : MonoBehaviour
     private void Update()
     {
         UpdateUI();
+        JetpackParticles();
     }
 
     private void FixedUpdate()
@@ -45,7 +45,7 @@ public class Jetpack : MonoBehaviour
 
     private void UpdateUI()
     {
-        fuelSlider.value = Mathf.Lerp(0, 1, jetPackFuel / initFuel);
+        WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, jetPackFuel / initFuel));
     }
 
     private void JetpackMove()
@@ -121,5 +121,11 @@ public class Jetpack : MonoBehaviour
         yield return new WaitForSeconds(0.65f);
         jetPackActive = true;
         jetPackActivation = null;
+    }
+
+    private void JetpackParticles()
+    {
+        foreach (var item in jetpackParticles)
+            item.enableEmission = jetPackActive;
     }
 }
