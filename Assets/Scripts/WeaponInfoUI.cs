@@ -1,8 +1,9 @@
+using Mirror;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponInfoUI : MonoBehaviour
+public class WeaponInfoUI : NetworkBehaviour
 {
     public static WeaponInfoUI Instance;
 
@@ -23,8 +24,10 @@ public class WeaponInfoUI : MonoBehaviour
         Instance = this;
     }
 
-    private void OnEnable()
+    public override void OnStartClient()
     {
+        base.OnStartClient();
+
         weaponsManager = FindObjectOfType<PlayerWeaponsManager>();
 
         weaponsManager.OnChangeClipCount += OnChangeClipsCount;
@@ -40,6 +43,9 @@ public class WeaponInfoUI : MonoBehaviour
 
     private void OnDisable()
     {
+        if (weaponsManager == null)
+            return;
+
         weaponsManager.OnChangeClipCount -= OnChangeClipsCount;
         weaponsManager.OnChangeAmmoCount -= OnChangeAmmoCount;
         weaponsManager.OnChangeWeapon -= OnChangeWeapon;

@@ -1,3 +1,5 @@
+using Mirror.Examples;
+using Mirror;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -14,7 +16,7 @@ public class Projectile : MonoBehaviour
     {
         if (Vector2.Distance(initPos, transform.position) > range)
         {
-            Destroy(gameObject);
+            DestroySelf();
         }
     }
 
@@ -42,9 +44,17 @@ public class Projectile : MonoBehaviour
             if (playerCol == owner)
                 return;
 
-            playerCol.GetComponent<PlayerHealth>().Damage(damage);
+            playerCol.GetComponent<PlayerHealth>().CmdDamage(damage);
         }
 
-        Destroy(gameObject);
+        DestroySelf();
+    }
+
+    [Server]
+    private void DestroySelf()
+    {
+        // return to prefab pool
+        NetworkServer.UnSpawn(gameObject);
+        PrefabPool.singleton.Return(gameObject);
     }
 }

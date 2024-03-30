@@ -1,9 +1,12 @@
+using Mirror;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerInput : MonoBehaviour
 {
+    public static PlayerInput Instance;
+
     [SerializeField] private FixedJoystick movementJoystick;
     [SerializeField] private FixedJoystick aimJoystick;
     [SerializeField] private Button reloadButton;
@@ -22,11 +25,26 @@ public class PlayerInput : MonoBehaviour
 
     public bool IsChangingZoom { get; private set; }
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         reloadButton.onClick.AddListener(ReloadInput);
         swichButton.onClick.AddListener(SwitchInput);
         zoomButton.onClick.AddListener(ChangeZoomInput);
+    }
+
+    public Vector2 GetMovement()
+    {
+        return MovementJoystickDirection;
+    }
+
+    public Vector2 GetAim()
+    {
+        return AimJoystickDirection;
     }
 
     private void ReloadInput()
@@ -36,15 +54,7 @@ public class PlayerInput : MonoBehaviour
 
         StartCoroutine(ReloadInputCoroutine());
     }
-
-    private void SwitchInput()
-    {
-        if (IsSwitching)
-            return;
-
-        StartCoroutine(SwitchInputCoroutine());
-    }
-
+   
     private IEnumerator ReloadInputCoroutine()
     {
         IsReloading = true;
@@ -52,6 +62,14 @@ public class PlayerInput : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         IsReloading = false;
+    }
+
+    private void SwitchInput()
+    {
+        if (IsSwitching)
+            return;
+
+        StartCoroutine(SwitchInputCoroutine());
     }
 
     private IEnumerator SwitchInputCoroutine()

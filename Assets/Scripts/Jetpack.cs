@@ -1,7 +1,8 @@
+using Mirror;
 using System.Collections;
 using UnityEngine;
 
-public class Jetpack : MonoBehaviour
+public class Jetpack : NetworkBehaviour
 {
     [SerializeField] private float jetPackForce;
     [SerializeField] private float jetPackLaunchForce;
@@ -13,6 +14,7 @@ public class Jetpack : MonoBehaviour
     [SerializeField] private ParticleSystem[] jetpackParticles;
 
     private float initFuel;
+    [SyncVar]
     private bool jetPackActive;
     private bool isChargingFuel;
 
@@ -21,13 +23,11 @@ public class Jetpack : MonoBehaviour
 
     private Rigidbody2D rigid;
     private PlayerMovement playerMovement;
-    private PlayerInput playerInput;
 
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
         rigid = GetComponent<Rigidbody2D>();
-        playerInput = GetComponent<PlayerInput>();
 
         initFuel = jetPackFuel;
     }
@@ -40,6 +40,9 @@ public class Jetpack : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isLocalPlayer)
+            return;
+
         JetpackMove();
     }
 
@@ -50,11 +53,11 @@ public class Jetpack : MonoBehaviour
 
     private void JetpackMove()
     {
-        if (playerInput.MovementJoystickDirection.y <= 0 || jetPackFuel == 0)
+        if (PlayerInput.Instance.GetMovement().y <= 0 || jetPackFuel == 0)
         {
             jetPackActive = false;
 
-            if (playerInput.MovementJoystickDirection.y <= 0)
+            if (PlayerInput.Instance.GetMovement().y <= 0)
             {
                 ChargeFuel();
 
@@ -72,7 +75,7 @@ public class Jetpack : MonoBehaviour
 
         if (playerMovement.IsGrounded)
         {
-            if (playerInput.MovementJoystickDirection.y < 0.9f)
+            if (PlayerInput.Instance.GetMovement().y < 0.9f)
                 return;
 
             rigid.AddForce(Vector2.up * jetPackLaunchForce, ForceMode2D.Impulse);
@@ -88,7 +91,7 @@ public class Jetpack : MonoBehaviour
         if (jetPackActive)
         {
             UseFuel();
-            rigid.AddForce((Vector2.up * jetPackForce * playerInput.MovementJoystickDirection.y) + (Vector2.right * (jetPackForce / 2f) * playerInput.MovementJoystickDirection.x), ForceMode2D.Force);
+            rigid.AddForce((Vector2.up * jetPackForce * PlayerInput.Instance.GetMovement().y) + (Vector2.right * (jetPackForce / 2f) * PlayerInput.Instance.GetMovement().x), ForceMode2D.Force);
             rigid.velocity = Vector2.ClampMagnitude(rigid.velocity, maxVelocity);
         }
     }

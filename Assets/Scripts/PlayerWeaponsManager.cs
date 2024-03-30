@@ -1,12 +1,12 @@
+using Mirror;
 using System;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerWeaponsManager : MonoBehaviour
+public class PlayerWeaponsManager : NetworkBehaviour
 {
     [SerializeField] private PlayerWeapon[] weapons;
     private PlayerWeapon activeWeapon;
-    private PlayerInput input;
 
     public event Action<int> OnChangeClipCount;
     public event Action<int> OnChangeAmmoCount;
@@ -14,8 +14,6 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     private void Start()
     {
-        input = GetComponent<PlayerInput>();
-
         foreach (var weapon in weapons)
             DeactivateWeapon(weapon);
 
@@ -24,21 +22,24 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     private void Update()
     {
+        if (!isLocalPlayer)
+            return;
+
         if (activeWeapon == null)
             return;
 
-        if (input.IsShooting)
+        if (PlayerInput.Instance.IsShooting)
             activeWeapon.Fire();
         else
             activeWeapon.ResetFire();
 
-        if (input.IsReloading)
+        if (PlayerInput.Instance.IsReloading)
             activeWeapon.Reload();
 
-        if (input.IsSwitching)
+        if (PlayerInput.Instance.IsSwitching)
             SwitchWeapon();
 
-        if(input.IsChangingZoom)
+        if(PlayerInput.Instance.IsChangingZoom)
             activeWeapon.ChangeZoom();
     }
 

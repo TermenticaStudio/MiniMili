@@ -1,9 +1,11 @@
+using Mirror;
+using Mirror.Examples;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerWeapon : MonoBehaviour
+public class PlayerWeapon : NetworkBehaviour
 {
     const string SETTINGS_GROUP = "Settings";
     const string RELOADING_GROUP = "Reloading";
@@ -107,13 +109,20 @@ public class PlayerWeapon : MonoBehaviour
         muzzle.Play();
         sfxSource.PlayOneShot(fireSFXs[Random.Range(0, fireSFXs.Length)]);
 
-        var proj = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation, null);
-        proj.Init(projectileSpeed, projectileRange, projectileDamage);
-        proj.RegisterOwner(GetComponentInParent<PlayerInfo>());
+        CmdCreateProjectile();
 
         yield return new WaitForSeconds(60f / fireRate);
 
         fireCoroutine = null;
+    }
+
+    [Command]
+    private void CmdCreateProjectile()
+    {
+        var projectile = PrefabPool.singleton.Get(projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<Projectile>();
+        projectile.Init(projectileSpeed, projectileRange, projectileDamage);
+        projectile.RegisterOwner(GetComponentInParent<PlayerInfo>());
+        NetworkServer.Spawn(projectile.gameObject);
     }
 
     public void Reload()

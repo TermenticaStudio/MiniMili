@@ -1,10 +1,12 @@
+using Mirror;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : NetworkBehaviour
 {
     [SerializeField] private float health;
     [SerializeField] private float regeneratePerSecond;
 
+    [SyncVar]
     private float currentHealth;
 
     private void Start()
@@ -14,13 +16,17 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
+        if (!isLocalPlayer)
+            return;
+
         currentHealth += Time.deltaTime * regeneratePerSecond;
         currentHealth = Mathf.Clamp(currentHealth, 0, health);
 
         WeaponInfoUI.Instance.SetHealth(currentHealth / health);
     }
 
-    public void Damage(float amount)
+    [Client]
+    public void CmdDamage(float amount)
     {
         currentHealth -= amount;
 

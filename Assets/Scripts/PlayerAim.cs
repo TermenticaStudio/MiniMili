@@ -1,6 +1,7 @@
+using Mirror;
 using UnityEngine;
 
-public class PlayerAim : MonoBehaviour
+public class PlayerAim : NetworkBehaviour
 {
     [SerializeField] private Transform skinPivot;
     [SerializeField] private Transform weaponPivot;
@@ -11,22 +12,19 @@ public class PlayerAim : MonoBehaviour
     [SerializeField] private Vector2 minMaxRotationLimit;
 
     private Vector2 lastAimDirection;
-    private PlayerInput playerInput;
-
-    private void OnEnable()
-    {
-        playerInput = GetComponent<PlayerInput>();
-    }
 
     private void Update()
     {
+        if (!isLocalPlayer)
+            return;
+
         Aim();
     }
 
     private void Aim()
     {
-        if (playerInput.AimJoystickDirection.magnitude != 0)
-            lastAimDirection = playerInput.AimJoystickDirection;
+        if (PlayerInput.Instance.GetAim().magnitude != 0)
+            lastAimDirection = PlayerInput.Instance.GetAim();
 
         var rot_z = Mathf.Atan2(lastAimDirection.y, lastAimDirection.x) * Mathf.Rad2Deg;
         weaponPivot.rotation = Quaternion.Euler(0, 0, rot_z);

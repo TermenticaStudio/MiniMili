@@ -1,6 +1,7 @@
+using Mirror;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     [Header("Movement Setting")]
     [SerializeField] private float acceleration = 0.3f;
@@ -18,32 +19,36 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lastFootstepPos;
 
     private Rigidbody2D rb;
-    private PlayerInput playerInput;
 
     public bool IsGrounded { get; private set; }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerInput = GetComponent<PlayerInput>();
 
         lastFootstepPos = transform.position;
     }
 
     private void Update()
     {
+        if (!isLocalPlayer)
+            return;
+
         IsGrounded = CheckGround();
         Footstep();
     }
 
     private void FixedUpdate()
     {
+        if (!isLocalPlayer)
+            return;
+
         rb.freezeRotation = IsGrounded;
 
         if (!IsGrounded)
             return;
 
-        if (Mathf.Abs(playerInput.MovementJoystickDirection.x) <= 0.1f)
+        if (Mathf.Abs(PlayerInput.Instance.GetMovement().x) <= 0.1f)
         {
             Decelerate();
             return;
@@ -54,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Accelerate()
     {
-        rb.velocity += new Vector2(playerInput.MovementJoystickDirection.x * acceleration, 0);
+        rb.velocity += new Vector2(PlayerInput.Instance.GetMovement().x * acceleration, 0);
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
     }
 
