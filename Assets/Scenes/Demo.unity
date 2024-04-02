@@ -1640,7 +1640,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: -0.025024097, y: -0.0000016781406, z: -0.000000041925322, w: 0.9996869}
+  m_LocalRotation: {x: -0.025025856, y: -0.0000017409059, z: -0.000000043493408, w: 0.99968684}
   m_LocalPosition: {x: 0, y: 0.758, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4180,7 +4180,7 @@ GameObject:
   - component: {fileID: 1967851993}
   - component: {fileID: 1967851992}
   m_Layer: 0
-  m_Name: Bullet Pool [Script]
+  m_Name: Objects Pool [Script]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4198,8 +4198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0c1348f53a57443a0acb979b947d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6392235276684912869, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
-  currentCount: 0
+  objects:
+  - Id: Bullet
+    Obj: {fileID: 6392235276684912869, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
 --- !u!4 &1967851993
 Transform:
   m_ObjectHideFlags: 0

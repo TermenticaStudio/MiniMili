@@ -55,6 +55,6 @@ public class Projectile : MonoBehaviour
 
     private void DestroySelf()
     {
-        PrefabPool.singleton.Return(gameObject);
+        PrefabPool.Instance.Return("Bullet", gameObject);
     }
 }

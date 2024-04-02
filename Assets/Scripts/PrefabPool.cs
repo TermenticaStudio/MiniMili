@@ -1,50 +1,63 @@
-using Mirror;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class PrefabPool : MonoBehaviour
 {
-    public static PrefabPool singleton;
+    public static PrefabPool Instance;
 
-    [Header("Settings")]
-    public GameObject prefab;
+    [SerializeField] private List<ObjectToPool> objects = new();
 
-    [Header("Debug")]
-    public int currentCount;
-    public Pool<GameObject> pool;
-
-    void Start()
+    [Serializable]
+    public class ObjectToPool
     {
-        InitializePool();
-        singleton = this;
+        public string Id;
+        public GameObject Obj;
+        internal ObjectPool<GameObject> pool;
     }
 
-    void InitializePool()
+    private void Awake()
     {
-        pool = new Pool<GameObject>(CreateNew, 50);
+        Instance = this;
+
+        foreach (var poolObj in objects)
+        {
+            poolObj.pool = new ObjectPool<GameObject>(() =>
+            {
+                var next = Instantiate(poolObj.Obj, transform);
+                next.SetActive(false);
+                return next;
+
+            }, (obj) =>
+            {
+                obj.SetActive(true);
+            }, (obj) =>
+            {
+                obj.SetActive(false);
+            }, collectionCheck: false, defaultCapacity: 50);
+        }
     }
 
-    GameObject CreateNew()
+    public GameObject Get(string id)
     {
-        GameObject next = Instantiate(prefab, transform);
-        next.name = $"{prefab.name}_pooled_{currentCount}";
-        next.SetActive(false);
-        currentCount++;
-        return next;
+        var pool = objects.SingleOrDefault(x=>x.Id == id);
+
+        if (pool == null)
+            throw new Exception($"there is no pool with Id of {id}!");
+
+        var obj = pool.pool.Get();
+        return obj;
     }
 
-    public GameObject Get(Vector3 position, Quaternion rotation)
+    public void Return(string id, GameObject spawned)
     {
-        GameObject next = pool.Get();
+        var pool = objects.SingleOrDefault(x => x.Id == id);
 
-        next.transform.position = position;
-        next.transform.rotation = rotation;
-        next.SetActive(true);
-        return next;
-    }
+        if (pool == null)
+            throw new Exception($"there is no pool with Id of {id}!");
 
-    public void Return(GameObject spawned)
-    {
-        spawned.SetActive(false);
-        pool.Return(spawned);
+        pool.pool.Release(spawned);
     }
 }

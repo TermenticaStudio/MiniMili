@@ -131,7 +131,8 @@ public class PlayerWeapon : NetworkBehaviour
 
     private void CreateProjectile()
     {
-        var projectile = PrefabPool.singleton.Get(projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<Projectile>();
+        var projectile = PrefabPool.Instance.Get("Bullet").GetComponent<Projectile>();
+        projectile.transform.SetPositionAndRotation(projectileSpawnPoint.position, projectileSpawnPoint.rotation);
         projectile.Init(playerInfo, projectileSpeed, projectileRange, projectileDamage);
     }
 

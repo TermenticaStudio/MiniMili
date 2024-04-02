@@ -29,8 +29,8 @@ public class PlayerAim : NetworkBehaviour
         var rot_z = Mathf.Atan2(lastAimDirection.y, lastAimDirection.x) * Mathf.Rad2Deg;
         weaponPivot.rotation = Quaternion.Euler(0, 0, rot_z);
 
-        var headRot = Quaternion.Euler(0, 0, Mathf.Clamp(rot_z, minMaxRotationLimit.x, minMaxRotationLimit.y));
-        headPivot.rotation = Quaternion.Lerp(headPivot.rotation, headRot, Time.deltaTime * lerpSpeed);
+        //var headRot = Quaternion.Euler(0, 0, Mathf.Clamp(rot_z, minMaxRotationLimit.x, minMaxRotationLimit.y));
+        //headPivot.rotation = Quaternion.Lerp(headPivot.rotation, headRot, Time.deltaTime * lerpSpeed);
 
         var dot = Vector2.Dot(weaponPivot.right, Vector2.right);
 
