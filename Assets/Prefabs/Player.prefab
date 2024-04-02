@@ -5581,8 +5581,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   weapons:
-  - {fileID: 1896949490030632642}
   - {fileID: 1896949491133223144}
+  - {fileID: 1896949490030632642}
 --- !u!114 &1896949490183733065
 MonoBehaviour:
   m_ObjectHideFlags: 0

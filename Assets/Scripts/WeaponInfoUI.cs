@@ -1,9 +1,8 @@
-using Mirror;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponInfoUI : NetworkBehaviour
+public class WeaponInfoUI : MonoBehaviour
 {
     public static WeaponInfoUI Instance;
 
@@ -24,31 +23,36 @@ public class WeaponInfoUI : NetworkBehaviour
         Instance = this;
     }
 
-    public override void OnStartClient()
+    private void Start()
     {
-        base.OnStartClient();
+        PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
+    }
 
-        weaponsManager = FindObjectOfType<PlayerWeaponsManager>();
+    private void OnSpawnPlayer(PlayerInfo obj)
+    {
+        weaponsManager = obj.GetComponent<PlayerWeaponsManager>();
 
         weaponsManager.OnChangeClipCount += OnChangeClipsCount;
         weaponsManager.OnChangeAmmoCount += OnChangeAmmoCount;
         weaponsManager.OnChangeWeapon += OnChangeWeapon;
     }
 
-    private void OnChangeWeapon(PlayerWeapon weapon)
-    {
-        weaponNameText.text = weapon.Name;
-        weaponIconImage.sprite = weapon.Icon;
-    }
-
     private void OnDisable()
     {
+        PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
+
         if (weaponsManager == null)
             return;
 
         weaponsManager.OnChangeClipCount -= OnChangeClipsCount;
         weaponsManager.OnChangeAmmoCount -= OnChangeAmmoCount;
         weaponsManager.OnChangeWeapon -= OnChangeWeapon;
+    }
+
+    private void OnChangeWeapon(PlayerWeapon weapon)
+    {
+        weaponNameText.text = weapon.Name;
+        weaponIconImage.sprite = weapon.Icon;
     }
 
     private void OnChangeClipsCount(int count)
@@ -71,7 +75,7 @@ public class WeaponInfoUI : NetworkBehaviour
         healthSlider.value = health;
     }
 
-    public void SetZoomText(int  zoom)
+    public void SetZoomText(int zoom)
     {
         zoomText.text = $"X{zoom}";
     }

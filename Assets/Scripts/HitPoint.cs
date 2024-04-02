@@ -15,11 +15,12 @@ public class HitPoint : MonoBehaviour, IDamagable
     }
 
     [Client]
-    public void Damage(PlayerInfo owner, float damage)
+    public bool Damage(PlayerInfo owner, float damage)
     {
         if (this.owner == owner)
-            return;
+            return false;
 
         health.Damage(damage * damageMultiplier);
+        return true;
     }
 }

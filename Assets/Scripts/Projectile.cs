@@ -47,15 +47,14 @@ public class Projectile : MonoBehaviour
         var damagable = collision.GetComponent<IDamagable>();
 
         if (damagable != null)
-            damagable.Damage(owner, damage);
-
-        DestroySelf();
+        {
+            if (damagable.Damage(owner, damage))
+                DestroySelf();
+        }
     }
 
-    [Server]
     private void DestroySelf()
     {
-        NetworkServer.UnSpawn(gameObject);
         PrefabPool.singleton.Return(gameObject);
     }
 }

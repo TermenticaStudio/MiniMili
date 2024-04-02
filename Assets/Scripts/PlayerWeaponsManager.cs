@@ -1,12 +1,14 @@
 using Mirror;
 using System;
-using System.Linq;
 using UnityEngine;
 
 public class PlayerWeaponsManager : NetworkBehaviour
 {
     [SerializeField] private PlayerWeapon[] weapons;
     private PlayerWeapon activeWeapon;
+
+    [SyncVar(hook = nameof(UpdateActiveWeapon))]
+    private int activeWeaponIndex;
 
     public event Action<int> OnChangeClipCount;
     public event Action<int> OnChangeAmmoCount;
@@ -17,7 +19,8 @@ public class PlayerWeaponsManager : NetworkBehaviour
         foreach (var weapon in weapons)
             DeactivateWeapon(weapon);
 
-        ActivateWeapon(0);
+        activeWeaponIndex = 0;
+        UpdateActiveWeapon(0, activeWeaponIndex);
     }
 
     private void Update()
@@ -29,26 +32,26 @@ public class PlayerWeaponsManager : NetworkBehaviour
             return;
 
         if (PlayerInput.Instance.IsShooting)
-            activeWeapon.Fire();
+            activeWeapon.CmdFire();
         else
             activeWeapon.ResetFire();
 
         if (PlayerInput.Instance.IsReloading)
-            activeWeapon.Reload();
+            activeWeapon.CmdReload();
 
         if (PlayerInput.Instance.IsSwitching)
-            SwitchWeapon();
+            CmdSwitchWeapon();
 
         if(PlayerInput.Instance.IsChangingZoom)
             activeWeapon.ChangeZoom();
     }
 
-    public void ActivateWeapon(int index)
+    private void UpdateActiveWeapon(int oldIndex, int newIndex)
     {
         if (activeWeapon != null)
             DeactivateWeapon(activeWeapon);
 
-        activeWeapon = weapons[index];
+        activeWeapon = weapons[newIndex];
         activeWeapon.gameObject.SetActive(true);
         activeWeapon.ResetZoom();
         OnChangeWeapon?.Invoke(activeWeapon);
@@ -57,16 +60,15 @@ public class PlayerWeaponsManager : NetworkBehaviour
         UpdateClipCountUI(activeWeapon.CurrrentClipsCount);
     }
 
-    public void SwitchWeapon()
+    [Command]
+    public void CmdSwitchWeapon()
     {
-        var currentWeaponIndex = weapons.ToList().FindIndex(x => x == activeWeapon);
-
-        if (currentWeaponIndex == weapons.Length - 1)
-            currentWeaponIndex = 0;
+        if (activeWeaponIndex == weapons.Length - 1)
+            activeWeaponIndex = 0;
         else
-            currentWeaponIndex++;
+            activeWeaponIndex++;
 
-        ActivateWeapon(currentWeaponIndex);
+        UpdateActiveWeapon(0, activeWeaponIndex);
     }
 
     public void DeactivateWeapon(PlayerWeapon weapon)

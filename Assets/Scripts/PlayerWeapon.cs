@@ -1,5 +1,6 @@
 using Mirror;
 using Mirror.Examples;
+using Mirror.Examples.MultipleMatch;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Linq;
@@ -13,7 +14,7 @@ public class PlayerWeapon : NetworkBehaviour
     const string SFX_GROUP = "SFX";
     const string INFO_GROUP = "Info";
     const string PROJECTILE_GROUP = "Projectile";
-    
+
     [FoldoutGroup(SETTINGS_GROUP)]
     [SerializeField] private int fireRate;
     [FoldoutGroup(SETTINGS_GROUP)]
@@ -22,7 +23,7 @@ public class PlayerWeapon : NetworkBehaviour
     [SerializeField] private int clipsCount;
     [FoldoutGroup(SETTINGS_GROUP)]
     [SerializeField] private ZoomPreset[] zooms;
-    
+
     [FoldoutGroup(PROJECTILE_GROUP)]
     [SerializeField] private Transform projectileSpawnPoint;
     [FoldoutGroup(PROJECTILE_GROUP)]
@@ -63,10 +64,12 @@ public class PlayerWeapon : NetworkBehaviour
     private bool isDryFiring;
     private ZoomPreset currentZoom;
     private PlayerWeaponsManager weaponsManager;
+    private PlayerInfo playerInfo;
 
     private void Start()
     {
         weaponsManager = GetComponentInParent<PlayerWeaponsManager>();
+        playerInfo = GetComponentInParent<PlayerInfo>();
 
         CurrentAmmoCount = clipSize;
         CurrrentClipsCount = clipsCount;
@@ -80,10 +83,20 @@ public class PlayerWeapon : NetworkBehaviour
         reloadCoroutine = null;
     }
 
-    public void Fire()
+    [Command]
+    public void CmdFire()
+    {
+        FireRpc();
+    }
+
+    [ClientRpc]
+    private void FireRpc()
     {
         if (fireCoroutine == null)
+        {
+            Debug.Log($"Player {netId} shitted bullet");
             fireCoroutine = StartCoroutine(FireCoroutine());
+        }
     }
 
     public void ResetFire()
@@ -96,7 +109,7 @@ public class PlayerWeapon : NetworkBehaviour
         if (CurrentAmmoCount == 0)
         {
             if (autoReload)
-                Reload();
+                CmdReload();
             else
                 DryFire();
 
@@ -109,22 +122,27 @@ public class PlayerWeapon : NetworkBehaviour
         muzzle.Play();
         sfxSource.PlayOneShot(fireSFXs[Random.Range(0, fireSFXs.Length)]);
 
-        CmdCreateProjectile();
+        CreateProjectile();
 
         yield return new WaitForSeconds(60f / fireRate);
 
         fireCoroutine = null;
     }
 
-    [Command]
-    private void CmdCreateProjectile()
+    private void CreateProjectile()
     {
         var projectile = PrefabPool.singleton.Get(projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<Projectile>();
-        projectile.Init(GetComponentInParent<PlayerInfo>(), projectileSpeed, projectileRange, projectileDamage);
-        NetworkServer.Spawn(projectile.gameObject);
+        projectile.Init(playerInfo, projectileSpeed, projectileRange, projectileDamage);
     }
 
-    public void Reload()
+    [Command]
+    public void CmdReload()
+    {
+        ReloadRpc();
+    }
+
+    [ClientRpc]
+    private void ReloadRpc()
     {
         if (CurrrentClipsCount == 0)
         {
@@ -133,7 +151,10 @@ public class PlayerWeapon : NetworkBehaviour
         }
 
         if (reloadCoroutine == null)
+        {
+            Debug.Log($"Player {netId} reloaded");
             reloadCoroutine = StartCoroutine(ReloadCoroutine());
+        }
     }
 
     private IEnumerator ReloadCoroutine()
@@ -156,7 +177,7 @@ public class PlayerWeapon : NetworkBehaviour
     {
         if (isDryFiring)
             return;
-        
+
         sfxSource.PlayOneShot(dryFire);
         isDryFiring = true;
     }
@@ -170,7 +191,7 @@ public class PlayerWeapon : NetworkBehaviour
 
     public void ChangeZoom()
     {
-        var currentZoomIndex = zooms.ToList().FindIndex(x=>x ==  currentZoom);
+        var currentZoomIndex = zooms.ToList().FindIndex(x => x == currentZoom);
 
         if (currentZoomIndex == zooms.Length - 1)
             currentZoomIndex = 0;
