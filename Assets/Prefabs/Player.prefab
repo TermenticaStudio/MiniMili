@@ -5419,7 +5419,7 @@ MonoBehaviour:
   projectileSpeed: 30
   projectileRange: 20
   projectileDamage: 5
-  autoReload: 0
+  autoReload: 1
   reloadTime: 1
   muzzle: {fileID: 1896949491051762130}
   sfxSource: {fileID: 1896949490668227738}
@@ -11667,7 +11667,7 @@ MonoBehaviour:
   projectileSpeed: 20
   projectileRange: 20
   projectileDamage: 5
-  autoReload: 0
+  autoReload: 1
   reloadTime: 1
   muzzle: {fileID: 626002658530005166}
   sfxSource: {fileID: 1896949489466308754}
