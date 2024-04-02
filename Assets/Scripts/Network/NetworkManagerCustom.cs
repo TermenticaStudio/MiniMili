@@ -1,5 +1,4 @@
 using Mirror;
-using System.Diagnostics;
 using UnityEngine;
 
 public class NetworkManagerCustom : NetworkManager
@@ -39,8 +38,5 @@ public class NetworkManagerCustom : NetworkManager
 
         // call this to use this gameobject as the primary controller
         NetworkServer.AddPlayerForConnection(conn, gameobject);
-
-        if (conn.identity.isLocalPlayer)
-            CameraController.Instance.SetTarget(gameobject.transform);
     }
 }
