@@ -120,8 +120,7 @@ public class PlayerWeapon : NetworkBehaviour
     private void CmdCreateProjectile()
     {
         var projectile = PrefabPool.singleton.Get(projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<Projectile>();
-        projectile.Init(projectileSpeed, projectileRange, projectileDamage);
-        projectile.RegisterOwner(GetComponentInParent<PlayerInfo>());
+        projectile.Init(GetComponentInParent<PlayerInfo>(), projectileSpeed, projectileRange, projectileDamage);
         NetworkServer.Spawn(projectile.gameObject);
     }
 

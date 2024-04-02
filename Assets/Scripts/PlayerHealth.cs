@@ -25,8 +25,7 @@ public class PlayerHealth : NetworkBehaviour
         WeaponInfoUI.Instance.SetHealth(currentHealth / health);
     }
 
-    [Client]
-    public void CmdDamage(float amount)
+    public void Damage(float amount)
     {
         currentHealth -= amount;
 

@@ -20,8 +20,10 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void Init(float speed, float range, float damage)
+    public void Init(PlayerInfo owner, float speed, float range, float damage)
     {
+        this.owner = owner;
+
         rigid = GetComponent<Rigidbody2D>();
         initPos = transform.position;
 
@@ -30,22 +32,22 @@ public class Projectile : MonoBehaviour
         this.damage = damage;
     }
 
-    public void RegisterOwner(PlayerInfo owner)
-    {
-        this.owner = owner;
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var playerCol = collision.collider.GetComponentInParent<PlayerInfo>();
+        var damagable = collision.collider.GetComponent<IDamagable>();
 
-        if (playerCol != null)
-        {
-            if (playerCol == owner)
-                return;
+        if (damagable != null)
+            damagable.Damage(owner, damage);
 
-            playerCol.GetComponent<PlayerHealth>().CmdDamage(damage);
-        }
+        DestroySelf();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        var damagable = collision.GetComponent<IDamagable>();
+
+        if (damagable != null)
+            damagable.Damage(owner, damage);
 
         DestroySelf();
     }
@@ -53,7 +55,6 @@ public class Projectile : MonoBehaviour
     [Server]
     private void DestroySelf()
     {
-        // return to prefab pool
         NetworkServer.UnSpawn(gameObject);
         PrefabPool.singleton.Return(gameObject);
     }
