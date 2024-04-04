@@ -9,6 +9,7 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float deceleration = 2f;
 
     [Header("Ground Checking")]
+    [SerializeField] private Transform groundChecker;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float groundCheckRadius = 0.3f;
 
@@ -19,12 +20,14 @@ public class PlayerMovement : NetworkBehaviour
     private Vector2 lastFootstepPos;
 
     private Rigidbody2D rb;
+    private PlayerHealth playerHealth;
 
     public bool IsGrounded { get; private set; }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerHealth = GetComponent<PlayerHealth>();
 
         lastFootstepPos = transform.position;
     }
@@ -34,6 +37,9 @@ public class PlayerMovement : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
+        if (playerHealth.IsDead)
+            return;
+
         IsGrounded = CheckGround();
         Footstep();
     }
@@ -41,6 +47,9 @@ public class PlayerMovement : NetworkBehaviour
     private void FixedUpdate()
     {
         if (!isLocalPlayer)
+            return;
+
+        if (playerHealth.IsDead)
             return;
 
         rb.freezeRotation = IsGrounded;
@@ -70,7 +79,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private bool CheckGround()
     {
-        if (Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), groundCheckRadius, groundLayer).Length > 0)
+        if (Physics2D.OverlapCircleAll(new Vector2(groundChecker.position.x, groundChecker.position.y), groundCheckRadius, groundLayer).Length > 0)
             return true;
 
         return false;

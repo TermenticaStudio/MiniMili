@@ -1,5 +1,6 @@
 using Mirror;
 using Mirror.Examples;
+using Mirror.Examples.Basic;
 using Mirror.Examples.MultipleMatch;
 using Sirenix.OdinInspector;
 using System.Collections;
@@ -65,11 +66,13 @@ public class PlayerWeapon : NetworkBehaviour
     private ZoomPreset currentZoom;
     private PlayerWeaponsManager weaponsManager;
     private PlayerInfo playerInfo;
+    private PlayerAim playerAim;
 
     private void Start()
     {
         weaponsManager = GetComponentInParent<PlayerWeaponsManager>();
         playerInfo = GetComponentInParent<PlayerInfo>();
+        playerAim = GetComponentInParent<PlayerAim>();
 
         CurrentAmmoCount = clipSize;
         CurrrentClipsCount = clipsCount;
@@ -119,9 +122,13 @@ public class PlayerWeapon : NetworkBehaviour
 
         CurrentAmmoCount--;
         weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount);
+
+        muzzle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(playerAim.IsFlipped ? 0 : 1, 0, 0);
         muzzle.Play();
+
         sfxSource.PlayOneShot(fireSFXs[Random.Range(0, fireSFXs.Length)]);
 
+        projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, playerAim.IsFlipped ? 180 : 0);
         CreateProjectile();
 
         yield return new WaitForSeconds(60f / fireRate);

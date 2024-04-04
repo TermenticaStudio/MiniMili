@@ -28,6 +28,9 @@ public class PlayerWeaponsManager : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
+        if (PlayerInput.Instance.IsSwitching)
+            CmdSwitchWeapon();
+
         if (activeWeapon == null)
             return;
 
@@ -38,9 +41,6 @@ public class PlayerWeaponsManager : NetworkBehaviour
 
         if (PlayerInput.Instance.IsReloading)
             activeWeapon.CmdReload();
-
-        if (PlayerInput.Instance.IsSwitching)
-            CmdSwitchWeapon();
 
         if(PlayerInput.Instance.IsChangingZoom)
             activeWeapon.ChangeZoom();

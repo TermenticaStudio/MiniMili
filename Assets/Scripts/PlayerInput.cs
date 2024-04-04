@@ -1,4 +1,6 @@
+using Mirror;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +13,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Button reloadButton;
     [SerializeField] private Button swichButton;
     [SerializeField] private Button zoomButton;
+    [SerializeField] private Button quitButton;
 
     public Vector2 MovementJoystickDirection { get => movementJoystick.Direction; }
 
@@ -34,6 +37,16 @@ public class PlayerInput : MonoBehaviour
         reloadButton.onClick.AddListener(ReloadInput);
         swichButton.onClick.AddListener(SwitchInput);
         zoomButton.onClick.AddListener(ChangeZoomInput);
+
+        quitButton.onClick.AddListener(() =>
+        {
+            var localPlayer = FindObjectsOfType<PlayerInfo>().SingleOrDefault(x=>x.isLocalPlayer);
+
+            if (localPlayer.isServer)
+                NetworkManager.singleton.StopHost();
+            else
+                NetworkManager.singleton.StopClient();
+        });
     }
 
     public Vector2 GetMovement()

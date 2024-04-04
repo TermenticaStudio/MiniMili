@@ -1,13 +1,38 @@
 using Mirror;
+using TMPro;
 using UnityEngine;
 
 public class PlayerInfo : NetworkBehaviour
 {
-    [SyncVar()]
-    [SerializeField] private string Name;
+    [SerializeField] private TextMeshPro nameText;
 
-    public void SetName(string name)
+    private PlayerDB playerDB;
+
+    [SyncVar(hook = nameof(OnChangeName))]
+    private string currentName;
+
+    private void Update()
     {
-        Name = name;
+        nameText.transform.rotation = Quaternion.identity;
+    }
+
+    [Server]
+    public void SetPlayerDB(PlayerDB playerDB)
+    {
+        this.playerDB = playerDB;
+        SetName(playerDB.Name);
+    }
+
+    [ClientRpc]
+    private void SetName(string name)
+    {
+        currentName = name;
+        nameText.text = name;
+    }
+
+    private void OnChangeName(string oldName, string newName)
+    {
+        currentName = newName;
+        nameText.text = currentName;
     }
 }

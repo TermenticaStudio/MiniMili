@@ -17,17 +17,20 @@ public class Jetpack : NetworkBehaviour
     [SyncVar]
     private bool jetPackActive;
     private bool isChargingFuel;
+    private Quaternion currentRotation;
 
     private Coroutine jetPackActivation;
     private Coroutine chargeFuelDelay;
 
     private Rigidbody2D rigid;
     private PlayerMovement playerMovement;
+    private PlayerHealth playerHealth;
 
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
         rigid = GetComponent<Rigidbody2D>();
+        playerHealth = GetComponent<PlayerHealth>();
 
         initFuel = jetPackFuel;
     }
@@ -43,11 +46,18 @@ public class Jetpack : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
+        if (playerHealth.IsDead)
+            return;
+
         JetpackMove();
+        rigid.SetRotation(Quaternion.Lerp(transform.rotation, currentRotation, Time.deltaTime * 5f));
     }
 
     private void UpdateUI()
     {
+        if (!isLocalPlayer)
+            return;
+
         WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, jetPackFuel / initFuel));
     }
 
@@ -55,7 +65,7 @@ public class Jetpack : NetworkBehaviour
     {
         if (PlayerInput.Instance.GetMovement().y <= 0 || jetPackFuel == 0)
         {
-            jetPackActive = false;
+            CmdDeactivateJetpack();
 
             if (PlayerInput.Instance.GetMovement().y <= 0)
             {
@@ -68,6 +78,7 @@ public class Jetpack : NetworkBehaviour
             if (jetPackActivation == null)
                 rigid.velocity = Vector2.ClampMagnitude(rigid.velocity, fallingMaxVelocity);
 
+            currentRotation = Quaternion.identity;
             return;
         }
 
@@ -85,7 +96,7 @@ public class Jetpack : NetworkBehaviour
         }
         else if (jetPackActivation == null)
         {
-            jetPackActive = true;
+            CmdActivateJetpack();
         }
 
         if (jetPackActive)
@@ -93,6 +104,13 @@ public class Jetpack : NetworkBehaviour
             UseFuel();
             rigid.AddForce((Vector2.up * jetPackForce * PlayerInput.Instance.GetMovement().y) + (Vector2.right * (jetPackForce / 2f) * PlayerInput.Instance.GetMovement().x), ForceMode2D.Force);
             rigid.velocity = Vector2.ClampMagnitude(rigid.velocity, maxVelocity);
+
+            var angle = Mathf.Atan2(PlayerInput.Instance.GetMovement().y, PlayerInput.Instance.GetMovement().x) * Mathf.Rad2Deg;
+            currentRotation = Quaternion.Euler(0f, 0f, angle - 90);
+        }
+        else
+        {
+            currentRotation = Quaternion.identity;
         }
     }
 
@@ -110,7 +128,6 @@ public class Jetpack : NetworkBehaviour
         isChargingFuel = false;
         yield return new WaitForSeconds(1f);
         isChargingFuel = true;
-
     }
 
     private void UseFuel()
@@ -122,7 +139,7 @@ public class Jetpack : NetworkBehaviour
     private IEnumerator StartJetpackDelayed()
     {
         yield return new WaitForSeconds(0.65f);
-        jetPackActive = true;
+        CmdActivateJetpack();
         jetPackActivation = null;
     }
 
@@ -130,5 +147,17 @@ public class Jetpack : NetworkBehaviour
     {
         foreach (var item in jetpackParticles)
             item.enableEmission = jetPackActive;
+    }
+
+    [Command]
+    private void CmdActivateJetpack()
+    {
+        jetPackActive = true;
+    }
+
+    [Command]
+    private void CmdDeactivateJetpack()
+    {
+        jetPackActive = false;
     }
 }

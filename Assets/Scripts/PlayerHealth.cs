@@ -8,15 +8,39 @@ public class PlayerHealth : NetworkBehaviour
 
     [SyncVar]
     private float currentHealth;
+    [SyncVar]
+    private bool isDead;
+
+    public bool IsDead { get => isDead; }
+
+    private PlayerInfo playerInfo;
 
     private void Start()
     {
+        playerInfo = GetComponent<PlayerInfo>();
         currentHealth = health;
+
+        PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
+    }
+
+    private void OnDisable()
+    {
+        PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
+    }
+
+    private void OnSpawnPlayer(PlayerInfo obj)
+    {
+        currentHealth = health;
+        WeaponInfoUI.Instance.SetHealth(currentHealth / health);
+        isDead = false;
     }
 
     private void Update()
     {
         if (!isLocalPlayer)
+            return;
+
+        if(isDead) 
             return;
 
         currentHealth += Time.deltaTime * regeneratePerSecond;
@@ -27,16 +51,25 @@ public class PlayerHealth : NetworkBehaviour
 
     public void Damage(float amount)
     {
+        if (isDead)
+            return;
+
         currentHealth -= amount;
 
         if (currentHealth <= 0)
-        {
             Die();
-        }
     }
 
     private void Die()
     {
+        if (!playerInfo.isLocalPlayer)
+            return;
 
+        currentHealth = 0;
+        WeaponInfoUI.Instance.SetHealth(currentHealth / health);
+        isDead = true;
+        CameraController.Instance.SetTarget(null);
+
+        PlayerSpawnHandler.Instance.RequestForPlayerRespawn(playerInfo);
     }
 }
