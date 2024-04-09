@@ -5,7 +5,10 @@ public class PlayerAim : NetworkBehaviour
 {
     [SerializeField] private Transform skinPivot;
     [SerializeField] private Transform rightHand;
+
+    [Header("Left Hand")]
     [SerializeField] private Transform leftHand;
+    [SerializeField] private Vector2 leftHandMinMaxRotation;
 
     [Header("Head")]
     [SerializeField] private Transform headPivot;
@@ -19,9 +22,19 @@ public class PlayerAim : NetworkBehaviour
 
     public bool IsFlipped { get => isFlipped; }
 
+    private PlayerHealth playerHealth;
+
+    private void Start()
+    {
+        playerHealth = GetComponent<PlayerHealth>();
+    }
+
     private void Update()
     {
         if (!isLocalPlayer)
+            return;
+
+        if (playerHealth.IsDead)
             return;
 
         Aim();
@@ -34,8 +47,8 @@ public class PlayerAim : NetworkBehaviour
 
         var rot_z = Mathf.Atan2(lastAimDirection.y, lastAimDirection.x) * Mathf.Rad2Deg;
         rightHand.rotation = Quaternion.Euler(0, 0, rot_z);
-        leftHand.rotation = Quaternion.Euler(0, 0, rot_z);
-        headPivot.rotation = Quaternion.Euler(0, 0, rot_z);
+        leftHand.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(rot_z, leftHandMinMaxRotation.x, leftHandMinMaxRotation.y));
+        headPivot.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(rot_z, minMaxRotationLimit.x, minMaxRotationLimit.y));
 
         var dot = Vector2.Dot(rightHand.right, Vector2.right);
 

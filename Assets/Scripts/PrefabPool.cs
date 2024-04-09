@@ -42,7 +42,11 @@ public class PrefabPool : MonoBehaviour
 
     public GameObject Get(string id)
     {
-        var pool = objects.SingleOrDefault(x=>x.Id == id);
+        var pool = objects.SingleOrDefault(x => x.Id == id);
+
+        return pool.Obj;
+
+        //var pool = objects.SingleOrDefault(x=>x.Id == id);
 
         if (pool == null)
             throw new Exception($"there is no pool with Id of {id}!");

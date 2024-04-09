@@ -8,13 +8,9 @@ public class NetworkManagerCustom : NetworkManager
     {
         var spawnPoint = GetStartPosition();
         var player = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
-
         NetworkServer.AddPlayerForConnection(conn, player);
-        player.GetComponent<PlayerInfo>().SetPlayerDB(PlayerDB.instance);
 
         PlayerSpawnHandler.Instance.SpawnPlayerRpc(conn.identity);
-
-        NetworkServer.SpawnObjects();
     }
 
     public override Transform GetStartPosition()

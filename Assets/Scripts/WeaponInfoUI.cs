@@ -1,8 +1,9 @@
+using Mirror;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponInfoUI : MonoBehaviour
+public class WeaponInfoUI : NetworkBehaviour
 {
     public static WeaponInfoUI Instance;
 
@@ -23,8 +24,9 @@ public class WeaponInfoUI : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
+    public override void OnStartClient()
     {
+        base.OnStartClient();
         PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
     }
 
@@ -37,8 +39,10 @@ public class WeaponInfoUI : MonoBehaviour
         weaponsManager.OnChangeWeapon += OnChangeWeapon;
     }
 
-    private void OnDisable()
+    public override void OnStopClient()
     {
+        base.OnStopClient();
+
         PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
 
         if (weaponsManager == null)

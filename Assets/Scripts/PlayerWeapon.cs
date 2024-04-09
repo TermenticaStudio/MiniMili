@@ -1,7 +1,5 @@
+using DG.Tweening;
 using Mirror;
-using Mirror.Examples;
-using Mirror.Examples.Basic;
-using Mirror.Examples.MultipleMatch;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Linq;
@@ -15,6 +13,7 @@ public class PlayerWeapon : NetworkBehaviour
     const string SFX_GROUP = "SFX";
     const string INFO_GROUP = "Info";
     const string PROJECTILE_GROUP = "Projectile";
+    const string RECOIL_GROUP = "Recoil";
 
     [FoldoutGroup(SETTINGS_GROUP)]
     [SerializeField] private int fireRate;
@@ -30,18 +29,30 @@ public class PlayerWeapon : NetworkBehaviour
     [FoldoutGroup(PROJECTILE_GROUP)]
     [SerializeField] private Projectile projectile;
     [FoldoutGroup(PROJECTILE_GROUP)]
+    [SerializeField] private uint projectileCountPerShot = 1;
+    [FoldoutGroup(PROJECTILE_GROUP), ShowIf("@projectileCountPerShot > 1")]
+    [SerializeField] private Vector2 minMaxAngleBetweenPerShot = new Vector2(-10, 10);
+    [FoldoutGroup(PROJECTILE_GROUP)]
     [SerializeField] private float projectileSpeed;
     [FoldoutGroup(PROJECTILE_GROUP)]
     [SerializeField] private float projectileRange;
     [FoldoutGroup(SETTINGS_GROUP)]
     [SerializeField] private float projectileDamage;
 
+    [FoldoutGroup(RECOIL_GROUP)]
+    [SerializeField] private Transform recoilPivot;
+    [FoldoutGroup(RECOIL_GROUP)]
+    [SerializeField] private float recoilPower;
+
     [FoldoutGroup(RELOADING_GROUP)]
     [SerializeField] private bool autoReload;
     [FoldoutGroup(RELOADING_GROUP)]
     [SerializeField] private float reloadTime = 2f;
 
-    [FoldoutGroup(VFX_GROUP), SerializeField] private ParticleSystem muzzle;
+    [FoldoutGroup(VFX_GROUP), SerializeField]
+    private ParticleSystem muzzle;
+    [FoldoutGroup(VFX_GROUP), SerializeField]
+    private ParticleSystem shellDrop;
 
     [FoldoutGroup(SFX_GROUP), SerializeField] private AudioSource sfxSource;
     [LabelText("Fire SFX's")]
@@ -125,22 +136,35 @@ public class PlayerWeapon : NetworkBehaviour
 
         muzzle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(playerAim.IsFlipped ? 0 : 1, 0, 0);
         muzzle.Play();
+        Recoil();
+
+        shellDrop.Emit(1);
 
         sfxSource.PlayOneShot(fireSFXs[Random.Range(0, fireSFXs.Length)]);
 
         projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, playerAim.IsFlipped ? 180 : 0);
-        CreateProjectile();
+        for (int i = 0; i < projectileCountPerShot; i++)
+        {
+            var rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles);
+            
+            if (projectileCountPerShot > 1)
+                rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles + Vector3.forward * Random.Range(minMaxAngleBetweenPerShot.x, minMaxAngleBetweenPerShot.y));
+
+            CreateProjectile(rot);
+        }
 
         yield return new WaitForSeconds(60f / fireRate);
 
         fireCoroutine = null;
     }
 
-    private void CreateProjectile()
+    [Command]
+    private void CreateProjectile(Quaternion rot)
     {
-        var projectile = PrefabPool.Instance.Get("Bullet").GetComponent<Projectile>();
-        projectile.transform.SetPositionAndRotation(projectileSpawnPoint.position, projectileSpawnPoint.rotation);
-        projectile.Init(playerInfo, projectileSpeed, projectileRange, projectileDamage);
+        var projectilePr = PrefabPool.Instance.Get("Bullet").GetComponent<Projectile>();
+        var proj = Instantiate(projectilePr, projectileSpawnPoint.position, rot, null);
+        NetworkServer.Spawn(proj.gameObject);
+        proj.Init(playerInfo, projectileSpeed, projectileRange, projectileDamage);
     }
 
     [Command]
@@ -194,6 +218,7 @@ public class PlayerWeapon : NetworkBehaviour
     {
         currentZoom = zooms[0];
         WeaponInfoUI.Instance.SetZoomText(currentZoom.Zoom);
+
         CameraZoomController.Instance.SetLensSize(currentZoom.LensSize);
     }
 
@@ -209,5 +234,11 @@ public class PlayerWeapon : NetworkBehaviour
         currentZoom = zooms[currentZoomIndex];
         WeaponInfoUI.Instance.SetZoomText(currentZoom.Zoom);
         CameraZoomController.Instance.SetLensSize(currentZoom.LensSize);
+    }
+
+    public void Recoil()
+    {
+        recoilPivot.transform.DOLocalRotate(Vector3.forward * recoilPower, 0);
+        recoilPivot.transform.DOLocalRotate(Vector3.zero, 0.2f);
     }
 }

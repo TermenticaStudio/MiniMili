@@ -16,15 +16,25 @@ public class PlayerInfo : NetworkBehaviour
         nameText.transform.rotation = Quaternion.identity;
     }
 
-    [Server]
-    public void SetPlayerDB(PlayerDB playerDB)
+    public override void OnStartClient()
     {
-        this.playerDB = playerDB;
-        SetName(playerDB.Name);
+        base.OnStartClient();
+        PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
+    }
+
+    private void OnSpawnPlayer(PlayerInfo obj)
+    {
+        SetPlayerName(PlayerPrefs.GetString("PLAYER_NAME"));
+    }
+
+    [Command]
+    public void SetPlayerName(string name)
+    {
+        SetNameRpc(name);
     }
 
     [ClientRpc]
-    private void SetName(string name)
+    private void SetNameRpc(string name)
     {
         currentName = name;
         nameText.text = name;

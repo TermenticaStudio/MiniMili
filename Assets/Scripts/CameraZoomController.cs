@@ -11,11 +11,11 @@ public class CameraZoomController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        cam = GetComponent<CinemachineVirtualCamera>();
     }
 
     private void Start()
     {
-        cam = GetComponent<CinemachineVirtualCamera>();
     }
 
     public void SetLensSize(float size)

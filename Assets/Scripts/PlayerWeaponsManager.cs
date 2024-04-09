@@ -14,8 +14,12 @@ public class PlayerWeaponsManager : NetworkBehaviour
     public event Action<int> OnChangeAmmoCount;
     public event Action<PlayerWeapon> OnChangeWeapon;
 
+    private PlayerHealth playerHealth;
+
     private void Start()
     {
+        playerHealth = GetComponent<PlayerHealth>();
+
         foreach (var weapon in weapons)
             DeactivateWeapon(weapon);
 
@@ -26,6 +30,9 @@ public class PlayerWeaponsManager : NetworkBehaviour
     private void Update()
     {
         if (!isLocalPlayer)
+            return;
+
+        if (playerHealth.IsDead)
             return;
 
         if (PlayerInput.Instance.IsSwitching)

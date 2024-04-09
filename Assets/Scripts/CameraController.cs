@@ -1,8 +1,9 @@
 using Cinemachine;
+using Mirror;
 using UnityEngine;
 
 [RequireComponent(typeof(CinemachineVirtualCamera))]
-public class CameraController : MonoBehaviour
+public class CameraController : NetworkBehaviour
 {
     public static CameraController Instance;
     private CinemachineVirtualCamera cam;
@@ -10,17 +11,18 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        cam = GetComponent<CinemachineVirtualCamera>();
     }
 
-    private void Start()
+    public override void OnStartClient()
     {
-        cam = GetComponent<CinemachineVirtualCamera>();
-
+        base.OnStartClient();
         PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
     }
 
-    private void OnDisable()
+    public override void OnStopClient()
     {
+        base.OnStopClient();
         PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
     }
 

@@ -1,4 +1,5 @@
 using Mirror;
+using Mirror.Examples.Basic;
 using UnityEngine;
 
 public class PlayerMovement : NetworkBehaviour
@@ -7,6 +8,11 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float acceleration = 0.3f;
     [SerializeField] private float maxSpeed = 1f;
     [SerializeField] private float deceleration = 2f;
+    [SerializeField] private Animator feetAnimator;
+
+    private float speedAnimationInput;
+    const string SPEED_ANIM = "Speed";
+
 
     [Header("Ground Checking")]
     [SerializeField] private Transform groundChecker;
@@ -21,6 +27,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private Rigidbody2D rb;
     private PlayerHealth playerHealth;
+    private PlayerAim playerAim;
 
     public bool IsGrounded { get; private set; }
 
@@ -28,6 +35,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerHealth = GetComponent<PlayerHealth>();
+        playerAim = GetComponent<PlayerAim>();
 
         lastFootstepPos = transform.position;
     }
@@ -40,6 +48,9 @@ public class PlayerMovement : NetworkBehaviour
         if (playerHealth.IsDead)
             return;
 
+        speedAnimationInput = Mathf.Lerp(speedAnimationInput, (playerAim.IsFlipped ? -1 : 1) * PlayerInput.Instance.GetMovement().x, Time.deltaTime * 5);
+
+        feetAnimator.SetFloat(SPEED_ANIM, speedAnimationInput);
         IsGrounded = CheckGround();
         Footstep();
     }

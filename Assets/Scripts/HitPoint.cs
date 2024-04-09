@@ -14,7 +14,7 @@ public class HitPoint : MonoBehaviour, IDamagable
         owner = GetComponentInParent<PlayerInfo>();
     }
 
-    [Client]
+    [ServerCallback]
     public bool Damage(PlayerInfo owner, float damage)
     {
         if (this.owner == owner)

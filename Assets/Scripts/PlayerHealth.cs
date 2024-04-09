@@ -19,12 +19,17 @@ public class PlayerHealth : NetworkBehaviour
     {
         playerInfo = GetComponent<PlayerInfo>();
         currentHealth = health;
+    }
 
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
         PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
     }
 
-    private void OnDisable()
+    public override void OnStopClient()
     {
+        base.OnStopClient();
         PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
     }
 
@@ -49,11 +54,13 @@ public class PlayerHealth : NetworkBehaviour
         WeaponInfoUI.Instance.SetHealth(currentHealth / health);
     }
 
+    [ClientRpc]
     public void Damage(float amount)
     {
         if (isDead)
             return;
 
+        Debug.Log($"damage added {amount}");
         currentHealth -= amount;
 
         if (currentHealth <= 0)
