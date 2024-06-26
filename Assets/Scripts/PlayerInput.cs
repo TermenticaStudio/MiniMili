@@ -1,6 +1,4 @@
-using Mirror;
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,12 +38,12 @@ public class PlayerInput : MonoBehaviour
 
         quitButton.onClick.AddListener(() =>
         {
-            var localPlayer = FindObjectsOfType<PlayerInfo>().SingleOrDefault(x=>x.isLocalPlayer);
+            //var localPlayer = FindObjectsOfType<PlayerInfo>().SingleOrDefault(x=>x.isLocalPlayer);
 
-            if (localPlayer.isServer)
-                NetworkManager.singleton.StopHost();
-            else
-                NetworkManager.singleton.StopClient();
+            //if (localPlayer.isServer)
+            //    NetworkManager.singleton.StopHost();
+            //else
+            //    NetworkManager.singleton.StopClient();
         });
     }
 
@@ -66,7 +64,7 @@ public class PlayerInput : MonoBehaviour
 
         StartCoroutine(ReloadInputCoroutine());
     }
-   
+
     private IEnumerator ReloadInputCoroutine()
     {
         IsReloading = true;

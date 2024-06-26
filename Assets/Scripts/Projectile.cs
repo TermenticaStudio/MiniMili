@@ -1,9 +1,7 @@
-using Mirror.Examples;
-using Mirror;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Projectile : NetworkBehaviour
+public class Projectile : MonoBehaviour
 {
     private float range;
     private float damage;
@@ -32,13 +30,13 @@ public class Projectile : NetworkBehaviour
         this.damage = damage;
     }
 
-    [ServerCallback]
+    //[ServerCallback]
     private void OnCollisionEnter2D(Collision2D collision)
     {
         DestroySelf();
     }
 
-    [ServerCallback]
+    //[ServerCallback]
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var damagable = collision.GetComponent<IDamagable>();
@@ -50,10 +48,10 @@ public class Projectile : NetworkBehaviour
         }
     }
 
-    [Server]
+    //[Server]
     private void DestroySelf()
     {
-        NetworkServer.UnSpawn(gameObject);
+        //NetworkServer.UnSpawn(gameObject);
         Destroy(gameObject);
         //PrefabPool.Instance.Return("Bullet", gameObject);
     }

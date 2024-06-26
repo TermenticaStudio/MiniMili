@@ -1,8 +1,7 @@
-using Mirror;
 using System.Collections;
 using UnityEngine;
 
-public class Jetpack : NetworkBehaviour
+public class Jetpack : MonoBehaviour
 {
     [SerializeField] private float jetPackForce;
     [SerializeField] private float jetPackLaunchForce;
@@ -14,7 +13,7 @@ public class Jetpack : NetworkBehaviour
     [SerializeField] private ParticleSystem[] jetpackParticles;
 
     private float initFuel;
-    [SyncVar]
+    //[SyncVar]
     private bool jetPackActive;
     private bool isChargingFuel;
     private Quaternion currentRotation;
@@ -43,8 +42,8 @@ public class Jetpack : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (!isLocalPlayer)
-            return;
+        //if (!isLocalPlayer)
+        //    return;
 
         if (playerHealth.IsDead)
             return;
@@ -55,8 +54,8 @@ public class Jetpack : NetworkBehaviour
 
     private void UpdateUI()
     {
-        if (!isLocalPlayer)
-            return;
+        //if (!isLocalPlayer)
+        //    return;
 
         WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, jetPackFuel / initFuel));
     }
@@ -149,13 +148,13 @@ public class Jetpack : NetworkBehaviour
             item.enableEmission = jetPackActive;
     }
 
-    [Command]
+    //[Command]
     private void CmdActivateJetpack()
     {
         jetPackActive = true;
     }
 
-    [Command]
+    //[Command]
     private void CmdDeactivateJetpack()
     {
         jetPackActive = false;

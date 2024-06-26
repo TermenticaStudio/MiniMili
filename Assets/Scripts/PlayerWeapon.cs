@@ -1,11 +1,10 @@
 using DG.Tweening;
-using Mirror;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerWeapon : NetworkBehaviour
+public class PlayerWeapon : MonoBehaviour
 {
     const string SETTINGS_GROUP = "Settings";
     const string RELOADING_GROUP = "Reloading";
@@ -97,18 +96,18 @@ public class PlayerWeapon : NetworkBehaviour
         reloadCoroutine = null;
     }
 
-    [Command]
+    //  [Command]
     public void CmdFire()
     {
         FireRpc();
     }
 
-    [ClientRpc]
+    // [ClientRpc]
     private void FireRpc()
     {
         if (fireCoroutine == null)
         {
-            Debug.Log($"Player {netId} shitted bullet");
+            //Debug.Log($"Player {netId} shitted bullet");
             fireCoroutine = StartCoroutine(FireCoroutine());
         }
     }
@@ -146,7 +145,7 @@ public class PlayerWeapon : NetworkBehaviour
         for (int i = 0; i < projectileCountPerShot; i++)
         {
             var rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles);
-            
+
             if (projectileCountPerShot > 1)
                 rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles + Vector3.forward * Random.Range(minMaxAngleBetweenPerShot.x, minMaxAngleBetweenPerShot.y));
 
@@ -158,22 +157,22 @@ public class PlayerWeapon : NetworkBehaviour
         fireCoroutine = null;
     }
 
-    [Command]
+    //  [Command]
     private void CreateProjectile(Quaternion rot)
     {
         var projectilePr = PrefabPool.Instance.Get("Bullet").GetComponent<Projectile>();
         var proj = Instantiate(projectilePr, projectileSpawnPoint.position, rot, null);
-        NetworkServer.Spawn(proj.gameObject);
+        //NetworkServer.Spawn(proj.gameObject);
         proj.Init(playerInfo, projectileSpeed, projectileRange, projectileDamage);
     }
 
-    [Command]
+    //  [Command]
     public void CmdReload()
     {
         ReloadRpc();
     }
 
-    [ClientRpc]
+    // [ClientRpc]
     private void ReloadRpc()
     {
         if (CurrrentClipsCount == 0)
@@ -184,7 +183,7 @@ public class PlayerWeapon : NetworkBehaviour
 
         if (reloadCoroutine == null)
         {
-            Debug.Log($"Player {netId} reloaded");
+            //Debug.Log($"Player {netId} reloaded");
             reloadCoroutine = StartCoroutine(ReloadCoroutine());
         }
     }

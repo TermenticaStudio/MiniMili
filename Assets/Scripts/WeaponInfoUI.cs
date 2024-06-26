@@ -1,9 +1,8 @@
-using Mirror;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponInfoUI : NetworkBehaviour
+public class WeaponInfoUI : MonoBehaviour
 {
     public static WeaponInfoUI Instance;
 
@@ -24,24 +23,15 @@ public class WeaponInfoUI : NetworkBehaviour
         Instance = this;
     }
 
-    public override void OnStartClient()
+    private void Start()
     {
-        base.OnStartClient();
         PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
     }
 
-    private void OnSpawnPlayer(PlayerInfo obj)
+    private void OnDisable()
     {
-        weaponsManager = obj.GetComponent<PlayerWeaponsManager>();
-
-        weaponsManager.OnChangeClipCount += OnChangeClipsCount;
-        weaponsManager.OnChangeAmmoCount += OnChangeAmmoCount;
-        weaponsManager.OnChangeWeapon += OnChangeWeapon;
-    }
-
-    public override void OnStopClient()
-    {
-        base.OnStopClient();
+        if (PlayerSpawnHandler.Instance == null)
+            return;
 
         PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
 
@@ -52,6 +42,37 @@ public class WeaponInfoUI : NetworkBehaviour
         weaponsManager.OnChangeAmmoCount -= OnChangeAmmoCount;
         weaponsManager.OnChangeWeapon -= OnChangeWeapon;
     }
+
+    //public override void OnStartClient()
+    //{
+    //    base.OnStartClient();
+    //    PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
+    //}
+
+    private void OnSpawnPlayer(PlayerInfo obj)
+    {
+        weaponsManager = obj.GetComponent<PlayerWeaponsManager>();
+
+        weaponsManager.OnChangeClipCount += OnChangeClipsCount;
+        weaponsManager.OnChangeAmmoCount += OnChangeAmmoCount;
+        weaponsManager.OnChangeWeapon += OnChangeWeapon;
+
+        weaponsManager.UpdateUI();
+    }
+
+    //public override void OnStopClient()
+    //{
+    //    base.OnStopClient();
+
+    //    PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
+
+    //    if (weaponsManager == null)
+    //        return;
+
+    //    weaponsManager.OnChangeClipCount -= OnChangeClipsCount;
+    //    weaponsManager.OnChangeAmmoCount -= OnChangeAmmoCount;
+    //    weaponsManager.OnChangeWeapon -= OnChangeWeapon;
+    //}
 
     private void OnChangeWeapon(PlayerWeapon weapon)
     {

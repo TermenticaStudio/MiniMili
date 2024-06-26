@@ -1,8 +1,6 @@
-using Mirror;
-using Mirror.Examples.Basic;
 using UnityEngine;
 
-public class PlayerMovement : NetworkBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Setting")]
     [SerializeField] private float acceleration = 0.3f;
@@ -42,8 +40,8 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Update()
     {
-        if (!isLocalPlayer)
-            return;
+        //if (!isLocalPlayer)
+        //    return;
 
         if (playerHealth.IsDead)
             return;
@@ -57,8 +55,8 @@ public class PlayerMovement : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (!isLocalPlayer)
-            return;
+        //if (!isLocalPlayer)
+        //    return;
 
         if (playerHealth.IsDead)
             return;

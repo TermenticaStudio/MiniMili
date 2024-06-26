@@ -6,8 +6,9 @@ using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PlayerSpawnHandler : NetworkBehaviour
+public class PlayerSpawnHandler : MonoBehaviour
 {
+    [SerializeField] private PlayerInfo player;
     [SerializeField] private float respawnTimer = 5;
 
     [Header("UI")]
@@ -24,13 +25,32 @@ public class PlayerSpawnHandler : NetworkBehaviour
         HideRespawnTimer();
     }
 
-    [ClientRpc]
+    private void Start()
+    {
+        SpawnPlayer();
+    }
+
+    // [ClientRpc]
     public void SpawnPlayerRpc(NetworkIdentity identity)
     {
         if (!identity.isLocalPlayer)
             return;
 
         OnSpawnPlayer?.Invoke(identity.GetComponent<PlayerInfo>());
+    }
+
+    public void SpawnPlayer()
+    {
+        var existingInstance = FindObjectOfType<PlayerInfo>();
+
+        if (existingInstance != null)
+        {
+            OnSpawnPlayer?.Invoke(existingInstance);
+            return;
+        }
+
+        var instance = Instantiate(player, GetStartPosition());
+        OnSpawnPlayer?.Invoke(instance);
     }
 
     public void RequestForPlayerRespawn(PlayerInfo player)
@@ -40,8 +60,8 @@ public class PlayerSpawnHandler : NetworkBehaviour
 
     private void RespawnPlayer(PlayerInfo player)
     {
-        if (!player.isLocalPlayer)
-            return;
+        //if (!player.isLocalPlayer)
+        //    return;
 
         StartCoroutine(RespawnPlayerCoroutine(player));
     }
@@ -68,16 +88,23 @@ public class PlayerSpawnHandler : NetworkBehaviour
     public Transform GetStartPosition(PlayerInfo player = null)
     {
         var spawnPoints = FindObjectsOfType<NetworkStartPosition>();
+
         var allPlayers = FindObjectsOfType<PlayerInfo>().ToList();
 
-        if(player != null)
-        allPlayers.Remove(player);
+        if (player != null)
+            allPlayers.Remove(player);
 
         NetworkStartPosition farest = null;
         var longestDistance = 0f;
 
         foreach (var spawnPoint in spawnPoints)
         {
+            if (allPlayers.Count == 0)
+            {
+                farest = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                break;
+            }
+
             for (int i = 0; i < allPlayers.Count; i++)
             {
                 var distance = Vector2.Distance(spawnPoint.transform.position, allPlayers[i].transform.position);
@@ -89,6 +116,9 @@ public class PlayerSpawnHandler : NetworkBehaviour
                 }
             }
         }
+
+        if (farest == null)
+            throw new Exception("No respawn point found!");
 
         return farest.transform;
     }

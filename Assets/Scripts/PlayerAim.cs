@@ -1,7 +1,6 @@
-using Mirror;
 using UnityEngine;
 
-public class PlayerAim : NetworkBehaviour
+public class PlayerAim : MonoBehaviour
 {
     [SerializeField] private Transform skinPivot;
     [SerializeField] private Transform rightHand;
@@ -17,7 +16,7 @@ public class PlayerAim : NetworkBehaviour
 
     private Vector2 lastAimDirection;
 
-    [SyncVar]
+    // [SyncVar]
     private bool isFlipped;
 
     public bool IsFlipped { get => isFlipped; }
@@ -31,8 +30,8 @@ public class PlayerAim : NetworkBehaviour
 
     private void Update()
     {
-        if (!isLocalPlayer)
-            return;
+        //    if (!isLocalPlayer)
+        //        return;
 
         if (playerHealth.IsDead)
             return;
@@ -76,7 +75,7 @@ public class PlayerAim : NetworkBehaviour
         skinPivot.localScale = new Vector3(value, 1, 1);
     }
 
-    [Command]
+    //[Command]
     private void CmdFlip(int value)
     {
         isFlipped = value > 0 ? false : true;

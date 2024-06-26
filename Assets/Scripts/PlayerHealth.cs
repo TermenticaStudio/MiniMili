@@ -1,14 +1,13 @@
-using Mirror;
 using UnityEngine;
 
-public class PlayerHealth : NetworkBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float health;
     [SerializeField] private float regeneratePerSecond;
 
-    [SyncVar]
+    //[SyncVar]
     private float currentHealth;
-    [SyncVar]
+    // [SyncVar]
     private bool isDead;
 
     public bool IsDead { get => isDead; }
@@ -19,19 +18,26 @@ public class PlayerHealth : NetworkBehaviour
     {
         playerInfo = GetComponent<PlayerInfo>();
         currentHealth = health;
-    }
 
-    public override void OnStartClient()
-    {
-        base.OnStartClient();
         PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
     }
 
-    public override void OnStopClient()
+    private void OnDisable()
     {
-        base.OnStopClient();
         PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
     }
+
+    //public override void OnStartClient()
+    //{
+    //    base.OnStartClient();
+    //    PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
+    //}
+
+    //public override void OnStopClient()
+    //{
+    //    base.OnStopClient();
+    //    PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
+    //}
 
     private void OnSpawnPlayer(PlayerInfo obj)
     {
@@ -42,10 +48,10 @@ public class PlayerHealth : NetworkBehaviour
 
     private void Update()
     {
-        if (!isLocalPlayer)
-            return;
+        //if (!isLocalPlayer)
+        //    return;
 
-        if(isDead) 
+        if (isDead)
             return;
 
         currentHealth += Time.deltaTime * regeneratePerSecond;
@@ -54,7 +60,7 @@ public class PlayerHealth : NetworkBehaviour
         WeaponInfoUI.Instance.SetHealth(currentHealth / health);
     }
 
-    [ClientRpc]
+    //[ClientRpc]
     public void Damage(float amount)
     {
         if (isDead)
@@ -69,8 +75,8 @@ public class PlayerHealth : NetworkBehaviour
 
     private void Die()
     {
-        if (!playerInfo.isLocalPlayer)
-            return;
+        //if (!playerInfo.isLocalPlayer)
+        //    return;
 
         currentHealth = 0;
         WeaponInfoUI.Instance.SetHealth(currentHealth / health);

@@ -1,13 +1,12 @@
-using Mirror;
 using System;
 using UnityEngine;
 
-public class PlayerWeaponsManager : NetworkBehaviour
+public class PlayerWeaponsManager : MonoBehaviour
 {
     [SerializeField] private PlayerWeapon[] weapons;
     private PlayerWeapon activeWeapon;
 
-    [SyncVar(hook = nameof(UpdateActiveWeapon))]
+    //[SyncVar(hook = nameof(UpdateActiveWeapon))]
     private int activeWeaponIndex;
 
     public event Action<int> OnChangeClipCount;
@@ -29,8 +28,8 @@ public class PlayerWeaponsManager : NetworkBehaviour
 
     private void Update()
     {
-        if (!isLocalPlayer)
-            return;
+        //if (!isLocalPlayer)
+        //  return;
 
         if (playerHealth.IsDead)
             return;
@@ -49,7 +48,7 @@ public class PlayerWeaponsManager : NetworkBehaviour
         if (PlayerInput.Instance.IsReloading)
             activeWeapon.CmdReload();
 
-        if(PlayerInput.Instance.IsChangingZoom)
+        if (PlayerInput.Instance.IsChangingZoom)
             activeWeapon.ChangeZoom();
     }
 
@@ -61,13 +60,11 @@ public class PlayerWeaponsManager : NetworkBehaviour
         activeWeapon = weapons[newIndex];
         activeWeapon.gameObject.SetActive(true);
         activeWeapon.ResetZoom();
-        OnChangeWeapon?.Invoke(activeWeapon);
 
-        UpdateAmmoCountUI(activeWeapon.CurrentAmmoCount);
-        UpdateClipCountUI(activeWeapon.CurrrentClipsCount);
+        UpdateUI();
     }
 
-    [Command]
+    //[Command]
     public void CmdSwitchWeapon()
     {
         if (activeWeaponIndex == weapons.Length - 1)
@@ -91,5 +88,17 @@ public class PlayerWeaponsManager : NetworkBehaviour
     public void UpdateAmmoCountUI(int value)
     {
         OnChangeAmmoCount?.Invoke(value);
+    }
+
+    public void UpdateWeaponUI(PlayerWeapon weapon)
+    {
+        OnChangeWeapon?.Invoke(weapon);
+    }
+
+    public void UpdateUI()
+    {
+        UpdateWeaponUI(activeWeapon);
+        UpdateClipCountUI(activeWeapon.CurrrentClipsCount);
+        UpdateAmmoCountUI(activeWeapon.CurrentAmmoCount);
     }
 }
