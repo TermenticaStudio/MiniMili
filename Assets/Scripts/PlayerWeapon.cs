@@ -161,9 +161,9 @@ public class PlayerWeapon : MonoBehaviour
     private void CreateProjectile(Quaternion rot)
     {
         var projectilePr = PrefabPool.Instance.Get("Bullet").GetComponent<Projectile>();
-        var proj = Instantiate(projectilePr, projectileSpawnPoint.position, rot, null);
+        //var proj = Instantiate(projectilePr, projectileSpawnPoint.position, rot, null);
         //NetworkServer.Spawn(proj.gameObject);
-        proj.Init(playerInfo, projectileSpeed, projectileRange, projectileDamage);
+        projectilePr.Init(playerInfo, projectileSpawnPoint.position, rot, projectileSpeed, projectileRange, projectileDamage);
     }
 
     //  [Command]

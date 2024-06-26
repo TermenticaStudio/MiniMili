@@ -8706,6 +8706,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2229521229655342532, guid: afa7ae627fe447b47b4a78b754c43b61, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cee1bfd3fd8cd6c46b6b6171366bf012, type: 2}
+    - target: {fileID: 2229521229655342533, guid: afa7ae627fe447b47b4a78b754c43b61, type: 3}
+      propertyPath: m_Name
+      value: Shotgun Shell VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229521229655342535, guid: afa7ae627fe447b47b4a78b754c43b61, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1.98
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

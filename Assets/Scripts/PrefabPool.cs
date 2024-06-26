@@ -32,7 +32,7 @@ public class PrefabPool : MonoBehaviour
 
             }, (obj) =>
             {
-                obj.SetActive(true);
+                //obj.SetActive(true);
             }, (obj) =>
             {
                 obj.SetActive(false);
@@ -43,10 +43,6 @@ public class PrefabPool : MonoBehaviour
     public GameObject Get(string id)
     {
         var pool = objects.SingleOrDefault(x => x.Id == id);
-
-        return pool.Obj;
-
-        //var pool = objects.SingleOrDefault(x=>x.Id == id);
 
         if (pool == null)
             throw new Exception($"there is no pool with Id of {id}!");
