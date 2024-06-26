@@ -8,6 +8,7 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     //[SyncVar(hook = nameof(UpdateActiveWeapon))]
     private int activeWeaponIndex;
+    private int lastActiveWeapon;
 
     public event Action<int> OnChangeClipCount;
     public event Action<int> OnChangeAmmoCount;
@@ -57,11 +58,25 @@ public class PlayerWeaponsManager : MonoBehaviour
         if (activeWeapon != null)
             DeactivateWeapon(activeWeapon);
 
+        lastActiveWeapon = newIndex;
         activeWeapon = weapons[newIndex];
         activeWeapon.gameObject.SetActive(true);
         activeWeapon.ResetZoom();
 
         UpdateUI();
+    }
+
+    public void SelectNoWeapon()
+    {
+        if (activeWeapon != null)
+            DeactivateWeapon(activeWeapon);
+
+        activeWeapon = null;
+    }
+
+    public void SelectLastWeapon()
+    {
+        UpdateActiveWeapon(0, lastActiveWeapon);
     }
 
     //[Command]

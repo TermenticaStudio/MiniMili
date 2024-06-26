@@ -44,5 +44,10 @@ public class CameraController : MonoBehaviour
     {
         cam.LookAt = t;
         cam.Follow = t;
+
+        if (t == null)
+            cam.enabled = false;
+        else
+            cam.enabled = true;
     }
 }

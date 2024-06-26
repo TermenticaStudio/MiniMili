@@ -76,6 +76,50 @@ MonoBehaviour:
   dryFire: {fileID: 8300000, guid: dff2c1270151cc7418a88ca96081c590, type: 3}
   icon: {fileID: 448083920, guid: b09f052f833e8e948adff4f04a4d2521, type: 3}
   name: Shotgun
+--- !u!1 &457875224754761075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7406251299283766372}
+  - component: {fileID: 4612890095991518300}
+  m_Layer: 0
+  m_Name: Blood Pos (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7406251299283766372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457875224754761075}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.52518517, y: -0.47347715, z: -0.47347715, w: -0.52518505}
+  m_LocalPosition: {x: -0.098, y: 0.308, z: 0.014}
+  m_LocalScale: {x: 0.97714466, y: 0.977145, z: 0.97714466}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896949489350272231}
+  m_LocalEulerAnglesHint: {x: 350.134, y: 90, z: 90}
+--- !u!114 &4612890095991518300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457875224754761075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9ef1481d43e12469a504979b0134f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &463608307148958340
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +151,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1896949490183733059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1688792840928936781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519197111571935410}
+  - component: {fileID: 4209906994671051952}
+  m_Layer: 0
+  m_Name: Blood Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1519197111571935410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688792840928936781}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.213, y: -0.384, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896949490513920340}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &4209906994671051952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688792840928936781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9ef1481d43e12469a504979b0134f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1896949489198083258
 GameObject:
   m_ObjectHideFlags: 0
@@ -4981,7 +5069,7 @@ GameObject:
   - component: {fileID: 1896949489350272228}
   - component: {fileID: 1896949489350272229}
   - component: {fileID: 1949078583}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5002,6 +5090,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1896949490320710952}
+  - {fileID: 7406251299283766372}
   m_Father: {fileID: 6018153461311132022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 7.639}
 --- !u!212 &1896949489350272228
@@ -5243,7 +5332,7 @@ GameObject:
   - component: {fileID: 1896949489560834219}
   - component: {fileID: 1896949489560834216}
   - component: {fileID: 1949078581}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5725,6 +5814,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   regeneratePerSecond: 15
+  dismantles:
+  - Part: {fileID: 1896949489238933790}
+    ForceDirection: {x: 0, y: 1}
+    IsHead: 1
+  - Part: {fileID: 1896949490473292619}
+    ForceDirection: {x: -0.5, y: -0.5}
+    IsHead: 0
+  - Part: {fileID: 1896949489350272230}
+    ForceDirection: {x: 0.5, y: -0.5}
+    IsHead: 0
+  - Part: {fileID: 1896949490513920343}
+    ForceDirection: {x: 0, y: 0}
+    IsHead: 0
+  - Part: {fileID: 1896949489560834218}
+    ForceDirection: {x: 0.5, y: 0}
+    IsHead: 0
+  - Part: {fileID: 1896949490968958819}
+    ForceDirection: {x: -0.5, y: 0}
+    IsHead: 0
+  bloodParticle: {fileID: 1572466795146040337, guid: 66c94a6b8598e5a42b5a57e017c87184, type: 3}
+  dismantleForce: 5
 --- !u!114 &1896949490183733070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10699,7 +10809,7 @@ GameObject:
   - component: {fileID: 1896949490473292617}
   - component: {fileID: 1896949490473292622}
   - component: {fileID: 1949078584}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10720,6 +10830,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1896949489198083259}
+  - {fileID: 3342698176733343058}
   m_Father: {fileID: 6018153461311132022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.155}
 --- !u!212 &1896949490473292617
@@ -10851,7 +10962,8 @@ Transform:
   m_LocalPosition: {x: 0.25299987, y: -0.009000077, z: -0.109}
   m_LocalScale: {x: 0.71441865, y: 0.71441865, z: 0.7144187}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 349013984551451136}
   m_Father: {fileID: 1844438102959245325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1896949490500160992
@@ -10918,7 +11030,7 @@ GameObject:
   - component: {fileID: 1896949490513920341}
   - component: {fileID: 1896949490513920346}
   - component: {fileID: 1949078585}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10937,7 +11049,12 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.155, z: -0.01}
   m_LocalScale: {x: 0.7144187, y: 0.7144187, z: 0.7144187}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7084231765784293661}
+  - {fileID: 1696867271408918696}
+  - {fileID: 1519197111571935410}
+  - {fileID: 2539990352119153271}
+  - {fileID: 6234112040165294128}
   m_Father: {fileID: 1896949490665089229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1896949490513920341
@@ -11247,7 +11364,7 @@ GameObject:
   - component: {fileID: 1896949490814516895}
   - component: {fileID: 1896949490814516892}
   - component: {fileID: 1705056285}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11266,7 +11383,8 @@ Transform:
   m_LocalPosition: {x: -0.007, y: 0.392, z: -0.139}
   m_LocalScale: {x: 0.80545783, y: 0.80545783, z: 0.80545783}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2750353810122242761}
   m_Father: {fileID: 1896949489238933791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1896949490814516895
@@ -11498,7 +11616,7 @@ GameObject:
   - component: {fileID: 1896949490968958816}
   - component: {fileID: 1896949490968958817}
   - component: {fileID: 1949078582}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11608,7 +11726,8 @@ Transform:
   m_LocalPosition: {x: 0.253, y: -0.009, z: -0.109}
   m_LocalScale: {x: 0.71441865, y: 0.71441865, z: 0.7144187}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4969757655258866444}
   m_Father: {fileID: 1896949489560834219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1896949491013966200
@@ -11739,6 +11858,50 @@ MonoBehaviour:
   dryFire: {fileID: 8300000, guid: dff2c1270151cc7418a88ca96081c590, type: 3}
   icon: {fileID: -224282900, guid: b09f052f833e8e948adff4f04a4d2521, type: 3}
   name: MP5
+--- !u!1 &3101679946780147887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2750353810122242761}
+  - component: {fileID: 1336117037061763163}
+  m_Layer: 0
+  m_Name: Blood Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2750353810122242761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3101679946780147887}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0.008690488, y: -0.48667926, z: 0}
+  m_LocalScale: {x: 1.24153, y: 1.2415298, z: 1.2415298}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896949490814516894}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+--- !u!114 &1336117037061763163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3101679946780147887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9ef1481d43e12469a504979b0134f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4038550468841324295
 GameObject:
   m_ObjectHideFlags: 0
@@ -11867,6 +12030,50 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &4643966478039713321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 349013984551451136}
+  - component: {fileID: 9152937718314816987}
+  m_Layer: 0
+  m_Name: Blood Pos (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &349013984551451136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4643966478039713321}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0043900157, y: -0.7070931, z: -0.70709324, w: 0.004390036}
+  m_LocalPosition: {x: -0.344, y: 0.004, z: 0.009}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896949490500160995}
+  m_LocalEulerAnglesHint: {x: 264.274, y: 90, z: 90}
+--- !u!114 &9152937718314816987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4643966478039713321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9ef1481d43e12469a504979b0134f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4673020832205471594
 GameObject:
   m_ObjectHideFlags: 0
@@ -11898,6 +12105,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4847264285226934284}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4916467689584846323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7084231765784293661}
+  - component: {fileID: 4638274698330136518}
+  m_Layer: 0
+  m_Name: Blood Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7084231765784293661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916467689584846323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.238, y: -0.384, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896949490513920340}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &4638274698330136518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916467689584846323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9ef1481d43e12469a504979b0134f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5652210278103793461
 GameObject:
   m_ObjectHideFlags: 0
@@ -12241,6 +12492,226 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7529440541956767173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6234112040165294128}
+  - component: {fileID: 7773767369884507984}
+  m_Layer: 0
+  m_Name: Blood Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6234112040165294128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7529440541956767173}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5153558, y: -0.4841575, z: -0.48415747, w: 0.51535577}
+  m_LocalPosition: {x: -0.357, y: 0.202, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896949490513920340}
+  m_LocalEulerAnglesHint: {x: 176.424, y: 90, z: 90}
+--- !u!114 &7773767369884507984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7529440541956767173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9ef1481d43e12469a504979b0134f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7901626188711674704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4969757655258866444}
+  - component: {fileID: 91946158528492592}
+  m_Layer: 0
+  m_Name: Blood Pos (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4969757655258866444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901626188711674704}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.05111397, y: -0.70525694, z: -0.705257, w: -0.051113848}
+  m_LocalPosition: {x: -0.323, y: -0.001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896949491013966203}
+  m_LocalEulerAnglesHint: {x: 278.29102, y: 90, z: 90}
+--- !u!114 &91946158528492592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901626188711674704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9ef1481d43e12469a504979b0134f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8451946836159965222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2539990352119153271}
+  - component: {fileID: 2439102468634836672}
+  m_Layer: 0
+  m_Name: Blood Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2539990352119153271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8451946836159965222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5118808, y: 0.4878299, z: 0.48782998, w: 0.5118808}
+  m_LocalPosition: {x: 0.403, y: 0.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896949490513920340}
+  m_LocalEulerAnglesHint: {x: 2.756, y: 90, z: 90}
+--- !u!114 &2439102468634836672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8451946836159965222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9ef1481d43e12469a504979b0134f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8621506874181993267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1696867271408918696}
+  - component: {fileID: 2727425171917549677}
+  m_Layer: 0
+  m_Name: Blood Pos (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1696867271408918696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621506874181993267}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.014280747, y: 0.70696247, z: 0.70696265, w: -0.014280746}
+  m_LocalPosition: {x: 0.023, y: 0.381, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896949490513920340}
+  m_LocalEulerAnglesHint: {x: -92.314, y: 90, z: 90}
+--- !u!114 &2727425171917549677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621506874181993267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9ef1481d43e12469a504979b0134f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8940659467449903826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3342698176733343058}
+  - component: {fileID: 7469614720446104094}
+  m_Layer: 0
+  m_Name: Blood Pos (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3342698176733343058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940659467449903826}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.45515043, y: -0.5411452, z: -0.5411452, w: -0.4551503}
+  m_LocalPosition: {x: -0.097, y: 0.273, z: 0.005}
+  m_LocalScale: {x: 0.9771448, y: 0.97714496, z: 0.9771448}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896949490473292616}
+  m_LocalEulerAnglesHint: {x: 350.134, y: 90, z: 90}
+--- !u!114 &7469614720446104094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940659467449903826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9ef1481d43e12469a504979b0134f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &626002657933492639
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -55,4 +55,14 @@ public class PlayerInfo : MonoBehaviour
         currentName = newName;
         nameText.text = currentName;
     }
+
+    public void ShowName()
+    {
+        nameText.gameObject.SetActive(true);
+    }
+
+    public void HideName()
+    {
+        nameText.gameObject.SetActive(false);
+    }
 }

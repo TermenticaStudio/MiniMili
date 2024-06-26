@@ -13,8 +13,8 @@ TagManager:
   - UI
   - Ground
   - Bullet
-  - PlayerMain
-  - 
+  - CharacterMain
+  - CharacterPart
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 139178055
+    locked: 0
+  - name: Blood
+    uniqueID: 76685851
     locked: 0
