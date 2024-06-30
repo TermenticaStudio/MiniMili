@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4847264285226934284}
   - component: {fileID: 4807172988285157060}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3293a4fd20d6090499e91bb262e9d376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: SHOTGUN_1
   fireRate: 250
   clipSize: 12
   clipsCount: 100
@@ -56,6 +57,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0447a5cd0f9b8934ca1917c91305bc7a, type: 2}
   - {fileID: 11400000, guid: 33dd425356c441c408e1f288b4815213, type: 2}
   - {fileID: 11400000, guid: 3661d7f74ea27b345b59c0076df87ef3, type: 2}
+  isOwnedByDefault: 1
+  pickup: {fileID: -3951959755030642125, guid: f9b4206d40fdb9246959cdf20ab243d4, type: 3}
   projectileSpawnPoint: {fileID: 6664943992848394481}
   projectile: {fileID: 4575455049484285622, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
   projectileCountPerShot: 5
@@ -206,6 +209,7 @@ GameObject:
   - component: {fileID: 1896949489198083259}
   - component: {fileID: 1896949489198083257}
   - component: {fileID: 1896949489198083256}
+  - component: {fileID: 2069792182419940283}
   m_Layer: 0
   m_Name: Jetpack Flame - Particle System
   m_TagString: Untagged
@@ -5025,6 +5029,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2069792182419940283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896949489198083258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb6bf3bacc2a004ba39a3c18e4b3ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1896949489238933790
 GameObject:
   m_ObjectHideFlags: 0
@@ -5203,7 +5219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896949489466308749}
   - component: {fileID: 1896949489466308754}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SFX - Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5422,7 +5438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896949489890827661}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Projectile Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5582,7 +5598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896949490030632701}
   - component: {fileID: 1896949490030632642}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AUG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5621,6 +5637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3293a4fd20d6090499e91bb262e9d376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   fireRate: 650
   clipSize: 30
   clipsCount: 100
@@ -5628,6 +5645,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0447a5cd0f9b8934ca1917c91305bc7a, type: 2}
   - {fileID: 11400000, guid: 33dd425356c441c408e1f288b4815213, type: 2}
   - {fileID: 11400000, guid: 3661d7f74ea27b345b59c0076df87ef3, type: 2}
+  isOwnedByDefault: 0
+  pickup: {fileID: 0}
   projectileSpawnPoint: {fileID: 1896949490623792927}
   projectile: {fileID: 4575455049484285622, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
   projectileCountPerShot: 1
@@ -5665,6 +5684,8 @@ GameObject:
   - component: {fileID: 1896949490183733065}
   - component: {fileID: 1896949490183733070}
   - component: {fileID: 1949078574}
+  - component: {fileID: 4056189782717563362}
+  - component: {fileID: 1200386089637936862}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -5689,6 +5710,7 @@ Transform:
   - {fileID: 1896949490665089229}
   - {fileID: 6195919428710035947}
   - {fileID: 5776127945455095348}
+  - {fileID: 2109991723987991042}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1896949490183733056
@@ -5813,28 +5835,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  canRegenerateHealth: 1
   regeneratePerSecond: 15
-  dismantles:
-  - Part: {fileID: 1896949489238933790}
-    ForceDirection: {x: 0, y: 1}
-    IsHead: 1
-  - Part: {fileID: 1896949490473292619}
-    ForceDirection: {x: -0.5, y: -0.5}
-    IsHead: 0
-  - Part: {fileID: 1896949489350272230}
-    ForceDirection: {x: 0.5, y: -0.5}
-    IsHead: 0
-  - Part: {fileID: 1896949490513920343}
-    ForceDirection: {x: 0, y: 0}
-    IsHead: 0
-  - Part: {fileID: 1896949489560834218}
-    ForceDirection: {x: 0.5, y: 0}
-    IsHead: 0
-  - Part: {fileID: 1896949490968958819}
-    ForceDirection: {x: -0.5, y: 0}
-    IsHead: 0
-  bloodParticle: {fileID: 1572466795146040337, guid: 66c94a6b8598e5a42b5a57e017c87184, type: 3}
-  dismantleForce: 2
 --- !u!114 &1896949490183733070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5883,6 +5885,45 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1.9253432}
   m_Direction: 0
+--- !u!114 &4056189782717563362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896949490183733117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 152ba89d3b21dd84486115b2b03973e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1200386089637936862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896949490183733117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c394a1f9d5fc94cb706d9c1e68b5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dismantles:
+  - Part: {fileID: 1896949489238933790}
+    ForceDirection: {x: 0, y: 1}
+  - Part: {fileID: 1896949490473292619}
+    ForceDirection: {x: -0.5, y: -0.5}
+  - Part: {fileID: 1896949489350272230}
+    ForceDirection: {x: 0.5, y: -0.5}
+  - Part: {fileID: 1896949490513920343}
+    ForceDirection: {x: 0, y: 0}
+  - Part: {fileID: 1896949489560834218}
+    ForceDirection: {x: 0.5, y: 0}
+  - Part: {fileID: 1896949490968958819}
+    ForceDirection: {x: -0.5, y: 0}
+  bloodParticle: {fileID: 1572466795146040337, guid: 66c94a6b8598e5a42b5a57e017c87184, type: 3}
+  dismantleForce: 2
 --- !u!1 &1896949490206816776
 GameObject:
   m_ObjectHideFlags: 0
@@ -5893,7 +5934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896949490206816777}
   - component: {fileID: 1896949490206816782}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5978,6 +6019,7 @@ GameObject:
   - component: {fileID: 1896949490320710952}
   - component: {fileID: 1896949490320710955}
   - component: {fileID: 1896949490320710954}
+  - component: {fileID: 6906938276526231341}
   m_Layer: 0
   m_Name: Jetpack Flame - Particle System
   m_TagString: Untagged
@@ -10797,6 +10839,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6906938276526231341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896949490320710949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb6bf3bacc2a004ba39a3c18e4b3ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1896949490473292619
 GameObject:
   m_ObjectHideFlags: 0
@@ -11166,7 +11220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896949490623792927}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Projectile Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11234,7 +11288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896949490668227733}
   - component: {fileID: 1896949490668227738}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SFX - Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11497,7 +11551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896949490825209502}
   - component: {fileID: 1896949490825209503}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11580,6 +11634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896949490868961656}
+  - component: {fileID: 6494936479576896032}
   m_Layer: 0
   m_Name: Weapons Pivot
   m_TagString: Untagged
@@ -11605,6 +11660,18 @@ Transform:
   - {fileID: 4847264285226934284}
   m_Father: {fileID: 1844438102959245325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6494936479576896032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896949490868961659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb6bf3bacc2a004ba39a3c18e4b3ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1896949490968958819
 GameObject:
   m_ObjectHideFlags: 0
@@ -11792,7 +11859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896949491133223147}
   - component: {fileID: 1896949491133223144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MP5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11831,6 +11898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3293a4fd20d6090499e91bb262e9d376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: MP5_1
   fireRate: 800
   clipSize: 40
   clipsCount: 100
@@ -11838,6 +11906,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0447a5cd0f9b8934ca1917c91305bc7a, type: 2}
   - {fileID: 11400000, guid: 33dd425356c441c408e1f288b4815213, type: 2}
   - {fileID: 11400000, guid: 3661d7f74ea27b345b59c0076df87ef3, type: 2}
+  isOwnedByDefault: 1
+  pickup: {fileID: 7533069550697133666, guid: 083176b1bbbb2624eaacf8cb62afe300, type: 3}
   projectileSpawnPoint: {fileID: 1896949489890827661}
   projectile: {fileID: 4575455049484285622, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
   projectileCountPerShot: 1
@@ -11912,7 +11982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1088412435194735080}
   - component: {fileID: 4506171853648174524}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SFX - Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12030,6 +12100,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &4294117398681239611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2109991723987991042}
+  - component: {fileID: 3957307825550297598}
+  - component: {fileID: 8415605676087429431}
+  m_Layer: 0
+  m_Name: Pickup Detector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2109991723987991042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294117398681239611}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896949490183733059}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3957307825550297598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294117398681239611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb859fc30c4bea40af21eafc35a59e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &8415605676087429431
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294117398681239611}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.59}
+  serializedVersion: 2
+  m_Radius: 1.31
 --- !u!1 &4643966478039713321
 GameObject:
   m_ObjectHideFlags: 0
@@ -12083,7 +12233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6664943992848394481}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Projectile Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12418,7 +12568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8533999185374837724}
   - component: {fileID: 6397400246996820686}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12724,6 +12874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Muzzle - Particle System
       objectReference: {fileID: 0}
+    - target: {fileID: 1361023438594773072, guid: 39d8665db74440e498dd32fb628a6446, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1361023438594773075, guid: 39d8665db74440e498dd32fb628a6446, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -12795,6 +12949,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Muzzle - Particle System
       objectReference: {fileID: 0}
+    - target: {fileID: 1361023438594773072, guid: 39d8665db74440e498dd32fb628a6446, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1361023438594773075, guid: 39d8665db74440e498dd32fb628a6446, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -12865,6 +13023,10 @@ PrefabInstance:
     - target: {fileID: 4869215536753215573, guid: 7795e6bd77dff194c86d90fbc988f843, type: 3}
       propertyPath: m_Name
       value: Shell VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869215536753215573, guid: 7795e6bd77dff194c86d90fbc988f843, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4869215536753215574, guid: 7795e6bd77dff194c86d90fbc988f843, type: 3}
       propertyPath: m_RootOrder
@@ -12981,6 +13143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun Shell VFX Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1836413888292049443, guid: 6163b8d0aba39e34b9bda39bfe4a13f1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13007,6 +13173,10 @@ PrefabInstance:
     - target: {fileID: 1361023438594773072, guid: 39d8665db74440e498dd32fb628a6446, type: 3}
       propertyPath: m_Name
       value: Muzzle - Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361023438594773072, guid: 39d8665db74440e498dd32fb628a6446, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1361023438594773075, guid: 39d8665db74440e498dd32fb628a6446, type: 3}
       propertyPath: m_RootOrder
@@ -13078,6 +13248,10 @@ PrefabInstance:
     - target: {fileID: 4869215536753215573, guid: 7795e6bd77dff194c86d90fbc988f843, type: 3}
       propertyPath: m_Name
       value: Shell VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869215536753215573, guid: 7795e6bd77dff194c86d90fbc988f843, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4869215536753215574, guid: 7795e6bd77dff194c86d90fbc988f843, type: 3}
       propertyPath: m_LocalPosition.x

@@ -21,11 +21,11 @@ public class PlayerAim : MonoBehaviour
 
     public bool IsFlipped { get => isFlipped; }
 
-    private PlayerHealth playerHealth;
+    private Health playerHealth;
 
     private void Start()
     {
-        playerHealth = GetComponent<PlayerHealth>();
+        playerHealth = GetComponent<Health>();
     }
 
     private void Update()

@@ -1,4 +1,6 @@
+using Logic.Player;
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerWeaponsManager : MonoBehaviour
@@ -13,17 +15,32 @@ public class PlayerWeaponsManager : MonoBehaviour
     public event Action<int> OnChangeClipCount;
     public event Action<int> OnChangeAmmoCount;
     public event Action<PlayerWeapon> OnChangeWeapon;
+    public event Action<PlayerWeapon, PlayerWeapon> OnWeaponNearby;
 
-    private PlayerHealth playerHealth;
+    private Player player;
 
     private void Start()
     {
-        playerHealth = GetComponent<PlayerHealth>();
+        player = GetComponent<Player>();
 
         foreach (var weapon in weapons)
+        {
+            weapon.Init();
             DeactivateWeapon(weapon);
+        }
+    }
 
-        activeWeaponIndex = 0;
+    public void OnStartPlayer()
+    {
+        activeWeaponIndex = -1;
+        activeWeaponIndex = GetNextOwnedWeaponIndex();
+
+        if (activeWeaponIndex == -1)
+        {
+            Debug.Log("No weapon to select");
+            return;
+        }
+
         UpdateActiveWeapon(0, activeWeaponIndex);
     }
 
@@ -32,7 +49,7 @@ public class PlayerWeaponsManager : MonoBehaviour
         //if (!isLocalPlayer)
         //  return;
 
-        if (playerHealth.IsDead)
+        if (player.Health.IsDead)
             return;
 
         if (PlayerInput.Instance.IsSwitching)
@@ -62,6 +79,7 @@ public class PlayerWeaponsManager : MonoBehaviour
         activeWeapon = weapons[newIndex];
         activeWeapon.gameObject.SetActive(true);
         activeWeapon.ResetZoom();
+        activeWeapon.SetAsActive();
 
         UpdateUI();
     }
@@ -83,16 +101,39 @@ public class PlayerWeaponsManager : MonoBehaviour
     public void CmdSwitchWeapon()
     {
         if (activeWeaponIndex == weapons.Length - 1)
+        {
             activeWeaponIndex = 0;
+            activeWeaponIndex = GetNextOwnedWeaponIndex();
+        }
         else
-            activeWeaponIndex++;
+        {
+            activeWeaponIndex = GetNextOwnedWeaponIndex();
+        }
+
+        if (activeWeaponIndex == -1)
+        {
+            Debug.Log("No weapon to select");
+            return;
+        }
 
         UpdateActiveWeapon(0, activeWeaponIndex);
+    }
+
+    public int GetNextOwnedWeaponIndex()
+    {
+        for (int i = Convert.ToInt32(Mathf.Clamp(activeWeaponIndex, 0, Mathf.Infinity)); i < weapons.Length; i++)
+        {
+            if (!weapons[i].IsActive && weapons[i].IsOwned)
+                return i;
+        }
+
+        return -1;
     }
 
     public void DeactivateWeapon(PlayerWeapon weapon)
     {
         weapon.gameObject.SetActive(false);
+        weapon.SetAsDeactive();
     }
 
     public void UpdateClipCountUI(int value)
@@ -115,5 +156,15 @@ public class PlayerWeaponsManager : MonoBehaviour
         UpdateWeaponUI(activeWeapon);
         UpdateClipCountUI(activeWeapon.CurrrentClipsCount);
         UpdateAmmoCountUI(activeWeapon.CurrentAmmoCount);
+    }
+
+    public void NotifyWeaponNearby(PickupWeapon weapon)
+    {
+        var newWeapon = weapons.SingleOrDefault(x => x.ID == weapon.ID);
+
+        if (newWeapon == null)
+            return;
+
+        OnWeaponNearby?.Invoke(activeWeapon, newWeapon);
     }
 }

@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lastFootstepPos;
 
     private Rigidbody2D rb;
-    private PlayerHealth playerHealth;
+    private Health playerHealth;
     private PlayerAim playerAim;
 
     public bool IsGrounded { get; private set; }
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerHealth = GetComponent<PlayerHealth>();
+        playerHealth = GetComponent<Health>();
         playerAim = GetComponent<PlayerAim>();
 
         lastFootstepPos = transform.position;

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Logic.Player;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Linq;
@@ -15,6 +16,8 @@ public class PlayerWeapon : MonoBehaviour
     const string RECOIL_GROUP = "Recoil";
 
     [FoldoutGroup(SETTINGS_GROUP)]
+    [SerializeField] private string id;
+    [FoldoutGroup(SETTINGS_GROUP)]
     [SerializeField] private int fireRate;
     [FoldoutGroup(SETTINGS_GROUP)]
     [SerializeField] private int clipSize;
@@ -22,6 +25,10 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private int clipsCount;
     [FoldoutGroup(SETTINGS_GROUP)]
     [SerializeField] private ZoomPreset[] zooms;
+    [FoldoutGroup(SETTINGS_GROUP)]
+    [SerializeField] private bool isOwnedByDefault;
+    [FoldoutGroup(SETTINGS_GROUP)]
+    [SerializeField] private PickupWeapon pickup;
 
     [FoldoutGroup(PROJECTILE_GROUP)]
     [SerializeField] private Transform projectileSpawnPoint;
@@ -70,30 +77,62 @@ public class PlayerWeapon : MonoBehaviour
 
     private Coroutine fireCoroutine;
     private Coroutine reloadCoroutine;
-    public int CurrentAmmoCount { get; private set; }
-    public int CurrrentClipsCount { get; private set; }
     private bool isDryFiring;
     private ZoomPreset currentZoom;
     private PlayerWeaponsManager weaponsManager;
     private PlayerInfo playerInfo;
     private PlayerAim playerAim;
+    private Health playerHealth;
 
-    private void Start()
+    public int CurrentAmmoCount { get; private set; }
+    public int CurrrentClipsCount { get; private set; }
+    public bool IsOwned { get; private set; }
+    public string ID { get => id; }
+    public bool IsActive { get; private set; }
+
+    public void Init()
     {
         weaponsManager = GetComponentInParent<PlayerWeaponsManager>();
         playerInfo = GetComponentInParent<PlayerInfo>();
         playerAim = GetComponentInParent<PlayerAim>();
+        playerHealth = GetComponentInParent<Health>();
 
-        CurrentAmmoCount = clipSize;
-        CurrrentClipsCount = clipsCount;
+        playerHealth.OnRevive += OnRevivePlayer;
+        playerHealth.OnDie += OnPlayerDie;
 
-        ResetZoom();
+        OnRevivePlayer();
+    }
+
+    private void OnPlayerDie()
+    {
+        if (!IsActive)
+            return;
+
+        Drop();
     }
 
     private void OnDisable()
     {
         fireCoroutine = null;
         reloadCoroutine = null;
+    }
+
+    private void OnDestroy()
+    {
+        if (playerHealth)
+        {
+            playerHealth.OnRevive -= OnRevivePlayer;
+            playerHealth.OnDie -= OnPlayerDie;
+        }
+    }
+
+    private void OnRevivePlayer()
+    {
+        CurrentAmmoCount = clipSize;
+        CurrrentClipsCount = clipsCount;
+        IsOwned = isOwnedByDefault;
+
+        ResetZoom();
     }
 
     //  [Command]
@@ -239,5 +278,24 @@ public class PlayerWeapon : MonoBehaviour
     {
         recoilPivot.transform.DOLocalRotate(Vector3.forward * recoilPower, 0);
         recoilPivot.transform.DOLocalRotate(Vector3.zero, 0.2f);
+    }
+
+    public void Drop()
+    {
+        var instance = Instantiate(pickup, transform.position, transform.rotation, null);
+        instance.Init(id, CurrrentClipsCount, CurrentAmmoCount);
+        gameObject.SetActive(false);
+        IsOwned = false;
+        SetAsDeactive();
+    }
+
+    public void SetAsActive()
+    {
+        IsActive = true;
+    }
+
+    public void SetAsDeactive()
+    {
+        IsActive = false;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class DeathZone : MonoBehaviour
 {
     [SerializeField] private float damagePerSecond;
-    private List<PlayerHealth> players = new();
+    private List<Health> players = new();
 
     private void Update()
     {
@@ -16,7 +16,7 @@ public class DeathZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var playerH = collision.gameObject.GetComponent<PlayerHealth>();
+        var playerH = collision.gameObject.GetComponent<Health>();
 
         if (playerH == null)
             return;
@@ -27,7 +27,7 @@ public class DeathZone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        var playerH = collision.gameObject.GetComponent<PlayerHealth>();
+        var playerH = collision.gameObject.GetComponent<Health>();
 
         if (playerH == null)
             return;

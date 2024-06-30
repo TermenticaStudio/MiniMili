@@ -1,3 +1,4 @@
+using Logic.Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,12 @@ public class WeaponInfoUI : MonoBehaviour
     [SerializeField] private Slider healthSlider;
 
     [SerializeField] private TextMeshProUGUI zoomText;
+
+    [Header("Replace Weapon")]
+    [SerializeField] private GameObject replaceWeapon;
+    [SerializeField] private Image currentWeaponImage;
+    [SerializeField] private Image newWeaponImage;
+    [SerializeField] private Button replaceWeaponBtn;
 
     private PlayerWeaponsManager weaponsManager;
 
@@ -41,6 +48,7 @@ public class WeaponInfoUI : MonoBehaviour
         weaponsManager.OnChangeClipCount -= OnChangeClipsCount;
         weaponsManager.OnChangeAmmoCount -= OnChangeAmmoCount;
         weaponsManager.OnChangeWeapon -= OnChangeWeapon;
+        weaponsManager.OnWeaponNearby -= OnWeaponNearby;
     }
 
     //public override void OnStartClient()
@@ -56,8 +64,22 @@ public class WeaponInfoUI : MonoBehaviour
         weaponsManager.OnChangeClipCount += OnChangeClipsCount;
         weaponsManager.OnChangeAmmoCount += OnChangeAmmoCount;
         weaponsManager.OnChangeWeapon += OnChangeWeapon;
+        weaponsManager.OnWeaponNearby += OnWeaponNearby;
 
         weaponsManager.UpdateUI();
+    }
+
+    private void OnWeaponNearby(PlayerWeapon current, PlayerWeapon newWeapon)
+    {
+        if (current == null || newWeapon == null)
+        {
+            replaceWeapon.SetActive(false);
+            return;
+        }
+
+        replaceWeapon.SetActive(true);
+        currentWeaponImage.sprite = current.Icon;
+        newWeaponImage.sprite = newWeapon.Icon;
     }
 
     //public override void OnStopClient()

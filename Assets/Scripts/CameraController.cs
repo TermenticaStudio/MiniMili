@@ -11,33 +11,6 @@ public class CameraController : MonoBehaviour
     {
         Instance = this;
         cam = GetComponent<CinemachineVirtualCamera>();
-
-        PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
-    }
-
-    private void OnDisable()
-    {
-        if (PlayerSpawnHandler.Instance == null)
-            return;
-
-        PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
-    }
-
-    //public override void OnStartClient()
-    //{
-    //    base.OnStartClient();
-    //    PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
-    //}
-
-    //public override void OnStopClient()
-    //{
-    //    base.OnStopClient();
-    //    PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
-    //}
-
-    private void OnSpawnPlayer(PlayerInfo obj)
-    {
-        SetTarget(obj.transform);
     }
 
     public void SetTarget(Transform t)

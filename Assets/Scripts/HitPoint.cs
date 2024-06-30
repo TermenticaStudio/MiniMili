@@ -1,3 +1,4 @@
+using Logic.Player;
 using Mirror;
 using UnityEngine;
 
@@ -5,12 +6,12 @@ public class HitPoint : MonoBehaviour, IDamagable
 {
     [SerializeField] private float damageMultiplier = 1f;
 
-    private PlayerHealth health;
+    private Health health;
     private PlayerInfo owner;
 
     private void Start()
     {
-        health = GetComponentInParent<PlayerHealth>();
+        health = GetComponentInParent<Health>();
         owner = GetComponentInParent<PlayerInfo>();
     }
 

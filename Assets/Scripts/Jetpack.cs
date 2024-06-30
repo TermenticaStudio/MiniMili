@@ -23,13 +23,13 @@ public class Jetpack : MonoBehaviour
 
     private Rigidbody2D rigid;
     private PlayerMovement playerMovement;
-    private PlayerHealth playerHealth;
+    private Health playerHealth;
 
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
         rigid = GetComponent<Rigidbody2D>();
-        playerHealth = GetComponent<PlayerHealth>();
+        playerHealth = GetComponent<Health>();
 
         initFuel = jetPackFuel;
     }
@@ -145,7 +145,10 @@ public class Jetpack : MonoBehaviour
     private void JetpackParticles()
     {
         foreach (var item in jetpackParticles)
-            item.enableEmission = jetPackActive;
+        {
+            var emission = item.emission;
+            emission.enabled = jetPackActive;
+        }
     }
 
     //[Command]

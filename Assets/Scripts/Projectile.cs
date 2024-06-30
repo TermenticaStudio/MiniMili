@@ -1,3 +1,4 @@
+using Logic.Player;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]

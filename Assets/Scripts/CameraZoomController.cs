@@ -14,10 +14,6 @@ public class CameraZoomController : MonoBehaviour
         cam = GetComponent<CinemachineVirtualCamera>();
     }
 
-    private void Start()
-    {
-    }
-
     public void SetLensSize(float size)
     {
         cam.m_Lens.OrthographicSize = size;
