@@ -33,6 +33,8 @@ public class WeaponInfoUI : MonoBehaviour
     private void Start()
     {
         PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
+
+        OnWeaponNearby(null, null);
     }
 
     private void OnDisable()
@@ -50,12 +52,6 @@ public class WeaponInfoUI : MonoBehaviour
         weaponsManager.OnChangeWeapon -= OnChangeWeapon;
         weaponsManager.OnWeaponNearby -= OnWeaponNearby;
     }
-
-    //public override void OnStartClient()
-    //{
-    //    base.OnStartClient();
-    //    PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
-    //}
 
     private void OnSpawnPlayer(PlayerInfo obj)
     {
@@ -78,28 +74,14 @@ public class WeaponInfoUI : MonoBehaviour
         }
 
         replaceWeapon.SetActive(true);
-        currentWeaponImage.sprite = current.Icon;
-        newWeaponImage.sprite = newWeapon.Icon;
+        currentWeaponImage.sprite = current.Preset.Icon;
+        newWeaponImage.sprite = newWeapon.Preset.Icon;
     }
-
-    //public override void OnStopClient()
-    //{
-    //    base.OnStopClient();
-
-    //    PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
-
-    //    if (weaponsManager == null)
-    //        return;
-
-    //    weaponsManager.OnChangeClipCount -= OnChangeClipsCount;
-    //    weaponsManager.OnChangeAmmoCount -= OnChangeAmmoCount;
-    //    weaponsManager.OnChangeWeapon -= OnChangeWeapon;
-    //}
 
     private void OnChangeWeapon(PlayerWeapon weapon)
     {
-        weaponNameText.text = weapon.Name;
-        weaponIconImage.sprite = weapon.Icon;
+        weaponNameText.text = weapon.Preset.Name;
+        weaponIconImage.sprite = weapon.Preset.Icon;
     }
 
     private void OnChangeClipsCount(int count)

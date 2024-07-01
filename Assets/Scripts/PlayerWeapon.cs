@@ -7,53 +7,18 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    const string SETTINGS_GROUP = "Settings";
-    const string RELOADING_GROUP = "Reloading";
     const string VFX_GROUP = "VFX";
     const string SFX_GROUP = "SFX";
-    const string INFO_GROUP = "Info";
     const string PROJECTILE_GROUP = "Projectile";
     const string RECOIL_GROUP = "Recoil";
 
-    [FoldoutGroup(SETTINGS_GROUP)]
-    [SerializeField] private string id;
-    [FoldoutGroup(SETTINGS_GROUP)]
-    [SerializeField] private int fireRate;
-    [FoldoutGroup(SETTINGS_GROUP)]
-    [SerializeField] private int clipSize;
-    [FoldoutGroup(SETTINGS_GROUP)]
-    [SerializeField] private int clipsCount;
-    [FoldoutGroup(SETTINGS_GROUP)]
-    [SerializeField] private ZoomPreset[] zooms;
-    [FoldoutGroup(SETTINGS_GROUP)]
-    [SerializeField] private bool isOwnedByDefault;
-    [FoldoutGroup(SETTINGS_GROUP)]
-    [SerializeField] private PickupWeapon pickup;
+    [SerializeField] private WeaponPreset preset;
 
     [FoldoutGroup(PROJECTILE_GROUP)]
     [SerializeField] private Transform projectileSpawnPoint;
-    [FoldoutGroup(PROJECTILE_GROUP)]
-    [SerializeField] private Projectile projectile;
-    [FoldoutGroup(PROJECTILE_GROUP)]
-    [SerializeField] private uint projectileCountPerShot = 1;
-    [FoldoutGroup(PROJECTILE_GROUP), ShowIf("@projectileCountPerShot > 1")]
-    [SerializeField] private Vector2 minMaxAngleBetweenPerShot = new Vector2(-10, 10);
-    [FoldoutGroup(PROJECTILE_GROUP)]
-    [SerializeField] private float projectileSpeed;
-    [FoldoutGroup(PROJECTILE_GROUP)]
-    [SerializeField] private float projectileRange;
-    [FoldoutGroup(SETTINGS_GROUP)]
-    [SerializeField] private float projectileDamage;
 
     [FoldoutGroup(RECOIL_GROUP)]
     [SerializeField] private Transform recoilPivot;
-    [FoldoutGroup(RECOIL_GROUP)]
-    [SerializeField] private float recoilPower;
-
-    [FoldoutGroup(RELOADING_GROUP)]
-    [SerializeField] private bool autoReload;
-    [FoldoutGroup(RELOADING_GROUP)]
-    [SerializeField] private float reloadTime = 2f;
 
     [FoldoutGroup(VFX_GROUP), SerializeField]
     private ParticleSystem muzzle;
@@ -61,44 +26,30 @@ public class PlayerWeapon : MonoBehaviour
     private ParticleSystem shellDrop;
 
     [FoldoutGroup(SFX_GROUP), SerializeField] private AudioSource sfxSource;
-    [LabelText("Fire SFX's")]
-    [FoldoutGroup(SFX_GROUP), SerializeField] private AudioClip[] fireSFXs;
-    [FoldoutGroup(SFX_GROUP)]
-    [SerializeField] private AudioClip reloadSFX;
-    [FoldoutGroup(SFX_GROUP)]
-    [SerializeField] private AudioClip dryFire;
-
-    [FoldoutGroup(INFO_GROUP)]
-    [SerializeField] private Sprite icon;
-    public Sprite Icon { get => icon; }
-    [FoldoutGroup(INFO_GROUP)]
-    [SerializeField] private new string name;
-    public string Name { get => name; }
 
     private Coroutine fireCoroutine;
     private Coroutine reloadCoroutine;
     private bool isDryFiring;
     private ZoomPreset currentZoom;
     private PlayerWeaponsManager weaponsManager;
-    private PlayerInfo playerInfo;
     private PlayerAim playerAim;
-    private Health playerHealth;
+    private Player player;
 
     public int CurrentAmmoCount { get; private set; }
     public int CurrrentClipsCount { get; private set; }
     public bool IsOwned { get; private set; }
-    public string ID { get => id; }
+    public string ID { get => preset.id; }
     public bool IsActive { get; private set; }
+    public WeaponPreset Preset { get => preset; }
 
     public void Init()
     {
         weaponsManager = GetComponentInParent<PlayerWeaponsManager>();
-        playerInfo = GetComponentInParent<PlayerInfo>();
         playerAim = GetComponentInParent<PlayerAim>();
-        playerHealth = GetComponentInParent<Health>();
+        player = GetComponentInParent<Player>();
 
-        playerHealth.OnRevive += OnRevivePlayer;
-        playerHealth.OnDie += OnPlayerDie;
+        player.Health.OnRevive += OnRevivePlayer;
+        player.Health.OnDie += OnPlayerDie;
 
         OnRevivePlayer();
     }
@@ -119,34 +70,31 @@ public class PlayerWeapon : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (playerHealth)
+        if (player)
         {
-            playerHealth.OnRevive -= OnRevivePlayer;
-            playerHealth.OnDie -= OnPlayerDie;
+            player.Health.OnRevive -= OnRevivePlayer;
+            player.Health.OnDie -= OnPlayerDie;
         }
     }
 
     private void OnRevivePlayer()
     {
-        CurrentAmmoCount = clipSize;
-        CurrrentClipsCount = clipsCount;
-        IsOwned = isOwnedByDefault;
+        CurrentAmmoCount = preset.clipSize;
+        CurrrentClipsCount = preset.clipsCount;
+        IsOwned = preset.isOwnedByDefault;
 
         ResetZoom();
     }
 
-    //  [Command]
     public void CmdFire()
     {
         FireRpc();
     }
 
-    // [ClientRpc]
     private void FireRpc()
     {
         if (fireCoroutine == null)
         {
-            //Debug.Log($"Player {netId} shitted bullet");
             fireCoroutine = StartCoroutine(FireCoroutine());
         }
     }
@@ -160,7 +108,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (CurrentAmmoCount == 0)
         {
-            if (autoReload)
+            if (preset.autoReload)
                 CmdReload();
             else
                 DryFire();
@@ -178,40 +126,39 @@ public class PlayerWeapon : MonoBehaviour
 
         shellDrop.Emit(1);
 
-        sfxSource.PlayOneShot(fireSFXs[Random.Range(0, fireSFXs.Length)]);
+        if (preset.fireSFXs.Length > 0)
+        {
+            var clip = preset.fireSFXs[Random.Range(0, preset.fireSFXs.Length)];
+            AudioManager.Instance.Play2DSFX(clip, transform.position, player.MainCamera.transform.position);
+        }
 
         projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, playerAim.IsFlipped ? 180 : 0);
-        for (int i = 0; i < projectileCountPerShot; i++)
+        for (int i = 0; i < preset.projectileCountPerShot; i++)
         {
             var rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles);
 
-            if (projectileCountPerShot > 1)
-                rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles + Vector3.forward * Random.Range(minMaxAngleBetweenPerShot.x, minMaxAngleBetweenPerShot.y));
+            if (preset.projectileCountPerShot > 1)
+                rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles + Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
 
             CreateProjectile(rot);
         }
 
-        yield return new WaitForSeconds(60f / fireRate);
+        yield return new WaitForSeconds(60f / preset.fireRate);
 
         fireCoroutine = null;
     }
 
-    //  [Command]
     private void CreateProjectile(Quaternion rot)
     {
         var projectilePr = PrefabPool.Instance.Get("Bullet").GetComponent<Projectile>();
-        //var proj = Instantiate(projectilePr, projectileSpawnPoint.position, rot, null);
-        //NetworkServer.Spawn(proj.gameObject);
-        projectilePr.Init(playerInfo, projectileSpawnPoint.position, rot, projectileSpeed, projectileRange, projectileDamage);
+        projectilePr.Init(player, projectileSpawnPoint.position, rot, preset.projectileSpeed, preset.projectileRange, preset.projectileDamage);
     }
 
-    //  [Command]
     public void CmdReload()
     {
         ReloadRpc();
     }
 
-    // [ClientRpc]
     private void ReloadRpc()
     {
         if (CurrrentClipsCount == 0)
@@ -222,16 +169,15 @@ public class PlayerWeapon : MonoBehaviour
 
         if (reloadCoroutine == null)
         {
-            //Debug.Log($"Player {netId} reloaded");
             reloadCoroutine = StartCoroutine(ReloadCoroutine());
         }
     }
 
     private IEnumerator ReloadCoroutine()
     {
-        sfxSource.PlayOneShot(reloadSFX);
-        yield return new WaitForSeconds(reloadTime);
-        CurrentAmmoCount = clipSize;
+        sfxSource.PlayOneShot(preset.reloadSFX);
+        yield return new WaitForSeconds(preset.reloadTime);
+        CurrentAmmoCount = preset.clipSize;
         weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount);
         CurrrentClipsCount--;
         weaponsManager.UpdateClipCountUI(CurrrentClipsCount);
@@ -240,7 +186,14 @@ public class PlayerWeapon : MonoBehaviour
 
     public void IncreaseClips(int count = 1)
     {
-        CurrentAmmoCount += count;
+        CurrrentClipsCount += count;
+        weaponsManager.UpdateClipCountUI(CurrrentClipsCount);
+    }
+
+    public void SetAmmo(PickupWeapon.Ammo ammo)
+    {
+        CurrentAmmoCount = ammo.AmmoLeft;
+        CurrrentClipsCount = ammo.ClipLeft;
     }
 
     private void DryFire()
@@ -248,13 +201,13 @@ public class PlayerWeapon : MonoBehaviour
         if (isDryFiring)
             return;
 
-        sfxSource.PlayOneShot(dryFire);
+        sfxSource.PlayOneShot(preset.dryFire);
         isDryFiring = true;
     }
 
     public void ResetZoom()
     {
-        currentZoom = zooms[0];
+        currentZoom = preset.zooms[0];
         WeaponInfoUI.Instance.SetZoomText(currentZoom.Zoom);
 
         CameraZoomController.Instance.SetLensSize(currentZoom.LensSize);
@@ -262,40 +215,51 @@ public class PlayerWeapon : MonoBehaviour
 
     public void ChangeZoom()
     {
-        var currentZoomIndex = zooms.ToList().FindIndex(x => x == currentZoom);
+        var currentZoomIndex = preset.zooms.ToList().FindIndex(x => x == currentZoom);
 
-        if (currentZoomIndex == zooms.Length - 1)
+        if (currentZoomIndex == preset.zooms.Length - 1)
             currentZoomIndex = 0;
         else
             currentZoomIndex++;
 
-        currentZoom = zooms[currentZoomIndex];
+        currentZoom = preset.zooms[currentZoomIndex];
         WeaponInfoUI.Instance.SetZoomText(currentZoom.Zoom);
         CameraZoomController.Instance.SetLensSize(currentZoom.LensSize);
     }
 
     public void Recoil()
     {
-        recoilPivot.transform.DOLocalRotate(Vector3.forward * recoilPower, 0);
+        recoilPivot.transform.DOLocalRotate(Vector3.forward * preset.recoilPower, 0);
         recoilPivot.transform.DOLocalRotate(Vector3.zero, 0.2f);
     }
 
     public void Drop()
     {
-        var instance = Instantiate(pickup, transform.position, transform.rotation, null);
-        instance.Init(id, CurrrentClipsCount, CurrentAmmoCount);
-        gameObject.SetActive(false);
-        IsOwned = false;
-        SetAsDeactive();
+        var instance = Instantiate(preset.pickup, transform.position, transform.rotation, null);
+        instance.Init(CurrrentClipsCount, CurrentAmmoCount);
+        DisownWeapon();
     }
 
     public void SetAsActive()
     {
         IsActive = true;
+        gameObject.SetActive(true);
     }
 
     public void SetAsDeactive()
     {
         IsActive = false;
+        gameObject.SetActive(false);
+    }
+
+    public void OwnWeapon()
+    {
+        IsOwned = true;
+    }
+
+    public void DisownWeapon()
+    {
+        IsOwned = false;
+        SetAsDeactive();
     }
 }

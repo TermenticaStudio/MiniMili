@@ -12,6 +12,7 @@ namespace Logic.Player
         public PlayerInfo Info { get; private set; }
         public Rigidbody2D Rigidbody { get; private set; }
         public PlayerWeaponsManager WeaponsManager { get; private set; }
+        public Camera MainCamera { get; private set; }
 
         private void Start()
         {
@@ -19,6 +20,7 @@ namespace Logic.Player
             Info = GetComponent<PlayerInfo>();
             Rigidbody = GetComponent<Rigidbody2D>();
             WeaponsManager = GetComponent<PlayerWeaponsManager>();
+            MainCamera = Camera.main;
 
             PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawn;
 

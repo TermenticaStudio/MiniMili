@@ -1,28 +1,51 @@
+using System;
 using UnityEngine;
 
 public class PickupWeapon : MonoBehaviour, IPickup
 {
-    private string id;
-    private int clipsLeft;
-    private int ammoLeft;
+    [SerializeField] private AudioClip pickSFX;
+    [SerializeField] private WeaponPreset preset;
 
-    public bool CanPicked { get; private set; }
-    public string ID { get => id; }
+    private Ammo ammoLeft;
+    private bool isDropped;
+
+    public string ID { get => preset.id; }
+
+    [Serializable]
+    public struct Ammo
+    {
+        public int ClipLeft;
+        public int AmmoLeft;
+
+        public Ammo(int clipLeft, int ammoLeft)
+        {
+            ClipLeft = clipLeft;
+            AmmoLeft = ammoLeft;
+        }
+    }
+
+    public void Init(int clipLeft, int ammoLeft)
+    {
+        this.ammoLeft = new Ammo(clipLeft, ammoLeft);
+        isDropped = true;
+    }
+
+    public void Pickup()
+    {
+        AudioManager.Instance.PlaySFX(pickSFX);
+        Destroy(gameObject);
+    }
 
     public Vector2 GetPosition()
     {
         return transform.position;
     }
 
-    public void Init(string id, int clips, int ammo)
+    public Ammo GetAmmo()
     {
-        this.id = id;
-        clipsLeft = clips;
-        ammoLeft = ammo;
-    }
+        if (isDropped)
+            return ammoLeft;
 
-    public void Pickup()
-    {
-        Destroy(gameObject);
+        return new Ammo(preset.clipsCount, preset.clipSize);
     }
 }

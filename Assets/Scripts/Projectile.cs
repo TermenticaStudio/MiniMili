@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
 
     private Rigidbody2D rigid;
     private Vector2 initPos;
-    private PlayerInfo owner;
+    private Player owner;
 
     private bool isInit;
 
@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
             isInit = false;
     }
 
-    public void Init(PlayerInfo owner, Vector3 pos, Quaternion rot, float speed, float range, float damage)
+    public void Init(Player owner, Vector3 pos, Quaternion rot, float speed, float range, float damage)
     {
         this.owner = owner;
 

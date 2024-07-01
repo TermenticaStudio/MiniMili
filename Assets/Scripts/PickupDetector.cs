@@ -17,31 +17,21 @@ public class PickupDetector : MonoBehaviour
 
     private void Update()
     {
-        var nearItem = GetNearestItem();
-
-        if (nearItem == null)
+        if (player.Health.IsDead)
             return;
+
+        var nearItem = GetNearestItem();
 
         var weapon = (PickupWeapon)nearItem;
 
-        if (weapon != null)
-        {
-            weaponsManager.NotifyWeaponNearby(weapon);
-            return;
-        }
-    }
+        weaponsManager.NotifyWeaponNearby(weapon);
 
-    public void Pickup()
-    {
-        var item = GetNearestItem();
-        item.Pickup();
+        if (weapon != null)
+            return;
     }
 
     public IPickup GetNearestItem()
     {
-        if (player.Health.IsDead)
-            return null;
-
         if (!IsAnyPickupable())
             return null;
 

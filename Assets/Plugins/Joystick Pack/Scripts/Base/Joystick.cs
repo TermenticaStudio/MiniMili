@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
@@ -25,13 +23,20 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public bool SnapX { get { return snapX; } set { snapX = value; } }
     public bool SnapY { get { return snapY; } set { snapY = value; } }
 
+    [Tooltip("The distance the visual handle can move from the center of the joystick.")]
     [SerializeField] private float handleRange = 1;
+    [Tooltip("The distance away from the center input has to be before registering.")]
     [SerializeField] private float deadZone = 0;
+    [Tooltip("Which axes the joystick uses.")]
     [SerializeField] private AxisOptions axisOptions = AxisOptions.Both;
+    [Tooltip("Snap the horizontal input to a whole value.")]
     [SerializeField] private bool snapX = false;
+    [Tooltip("Snap the vertical input to a whole value.")]
     [SerializeField] private bool snapY = false;
 
+    [Tooltip("The background's RectTransform component.")]
     [SerializeField] protected RectTransform background = null;
+    [Tooltip("The handle's RectTransform component.")]
     [SerializeField] private RectTransform handle = null;
     private RectTransform baseRect = null;
 

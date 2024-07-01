@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad890a70d3c5d744687d5e93fd204223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickSFX: {fileID: 8300000, guid: ab008130c5b96cf498ddf047ba249234, type: 3}
+  preset: {fileID: 11400000, guid: 923b7f98bf18945499263afbe14c1fbe, type: 2}
 --- !u!50 &6366334111489963043
 Rigidbody2D:
   serializedVersion: 4

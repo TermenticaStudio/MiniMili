@@ -8,7 +8,6 @@ public class PlayerWeaponsManager : MonoBehaviour
     [SerializeField] private PlayerWeapon[] weapons;
     private PlayerWeapon activeWeapon;
 
-    //[SyncVar(hook = nameof(UpdateActiveWeapon))]
     private int activeWeaponIndex;
     private int lastActiveWeapon;
 
@@ -18,6 +17,7 @@ public class PlayerWeaponsManager : MonoBehaviour
     public event Action<PlayerWeapon, PlayerWeapon> OnWeaponNearby;
 
     private Player player;
+    private PickupWeapon availableWeaponToReplace;
 
     private void Start()
     {
@@ -46,9 +46,6 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     private void Update()
     {
-        //if (!isLocalPlayer)
-        //  return;
-
         if (player.Health.IsDead)
             return;
 
@@ -68,6 +65,9 @@ public class PlayerWeaponsManager : MonoBehaviour
 
         if (PlayerInput.Instance.IsChangingZoom)
             activeWeapon.ChangeZoom();
+
+        if (PlayerInput.Instance.IsReplacing)
+            PickupWeapon(availableWeaponToReplace);
     }
 
     private void UpdateActiveWeapon(int oldIndex, int newIndex)
@@ -77,7 +77,6 @@ public class PlayerWeaponsManager : MonoBehaviour
 
         lastActiveWeapon = newIndex;
         activeWeapon = weapons[newIndex];
-        activeWeapon.gameObject.SetActive(true);
         activeWeapon.ResetZoom();
         activeWeapon.SetAsActive();
 
@@ -92,12 +91,23 @@ public class PlayerWeaponsManager : MonoBehaviour
         activeWeapon = null;
     }
 
+    private void SelectWeapon(PlayerWeapon weapon)
+    {
+        if (activeWeapon != null)
+            DeactivateWeapon(activeWeapon);
+
+        activeWeapon = weapon;
+        activeWeapon.ResetZoom();
+        activeWeapon.SetAsActive();
+
+        UpdateUI();
+    }
+
     public void SelectLastWeapon()
     {
         UpdateActiveWeapon(0, lastActiveWeapon);
     }
 
-    //[Command]
     public void CmdSwitchWeapon()
     {
         if (activeWeaponIndex == weapons.Length - 1)
@@ -160,11 +170,46 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     public void NotifyWeaponNearby(PickupWeapon weapon)
     {
+        if (weapon == null)
+        {
+            availableWeaponToReplace = null;
+            OnWeaponNearby?.Invoke(null, null);
+            return;
+        }
+
         var newWeapon = weapons.SingleOrDefault(x => x.ID == weapon.ID);
 
         if (newWeapon == null)
             return;
 
+        if (newWeapon.ID == weapon.ID && newWeapon.IsOwned)
+        {
+            PickupWeapon(weapon);
+            return;
+        }
+
+        availableWeaponToReplace = weapon;
         OnWeaponNearby?.Invoke(activeWeapon, newWeapon);
+    }
+
+    public void PickupWeapon(PickupWeapon weapon)
+    {
+        var existWeapon = weapons.SingleOrDefault(x => x.ID == weapon.ID && x.IsOwned);
+
+        if (existWeapon)
+        {
+            existWeapon.IncreaseClips(weapon.GetAmmo().ClipLeft);
+        }
+        else
+        {
+            activeWeapon.Drop();
+
+            var newWeapon = weapons.SingleOrDefault(x => x.ID == weapon.ID);
+            newWeapon.OwnWeapon();
+            newWeapon.SetAmmo(weapon.GetAmmo());
+            SelectWeapon(newWeapon);
+        }
+
+        weapon.Pickup();
     }
 }

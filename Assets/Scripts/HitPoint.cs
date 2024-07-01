@@ -7,16 +7,16 @@ public class HitPoint : MonoBehaviour, IDamagable
     [SerializeField] private float damageMultiplier = 1f;
 
     private Health health;
-    private PlayerInfo owner;
+    private Player owner;
 
     private void Start()
     {
         health = GetComponentInParent<Health>();
-        owner = GetComponentInParent<PlayerInfo>();
+        owner = GetComponentInParent<Player>();
     }
 
     [ServerCallback]
-    public bool Damage(PlayerInfo owner, float damage)
+    public bool Damage(Player owner, float damage)
     {
         if (this.owner == owner)
             return false;

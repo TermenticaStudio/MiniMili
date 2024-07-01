@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private float health;
     [SerializeField] private bool canRegenerateHealth;
     [SerializeField] private float regeneratePerSecond;
+    [SerializeField] private AudioClip[] deathSFX;
 
     private float currentHealth;
     private bool isDead = true;
@@ -72,6 +74,13 @@ public class Health : MonoBehaviour
 
         currentHealth = 0;
         isDead = true;
+
+        if (deathSFX.Length > 0)
+        {
+            var randomClip = deathSFX[Random.Range(0, deathSFX.Length)];
+            AudioManager.Instance.Play2DSFX(randomClip, transform.position, Camera.main.transform.position);
+        }
+
         OnUpdateHealth?.Invoke(currentHealth, health);
         OnDie?.Invoke();
     }

@@ -2,5 +2,5 @@ using Logic.Player;
 
 public interface IDamagable
 {
-    public bool Damage(PlayerInfo owner, float damage);
+    public bool Damage(Player owner, float damage);
 }
