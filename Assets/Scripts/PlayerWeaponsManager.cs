@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerWeaponsManager : MonoBehaviour
 {
     [SerializeField] private PlayerWeapon[] weapons;
+    [SerializeField] private int maxOwnedWeapons = 2;
+
     private PlayerWeapon activeWeapon;
 
     private int activeWeaponIndex;
@@ -168,6 +170,7 @@ public class PlayerWeaponsManager : MonoBehaviour
         UpdateAmmoCountUI(activeWeapon.CurrentAmmoCount);
     }
 
+    // REFACTOR: it shouldnt called everyframe!
     public void NotifyWeaponNearby(PickupWeapon weapon)
     {
         if (weapon == null)
@@ -189,7 +192,15 @@ public class PlayerWeaponsManager : MonoBehaviour
         }
 
         availableWeaponToReplace = weapon;
-        OnWeaponNearby?.Invoke(activeWeapon, newWeapon);
+
+        if (!CanOwnMore())
+        {
+            OnWeaponNearby?.Invoke(activeWeapon, newWeapon);
+        }
+        else
+        {
+            OnWeaponNearby?.Invoke(null, newWeapon);
+        }
     }
 
     public void PickupWeapon(PickupWeapon weapon)
@@ -202,7 +213,8 @@ public class PlayerWeaponsManager : MonoBehaviour
         }
         else
         {
-            activeWeapon.Drop();
+            if (!CanOwnMore())
+                activeWeapon.Drop();
 
             var newWeapon = weapons.SingleOrDefault(x => x.ID == weapon.ID);
             newWeapon.OwnWeapon();
@@ -211,5 +223,10 @@ public class PlayerWeaponsManager : MonoBehaviour
         }
 
         weapon.Pickup();
+    }
+
+    private bool CanOwnMore()
+    {
+        return weapons.Count(x => x.IsOwned) < maxOwnedWeapons;
     }
 }

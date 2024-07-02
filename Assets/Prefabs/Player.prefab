@@ -5678,9 +5678,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 50
-  m_LinearDrag: 0.05
-  m_AngularDrag: 0.5
-  m_GravityScale: 0.5
+  m_LinearDrag: 0
+  m_AngularDrag: 0.8
+  m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: dca45da61f996f149b9369e42658fec5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -5704,13 +5704,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6729d5d9f5dd93b4d89370f0cbd01638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jetPackForce: 500
+  jetPackForce: 1000
   jetPackLaunchForce: 40
   jetPackFuel: 5
   maxVelocity: 5
   fuelUsageMultiplier: 1
   fuelChargeMutliplier: 0.6
-  fallingMaxVelocity: 5
+  fallingMaxVelocity: 10
   jetpackParticles:
   - {fileID: 1896949489198083257}
   - {fileID: 1896949490320710955}
@@ -5726,7 +5726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0f2221ff79ea644a86ae38a152aeae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 0.4
+  acceleration: 0.8
   maxSpeed: 3
   deceleration: 5
   feetAnimator: {fileID: 7538108722625417076}
@@ -5774,6 +5774,7 @@ MonoBehaviour:
   - {fileID: 1896949491133223144}
   - {fileID: 1896949490030632642}
   - {fileID: 4807172988285157060}
+  maxOwnedWeapons: 2
 --- !u!114 &1896949490183733065
 MonoBehaviour:
   m_ObjectHideFlags: 0

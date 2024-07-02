@@ -67,14 +67,24 @@ public class WeaponInfoUI : MonoBehaviour
 
     private void OnWeaponNearby(PlayerWeapon current, PlayerWeapon newWeapon)
     {
-        if (current == null || newWeapon == null)
+        if (current == null && newWeapon == null)
         {
             replaceWeapon.SetActive(false);
             return;
         }
 
         replaceWeapon.SetActive(true);
-        currentWeaponImage.sprite = current.Preset.Icon;
+
+        if (current == null)
+        {
+            currentWeaponImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            currentWeaponImage.gameObject.SetActive(true);
+            currentWeaponImage.sprite = current.Preset.Icon;
+        }
+
         newWeaponImage.sprite = newWeapon.Preset.Icon;
     }
 
