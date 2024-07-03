@@ -14,8 +14,8 @@ public class PrefabPool : MonoBehaviour
     public class ObjectToPool
     {
         public string Id;
-        public GameObject Obj;
-        internal ObjectPool<GameObject> pool;
+        public PoolObject Obj;
+        internal ObjectPool<PoolObject> pool;
     }
 
     private void Awake()
@@ -24,23 +24,46 @@ public class PrefabPool : MonoBehaviour
 
         foreach (var poolObj in objects)
         {
-            poolObj.pool = new ObjectPool<GameObject>(() =>
+            poolObj.pool = new ObjectPool<PoolObject>(() =>
             {
-                var next = Instantiate(poolObj.Obj, transform);
-                next.SetActive(false);
-                return next;
-
+                return OnCreate(poolObj);
             }, (obj) =>
             {
-                //obj.SetActive(true);
+                OnGet(obj, poolObj);
             }, (obj) =>
             {
-                obj.SetActive(false);
-            }, collectionCheck: false, defaultCapacity: 50);
+                OnRelease(obj);
+            }, (obj) =>
+            {
+                OnDestroy(obj);
+            }, collectionCheck: false, defaultCapacity: 50, maxSize: 50);
         }
     }
 
-    public GameObject Get(string id)
+    private static void OnDestroy(PoolObject obj)
+    {
+        Destroy(obj.gameObject);
+    }
+
+    private void OnRelease(PoolObject obj)
+    {
+        obj.gameObject.SetActive(false);
+    }
+
+    private void OnGet(PoolObject obj, ObjectToPool poolObj)
+    {
+        obj.RegisterPool(poolObj);
+        obj.gameObject.SetActive(true);
+    }
+
+    private PoolObject OnCreate(ObjectToPool poolObj)
+    {
+        var next = Instantiate(poolObj.Obj, transform);
+        next.gameObject.SetActive(true);
+        return next;
+    }
+
+    public PoolObject Get(string id)
     {
         var pool = objects.SingleOrDefault(x => x.Id == id);
 
@@ -48,16 +71,7 @@ public class PrefabPool : MonoBehaviour
             throw new Exception($"there is no pool with Id of {id}!");
 
         var obj = pool.pool.Get();
+
         return obj;
-    }
-
-    public void Return(string id, GameObject spawned)
-    {
-        var pool = objects.SingleOrDefault(x => x.Id == id);
-
-        if (pool == null)
-            throw new Exception($"there is no pool with Id of {id}!");
-
-        pool.pool.Release(spawned);
     }
 }

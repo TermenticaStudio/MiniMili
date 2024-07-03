@@ -2,8 +2,11 @@ using Logic.Player;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Projectile : MonoBehaviour
+public class Projectile : PoolObject
 {
+    private const string BLOOD_IMPACT = "Blood_Impact";
+    private const string NORMAL_IMPACT = "Normal_Impact";
+
     private float range;
     private float damage;
 
@@ -19,15 +22,15 @@ public class Projectile : MonoBehaviour
             return;
 
         if (Vector2.Distance(initPos, transform.position) > range)
-        {
             DestroySelf();
-        }
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
         if (isInit)
             isInit = false;
+
+        base.OnDisable();
     }
 
     public void Init(Player owner, Vector3 pos, Quaternion rot, float speed, float range, float damage)
@@ -47,16 +50,16 @@ public class Projectile : MonoBehaviour
         isInit = true;
     }
 
-    //[ServerCallback]
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isInit)
             return;
 
+        CreateImpact(collision.collider, collision.GetContact(0).point, collision.GetContact(0).normal);
+
         DestroySelf();
     }
 
-    //[ServerCallback]
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!isInit)
@@ -69,13 +72,36 @@ public class Projectile : MonoBehaviour
             if (damagable.Damage(owner, damage))
                 DestroySelf();
         }
+
+        GetTriggerContactPoint(collision, out var pos, out var normal);
+        CreateImpact(collision, pos, normal);
     }
 
-    //[Server]
+    private void CreateImpact(Collider2D collider, Vector2 position, Vector2 normal)
+    {
+        var id = string.Empty;
+
+        if (collider.gameObject.TryGetComponent<HitPoint>(out var com))
+        {
+            id = BLOOD_IMPACT;
+        }
+        else
+        {
+            id = NORMAL_IMPACT;
+        }
+
+        var instance = PrefabPool.Instance.Get(id);
+        instance.transform.SetPositionAndRotation(position, Quaternion.FromToRotation(Vector2.up, normal));
+    }
+
     private void DestroySelf()
     {
-        //NetworkServer.UnSpawn(gameObject);
-        //Destroy(gameObject);
-        PrefabPool.Instance.Return("Bullet", gameObject);
+        gameObject.SetActive(false);
+    }
+
+    public void GetTriggerContactPoint(Collider2D collider, out Vector2 point, out Vector2 normal)
+    {
+        point = collider.ClosestPoint(transform.position);
+        normal = (Vector2)transform.position - point;
     }
 }

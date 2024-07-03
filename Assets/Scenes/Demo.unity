@@ -9048,7 +9048,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - Id: Bullet
-    Obj: {fileID: 6392235276684912869, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
+    Obj: {fileID: 4575455049484285622, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
+  - Id: Normal_Impact
+    Obj: {fileID: -817206246264853437, guid: 81cf1e54f91aaee469a5eceb3da0ff7f, type: 3}
+  - Id: Blood_Impact
+    Obj: {fileID: -5050315493197877602, guid: 52024a50f8145cd4baed6825510675de, type: 3}
 --- !u!4 &1967851993
 Transform:
   m_ObjectHideFlags: 0
