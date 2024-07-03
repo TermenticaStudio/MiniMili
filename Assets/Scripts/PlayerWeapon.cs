@@ -37,6 +37,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public int CurrentAmmoCount { get; private set; }
     public int CurrrentClipsCount { get; private set; }
+    public int ClipSize { get; private set; }
     public bool IsOwned { get; private set; }
     public string ID { get => preset.id; }
     public bool IsActive { get; private set; }
@@ -81,6 +82,8 @@ public class PlayerWeapon : MonoBehaviour
     {
         CurrentAmmoCount = preset.clipSize;
         CurrrentClipsCount = preset.clipsCount;
+        ClipSize = preset.clipSize;
+
         IsOwned = preset.isOwnedByDefault;
 
         ResetZoom();
@@ -118,11 +121,10 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         CurrentAmmoCount--;
-        weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount);
+        weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount, ClipSize);
 
-        muzzle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(playerAim.IsFlipped ? 0 : 1, 0, 0);
+        muzzle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(playerAim.IsFlipped ? 1 : 0, 0, 0);
         muzzle.Play();
-        Recoil();
 
         shellDrop.Emit(1);
 
@@ -142,6 +144,8 @@ public class PlayerWeapon : MonoBehaviour
 
             CreateProjectile(rot);
         }
+
+        Recoil();
 
         yield return new WaitForSeconds(60f / preset.fireRate);
 
@@ -175,10 +179,11 @@ public class PlayerWeapon : MonoBehaviour
 
     private IEnumerator ReloadCoroutine()
     {
+        weaponsManager.StartReload(preset.reloadTime);
         sfxSource.PlayOneShot(preset.reloadSFX);
         yield return new WaitForSeconds(preset.reloadTime);
         CurrentAmmoCount = preset.clipSize;
-        weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount);
+        weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount, ClipSize);
         CurrrentClipsCount--;
         weaponsManager.UpdateClipCountUI(CurrrentClipsCount);
         reloadCoroutine = null;

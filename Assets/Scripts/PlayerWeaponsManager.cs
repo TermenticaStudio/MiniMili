@@ -14,9 +14,10 @@ public class PlayerWeaponsManager : MonoBehaviour
     private int lastActiveWeapon;
 
     public event Action<int> OnChangeClipCount;
-    public event Action<int> OnChangeAmmoCount;
+    public event Action<int, int> OnChangeAmmoCount; // <CurrentAmmo, TotalAmmoPerClip>
     public event Action<PlayerWeapon> OnChangeWeapon;
     public event Action<PlayerWeapon, PlayerWeapon> OnWeaponNearby;
+    public event Action<float> OnReloadWeapon; // <ReloadTime>
 
     private Player player;
     private PickupWeapon availableWeaponToReplace;
@@ -153,9 +154,9 @@ public class PlayerWeaponsManager : MonoBehaviour
         OnChangeClipCount?.Invoke(value);
     }
 
-    public void UpdateAmmoCountUI(int value)
+    public void UpdateAmmoCountUI(int current, int total)
     {
-        OnChangeAmmoCount?.Invoke(value);
+        OnChangeAmmoCount?.Invoke(current, total);
     }
 
     public void UpdateWeaponUI(PlayerWeapon weapon)
@@ -163,11 +164,16 @@ public class PlayerWeaponsManager : MonoBehaviour
         OnChangeWeapon?.Invoke(weapon);
     }
 
+    public void StartReload(float time)
+    {
+        OnReloadWeapon?.Invoke(time);
+    }
+
     public void UpdateUI()
     {
         UpdateWeaponUI(activeWeapon);
         UpdateClipCountUI(activeWeapon.CurrrentClipsCount);
-        UpdateAmmoCountUI(activeWeapon.CurrentAmmoCount);
+        UpdateAmmoCountUI(activeWeapon.CurrentAmmoCount, activeWeapon.ClipSize);
     }
 
     // REFACTOR: it shouldnt called everyframe!

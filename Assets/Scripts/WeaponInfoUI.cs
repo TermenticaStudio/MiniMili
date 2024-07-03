@@ -1,4 +1,5 @@
 using Logic.Player;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,8 @@ public class WeaponInfoUI : MonoBehaviour
     [SerializeField] private Slider healthSlider;
 
     [SerializeField] private TextMeshProUGUI zoomText;
+    [SerializeField] private GameObject reloadBtn;
+    [SerializeField] private GameObject reloadIndicator;
 
     [Header("Replace Weapon")]
     [SerializeField] private GameObject replaceWeapon;
@@ -35,6 +38,7 @@ public class WeaponInfoUI : MonoBehaviour
         PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
 
         OnWeaponNearby(null, null);
+        reloadIndicator.SetActive(false);
     }
 
     private void OnDisable()
@@ -51,7 +55,10 @@ public class WeaponInfoUI : MonoBehaviour
         weaponsManager.OnChangeAmmoCount -= OnChangeAmmoCount;
         weaponsManager.OnChangeWeapon -= OnChangeWeapon;
         weaponsManager.OnWeaponNearby -= OnWeaponNearby;
+        weaponsManager.OnReloadWeapon -= OnReloadWeapon;
     }
+
+
 
     private void OnSpawnPlayer(PlayerInfo obj)
     {
@@ -61,6 +68,7 @@ public class WeaponInfoUI : MonoBehaviour
         weaponsManager.OnChangeAmmoCount += OnChangeAmmoCount;
         weaponsManager.OnChangeWeapon += OnChangeWeapon;
         weaponsManager.OnWeaponNearby += OnWeaponNearby;
+        weaponsManager.OnReloadWeapon += OnReloadWeapon;
 
         weaponsManager.UpdateUI();
     }
@@ -96,12 +104,35 @@ public class WeaponInfoUI : MonoBehaviour
 
     private void OnChangeClipsCount(int count)
     {
-        clipCountText.text = count.ToString();
+        clipCountText.text = count.ToString("D3");
     }
 
-    private void OnChangeAmmoCount(int count)
+    private void OnChangeAmmoCount(int count, int totalAmmo)
     {
-        ammoCountText.text = count.ToString();
+        ammoCountText.text = count.ToString("D3");
+
+        if (count == totalAmmo)
+        {
+            SetReloadBtnActivation(false);
+        }
+        else
+        {
+            SetReloadBtnActivation(true);
+        }
+    }
+
+    private void OnReloadWeapon(float obj)
+    {
+        StartCoroutine(ReloadIndicatorCoroutine(obj));
+    }
+
+    private IEnumerator ReloadIndicatorCoroutine(float time)
+    {
+        reloadIndicator.SetActive(true);
+
+        yield return new WaitForSeconds(time);
+
+        reloadIndicator.SetActive(false);
     }
 
     public void SetJetpackFuel(float amount)
@@ -114,8 +145,13 @@ public class WeaponInfoUI : MonoBehaviour
         healthSlider.value = health;
     }
 
+    public void SetReloadBtnActivation(bool activate)
+    {
+        reloadBtn.SetActive(activate);
+    }
+
     public void SetZoomText(int zoom)
     {
-        zoomText.text = $"X{zoom}";
+        zoomText.text = $"{zoom}X";
     }
 }
