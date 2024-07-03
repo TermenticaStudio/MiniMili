@@ -156,7 +156,7 @@ namespace Mirror.Discovery
         /// <summary>
         /// Advertise this server in the local network
         /// </summary>
-        public void AdvertiseServer()
+        public virtual void AdvertiseServer()
         {
             if (!SupportedOnThisPlatform)
                 throw new PlatformNotSupportedException("Network discovery not supported in this platform");
@@ -305,7 +305,7 @@ namespace Mirror.Discovery
         /// <summary>
         /// Start Active Discovery
         /// </summary>
-        public void StartDiscovery()
+        public virtual void StartDiscovery()
         {
             if (!SupportedOnThisPlatform)
                 throw new PlatformNotSupportedException("Network discovery not supported in this platform");
