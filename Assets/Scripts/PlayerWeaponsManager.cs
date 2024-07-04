@@ -93,7 +93,7 @@ public class PlayerWeaponsManager : MonoBehaviour
             DeactivateWeapon(activeWeapon);
 
         activeWeapon = weapon;
-        activeWeapon.ResetZoom();
+        activeWeapon.SelectLastZoom();
         activeWeapon.SetAsActive();
         activeWeapon.Recoil(100);
 

@@ -241,9 +241,25 @@ public class PlayerWeapon : MonoBehaviour
         else
             currentZoomIndex++;
 
-        currentZoom = preset.zooms[currentZoomIndex];
+        SelectZoom(preset.zooms[currentZoomIndex]);
+    }
+
+    private void SelectZoom(ZoomPreset preset)
+    {
+        currentZoom = preset;
         WeaponInfoUI.Instance.SetZoomText(currentZoom.Zoom);
         CameraZoomController.Instance.SetLensSize(currentZoom.LensSize);
+    }
+
+    public void SelectLastZoom()
+    {
+        if (currentZoom == null)
+        {
+            SelectZoom(preset.zooms[0]);
+            return;
+        }
+
+        SelectZoom(currentZoom);
     }
 
     public void Recoil(float? overridePower = null)
