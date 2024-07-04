@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b5a4ae03b7f18449b8ea1e183192799, type: 3}
-  m_Name: MP5
+  m_Name: M16
   m_EditorClassIdentifier: 
-  id: MP5_1
+  id: M16_1
   fireRate: 800
-  fireMode: 0
-  firePerBurst: 0
-  burstCooldown: 0
-  clipSize: 40
+  fireMode: 1
+  firePerBurst: 3
+  burstCooldown: 0.3
+  clipSize: 30
   clipsCount: 10
   zooms:
   - {fileID: 11400000, guid: 0447a5cd0f9b8934ca1917c91305bc7a, type: 2}
@@ -28,15 +28,15 @@ MonoBehaviour:
   projectile: {fileID: 4575455049484285622, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
   projectileCountPerShot: 1
   minMaxAngleBetweenPerShot: {x: -10, y: 10}
-  projectileSpeed: 20
+  projectileSpeed: 30
   projectileRange: 20
   projectileDamage: 5
   recoilPower: 10
   autoReload: 1
   reloadTime: 1
   fireSFXs:
-  - {fileID: 8300000, guid: 23ad62df781ff7446b2119de8bc1417d, type: 3}
+  - {fileID: 8300000, guid: d222cf869c8d9644abf7bfe12a6419b3, type: 3}
   reloadSFX: {fileID: 8300000, guid: ab008130c5b96cf498ddf047ba249234, type: 3}
   dryFire: {fileID: 8300000, guid: dff2c1270151cc7418a88ca96081c590, type: 3}
-  icon: {fileID: -224282900, guid: b09f052f833e8e948adff4f04a4d2521, type: 3}
-  name: MP5
+  icon: {fileID: -1558230754, guid: b09f052f833e8e948adff4f04a4d2521, type: 3}
+  name: M16

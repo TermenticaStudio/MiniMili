@@ -16,6 +16,12 @@ public class WeaponPreset : ScriptableObject
     [FoldoutGroup(SETTINGS_GROUP)]
     public int fireRate;
     [FoldoutGroup(SETTINGS_GROUP)]
+    public FireMode fireMode;
+    [FoldoutGroup(SETTINGS_GROUP), ShowIf("@fireMode == FireMode.Burst")]
+    public int firePerBurst = 3;
+    [FoldoutGroup(SETTINGS_GROUP), ShowIf("@fireMode == FireMode.Burst")]
+    public float burstCooldown = 0.3f;
+    [FoldoutGroup(SETTINGS_GROUP)]
     public int clipSize;
     [FoldoutGroup(SETTINGS_GROUP)]
     public int clipsCount;

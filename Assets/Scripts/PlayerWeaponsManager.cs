@@ -166,7 +166,7 @@ public class PlayerWeaponsManager : MonoBehaviour
     public void UpdateUI()
     {
         UpdateWeaponUI(activeWeapon);
-        UpdateClipCountUI(activeWeapon.CurrrentClipsCount);
+        UpdateClipCountUI(activeWeapon.GetTotalLeftAmmo());
         UpdateAmmoCountUI(activeWeapon.CurrentAmmoCount, activeWeapon.ClipSize);
     }
 

@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: SHOTGUN_1
   fireRate: 250
+  fireMode: 0
+  firePerBurst: 3
+  burstCooldown: 0.2
   clipSize: 12
-  clipsCount: 100
+  clipsCount: 10
   zooms:
   - {fileID: 11400000, guid: 0447a5cd0f9b8934ca1917c91305bc7a, type: 2}
   - {fileID: 11400000, guid: 33dd425356c441c408e1f288b4815213, type: 2}

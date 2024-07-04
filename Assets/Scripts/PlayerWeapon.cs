@@ -47,7 +47,7 @@ public class PlayerWeapon : MonoBehaviour
     private Vector3 defaultPos;
 
     public int CurrentAmmoCount { get; private set; }
-    public int CurrrentClipsCount { get; private set; }
+    public int CurrentClipsCount { get; private set; }
     public int ClipSize { get; private set; }
     public bool IsOwned { get; private set; }
     public string ID { get => preset.id; }
@@ -95,7 +95,7 @@ public class PlayerWeapon : MonoBehaviour
     private void OnRevivePlayer()
     {
         CurrentAmmoCount = preset.clipSize;
-        CurrrentClipsCount = preset.clipsCount;
+        CurrentClipsCount = preset.clipsCount;
         ClipSize = preset.clipSize;
 
         IsOwned = preset.isOwnedByDefault;
@@ -134,34 +134,48 @@ public class PlayerWeapon : MonoBehaviour
             yield break;
         }
 
-        CurrentAmmoCount--;
-        weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount, ClipSize);
+        var fireCount = preset.fireMode == FireMode.Burst ? preset.firePerBurst : 1;
 
-        muzzle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(playerAim.IsFlipped ? 1 : 0, 0, 0);
-        muzzle.Play();
-
-        shellDrop.Emit(1);
-
-        if (preset.fireSFXs.Length > 0)
+        for (int b = 0; b < fireCount; b++)
         {
-            var clip = preset.fireSFXs[Random.Range(0, preset.fireSFXs.Length)];
-            AudioManager.Instance.Play2DSFX(clip, transform.position, player.MainCamera.transform.position);
+            CurrentAmmoCount--;
+            weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount, ClipSize);
+
+            muzzle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(playerAim.IsFlipped ? 1 : 0, 0, 0);
+            muzzle.Play();
+
+            shellDrop.Emit(1);
+
+            if (preset.fireSFXs.Length > 0)
+            {
+                var clip = preset.fireSFXs[Random.Range(0, preset.fireSFXs.Length)];
+                AudioManager.Instance.Play2DSFX(clip, transform.position, player.MainCamera.transform.position);
+            }
+
+            projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, playerAim.IsFlipped ? 180 : 0);
+
+            for (int i = 0; i < preset.projectileCountPerShot; i++)
+            {
+                var rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles);
+
+                if (preset.projectileCountPerShot > 1)
+                    rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles + Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
+
+                CreateProjectile(rot);
+            }
+
+            Recoil();
+
+            yield return new WaitForSeconds(60f / preset.fireRate);
+
+            if (preset.fireMode == FireMode.Burst)
+            {
+                if (b == fireCount - 1)
+                {
+                    yield return new WaitForSeconds(preset.burstCooldown);
+                }
+            }
         }
-
-        projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, playerAim.IsFlipped ? 180 : 0);
-        for (int i = 0; i < preset.projectileCountPerShot; i++)
-        {
-            var rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles);
-
-            if (preset.projectileCountPerShot > 1)
-                rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles + Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
-
-            CreateProjectile(rot);
-        }
-
-        Recoil();
-
-        yield return new WaitForSeconds(60f / preset.fireRate);
 
         fireCoroutine = null;
     }
@@ -179,7 +193,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private void ReloadRpc()
     {
-        if (CurrrentClipsCount == 0)
+        if (CurrentClipsCount == 0)
         {
             DryFire();
             return;
@@ -197,22 +211,22 @@ public class PlayerWeapon : MonoBehaviour
         sfxSource.PlayOneShot(preset.reloadSFX);
         yield return new WaitForSeconds(preset.reloadTime);
         CurrentAmmoCount = preset.clipSize;
+        CurrentClipsCount--;
         weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount, ClipSize);
-        CurrrentClipsCount--;
-        weaponsManager.UpdateClipCountUI(CurrrentClipsCount);
+        weaponsManager.UpdateClipCountUI(GetTotalLeftAmmo());
         reloadCoroutine = null;
     }
 
     public void IncreaseClips(int count = 1)
     {
-        CurrrentClipsCount += count;
-        weaponsManager.UpdateClipCountUI(CurrrentClipsCount);
+        CurrentClipsCount += count;
+        weaponsManager.UpdateClipCountUI(GetTotalLeftAmmo());
     }
 
     public void SetAmmo(PickupWeapon.Ammo ammo)
     {
         CurrentAmmoCount = ammo.AmmoLeft;
-        CurrrentClipsCount = ammo.ClipLeft;
+        CurrentClipsCount = ammo.ClipLeft;
     }
 
     private void DryFire()
@@ -271,7 +285,7 @@ public class PlayerWeapon : MonoBehaviour
     public void Drop()
     {
         var instance = Instantiate(preset.pickup, transform.position, transform.rotation, null);
-        instance.Init(CurrrentClipsCount, CurrentAmmoCount);
+        instance.Init(CurrentClipsCount, CurrentAmmoCount);
         DisownWeapon();
     }
 
@@ -323,5 +337,10 @@ public class PlayerWeapon : MonoBehaviour
         {
             rend.sortingLayerName = defaultLayer;
         }
+    }
+
+    public int GetTotalLeftAmmo()
+    {
+        return CurrentClipsCount * preset.clipSize;
     }
 }
