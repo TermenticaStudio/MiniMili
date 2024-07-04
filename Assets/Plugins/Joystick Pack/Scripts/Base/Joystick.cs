@@ -150,6 +150,21 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         }
         return Vector2.zero;
     }
+
+    public void SetInput(Vector2 input)
+    {
+        this.input = input;
+    }
+
+    public void SetHandlePosition(Vector2 pos)
+    {
+        handle.anchoredPosition = pos;
+    }
+
+    public Vector2 GetHandlePosition()
+    {
+        return handle.anchoredPosition;
+    }
 }
 
 public enum AxisOptions { Both, Horizontal, Vertical }
