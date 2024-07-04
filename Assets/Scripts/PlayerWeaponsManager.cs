@@ -7,6 +7,7 @@ public class PlayerWeaponsManager : MonoBehaviour
 {
     [SerializeField] private PlayerWeapon[] weapons;
     [SerializeField] private int maxOwnedWeapons = 2;
+    [SerializeField] private AudioClip selectWeaponSFX;
 
     private PlayerWeapon activeWeapon;
 
@@ -75,15 +76,7 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     private void UpdateActiveWeapon(int oldIndex, int newIndex)
     {
-        if (activeWeapon != null)
-            DeactivateWeapon(activeWeapon);
-
-        lastActiveWeapon = newIndex;
-        activeWeapon = weapons[newIndex];
-        activeWeapon.ResetZoom();
-        activeWeapon.SetAsActive();
-
-        UpdateUI();
+        SelectWeapon(weapons[newIndex]);
     }
 
     public void SelectNoWeapon()
@@ -102,7 +95,9 @@ public class PlayerWeaponsManager : MonoBehaviour
         activeWeapon = weapon;
         activeWeapon.ResetZoom();
         activeWeapon.SetAsActive();
+        activeWeapon.Recoil(100);
 
+        AudioManager.Instance.Play2DSFX(selectWeaponSFX, transform.position, player.MainCamera.transform.position);
         UpdateUI();
     }
 
@@ -145,7 +140,6 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     public void DeactivateWeapon(PlayerWeapon weapon)
     {
-        weapon.gameObject.SetActive(false);
         weapon.SetAsDeactive();
     }
 

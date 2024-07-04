@@ -7,12 +7,20 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
+    const string SETTINGS_GROUP = "Settings";
     const string VFX_GROUP = "VFX";
     const string SFX_GROUP = "SFX";
     const string PROJECTILE_GROUP = "Projectile";
     const string RECOIL_GROUP = "Recoil";
 
+    [FoldoutGroup(SETTINGS_GROUP)]
     [SerializeField] private WeaponPreset preset;
+    [FoldoutGroup(SETTINGS_GROUP)]
+    [SerializeField] private Transform holsterPos;
+    [FoldoutGroup(SETTINGS_GROUP)]
+    [SerializeField] private string defaultLayer = "Default";
+    [FoldoutGroup(SETTINGS_GROUP)]
+    [SerializeField] private string holsterLayer;
 
     [FoldoutGroup(PROJECTILE_GROUP)]
     [SerializeField] private Transform projectileSpawnPoint;
@@ -35,6 +43,9 @@ public class PlayerWeapon : MonoBehaviour
     private PlayerAim playerAim;
     private Player player;
 
+    private Transform defaultParent;
+    private Vector3 defaultPos;
+
     public int CurrentAmmoCount { get; private set; }
     public int CurrrentClipsCount { get; private set; }
     public int ClipSize { get; private set; }
@@ -48,6 +59,9 @@ public class PlayerWeapon : MonoBehaviour
         weaponsManager = GetComponentInParent<PlayerWeaponsManager>();
         playerAim = GetComponentInParent<PlayerAim>();
         player = GetComponentInParent<Player>();
+
+        defaultParent = transform.parent;
+        defaultPos = transform.localPosition;
 
         player.Health.OnRevive += OnRevivePlayer;
         player.Health.OnDie += OnPlayerDie;
@@ -232,9 +246,9 @@ public class PlayerWeapon : MonoBehaviour
         CameraZoomController.Instance.SetLensSize(currentZoom.LensSize);
     }
 
-    public void Recoil()
+    public void Recoil(float? overridePower = null)
     {
-        recoilPivot.transform.DOLocalRotate(Vector3.forward * preset.recoilPower, 0);
+        recoilPivot.transform.DOLocalRotate(Vector3.forward * (overridePower.HasValue ? overridePower.Value : preset.recoilPower), 0);
         recoilPivot.transform.DOLocalRotate(Vector3.zero, 0.2f);
     }
 
@@ -249,12 +263,17 @@ public class PlayerWeapon : MonoBehaviour
     {
         IsActive = true;
         gameObject.SetActive(true);
+        GetInHand();
     }
 
     public void SetAsDeactive()
     {
         IsActive = false;
-        gameObject.SetActive(false);
+
+        if (IsOwned)
+            Holster();
+        else
+            gameObject.SetActive(false);
     }
 
     public void OwnWeapon()
@@ -266,5 +285,27 @@ public class PlayerWeapon : MonoBehaviour
     {
         IsOwned = false;
         SetAsDeactive();
+    }
+
+    public void Holster()
+    {
+        transform.SetParent(holsterPos);
+        transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+
+        foreach (var rend in transform.GetComponentsInChildren<SpriteRenderer>())
+        {
+            rend.sortingLayerName = holsterLayer;
+        }
+    }
+
+    public void GetInHand()
+    {
+        transform.SetParent(defaultParent);
+        transform.SetLocalPositionAndRotation(defaultPos, Quaternion.identity);
+
+        foreach (var rend in transform.GetComponentsInChildren<SpriteRenderer>())
+        {
+            rend.sortingLayerName = defaultLayer;
+        }
     }
 }
