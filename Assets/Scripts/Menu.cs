@@ -14,6 +14,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI systemIpText;
     [SerializeField] private Button hostButton;
     [SerializeField] private Button clientButton;
+    [SerializeField] private ServersListDisplayer serversListPanel;
 
     private void Start()
     {
@@ -53,17 +54,26 @@ public class Menu : MonoBehaviour
         throw new System.Exception("No network adapters with an IPv4 address in the system!");
     }
 
-    public void JoinGame()
+    public async void JoinGame()
     {
-        if (string.IsNullOrEmpty(networkAddress.text))
+       /* if (string.IsNullOrEmpty(networkAddress.text))
             return;
+        NetworkManager.singleton.StartClient();*/
 
-        NetworkManager.singleton.StartClient();
+        var foundedServers = await LANNetworkManager.singleton.FindNearbyHost();
+        if (foundedServers)
+        {
+            serversListPanel.OnServerListButton += (uri) =>
+            {
+                LANNetworkManager.singleton.ConnectToHost(uri);
+            };
+        }
     }
 
     private void HostGame()
     {
-        NetworkManager.singleton.networkAddress = GetLocalIPAddress();
-        NetworkManager.singleton.StartHost();
+     //   NetworkManager.singleton.networkAddress = GetLocalIPAddress();
+     //   NetworkManager.singleton.StartHost();
+        LANNetworkManager.singleton.HostLAN(playerName.text);
     }
 }
