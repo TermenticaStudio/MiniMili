@@ -55,7 +55,7 @@ public class Projectile : PoolObject
         if (!isInit)
             return;
 
-        CreateImpact(collision.collider, collision.GetContact(0).point, collision.GetContact(0).normal);
+        CreateImpact(collision.collider, collision.GetContact(0).point, collision.GetContact(0).point - (Vector2)transform.position);
 
         DestroySelf();
     }
@@ -74,7 +74,7 @@ public class Projectile : PoolObject
         }
 
         GetTriggerContactPoint(collision, out var pos, out var normal);
-        CreateImpact(collision, pos, normal);
+        CreateImpact(collision, pos, normal - (Vector2)transform.position);
     }
 
     private void CreateImpact(Collider2D collider, Vector2 position, Vector2 normal)
@@ -91,7 +91,7 @@ public class Projectile : PoolObject
         }
 
         var instance = PrefabPool.Instance.Get(id);
-        instance.transform.SetPositionAndRotation(position, Quaternion.FromToRotation(Vector2.up, normal));
+        instance.transform.SetPositionAndRotation(position, Quaternion.FromToRotation(Vector2.up, normal) * Quaternion.Euler(0, 0, Random.Range(-30, 30)));
     }
 
     private void DestroySelf()
