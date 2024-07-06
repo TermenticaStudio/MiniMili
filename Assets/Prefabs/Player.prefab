@@ -5095,6 +5095,7 @@ GameObject:
   - component: {fileID: 1896949489350272228}
   - component: {fileID: 1896949489350272229}
   - component: {fileID: 1949078583}
+  - component: {fileID: 5485875380771035122}
   m_Layer: 9
   m_Name: Left Foot
   m_TagString: Untagged
@@ -5219,6 +5220,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.7
+--- !u!114 &5485875380771035122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896949489350272230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47c65966454f434aa7f512f8c8779ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <surfaceImpact>k__BackingField: 1
 --- !u!1 &1896949489466308748
 GameObject:
   m_ObjectHideFlags: 0
@@ -5358,6 +5372,7 @@ GameObject:
   - component: {fileID: 1896949489560834219}
   - component: {fileID: 1896949489560834216}
   - component: {fileID: 1949078581}
+  - component: {fileID: 6216990807840799076}
   m_Layer: 9
   m_Name: Left Hand
   m_TagString: Untagged
@@ -5439,6 +5454,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.7
+--- !u!114 &6216990807840799076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896949489560834218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47c65966454f434aa7f512f8c8779ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <surfaceImpact>k__BackingField: 1
 --- !u!1 &1896949489890827660
 GameObject:
   m_ObjectHideFlags: 0
@@ -10864,6 +10892,7 @@ GameObject:
   - component: {fileID: 1896949490473292617}
   - component: {fileID: 1896949490473292622}
   - component: {fileID: 1949078584}
+  - component: {fileID: 1653620544406372284}
   m_Layer: 9
   m_Name: Right Foot
   m_TagString: Untagged
@@ -10988,6 +11017,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.7
+--- !u!114 &1653620544406372284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896949490473292619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47c65966454f434aa7f512f8c8779ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <surfaceImpact>k__BackingField: 1
 --- !u!1 &1896949490500160994
 GameObject:
   m_ObjectHideFlags: 0
@@ -11085,6 +11127,7 @@ GameObject:
   - component: {fileID: 1896949490513920341}
   - component: {fileID: 1896949490513920346}
   - component: {fileID: 1949078585}
+  - component: {fileID: 1735735901690010420}
   m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
@@ -11213,6 +11256,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 1
+--- !u!114 &1735735901690010420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896949490513920343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47c65966454f434aa7f512f8c8779ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <surfaceImpact>k__BackingField: 1
 --- !u!1 &1896949490623792926
 GameObject:
   m_ObjectHideFlags: 0
@@ -11420,6 +11476,7 @@ GameObject:
   - component: {fileID: 1896949490814516895}
   - component: {fileID: 1896949490814516892}
   - component: {fileID: 1705056285}
+  - component: {fileID: 4973363956536245060}
   m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
@@ -11543,6 +11600,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 2
+--- !u!114 &4973363956536245060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896949490814516889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47c65966454f434aa7f512f8c8779ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <surfaceImpact>k__BackingField: 1
 --- !u!1 &1896949490825209497
 GameObject:
   m_ObjectHideFlags: 0
@@ -11685,6 +11755,7 @@ GameObject:
   - component: {fileID: 1896949490968958816}
   - component: {fileID: 1896949490968958817}
   - component: {fileID: 1949078582}
+  - component: {fileID: 5554905998107059903}
   m_Layer: 9
   m_Name: Right Hand
   m_TagString: Untagged
@@ -11766,6 +11837,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0.7
+--- !u!114 &5554905998107059903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896949490968958819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47c65966454f434aa7f512f8c8779ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <surfaceImpact>k__BackingField: 1
 --- !u!1 &1896949491013966202
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,9 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : PoolObject
 {
-    private const string BLOOD_IMPACT = "Blood_Impact";
-    private const string NORMAL_IMPACT = "Normal_Impact";
-
     private float range;
     private float damage;
 
@@ -70,25 +67,25 @@ public class Projectile : PoolObject
         if (damagable != null)
         {
             if (damagable.Damage(owner, damage))
+            {
+                GetTriggerContactPoint(collision, out var pos, out var normal);
+                CreateImpact(collision, pos, (Vector2)transform.position - normal);
                 DestroySelf();
+            }
         }
-
-        GetTriggerContactPoint(collision, out var pos, out var normal);
-        CreateImpact(collision, pos, normal - (Vector2)transform.position);
     }
 
     private void CreateImpact(Collider2D collider, Vector2 position, Vector2 normal)
     {
-        var id = string.Empty;
+        var surface = collider.gameObject.GetComponent<Surface>();
 
-        if (collider.gameObject.TryGetComponent<HitPoint>(out var com))
-        {
-            id = BLOOD_IMPACT;
-        }
-        else
-        {
-            id = NORMAL_IMPACT;
-        }
+        if (surface == null)
+            return;
+
+        var id = Impacts.IMPACT_POOLING[surface.surfaceImpact];
+
+        if (string.IsNullOrEmpty(id))
+            throw new System.Exception("Projectile:: CreateImpact:: id is null");
 
         var instance = PrefabPool.Instance.Get(id);
         instance.transform.SetPositionAndRotation(position, Quaternion.FromToRotation(Vector2.up, normal) * Quaternion.Euler(0, 0, Random.Range(-30, 30)));
