@@ -11,6 +11,7 @@ public class PlayerSpawnHandler : MonoBehaviour
 {
     [SerializeField] private PlayerInfo player;
     [SerializeField] private float respawnTimer = 5;
+    [SerializeField] private int respawnCount = 3;
 
     [Header("UI")]
     [SerializeField] private GameObject respawnUI;
@@ -46,11 +47,13 @@ public class PlayerSpawnHandler : MonoBehaviour
 
         if (existingInstance != null)
         {
+            existingInstance.SetRespawnCount(respawnCount);
             OnSpawnPlayer?.Invoke(existingInstance);
             return;
         }
 
         var instance = Instantiate(player, GetStartPosition());
+        instance.SetRespawnCount(respawnCount);
         OnSpawnPlayer?.Invoke(instance);
     }
 
@@ -63,6 +66,9 @@ public class PlayerSpawnHandler : MonoBehaviour
     {
         //if (!player.isLocalPlayer)
         //    return;
+
+        if (!player.CanRespawn())
+            return;
 
         StartCoroutine(RespawnPlayerCoroutine(player));
     }
@@ -82,6 +88,7 @@ public class PlayerSpawnHandler : MonoBehaviour
 
         var spawnPoint = GetStartPosition(player);
         player.transform.SetPositionAndRotation(spawnPoint.position, Quaternion.identity);
+        player.UseRespawn();
 
         OnSpawnPlayer?.Invoke(player);
     }

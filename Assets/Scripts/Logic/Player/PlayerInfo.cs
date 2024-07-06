@@ -9,6 +9,7 @@ namespace Logic.Player
 
         private Player player;
         public string CurrentName { get; private set; }
+        public int RespawnsLeft { get; private set; }
 
         private void Start()
         {
@@ -43,6 +44,21 @@ namespace Logic.Player
         public void HideName()
         {
             nameText.gameObject.SetActive(false);
+        }
+
+        public void SetRespawnCount(int count)
+        {
+            RespawnsLeft = count;
+        }
+
+        public void UseRespawn()
+        {
+            RespawnsLeft--;
+        }
+
+        public bool CanRespawn()
+        {
+            return RespawnsLeft > 0;
         }
     }
 }

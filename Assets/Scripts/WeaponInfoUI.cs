@@ -20,6 +20,8 @@ public class WeaponInfoUI : MonoBehaviour
     [SerializeField] private GameObject reloadBtn;
     [SerializeField] private GameObject reloadIndicator;
 
+    [SerializeField] private TextMeshProUGUI respawnCountText;
+
     [Header("Replace Weapon")]
     [SerializeField] private GameObject replaceWeapon;
     [SerializeField] private Image currentWeaponImage;
@@ -58,8 +60,6 @@ public class WeaponInfoUI : MonoBehaviour
         weaponsManager.OnReloadWeapon -= OnReloadWeapon;
     }
 
-
-
     private void OnSpawnPlayer(PlayerInfo obj)
     {
         weaponsManager = obj.GetComponent<PlayerWeaponsManager>();
@@ -71,6 +71,8 @@ public class WeaponInfoUI : MonoBehaviour
         weaponsManager.OnReloadWeapon += OnReloadWeapon;
 
         weaponsManager.UpdateUI();
+
+        SetRespawnsLeftText(obj.RespawnsLeft);
     }
 
     private void OnWeaponNearby(PlayerWeapon current, PlayerWeapon newWeapon)
@@ -153,5 +155,10 @@ public class WeaponInfoUI : MonoBehaviour
     public void SetZoomText(int zoom)
     {
         zoomText.text = $"{zoom}X";
+    }
+
+    public void SetRespawnsLeftText(int count)
+    {
+        respawnCountText.text = $"x{count}";
     }
 }
