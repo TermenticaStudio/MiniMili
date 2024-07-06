@@ -1,0 +1,2327 @@
+fileFormatVersion: 2
+guid: 43346464d3ce29a4288664939573371f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: menuTexture-540p_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1732
+        width: 228
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b7c475c8f266b408ad3a41d6ded2dc
+      internalID: 1665345328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_1
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 1639
+        width: 173
+        height: 409
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af64eb266261744c8e71a11ad1a272a
+      internalID: -1671075180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_2
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 1822
+        width: 248
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14921042f09b1b04c933b7011cfee68b
+      internalID: 1817137231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_3
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 1859
+        width: 189
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d924ac54506932444b212fdf7e3ce6db
+      internalID: 60959359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_4
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 1925
+        width: 124
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29ddef142d2fc9c4dbe1d7553d912c5f
+      internalID: -2080749838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_5
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 2001
+        width: 46
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2ababd7f47acdc4b9101c856511992a
+      internalID: 1106417799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_6
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 1954
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 038f33b1b700112419c1c0b3a9d1896f
+      internalID: -384615012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_7
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 1831
+        width: 136
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7afe566ba5a59e54393223bf291da1a3
+      internalID: 1157575348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_8
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 1827
+        width: 157
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17082a473e562204b9d2a7d8da6861a4
+      internalID: -2135611628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_9
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 1825
+        width: 109
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f716e6ec2dce9754fb21b311455eedae
+      internalID: 602484030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_10
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1823
+        width: 77
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77deccc9ada94c9469a6c1f0ec6bab24
+      internalID: 812497345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1359
+        width: 190
+        height: 371
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f537dcf05676fe644b54065f60b52d06
+      internalID: -1414090876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1680
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08672551e631daf408a672f229b7700d
+      internalID: -431792884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_13
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 1524
+        width: 139
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f72f7dcbc1a6bb4fb613d9d2b9fd8f3
+      internalID: -309612642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_14
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 1628
+        width: 193
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3ae3d3f9b4d8d41bbdc3001a370327
+      internalID: 826404292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_15
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 1658
+        width: 180
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7fbbde903bd06a439d5e3295963bbea
+      internalID: 2142142597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_16
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 1721
+        width: 99
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4473432ff0910f149b4fa147b4f86b25
+      internalID: 1778806533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1637
+        width: 31
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841a21075b28da5479863dd25a399005
+      internalID: -1799835853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_18
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 1649
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f2d0a578e852e4a8d880cc6d44ad2b
+      internalID: -647557788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_19
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1649
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9f01b41b251a3b4e9784dd169b92ad8
+      internalID: 504324221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_20
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1649
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8ff1e5173191a4fad414d3cd9fb761
+      internalID: -1728518982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_21
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 1649
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69a3190279e8f0a4e87fa6a352535129
+      internalID: 627513754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_22
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 1640
+        width: 96
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6705993d7dd907d4988fd3cbce30c030
+      internalID: -1723819392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_23
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 1592
+        width: 30
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63ee1a85e1d634438b84e8bfa6f10c8
+      internalID: 1458224646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_24
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1508
+        width: 166
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c66d7f155def34a85afd2826c0ae38
+      internalID: -866532740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_25
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 1526
+        width: 244
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a470814d5d540e2468f3282cf34bd4a9
+      internalID: 1241112054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_26
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 1557
+        width: 193
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5b0d5eabda25e44597efb6c6315bcb3
+      internalID: -242717803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_27
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 1549
+        width: 27
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb23f4fa1b0f3614fbdee290b55813b8
+      internalID: -2016351819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_28
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1485
+        width: 26
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db8ab54451345664583807f9c6af60ab
+      internalID: -1057378391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_29
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 1491
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b257ce75f243bc148afde027d434143d
+      internalID: 374171461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_30
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 1364
+        width: 147
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f05f07c690f245a42b5d716d11057538
+      internalID: -1503013471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_31
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 1343
+        width: 185
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05bf1f2b4c2785142a8df13f8ac76d61
+      internalID: 798786438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_32
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 1406
+        width: 236
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d6ea713a0004c47b3e08b865ec9ad2
+      internalID: 1152820423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_33
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1448
+        width: 157
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c2ac12236ad8a3419f84b71feadf1d7
+      internalID: 2031029405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_34
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 1464
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f34a192a0b4add84cb0ac94440c9b7f4
+      internalID: 1626663643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_35
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1411
+        width: 65
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f95c44976a690d14ebb04051637a4e14
+      internalID: -750770443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_36
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1182
+        width: 174
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ddd5bfabab6e3c4795f583d13a07f10
+      internalID: -1352706736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_37
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 1195
+        width: 188
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f4862c4aa26c4429448aeb2a78075f
+      internalID: -1839086096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_38
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 1217
+        width: 126
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 319ec38b5bd2b4c46a5f3e51d60bcf2b
+      internalID: -685280735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_39
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 1245
+        width: 57
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef562f34d8677b499582727e8683280
+      internalID: -2070457333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_40
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 1326
+        width: 177
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea1703f2e5cbfd46b78ae2bf6d848da
+      internalID: 582920312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_41
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 1336
+        width: 154
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7c21ec2e11adf54f9f0e8c6815a55de
+      internalID: 1061555244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_42
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 1264
+        width: 90
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4229690d7b8de5b4e84444e498419165
+      internalID: -531485828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_43
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 1256
+        width: 176
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3727da90bf96e2645b02f383f998d11a
+      internalID: -752253590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_44
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 1263
+        width: 162
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec93994e66256e438d4374393463d52
+      internalID: -354553754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_45
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 1199
+        width: 52
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 827ac9488461d584dafff78cb51ce3d2
+      internalID: -1839032878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_46
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 1173
+        width: 139
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e571d61265ef74f4590f457b8eec0c8f
+      internalID: 1976674409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_47
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1191
+        width: 143
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99f82f09f294f184e8ea00469a992717
+      internalID: 972599637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_48
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 1178
+        width: 111
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342a697dcf011a447b52d68c9dfb0724
+      internalID: 928413585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1060
+        width: 122
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7266f2978cc4be949a46655b3ade13b3
+      internalID: 1677325957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_50
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 1076
+        width: 46
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c907a5e5a43b7b54aaf0ee62f0cfe7cb
+      internalID: 1768505339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_51
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 1073
+        width: 122
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a441a28be13687f4aacbd6f09088d568
+      internalID: 1470556615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_52
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1130
+        width: 211
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a2f2db974497f0498271799fa2e169f
+      internalID: -925012844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_53
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1132
+        width: 64
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42eb466b59cd9c549a5cd0a64e39ace9
+      internalID: 694725872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_54
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1136
+        width: 124
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cd81ddecfe346a4b927b57c40a2a976
+      internalID: 290108207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_55
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 1101
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3dbc84c790036341976faa68d5e9c80
+      internalID: 1187849181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_56
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1064
+        width: 184
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93c70dea1681cb488cd2eaad9305f86
+      internalID: -302942531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_57
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 1062
+        width: 151
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28673eb74c95a2a429171f5ef282df70
+      internalID: -105899925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_58
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 877
+        width: 95
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78a8f9db069f78b488368f1a746bdae4
+      internalID: 1111405388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_59
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 1035
+        width: 94
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728fcd96ee767f94d9eb24942b6f3bf5
+      internalID: 1493594030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_60
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1083
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89816199a5ce31a438cb6e548af6cfa4
+      internalID: 182146189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_61
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 1024
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b48ace7af818e44ea7b92aa6b45ac68
+      internalID: 980694154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 991
+        width: 172
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42a295d6b03f7d3429afa49ab56a3bbd
+      internalID: -589867114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_63
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 863
+        width: 69
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311b2a1eb3d38844494dbf02f3cdcb61
+      internalID: 237379479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_64
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 989
+        width: 320
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353714316d8fb2f44a9e37bbd449f433
+      internalID: 1468601336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_65
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 900
+        width: 94
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac59f302c2e9fc479fd80866aa00949
+      internalID: 1611110995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_66
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 987
+        width: 128
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 406da0c29f5b5754f8e5ee41926ec454
+      internalID: -521554937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_67
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 957
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c540fe22ffbadd4da472d40c6749e21
+      internalID: 1738621953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_68
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 957
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f340bc0e76c4a1458af364ec0423bad
+      internalID: 1866982747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_69
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 947
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10e5329e153ee643b3472a71fe4855f
+      internalID: 1845392409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_70
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 928
+        width: 161
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 375789f25deef4f45bea3fd7843bb476
+      internalID: -945289301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_71
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 912
+        width: 119
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045422b629f7255408eb97bcc93bfbae
+      internalID: -1118986050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_72
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 892
+        width: 94
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e089c1f817b46be4bad23c3525cd5e49
+      internalID: 1405612322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_73
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 940
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd759b3b2d92997469feee9254315d53
+      internalID: -149669387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_74
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 880
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e831d95128ace724587c47755e314070
+      internalID: 1043876680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_75
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 905
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2737c7e3a72c27b4db5c57122dafd115
+      internalID: -1639628357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_76
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 832
+        width: 94
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba29e4e7cb01dc47ad5fd86623ad975
+      internalID: 158519277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_77
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 851
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac3ecba3b665f544bf76379cc74f723
+      internalID: -1877534883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_78
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 804
+        width: 94
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3190db072eda3854bb0b0f393844724c
+      internalID: -1013519071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_79
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 840
+        width: 148
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 236415427e65cfd4a8d0d0cc09e112bb
+      internalID: -1447034697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_80
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 893
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 147bac0232670c8439209dd5516f8f59
+      internalID: 530859092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 770
+        width: 70
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91904fc4cb32d3845bc025c6c4d3ee5b
+      internalID: -97479012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_82
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 819
+        width: 40
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83ae368c1cc304c499a5d054b358cd34
+      internalID: 740625303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_83
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 756
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e3e7344cb09ad4b8acf27a7da35034
+      internalID: 229293987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_84
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 748
+        width: 66
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638bdc9bcaee32e47a8567f1b1365a99
+      internalID: 1300138098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_85
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 763
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c934dbbe3c0761349a218848f2efdf02
+      internalID: -1898597651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_86
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 763
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3db3f65c2b9f9ce49ba643987d978c27
+      internalID: -1673947569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_87
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 815
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608506df7a518684badcda55d4aa462c
+      internalID: 837190571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_88
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 800
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffac129dbad9249418205d44c6f87887
+      internalID: -1575360311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_89
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 826
+        width: 107
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07483ecbcee8874ca67d27f3acf315a
+      internalID: 767465702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_90
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 807
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06fae798902d894b8d77639dbbeb946
+      internalID: 1947807673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_91
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 738
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63e03b70abcee942930cfd84481a802
+      internalID: -2049070356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_92
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 693
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b009a69e78eac429b8f661423072a8
+      internalID: -1559058865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_93
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 679
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c25d99b2c1c674429a48b4a0d25e208
+      internalID: 915671922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_94
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 728
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d7d43648e9ceb468b19bc8419ee6a9
+      internalID: 472857571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_95
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 686
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 039520325e18b0d439b4af8f6e1caea2
+      internalID: 734865020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_96
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 693
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e06735f752103054c8683fd2e6c43b84
+      internalID: -1814019631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_97
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 642
+        width: 83
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fad5f803bd3c4c4da7985b46937dd72
+      internalID: 738533272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_98
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 635
+        width: 76
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e817ec0205d8b74cb60f12eac701c85
+      internalID: -1393647371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuTexture-540p_99
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 651
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e66f782c01c774240aceacb100720f32
+      internalID: 444807830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      menuTexture-540p_0: 1665345328
+      menuTexture-540p_1: -1671075180
+      menuTexture-540p_10: 812497345
+      menuTexture-540p_11: -1414090876
+      menuTexture-540p_12: -431792884
+      menuTexture-540p_13: -309612642
+      menuTexture-540p_14: 826404292
+      menuTexture-540p_15: 2142142597
+      menuTexture-540p_16: 1778806533
+      menuTexture-540p_17: -1799835853
+      menuTexture-540p_18: -647557788
+      menuTexture-540p_19: 504324221
+      menuTexture-540p_2: 1817137231
+      menuTexture-540p_20: -1728518982
+      menuTexture-540p_21: 627513754
+      menuTexture-540p_22: -1723819392
+      menuTexture-540p_23: 1458224646
+      menuTexture-540p_24: -866532740
+      menuTexture-540p_25: 1241112054
+      menuTexture-540p_26: -242717803
+      menuTexture-540p_27: -2016351819
+      menuTexture-540p_28: -1057378391
+      menuTexture-540p_29: 374171461
+      menuTexture-540p_3: 60959359
+      menuTexture-540p_30: -1503013471
+      menuTexture-540p_31: 798786438
+      menuTexture-540p_32: 1152820423
+      menuTexture-540p_33: 2031029405
+      menuTexture-540p_34: 1626663643
+      menuTexture-540p_35: -750770443
+      menuTexture-540p_36: -1352706736
+      menuTexture-540p_37: -1839086096
+      menuTexture-540p_38: -685280735
+      menuTexture-540p_39: -2070457333
+      menuTexture-540p_4: -2080749838
+      menuTexture-540p_40: 582920312
+      menuTexture-540p_41: 1061555244
+      menuTexture-540p_42: -531485828
+      menuTexture-540p_43: -752253590
+      menuTexture-540p_44: -354553754
+      menuTexture-540p_45: -1839032878
+      menuTexture-540p_46: 1976674409
+      menuTexture-540p_47: 972599637
+      menuTexture-540p_48: 928413585
+      menuTexture-540p_49: 1677325957
+      menuTexture-540p_5: 1106417799
+      menuTexture-540p_50: 1768505339
+      menuTexture-540p_51: 1470556615
+      menuTexture-540p_52: -925012844
+      menuTexture-540p_53: 694725872
+      menuTexture-540p_54: 290108207
+      menuTexture-540p_55: 1187849181
+      menuTexture-540p_56: -302942531
+      menuTexture-540p_57: -105899925
+      menuTexture-540p_58: 1111405388
+      menuTexture-540p_59: 1493594030
+      menuTexture-540p_6: -384615012
+      menuTexture-540p_60: 182146189
+      menuTexture-540p_61: 980694154
+      menuTexture-540p_62: -589867114
+      menuTexture-540p_63: 237379479
+      menuTexture-540p_64: 1468601336
+      menuTexture-540p_65: 1611110995
+      menuTexture-540p_66: -521554937
+      menuTexture-540p_67: 1738621953
+      menuTexture-540p_68: 1866982747
+      menuTexture-540p_69: 1845392409
+      menuTexture-540p_7: 1157575348
+      menuTexture-540p_70: -945289301
+      menuTexture-540p_71: -1118986050
+      menuTexture-540p_72: 1405612322
+      menuTexture-540p_73: -149669387
+      menuTexture-540p_74: 1043876680
+      menuTexture-540p_75: -1639628357
+      menuTexture-540p_76: 158519277
+      menuTexture-540p_77: -1877534883
+      menuTexture-540p_78: -1013519071
+      menuTexture-540p_79: -1447034697
+      menuTexture-540p_8: -2135611628
+      menuTexture-540p_80: 530859092
+      menuTexture-540p_81: -97479012
+      menuTexture-540p_82: 740625303
+      menuTexture-540p_83: 229293987
+      menuTexture-540p_84: 1300138098
+      menuTexture-540p_85: -1898597651
+      menuTexture-540p_86: -1673947569
+      menuTexture-540p_87: 837190571
+      menuTexture-540p_88: -1575360311
+      menuTexture-540p_89: 767465702
+      menuTexture-540p_9: 602484030
+      menuTexture-540p_90: 1947807673
+      menuTexture-540p_91: -2049070356
+      menuTexture-540p_92: -1559058865
+      menuTexture-540p_93: 915671922
+      menuTexture-540p_94: 472857571
+      menuTexture-540p_95: 734865020
+      menuTexture-540p_96: -1814019631
+      menuTexture-540p_97: 738533272
+      menuTexture-540p_98: -1393647371
+      menuTexture-540p_99: 444807830
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

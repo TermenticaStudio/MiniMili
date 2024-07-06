@@ -40,6 +40,9 @@ public class Health : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.V))
             Die();
+
+        if (Input.GetKey(KeyCode.B))
+            Damage(0.5f);
     }
 
     private void RegenerateHealth()
@@ -50,10 +53,17 @@ public class Health : MonoBehaviour
         if (!canRegenerateHealth)
             return;
 
-        currentHealth += Time.deltaTime * regeneratePerSecond;
-        currentHealth = Mathf.Clamp(currentHealth, 0, health);
-        OnUpdateHealth?.Invoke(currentHealth, health);
+        AddHealth(Time.deltaTime * regeneratePerSecond);
     }
+
+    public void AddHealth(float health)
+    {
+        currentHealth += health;
+        currentHealth = Mathf.Clamp(currentHealth, 0, this.health);
+        OnUpdateHealth?.Invoke(currentHealth, this.health);
+    }
+
+    public bool IsHealthFull() => currentHealth == health;
 
     public void Damage(float amount)
     {
