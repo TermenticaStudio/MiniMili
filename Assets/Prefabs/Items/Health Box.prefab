@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8628797469025563016}
   - component: {fileID: 4919387000833439101}
   - component: {fileID: 4846008196719526294}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 9080015041595512257}
   - component: {fileID: 6911422354462308552}
   - component: {fileID: 3571033682194786523}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Health Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
