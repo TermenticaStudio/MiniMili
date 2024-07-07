@@ -14,6 +14,9 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Button quitButton;
     [SerializeField] private Button replaceWeaponButton;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip changeZoomClip;
+
     public Vector2 MovementJoystickDirection { get => movementJoystick.Direction; }
 
     public Vector2 AimJoystickDirection { get => aimJoystick.Direction; }
@@ -117,6 +120,7 @@ public class PlayerInput : MonoBehaviour
         if (IsChangingZoom)
             return;
 
+        AudioManager.Instance.PlaySFX(changeZoomClip);
         StartCoroutine(ChangeZoomCoroutine());
     }
 

@@ -7084,6 +7084,7 @@ MonoBehaviour:
   zoomButton: {fileID: 2115807845}
   quitButton: {fileID: 1123815512}
   replaceWeaponButton: {fileID: 1236399735}
+  changeZoomClip: {fileID: 8300000, guid: ab008130c5b96cf498ddf047ba249234, type: 3}
 --- !u!4 &1159513892
 Transform:
   m_ObjectHideFlags: 0

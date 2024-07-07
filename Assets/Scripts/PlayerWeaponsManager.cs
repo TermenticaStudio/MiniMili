@@ -60,12 +60,12 @@ public class PlayerWeaponsManager : MonoBehaviour
             return;
 
         if (PlayerInput.Instance.IsShooting)
-            activeWeapon.CmdFire();
+            activeWeapon.Fire();
         else
-            activeWeapon.ResetFire();
+            activeWeapon.CancelFire();
 
         if (PlayerInput.Instance.IsReloading)
-            activeWeapon.CmdReload();
+            activeWeapon.Reload();
 
         if (PlayerInput.Instance.IsChangingZoom)
             activeWeapon.ChangeZoom();

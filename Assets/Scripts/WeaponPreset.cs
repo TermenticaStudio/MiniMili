@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponPreset : ScriptableObject
 {
     const string SETTINGS_GROUP = "Settings";
+    const string PRE_FIRE_GROUP = "Pre Fire";
     const string PROJECTILE_GROUP = "Projectile";
     const string RECOIL_GROUP = "Recoil";
     const string RELOADING_GROUP = "Reloading";
@@ -35,6 +36,11 @@ public class WeaponPreset : ScriptableObject
     public bool isOwnedByDefault;
     [FoldoutGroup(SETTINGS_GROUP)]
     public PickupWeapon pickup;
+
+    [FoldoutGroup(PRE_FIRE_GROUP)]
+    [LabelText("Enable")] public bool enablePreFire;
+    [FoldoutGroup(PRE_FIRE_GROUP), ShowIf("@enablePreFire")]
+    public float preFireDuration = 1f;
 
     [FoldoutGroup(PROJECTILE_GROUP)]
     public Projectile projectile;

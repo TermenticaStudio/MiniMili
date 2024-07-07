@@ -1,9 +1,11 @@
 using DG.Tweening;
 using Logic.Player;
 using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -54,6 +56,9 @@ public class PlayerWeapon : MonoBehaviour
     public bool IsActive { get; private set; }
     public WeaponPreset Preset { get => preset; }
 
+    public event Action OnStartPreFire;
+    public event Action OnEndPreFire;
+
     public void Init()
     {
         weaponsManager = GetComponentInParent<PlayerWeaponsManager>();
@@ -103,40 +108,20 @@ public class PlayerWeapon : MonoBehaviour
         ResetZoom();
     }
 
-    public void CmdFire()
-    {
-        FireRpc();
-    }
-
-    private void FireRpc()
+    public void Fire()
     {
         if (fireCoroutine == null)
-        {
             fireCoroutine = StartCoroutine(FireCoroutine());
-        }
-    }
-
-    public void ResetFire()
-    {
-        isDryFiring = false;
     }
 
     private IEnumerator FireCoroutine()
     {
-        if (CurrentAmmoCount == 0)
-        {
-            if (preset.autoReload)
-                CmdReload();
-            else
-                DryFire();
-
-            fireCoroutine = null;
+        if (IsReloadNeeded())
             yield break;
-        }
 
-        var fireCount = preset.fireMode == FireMode.Burst ? preset.firePerBurst : 1;
+        yield return PreFire();
 
-        for (int b = 0; b < fireCount; b++)
+        for (int b = 0; b < FireCount(); b++)
         {
             CurrentAmmoCount--;
             weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount, ClipSize);
@@ -176,7 +161,7 @@ public class PlayerWeapon : MonoBehaviour
 
             if (preset.fireMode == FireMode.Burst)
             {
-                if (b == fireCount - 1)
+                if (b == FireCount() - 1)
                 {
                     yield return new WaitForSeconds(preset.burstCooldown);
                 }
@@ -186,18 +171,49 @@ public class PlayerWeapon : MonoBehaviour
         fireCoroutine = null;
     }
 
+    private IEnumerator PreFire()
+    {
+        if (!preset.enablePreFire)
+            yield break;
+
+        OnStartPreFire?.Invoke();
+        yield return new WaitForSeconds(preset.preFireDuration);
+        OnEndPreFire?.Invoke();
+    }
+
+    private bool IsReloadNeeded()
+    {
+        if (CurrentAmmoCount != 0)
+            return false;
+
+        if (preset.autoReload)
+            Reload();
+        else
+            DryFire();
+
+        fireCoroutine = null;
+        return true;
+    }
+
+    public void CancelFire()
+    {
+        isDryFiring = false;
+
+        if (fireCoroutine != null)
+            StopCoroutine(fireCoroutine);
+
+        fireCoroutine = null;
+    }
+
+    private int FireCount() => preset.fireMode == FireMode.Burst ? preset.firePerBurst : 1;
+
     private void CreateProjectile(Quaternion rot)
     {
         var projectilePr = PrefabPool.Instance.Get("Bullet").GetComponent<Projectile>();
         projectilePr.Init(player, projectileSpawnPoint.position, rot, preset.projectileSpeed, preset.projectileRange, preset.projectileDamage);
     }
 
-    public void CmdReload()
-    {
-        ReloadRpc();
-    }
-
-    private void ReloadRpc()
+    public void Reload()
     {
         if (CurrentClipsCount == 0)
         {
@@ -206,9 +222,7 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         if (reloadCoroutine == null)
-        {
             reloadCoroutine = StartCoroutine(ReloadCoroutine());
-        }
     }
 
     private IEnumerator ReloadCoroutine()
