@@ -47,6 +47,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private Transform defaultParent;
     private Vector3 defaultPos;
+    private bool preFirePending;
 
     public int CurrentAmmoCount { get; private set; }
     public int CurrentClipsCount { get; private set; }
@@ -177,7 +178,9 @@ public class PlayerWeapon : MonoBehaviour
             yield break;
 
         OnStartPreFire?.Invoke();
+        preFirePending = true;
         yield return new WaitForSeconds(preset.preFireDuration);
+        preFirePending = false;
         OnEndPreFire?.Invoke();
     }
 
@@ -203,6 +206,12 @@ public class PlayerWeapon : MonoBehaviour
             StopCoroutine(fireCoroutine);
 
         fireCoroutine = null;
+
+        if (preFirePending)
+        {
+            OnEndPreFire?.Invoke();
+            preFirePending = false;
+        }
     }
 
     private int FireCount() => preset.fireMode == FireMode.Burst ? preset.firePerBurst : 1;
