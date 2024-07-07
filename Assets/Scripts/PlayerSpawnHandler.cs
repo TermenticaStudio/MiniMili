@@ -43,18 +43,16 @@ public class PlayerSpawnHandler : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        var existingInstance = FindObjectOfType<PlayerInfo>();
+        var instance = FindObjectOfType<PlayerInfo>();
 
-        if (existingInstance != null)
-        {
-            existingInstance.SetRespawnCount(respawnCount);
-            OnSpawnPlayer?.Invoke(existingInstance);
-            return;
-        }
+        if (instance == null)
+            instance = Instantiate(player, GetStartPosition());
 
-        var instance = Instantiate(player, GetStartPosition());
         instance.SetRespawnCount(respawnCount);
+        instance.IsLocal = true;
         OnSpawnPlayer?.Invoke(instance);
+
+        InGameMessage.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Joined), instance.GetPlayerName());
     }
 
     public void RequestForPlayerRespawn(PlayerInfo player)

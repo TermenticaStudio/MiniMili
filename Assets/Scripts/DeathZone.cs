@@ -10,7 +10,7 @@ public class DeathZone : MonoBehaviour
     {
         foreach (var player in players)
         {
-            player.Damage(damagePerSecond * Time.deltaTime);
+            player.Damage(damagePerSecond * Time.deltaTime, null);
         }
     }
 

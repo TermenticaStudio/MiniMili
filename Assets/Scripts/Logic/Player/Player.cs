@@ -51,6 +51,15 @@ namespace Logic.Player
 
         private void OnDie()
         {
+            if (Health.LastDamageBy == null)
+            {
+                InGameMessage.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Suicide), Info.GetPlayerName());
+            }
+            else if (Health.LastDamageBy != null)
+            {
+                InGameMessage.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Kill), Info.GetPlayerName(), Health.LastDamageBy.Info.GetPlayerName());
+            }
+
             PlayerSpawnHandler.Instance.RequestForPlayerRespawn(Info);
             CameraController.Instance.SetTarget(null);
         }

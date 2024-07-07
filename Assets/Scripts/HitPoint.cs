@@ -21,7 +21,7 @@ public class HitPoint : MonoBehaviour, IDamagable
         if (this.owner == owner)
             return false;
 
-        health.Damage(damage * damageMultiplier);
+        health.Damage(damage * damageMultiplier, owner);
         return true;
     }
 }

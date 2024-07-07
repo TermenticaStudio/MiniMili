@@ -8,8 +8,10 @@ namespace Logic.Player
         [SerializeField] private TextMeshPro nameText;
 
         private Player player;
-        public string CurrentName { get; private set; }
+        private string currentName;
+
         public int RespawnsLeft { get; private set; }
+        public bool IsLocal { get; set; }
 
         private void Start()
         {
@@ -32,8 +34,13 @@ namespace Logic.Player
 
         public void SetPlayerName(string name)
         {
-            CurrentName = name;
+            currentName = name;
             nameText.text = name;
+        }
+
+        public string GetPlayerName()
+        {
+            return IsLocal ? "You" : currentName;
         }
 
         public void ShowName()

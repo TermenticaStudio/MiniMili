@@ -1,3 +1,4 @@
+using Logic.Player;
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -13,6 +14,7 @@ public class Health : MonoBehaviour
     private bool isDead = true;
 
     public bool IsDead { get => isDead; }
+    public Player LastDamageBy { get; private set; }
 
     public event Action OnDie;
     public event Action OnRevive;
@@ -42,7 +44,7 @@ public class Health : MonoBehaviour
             Die();
 
         if (Input.GetKey(KeyCode.B))
-            Damage(0.5f);
+            Damage(0.5f, null);
     }
 
     private void RegenerateHealth()
@@ -65,13 +67,14 @@ public class Health : MonoBehaviour
 
     public bool IsHealthFull() => currentHealth == health;
 
-    public void Damage(float amount)
+    public void Damage(float amount, Player damageBy)
     {
         if (isDead)
             return;
 
         currentHealth -= amount;
         OnUpdateHealth?.Invoke(currentHealth, health);
+        LastDamageBy = damageBy;
 
         if (currentHealth <= 0)
             Die();
