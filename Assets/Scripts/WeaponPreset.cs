@@ -22,6 +22,10 @@ public class WeaponPreset : ScriptableObject
     [FoldoutGroup(SETTINGS_GROUP), ShowIf("@fireMode == FireMode.Burst")]
     public float burstCooldown = 0.3f;
     [FoldoutGroup(SETTINGS_GROUP)]
+    [Range(0, 1)] public float accuracy = 1;
+    public const float minRanAccuracyDegree = -15;
+    public const float maxRanAccuracyDegree = 15;
+    [FoldoutGroup(SETTINGS_GROUP)]
     public int clipSize;
     [FoldoutGroup(SETTINGS_GROUP)]
     public int clipsCount;

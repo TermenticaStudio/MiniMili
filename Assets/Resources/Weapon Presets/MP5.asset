@@ -17,6 +17,7 @@ MonoBehaviour:
   fireMode: 0
   firePerBurst: 0
   burstCooldown: 0
+  accuracy: 0.9
   clipSize: 40
   clipsCount: 10
   zooms:

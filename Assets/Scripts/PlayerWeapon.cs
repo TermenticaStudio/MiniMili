@@ -159,7 +159,13 @@ public class PlayerWeapon : MonoBehaviour
                 var rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles);
 
                 if (preset.projectileCountPerShot > 1)
-                    rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles + Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
+                    rot *= Quaternion.Euler(Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
+
+                // Accuracy
+                var minRan = Mathf.Lerp(WeaponPreset.minRanAccuracyDegree, 0, preset.accuracy);
+                var maxRan = Mathf.Lerp(WeaponPreset.maxRanAccuracyDegree, 0, preset.accuracy);
+                rot *= Quaternion.Euler(Vector3.forward * Random.Range(minRan, maxRan));
+                //
 
                 CreateProjectile(rot);
             }
