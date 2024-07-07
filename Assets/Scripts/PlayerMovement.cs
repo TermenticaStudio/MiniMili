@@ -99,6 +99,9 @@ public class PlayerMovement : MonoBehaviour
         if (!IsGrounded)
             return;
 
+        if (PlayerInput.Instance.GetMovement().x == 0)
+            return;
+
         if (footstepClips.Length == 0)
             return;
 

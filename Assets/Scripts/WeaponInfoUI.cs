@@ -22,6 +22,8 @@ public class WeaponInfoUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI respawnCountText;
 
+    [SerializeField] private GameObject meleeBtn;
+
     [Header("Replace Weapon")]
     [SerializeField] private GameObject replaceWeapon;
     [SerializeField] private Image currentWeaponImage;
@@ -102,6 +104,8 @@ public class WeaponInfoUI : MonoBehaviour
     {
         weaponNameText.text = weapon.Preset.Name;
         weaponIconImage.sprite = weapon.Preset.Icon;
+
+        meleeBtn.SetActive(weapon.CanMelee());
     }
 
     private void OnChangeClipsCount(int count)

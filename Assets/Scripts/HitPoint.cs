@@ -1,5 +1,4 @@
 using Logic.Player;
-using Mirror;
 using UnityEngine;
 
 public class HitPoint : MonoBehaviour, IDamagable
@@ -15,11 +14,11 @@ public class HitPoint : MonoBehaviour, IDamagable
         owner = GetComponentInParent<Player>();
     }
 
-    [ServerCallback]
     public bool Damage(Player owner, float damage)
     {
-        if (this.owner == owner)
-            return false;
+        if (owner != null)
+            if (this.owner == owner)
+                return false;
 
         health.Damage(damage * damageMultiplier, owner);
         return true;

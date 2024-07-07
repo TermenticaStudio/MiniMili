@@ -13,9 +13,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Button zoomButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private Button replaceWeaponButton;
-
-    [Header("SFX")]
-    [SerializeField] private AudioClip changeZoomClip;
+    [SerializeField] private Button meleeButton;
 
     public Vector2 MovementJoystickDirection { get => movementJoystick.Direction; }
 
@@ -31,6 +29,8 @@ public class PlayerInput : MonoBehaviour
 
     public bool IsReplacing { get; private set; }
 
+    public bool IsMeleeing { get; private set; }
+
     private void Awake()
     {
         Instance = this;
@@ -42,6 +42,7 @@ public class PlayerInput : MonoBehaviour
         swichButton.onClick.AddListener(SwitchInput);
         zoomButton.onClick.AddListener(ChangeZoomInput);
         replaceWeaponButton.onClick.AddListener(ReplaceInput); ;
+        meleeButton.onClick.AddListener(MeleeInput);
 
         quitButton.onClick.AddListener(() =>
         {
@@ -120,7 +121,6 @@ public class PlayerInput : MonoBehaviour
         if (IsChangingZoom)
             return;
 
-        AudioManager.Instance.PlaySFX(changeZoomClip);
         StartCoroutine(ChangeZoomCoroutine());
     }
 
@@ -131,5 +131,22 @@ public class PlayerInput : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         IsChangingZoom = false;
+    }
+
+    private void MeleeInput()
+    {
+        if (IsMeleeing)
+            return;
+
+        StartCoroutine(MeleeCoroutine());
+    }
+
+    private IEnumerator MeleeCoroutine()
+    {
+        IsMeleeing = true;
+
+        yield return new WaitForEndOfFrame();
+
+        IsMeleeing = false;
     }
 }

@@ -269,10 +269,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public void ResetZoom()
     {
-        currentZoom = preset.zooms[0];
-        WeaponInfoUI.Instance.SetZoomText(currentZoom.Zoom);
-
-        CameraZoomController.Instance.SetLensSize(currentZoom.LensSize);
+        SelectZoom(preset.zooms[0]);
     }
 
     public void ChangeZoom()
@@ -287,11 +284,12 @@ public class PlayerWeapon : MonoBehaviour
         SelectZoom(preset.zooms[currentZoomIndex]);
     }
 
-    private void SelectZoom(ZoomPreset preset)
+    private void SelectZoom(ZoomPreset zoomPreset)
     {
-        currentZoom = preset;
+        currentZoom = zoomPreset;
         WeaponInfoUI.Instance.SetZoomText(currentZoom.Zoom);
         CameraZoomController.Instance.SetLensSize(currentZoom.LensSize);
+        AudioManager.Instance.PlaySFX(preset.changeZoom);
     }
 
     public void SelectLastZoom()
@@ -372,4 +370,34 @@ public class PlayerWeapon : MonoBehaviour
     {
         return CurrentClipsCount * preset.clipSize;
     }
+
+    public void MeleeAttack()
+    {
+        if (!CanMelee())
+            return;
+
+        Recoil(100);
+        AudioManager.Instance.Play2DSFX(preset.melee, transform.position, player.MainCamera.transform.position);
+        player.Rigidbody.AddForce(preset.meleeForce * new Vector2(playerAim.IsFlipped ? -1 : 1, 1), ForceMode2D.Impulse);
+
+        var cols = Physics2D.OverlapCircleAll(transform.position, preset.meleeRange);
+
+        foreach (var col in cols)
+        {
+            var forward = transform.TransformDirection(Vector3.right);
+            var toOther = Vector3.Normalize(col.transform.position - transform.position);
+
+            if (Vector3.Dot(forward, toOther) <= 0)
+            {
+                // Target is in back, so we ignore it
+                continue;
+            }
+
+            // Target is in front
+            var damagable = col.GetComponent<IDamagable>();
+            damagable?.Damage(player, preset.meleeDamage);
+        }
+    }
+
+    public bool CanMelee() => preset.melee;
 }

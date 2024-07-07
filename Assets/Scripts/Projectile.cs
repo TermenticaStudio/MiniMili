@@ -53,26 +53,12 @@ public class Projectile : PoolObject
             return;
 
         CreateImpact(collision.collider, collision.GetContact(0).point, collision.GetContact(0).point - (Vector2)transform.position);
-
         DestroySelf();
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!isInit)
-            return;
-
-        var damagable = collision.GetComponent<IDamagable>();
+        var damagable = collision.gameObject.GetComponent<IDamagable>();
 
         if (damagable != null)
-        {
-            if (damagable.Damage(owner, damage))
-            {
-                GetTriggerContactPoint(collision, out var pos, out var normal);
-                CreateImpact(collision, pos, (Vector2)transform.position - normal);
-                DestroySelf();
-            }
-        }
+            damagable.Damage(owner, damage);
     }
 
     private void CreateImpact(Collider2D collider, Vector2 position, Vector2 normal)

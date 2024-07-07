@@ -10,6 +10,7 @@ public class WeaponPreset : ScriptableObject
     const string RECOIL_GROUP = "Recoil";
     const string RELOADING_GROUP = "Reloading";
     const string SFX_GROUP = "SFX";
+    const string MELEE_GROUP = "Melee";
     const string INFO_GROUP = "Info";
 
     [FoldoutGroup(SETTINGS_GROUP)]
@@ -63,6 +64,15 @@ public class WeaponPreset : ScriptableObject
     [FoldoutGroup(RELOADING_GROUP)]
     public float reloadTime = 2f;
 
+    [FoldoutGroup(MELEE_GROUP)]
+    [LabelText("Enable")] public bool enableMelee;
+    [FoldoutGroup(MELEE_GROUP), ShowIf("@enableMelee")]
+    [LabelText("Force")] public Vector2 meleeForce;
+    [FoldoutGroup(MELEE_GROUP), ShowIf("@enableMelee")]
+    [LabelText("Damage")] public float meleeDamage;
+    [FoldoutGroup(MELEE_GROUP), ShowIf("@enableMelee")]
+    [LabelText("Range")] public float meleeRange;
+
     [LabelText("Fire SFX's")]
     [FoldoutGroup(SFX_GROUP)]
     public AudioClip[] fireSFXs;
@@ -70,6 +80,10 @@ public class WeaponPreset : ScriptableObject
     public AudioClip reloadSFX;
     [FoldoutGroup(SFX_GROUP)]
     public AudioClip dryFire;
+    [FoldoutGroup(SFX_GROUP)]
+    public AudioClip changeZoom;
+    [FoldoutGroup(SFX_GROUP)]
+    public AudioClip melee;
 
     [FoldoutGroup(INFO_GROUP)]
     public Sprite icon;

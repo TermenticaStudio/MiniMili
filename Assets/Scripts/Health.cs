@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool canRegenerateHealth;
     [SerializeField] private float regeneratePerSecond;
     [SerializeField] private AudioClip[] deathSFX;
+    [SerializeField] private bool destroyOnDie;
 
     private float currentHealth;
     private bool isDead = true;
@@ -96,5 +97,8 @@ public class Health : MonoBehaviour
 
         OnUpdateHealth?.Invoke(currentHealth, health);
         OnDie?.Invoke();
+
+        if (destroyOnDie)
+            Destroy(gameObject);
     }
 }

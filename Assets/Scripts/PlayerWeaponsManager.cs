@@ -72,6 +72,9 @@ public class PlayerWeaponsManager : MonoBehaviour
 
         if (PlayerInput.Instance.IsReplacing)
             PickupWeapon(availableWeaponToReplace);
+
+        if (PlayerInput.Instance.IsMeleeing)
+            activeWeapon.MeleeAttack();
     }
 
     private void UpdateActiveWeapon(int oldIndex, int newIndex)

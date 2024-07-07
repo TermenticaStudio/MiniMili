@@ -17,6 +17,7 @@ MonoBehaviour:
   fireMode: 0
   firePerBurst: 3
   burstCooldown: 0.2
+  accuracy: 1
   clipSize: 12
   clipsCount: 10
   zooms:
@@ -25,6 +26,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3661d7f74ea27b345b59c0076df87ef3, type: 2}
   isOwnedByDefault: 1
   pickup: {fileID: -3951959755030642125, guid: f9b4206d40fdb9246959cdf20ab243d4, type: 3}
+  enablePreFire: 0
+  preFireDuration: 1
   projectile: {fileID: 4575455049484285622, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
   projectileCountPerShot: 5
   minMaxAngleBetweenPerShot: {x: -10, y: 10}
