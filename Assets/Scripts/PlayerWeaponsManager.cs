@@ -190,7 +190,8 @@ public class PlayerWeaponsManager : MonoBehaviour
 
         if (newWeapon.ID == weapon.ID && newWeapon.IsOwned)
         {
-            PickupWeapon(weapon);
+            if (newWeapon.Preset.isFirearm)
+                PickupWeapon(weapon);
             return;
         }
 
