@@ -74,6 +74,8 @@ public class WeaponPreset : ScriptableObject
     [LabelText("Damage")] public float meleeDamage;
     [FoldoutGroup(MELEE_GROUP), ShowIf("@enableMelee")]
     [LabelText("Range")] public float meleeRange;
+    [FoldoutGroup(MELEE_GROUP), ShowIf("@enableMelee")]
+    [LabelText("Rotation Curve")] public AnimationCurve meleeRotationCurve = new AnimationCurve(new Keyframe[] { new Keyframe(0, 0), new Keyframe(0.1f, 70), new Keyframe(0.26f, -25), new Keyframe(1, 0) });
 
     [LabelText("Fire SFX's")]
     [FoldoutGroup(SFX_GROUP)]

@@ -379,7 +379,11 @@ public class PlayerWeapon : MonoBehaviour
         if (!CanMelee())
             return;
 
-        Recoil(100);
+        DOVirtual.Float(0, 1, 0.8f, value =>
+        {
+            recoilPivot.DOLocalRotate(Vector3.forward * preset.meleeRotationCurve.Evaluate(value), 0);
+        });
+
         AudioManager.Instance.Play2DSFX(preset.melee, transform.position, player.MainCamera.transform.position);
         player.Rigidbody.AddForce(preset.meleeForce * new Vector2(playerAim.IsFlipped ? -1 : 1, 1), ForceMode2D.Impulse);
 

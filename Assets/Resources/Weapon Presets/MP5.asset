@@ -42,6 +42,12 @@ MonoBehaviour:
   meleeForce: {x: 0, y: 0}
   meleeDamage: 0
   meleeRange: 0
+  meleeRotationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   fireSFXs:
   - {fileID: 8300000, guid: 23ad62df781ff7446b2119de8bc1417d, type: 3}
   reloadSFX: {fileID: 8300000, guid: ab008130c5b96cf498ddf047ba249234, type: 3}
