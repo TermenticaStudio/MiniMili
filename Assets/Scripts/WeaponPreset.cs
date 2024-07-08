@@ -16,6 +16,8 @@ public class WeaponPreset : ScriptableObject
     [FoldoutGroup(SETTINGS_GROUP)]
     public string id;
     [FoldoutGroup(SETTINGS_GROUP)]
+    public bool isFirearm;
+    [FoldoutGroup(SETTINGS_GROUP)]
     public int fireRate;
     [FoldoutGroup(SETTINGS_GROUP)]
     public FireMode fireMode;

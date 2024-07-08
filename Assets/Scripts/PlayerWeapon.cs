@@ -111,6 +111,9 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Fire()
     {
+        if (!preset.isFirearm)
+            return;
+
         if (fireCoroutine == null)
             fireCoroutine = StartCoroutine(FireCoroutine());
     }
