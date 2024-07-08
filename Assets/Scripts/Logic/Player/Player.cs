@@ -1,9 +1,11 @@
+using Logic.Player.ThrowablesSystem;
+using Logic.Player.WeaponsSystem;
 using UnityEngine;
 
 namespace Logic.Player
 {
     [RequireComponent(typeof(Health), typeof(PlayerInfo), typeof(Rigidbody2D))]
-    [RequireComponent(typeof(PlayerWeaponsManager))]
+    [RequireComponent(typeof(WeaponsManager))]
     public class Player : MonoBehaviour
     {
         public string Id { get; set; }
@@ -11,16 +13,18 @@ namespace Logic.Player
         public Health Health { get; private set; }
         public PlayerInfo Info { get; private set; }
         public Rigidbody2D Rigidbody { get; private set; }
-        public PlayerWeaponsManager WeaponsManager { get; private set; }
-        public Camera MainCamera { get; private set; }
+        public WeaponsManager WeaponsManager { get; private set; }
+        public ThrowablesManager Throwables { get; private set; }
+        public PlayerAim Aim { get; private set; }
 
         private void Start()
         {
             Health = GetComponent<Health>();
             Info = GetComponent<PlayerInfo>();
             Rigidbody = GetComponent<Rigidbody2D>();
-            WeaponsManager = GetComponent<PlayerWeaponsManager>();
-            MainCamera = Camera.main;
+            WeaponsManager = GetComponent<WeaponsManager>();
+            Throwables = GetComponent<ThrowablesManager>();
+            Aim = GetComponent<PlayerAim>();
 
             PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawn;
 
@@ -42,6 +46,7 @@ namespace Logic.Player
             Info.SetPlayerName(PlayerPrefs.GetString("PLAYER_NAME"));
             CameraController.Instance.SetTarget(obj.transform);
             WeaponsManager.OnStartPlayer();
+            Throwables.OnStartPlayer();
         }
 
         private void OnUpdateHealth(float arg1, float arg2)

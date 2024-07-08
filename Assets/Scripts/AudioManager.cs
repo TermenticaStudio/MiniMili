@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
+        SetCamera(Camera.main.transform);
         transform.SetParent(null);
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -20,6 +21,8 @@ public class AudioManager : MonoBehaviour
     #endregion
 
     [SerializeField] private AudioSource sfxSource;
+
+    private Transform currentCamera;
 
     public void PlaySFX(AudioClip clip, float volume = 1f)
     {
@@ -29,11 +32,16 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(clip, volume);
     }
 
-    public void Play2DSFX(AudioClip clip, Vector3 pos, Vector3 camPos, float volume = 1f)
+    public void Play2DSFX(AudioClip clip, Vector3 pos, float volume = 1f)
     {
         if (!clip)
             return;
 
-        AudioSource.PlayClipAtPoint(clip, new Vector3(pos.x, pos.y, camPos.z + 2), volume);
+        AudioSource.PlayClipAtPoint(clip, new Vector3(pos.x, pos.y, currentCamera.transform.position.z + 2), volume);
+    }
+
+    public void SetCamera(Transform cam)
+    {
+        currentCamera = cam;
     }
 }

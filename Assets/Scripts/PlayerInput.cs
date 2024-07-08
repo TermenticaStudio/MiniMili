@@ -14,6 +14,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Button quitButton;
     [SerializeField] private Button replaceWeaponButton;
     [SerializeField] private Button meleeButton;
+    [SerializeField] private Button switchThrowablesButton;
+    [SerializeField] private Button throwButton;
 
     public Vector2 MovementJoystickDirection { get => movementJoystick.Direction; }
 
@@ -31,6 +33,10 @@ public class PlayerInput : MonoBehaviour
 
     public bool IsMeleeing { get; private set; }
 
+    public bool IsSwitchingThrowables { get; private set; }
+
+    public bool IsThrowing { get; private set; }
+
     private void Awake()
     {
         Instance = this;
@@ -43,6 +49,8 @@ public class PlayerInput : MonoBehaviour
         zoomButton.onClick.AddListener(ChangeZoomInput);
         replaceWeaponButton.onClick.AddListener(ReplaceInput); ;
         meleeButton.onClick.AddListener(MeleeInput);
+        switchThrowablesButton.onClick.AddListener(SwitchThrowablesInput);
+        throwButton.onClick.AddListener(ThrowInput);
 
         quitButton.onClick.AddListener(() =>
         {
@@ -148,5 +156,39 @@ public class PlayerInput : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         IsMeleeing = false;
+    }
+
+    private void SwitchThrowablesInput()
+    {
+        if (IsSwitchingThrowables)
+            return;
+
+        StartCoroutine(SwitchThrowablesCoroutine());
+    }
+
+    private IEnumerator SwitchThrowablesCoroutine()
+    {
+        IsSwitchingThrowables = true;
+
+        yield return new WaitForEndOfFrame();
+
+        IsSwitchingThrowables = false;
+    }
+
+    private void ThrowInput()
+    {
+        if (IsThrowing)
+            return;
+
+        StartCoroutine(ThrowCoroutine());
+    }
+
+    private IEnumerator ThrowCoroutine()
+    {
+        IsThrowing = true;
+
+        yield return new WaitForEndOfFrame();
+
+        IsThrowing = false;
     }
 }

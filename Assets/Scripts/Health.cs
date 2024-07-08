@@ -92,7 +92,7 @@ public class Health : MonoBehaviour
         if (deathSFX.Length > 0)
         {
             var randomClip = deathSFX[Random.Range(0, deathSFX.Length)];
-            AudioManager.Instance.Play2DSFX(randomClip, transform.position, Camera.main.transform.position);
+            AudioManager.Instance.Play2DSFX(randomClip, transform.position);
         }
 
         OnUpdateHealth?.Invoke(currentHealth, health);

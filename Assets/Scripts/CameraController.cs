@@ -11,6 +11,8 @@ public class CameraController : MonoBehaviour
     {
         Instance = this;
         cam = GetComponent<CinemachineVirtualCamera>();
+
+        AudioManager.Instance.SetCamera(transform);
     }
 
     public void SetTarget(Transform t)

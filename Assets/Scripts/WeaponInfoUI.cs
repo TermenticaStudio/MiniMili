@@ -1,4 +1,6 @@
 using Logic.Player;
+using Logic.Player.ThrowablesSystem;
+using Logic.Player.WeaponsSystem;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -30,7 +32,13 @@ public class WeaponInfoUI : MonoBehaviour
     [SerializeField] private Image newWeaponImage;
     [SerializeField] private Button replaceWeaponBtn;
 
-    private PlayerWeaponsManager weaponsManager;
+    [Header("Throwable")]
+    [SerializeField] private Button switchThrowableBtn;
+    [SerializeField] private Image currentThrowableImage;
+    [SerializeField] private Button throwBtn;
+    [SerializeField] private TextMeshProUGUI throwablesCountTxt;
+
+    private Player player;
 
     private void Awake()
     {
@@ -52,32 +60,81 @@ public class WeaponInfoUI : MonoBehaviour
 
         PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
 
-        if (weaponsManager == null)
+        UnsubscribeThrowablesEvents();
+        UnsubscribeWeaponsEvents();
+    }
+
+    private void OnSpawnPlayer(PlayerInfo info)
+    {
+        player = info.GetComponent<Player>();
+
+        SubscribeThrowablesEvents();
+        SubscribeWeaponsEvents();
+
+        SetRespawnsLeftText(info.RespawnsLeft);
+    }
+
+    private void SubscribeWeaponsEvents()
+    {
+        if (player == null)
             return;
 
-        weaponsManager.OnChangeClipCount -= OnChangeClipsCount;
-        weaponsManager.OnChangeAmmoCount -= OnChangeAmmoCount;
-        weaponsManager.OnChangeWeapon -= OnChangeWeapon;
-        weaponsManager.OnWeaponNearby -= OnWeaponNearby;
-        weaponsManager.OnReloadWeapon -= OnReloadWeapon;
+        player.WeaponsManager.OnChangeClipCount += OnChangeClipsCount;
+        player.WeaponsManager.OnChangeAmmoCount += OnChangeAmmoCount;
+        player.WeaponsManager.OnChangeWeapon += OnChangeWeapon;
+        player.WeaponsManager.OnWeaponNearby += OnWeaponNearby;
+        player.WeaponsManager.OnReloadWeapon += OnReloadWeapon;
+        player.WeaponsManager.UpdateUI();
     }
 
-    private void OnSpawnPlayer(PlayerInfo obj)
+    private void UnsubscribeWeaponsEvents()
     {
-        weaponsManager = obj.GetComponent<PlayerWeaponsManager>();
+        if (player == null)
+            return;
 
-        weaponsManager.OnChangeClipCount += OnChangeClipsCount;
-        weaponsManager.OnChangeAmmoCount += OnChangeAmmoCount;
-        weaponsManager.OnChangeWeapon += OnChangeWeapon;
-        weaponsManager.OnWeaponNearby += OnWeaponNearby;
-        weaponsManager.OnReloadWeapon += OnReloadWeapon;
-
-        weaponsManager.UpdateUI();
-
-        SetRespawnsLeftText(obj.RespawnsLeft);
+        player.WeaponsManager.OnChangeClipCount -= OnChangeClipsCount;
+        player.WeaponsManager.OnChangeAmmoCount -= OnChangeAmmoCount;
+        player.WeaponsManager.OnChangeWeapon -= OnChangeWeapon;
+        player.WeaponsManager.OnWeaponNearby -= OnWeaponNearby;
+        player.WeaponsManager.OnReloadWeapon -= OnReloadWeapon;
     }
 
-    private void OnWeaponNearby(PlayerWeapon current, PlayerWeapon newWeapon)
+    private void SubscribeThrowablesEvents()
+    {
+        if (player == null)
+            return;
+
+        player.Throwables.OnChangeThrowable += OnChangeThrowables;
+        player.Throwables.OnUpdateThrowableCount += OnUpdateThrowableCount;
+        player.Throwables.UpdateUI();
+    }
+
+    private void UnsubscribeThrowablesEvents()
+    {
+        if (player == null)
+            return;
+
+        player.Throwables.OnChangeThrowable -= OnChangeThrowables;
+        player.Throwables.OnUpdateThrowableCount -= OnUpdateThrowableCount;
+    }
+
+    private void OnUpdateThrowableCount(int count)
+    {
+        throwablesCountTxt.text = count.ToString();
+    }
+
+    private void OnChangeThrowables(Throwable throwable)
+    {
+        var isEquiped = throwable != null;
+
+        currentThrowableImage.gameObject.SetActive(isEquiped);
+        throwBtn.gameObject.SetActive(isEquiped);
+
+        if (isEquiped)
+            currentThrowableImage.sprite = throwable.Preset.Icon;
+    }
+
+    private void OnWeaponNearby(Weapon current, Weapon newWeapon)
     {
         if (current == null && newWeapon == null)
         {
@@ -100,7 +157,7 @@ public class WeaponInfoUI : MonoBehaviour
         newWeaponImage.sprite = newWeapon.Preset.Icon;
     }
 
-    private void OnChangeWeapon(PlayerWeapon weapon)
+    private void OnChangeWeapon(Weapon weapon)
     {
         weaponNameText.text = weapon.Preset.Name;
         weaponIconImage.sprite = weapon.Preset.Icon;
