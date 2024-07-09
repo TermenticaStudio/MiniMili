@@ -64,7 +64,8 @@ namespace Logic.Player.ThrowablesSystem
             playerThrowables.UpdateCountUI(CurrentCount);
 
             var instance = Instantiate(preset.ThrowObject, playerThrowables.SpawnPoint.position, Quaternion.identity, null);
-            instance.Throw(playerThrowables.ThrowDirection, playerThrowables.Power);
+            instance.Throw(player, playerThrowables.ThrowDirection, playerThrowables.Power);
+            AudioManager.Instance.Play2DSFX(preset.ThrowSFX, transform.position);
 
             DOVirtual.Float(0, 1, 1, value =>
             {

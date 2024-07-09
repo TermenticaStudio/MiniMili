@@ -53,7 +53,7 @@ namespace Logic.Player.WeaponsSystem
             if (!isInit)
                 return;
 
-            CreateImpact(collision.collider, collision.GetContact(0).point, collision.GetContact(0).point - (Vector2)transform.position);
+            ImpactCreator.CreateImpact(collision.collider, collision.GetContact(0).point, collision.GetContact(0).point - (Vector2)transform.position);
             DestroySelf();
 
             var damagable = collision.gameObject.GetComponent<IDamagable>();
@@ -62,31 +62,9 @@ namespace Logic.Player.WeaponsSystem
                 damagable.Damage(owner, damage);
         }
 
-        private void CreateImpact(Collider2D collider, Vector2 position, Vector2 normal)
-        {
-            var surface = collider.gameObject.GetComponent<Surface>();
-
-            if (surface == null)
-                return;
-
-            var id = Impacts.IMPACT_POOLING[surface.surfaceImpact];
-
-            if (string.IsNullOrEmpty(id))
-                throw new System.Exception("Projectile:: CreateImpact:: id is null");
-
-            var instance = PrefabPool.Instance.Get(id);
-            instance.transform.SetPositionAndRotation(position, Quaternion.FromToRotation(Vector2.up, normal) * Quaternion.Euler(0, 0, Random.Range(-30, 30)));
-        }
-
         private void DestroySelf()
         {
             gameObject.SetActive(false);
-        }
-
-        public void GetTriggerContactPoint(Collider2D collider, out Vector2 point, out Vector2 normal)
-        {
-            point = collider.ClosestPoint(transform.position);
-            normal = (Vector2)transform.position - point;
         }
     }
 }
