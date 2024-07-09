@@ -5,22 +5,22 @@ public class HitPoint : MonoBehaviour, IDamagable
 {
     [SerializeField] private float damageMultiplier = 1f;
 
-    private Health health;
     private Player owner;
+    private Health health;
 
     private void Start()
     {
-        health = GetComponentInParent<Health>();
         owner = GetComponentInParent<Player>();
+        health = GetComponentInParent<Health>();
     }
 
-    public bool Damage(Player owner, float damage)
+    public bool Damage(Player damageBy, float damage, bool ignoreDamageBy = false)
     {
-        if (owner != null)
-            if (this.owner == owner)
+        if (!ignoreDamageBy)
+            if (damageBy != null && owner == damageBy)
                 return false;
 
-        health.Damage(damage * damageMultiplier, owner);
+        health.Damage(damage * damageMultiplier, damageBy);
         return true;
     }
 }

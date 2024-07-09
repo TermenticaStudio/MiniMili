@@ -56,7 +56,7 @@ namespace Logic.Player
 
         private void OnDie()
         {
-            if (Health.LastDamageBy == null)
+            if (Health.LastDamageBy == null || Health.LastDamageBy == this)
             {
                 InGameMessage.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Suicide), Info.GetPlayerName());
             }

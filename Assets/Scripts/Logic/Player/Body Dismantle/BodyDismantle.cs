@@ -43,8 +43,9 @@ namespace Logic.Player.BodyDismantle
             foreach (var item in dismantles)
             {
                 var copy = Instantiate(item.Part, item.Part.transform.position, item.Part.transform.rotation, null);
-                var rigid = copy.AddComponent<Rigidbody2D>();
+                var rigid = copy.GetComponent<Rigidbody2D>() ?? copy.AddComponent<Rigidbody2D>();
                 rigid.velocity = player.Rigidbody.velocity;
+                rigid.isKinematic = false;
                 rigid.AddForce(item.ForceDirection * dismantleForce, ForceMode2D.Impulse);
                 var collider = copy.GetComponentInChildren<Collider2D>();
                 collider.isTrigger = false;

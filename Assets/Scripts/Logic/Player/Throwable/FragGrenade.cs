@@ -45,7 +45,7 @@ namespace Logic.Player.ThrowablesSystem
                 //ImpactCreator.CreateImpact(col, hit.point, hit.normal);
 
                 var damagable = col.GetComponent<IDamagable>();
-                damagable?.Damage(owner, damage);
+                damagable?.Damage(owner, damage, true);
             }
 
             OnExplode?.Invoke();

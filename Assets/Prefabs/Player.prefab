@@ -37509,7 +37509,6 @@ MonoBehaviour:
   fuelUsageMultiplier: 1
   fuelChargeMutliplier: 0.6
   fallingMaxVelocity: 10
-  jetpackParticles: []
   jetpackFlames:
   - {fileID: 6597541003815432856}
   - {fileID: 3137152206198067316}
@@ -37675,7 +37674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dismantles:
-  - Part: {fileID: 5574011779380046024}
+  - Part: {fileID: 1211317273953026141}
     ForceDirection: {x: 0, y: 1}
   - Part: {fileID: 3830654422954632378}
     ForceDirection: {x: -0.5, y: -0.5}
