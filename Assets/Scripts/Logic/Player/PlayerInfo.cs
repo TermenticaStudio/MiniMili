@@ -36,6 +36,11 @@ namespace Logic.Player
         {
             currentName = name;
             nameText.text = name;
+
+            if (IsLocal)
+                HideName();
+            else
+                ShowName();
         }
 
         public string GetPlayerName()
