@@ -6,7 +6,7 @@ public class JetpackFlame : MonoBehaviour
     [SerializeField] private ParticleSystem flame;
     [SerializeField] private Vector3 minPowerSize;
     [SerializeField] private Vector3 maxPowerSize;
-    private bool isActive;
+    private bool isActive = true;
 
     [Header("Smoke")]
     [SerializeField] private ParticleSystem smoke;

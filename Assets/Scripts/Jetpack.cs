@@ -10,7 +10,6 @@ public class Jetpack : MonoBehaviour
     [SerializeField] private float fuelUsageMultiplier = 2f;
     [SerializeField] private float fuelChargeMutliplier = 1f;
     [SerializeField] private float fallingMaxVelocity;
-    [SerializeField] private ParticleSystem[] jetpackParticles;
     [SerializeField] private JetpackFlame[] jetpackFlames;
 
     private float initFuel;
@@ -146,15 +145,7 @@ public class Jetpack : MonoBehaviour
     private void JetpackParticles()
     {
         foreach (var flame in jetpackFlames)
-        {
             flame.SetPower(Mathf.Clamp01(PlayerInput.Instance.GetMovement().y));
-        }
-
-        foreach (var item in jetpackParticles)
-        {
-            var emission = item.emission;
-            emission.enabled = jetPackActive;
-        }
     }
 
     //[Command]
