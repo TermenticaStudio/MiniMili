@@ -49,6 +49,7 @@ namespace Logic.Player.WeaponsSystem
         private Transform defaultParent;
         private Vector3 defaultPos;
         private bool preFirePending;
+        private bool isMeleeing;
 
         public int CurrentAmmoCount { get; private set; }
         public int CurrentClipsCount { get; private set; }
@@ -79,10 +80,10 @@ namespace Logic.Player.WeaponsSystem
 
         private void OnPlayerDie()
         {
-            if (!IsActive)
-                return;
+            if (IsActive)
+                Drop();
 
-            Drop();
+            DisownWeapon();
         }
 
         private void OnDisable()
@@ -116,7 +117,7 @@ namespace Logic.Player.WeaponsSystem
             if (!preset.isFirearm)
                 return;
 
-            if (fireCoroutine == null)
+            if (fireCoroutine == null && reloadCoroutine == null)
                 fireCoroutine = StartCoroutine(FireCoroutine());
         }
 
@@ -381,9 +382,13 @@ namespace Logic.Player.WeaponsSystem
             if (!CanMelee())
                 return;
 
-            DOVirtual.Float(0, 1, 0.8f, value =>
+            isMeleeing = true;
+            DOVirtual.Float(0, 1, preset.meleeRotationCurve.keys[preset.meleeRotationCurve.length - 1].time, value =>
             {
                 recoilPivot.DOLocalRotate(Vector3.forward * preset.meleeRotationCurve.Evaluate(value), 0);
+            }).OnComplete(() =>
+            {
+                isMeleeing = false;
             });
 
             AudioManager.Instance.Play2DSFX(preset.melee, transform.position);
@@ -408,6 +413,6 @@ namespace Logic.Player.WeaponsSystem
             }
         }
 
-        public bool CanMelee() => preset.melee;
+        public bool CanMelee() => preset.melee && !isMeleeing;
     }
 }

@@ -46,8 +46,8 @@ public class PlayerAim : MonoBehaviour
 
         var rot_z = Mathf.Atan2(lastAimDirection.y, lastAimDirection.x) * Mathf.Rad2Deg;
         rightHand.rotation = Quaternion.Euler(0, 0, rot_z);
-        leftHand.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(rot_z, leftHandMinMaxRotation.x, leftHandMinMaxRotation.y));
-        headPivot.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(rot_z, minMaxRotationLimit.x, minMaxRotationLimit.y));
+        leftHand.localRotation = Quaternion.Euler(0, 0, Mathf.Clamp(rot_z, leftHandMinMaxRotation.x, leftHandMinMaxRotation.y));
+        headPivot.localRotation = Quaternion.Euler(0, 0, Mathf.Clamp(rot_z, minMaxRotationLimit.x, minMaxRotationLimit.y));
 
         var dot = Vector2.Dot(rightHand.right, Vector2.right);
 
@@ -60,8 +60,8 @@ public class PlayerAim : MonoBehaviour
         if (isFlipped)
         {
             rightHand.rotation = Quaternion.Euler(0, 0, rot_z + 180);
-            leftHand.rotation = Quaternion.Euler(0, 0, rot_z + 180);
-            headPivot.rotation = Quaternion.Euler(0, 0, rot_z + 180);
+            //leftHand.localRotation = Quaternion.Euler(0, 0, rot_z + 180);
+            //headPivot.localRotation = Quaternion.Euler(0, 0, rot_z + 180);
 
             rightHand.localScale = Vector3.one;
             leftHand.localScale = Vector3.one;

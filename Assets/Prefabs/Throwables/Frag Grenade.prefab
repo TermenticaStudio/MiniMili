@@ -115,7 +115,7 @@ MonoBehaviour:
   explosionSFX: {fileID: 8300000, guid: aeddf4af074fe1143900019a88de20f1, type: 3}
   damage: 10
   range: 2
-  fuzeTimer: 3.5
+  fuzeTimer: 1.5
   OnExplode:
     m_PersistentCalls:
       m_Calls:
