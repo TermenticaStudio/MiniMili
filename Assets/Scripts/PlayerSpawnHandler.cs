@@ -14,6 +14,7 @@ public class PlayerSpawnHandler : MonoBehaviour
     [SerializeField] private int respawnCount = 3;
 
     [Header("UI")]
+    [SerializeField] private float displayRespawnDelay = 2;
     [SerializeField] private GameObject respawnUI;
     [SerializeField] private TextMeshProUGUI respawnTimerText;
 
@@ -73,6 +74,8 @@ public class PlayerSpawnHandler : MonoBehaviour
 
     private IEnumerator RespawnPlayerCoroutine(PlayerInfo player)
     {
+        yield return new WaitForSeconds(displayRespawnDelay);
+
         var currTime = respawnTimer;
 
         while (currTime > 0)
@@ -131,7 +134,7 @@ public class PlayerSpawnHandler : MonoBehaviour
 
     private void ShowRespawnTimer(float time)
     {
-        respawnTimerText.text = $"{Convert.ToInt32(time)}s";
+        respawnTimerText.text = $"{Convert.ToInt32(time)}...";
         respawnUI.SetActive(true);
     }
 

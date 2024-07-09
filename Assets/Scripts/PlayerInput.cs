@@ -11,7 +11,6 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Button reloadButton;
     [SerializeField] private Button swichButton;
     [SerializeField] private Button zoomButton;
-    [SerializeField] private Button quitButton;
     [SerializeField] private Button replaceWeaponButton;
     [SerializeField] private Button meleeButton;
     [SerializeField] private Button switchThrowablesButton;
@@ -51,16 +50,6 @@ public class PlayerInput : MonoBehaviour
         meleeButton.onClick.AddListener(MeleeInput);
         switchThrowablesButton.onClick.AddListener(SwitchThrowablesInput);
         throwButton.onClick.AddListener(ThrowInput);
-
-        quitButton.onClick.AddListener(() =>
-        {
-            //var localPlayer = FindObjectsOfType<PlayerInfo>().SingleOrDefault(x=>x.isLocalPlayer);
-
-            //if (localPlayer.isServer)
-            //    NetworkManager.singleton.StopHost();
-            //else
-            //    NetworkManager.singleton.StopClient();
-        });
     }
 
     public Vector2 GetMovement()

@@ -1,0 +1,4087 @@
+fileFormatVersion: 2
+guid: a8ee4795e9beb8949850f82fb6fd9584
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Generic-540p_0
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1042
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a9b6f1149638b4495424ba2cd8d4ad
+      internalID: -353281948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_1
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 903
+        width: 231
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa35e5e82bd4664ea8e61f042f18f14
+      internalID: -2140374145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_2
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 944
+        width: 154
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 815401c3f1448084ca8270feb7fb5768
+      internalID: 1237478416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_3
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 987
+        width: 180
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8767d1c222f3cf644afd2031eb6ccbc1
+      internalID: -826952992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_4
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 990
+        width: 75
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc903314a84fbdb4289e3c1211c244ec
+      internalID: -1296892362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_5
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 1019
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b379f6e94cdd94e81615a6c70cbeaf
+      internalID: -1922111718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_6
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 1000
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e738bba7fa54c64f815bd33e1ef677c
+      internalID: -1037212432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_7
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 979
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d6fa3f3788b684aabbccc16135bbbf
+      internalID: 1456997952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_8
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 988
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d58045b830301b4ba3b14108088e6ea
+      internalID: -2056869307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_9
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 964
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade62b0b21c11b543b667ded4262c55a
+      internalID: -1728771661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 968
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6a4135c55a69a438e7899feca593d3
+      internalID: 536341682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_11
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 972
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f52d5348264af46b50a9b9c3e9c3dd
+      internalID: -130100195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_12
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 914
+        width: 178
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b974be96e3bc864e9588d85c3991f3f
+      internalID: -480980265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_13
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 918
+        width: 79
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b326f3861061b4a42aefb29197a26ffa
+      internalID: -1566811763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_14
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 955
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 080aeaf320f48e846bd4c24db048e00e
+      internalID: -2083340489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_15
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 957
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3843b5adf8bc1140af0b96e3027375e
+      internalID: 1400930087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_16
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 958
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672d0a84a419a3f4ea6203f4df9bff96
+      internalID: 463313407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_17
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 959
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c51ccd3336fd64c83f5d539803967e
+      internalID: 797453291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_18
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 959
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e4c35e1b9c17e34685048b41afe892c
+      internalID: 1034906986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_19
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 960
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 143acc5c85f4bcf419be06c542a4c862
+      internalID: 1312218276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_20
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 961
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f92025bc79d9014bb3a0ca1d3b5689e
+      internalID: -1942318781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_21
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 962
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace93e049f54003468b8cc8d80752b08
+      internalID: 2086462637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_22
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 942
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 762399b6bf01ad742899640057998fc2
+      internalID: -407547729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_23
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 948
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1bcf6775573f264f86efc994ffcaff5
+      internalID: 394694572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_24
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 952
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 461fd1bdda1daa84b8c269aee40dd81e
+      internalID: -1905979944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_25
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 924
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58048c82c2687bd46b0b59b0c7100188
+      internalID: 81744975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_26
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 934
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7651dd7d95188141a5a7535d565d434
+      internalID: -1085449593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_27
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 913
+        width: 139
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9215ff90835a79544a7b7a25730e92a7
+      internalID: -474784322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_28
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 910
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aadeac029016a2429c19e1d5c1c80f5
+      internalID: 1878472994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_29
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 891
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee9281a9bd90b9847b3da1bc660c82bb
+      internalID: -566130528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_30
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 754
+        width: 209
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9586b313d8fc04040bf59cfb65c0c396
+      internalID: 954597422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_31
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 805
+        width: 120
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c59b944344961743bcbaf0faba7b33b
+      internalID: -37837323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_32
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 779
+        width: 106
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38409eb03efe14f4a92f740faa4ccb69
+      internalID: -34859204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_33
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 819
+        width: 137
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bdc43bbcc0d79246bd13072026d3d17
+      internalID: 173685301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_34
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 863
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239f5ae3f5b4dc84db579b9e76a228ca
+      internalID: 1299404187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_35
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 868
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0995a60ff8eeca46a0432d78a6c0a5b
+      internalID: 122628955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 826
+        width: 44
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b27d613db863c4b9dbd97d6fc2bb56
+      internalID: 1687650737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_37
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 779
+        width: 54
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c09467bbd3b12d418671c1fcb5e1cf6
+      internalID: -1766360276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_38
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 779
+        width: 54
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a50f87a68f86b419056e59ac888de9
+      internalID: -1000326413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_39
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 825
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f832d470e148ca4cbd11daee2a82936
+      internalID: -679892029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 626
+        width: 245
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d4a6181a487e2b40a550cd09f671b3c
+      internalID: 370254398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_41
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 628
+        width: 231
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b2e1ca89e4bf1440835faea51944438
+      internalID: -1741012148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_42
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 782
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f7682fb0d106164496334bfedfaba72
+      internalID: 247952772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_43
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 769
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc9e89423cfe6404197787f9993913a7
+      internalID: 598838542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_44
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 756
+        width: 164
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87fa373050430d045999de4b88a1a616
+      internalID: 430835188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_45
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 738
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f76862735d153744b1fd126cb99ed0a
+      internalID: -607998276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_46
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 755
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae110b4d25a571545a07905e0bea6258
+      internalID: 1819346529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_47
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 754
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37520907260ac9b498432e97381afe20
+      internalID: -644122661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_48
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 757
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5987426f4b425054d99d71c16d2b45d3
+      internalID: 747006362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_49
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 762
+        width: 32
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59a38ae40ac77d4486b0149a8c1d747
+      internalID: 1634740502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_50
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 714
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78fb84394be0344499f8403a79db6e24
+      internalID: -2067552923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_51
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 651
+        width: 223
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 432800cde96be114c9e6578592e15dc4
+      internalID: -658733121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_52
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 715
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a9d7e23d3af70d4e9ebb1a48d8019b0
+      internalID: -702280231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_53
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 715
+        width: 11
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292350e7b12dade4caf2da57715071ea
+      internalID: -15198262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_54
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 715
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05acd35aea382664fbdd5181aa7b25d5
+      internalID: -92760209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_55
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 715
+        width: 12
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b383d33dc16d642850c1e3b818ab6a
+      internalID: 1783877307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_56
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 715
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a321b0915a24f542ba259635dd808b7
+      internalID: 948548118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_57
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 715
+        width: 12
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdc12a8361249e34ea324985ce76b13d
+      internalID: -746075121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_58
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 715
+        width: 18
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b54a8143fd437d74c8c0f56eff3b751d
+      internalID: 1545977891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_59
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 715
+        width: 11
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcec8c005887f4f44bca5e54cb4e9569
+      internalID: -993947582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_60
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 715
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4768a4a22c1c7fc4cb52b73ed1131537
+      internalID: 1641538359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_61
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 715
+        width: 12
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 483051d11976a6d45bffb41cd2141e99
+      internalID: -1850776599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_62
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 715
+        width: 27
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 899b49ca1dd1a3e4ba61c2b5f0b04c28
+      internalID: 261306217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_63
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 696
+        width: 118
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b30a1a6be93b4f842be5a8c1410c6f2c
+      internalID: -538024633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_64
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 713
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44c99c23c887fb49bb08a37fb7c0c82
+      internalID: -595710624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_65
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 700
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c6ad389b51c9bd43b7c0e5b646c2469
+      internalID: 1401520911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_66
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 695
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed581f02870d824ba41d18e70d9893a
+      internalID: 498520253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_67
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 695
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c25b9ec1814b64489f14bbbe7ba91d
+      internalID: 999342949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_68
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 695
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d1554f33eb42441863745cdeccb4b4
+      internalID: -65655529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_69
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 695
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5258ac05924164d8d423490e01f401
+      internalID: 1165559061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_70
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 695
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32af263ec5850ad44a3778782d739f90
+      internalID: 989271917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_71
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 695
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa1c09e7a55b9bb458ff7ca7dacfbc65
+      internalID: 97610324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_72
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 695
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 753cfc29b1a09e343b304ab272f6b7ca
+      internalID: -768481280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_73
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 695
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc047532575d6b4ca31a64e4880d7ba
+      internalID: -167052061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_74
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 695
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3420ec1b970fe34dba0a4766e3d970e
+      internalID: 273182642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_75
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 684
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46847e8f1e9394f42b190bdbeafb7f1d
+      internalID: -1850553271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_76
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 628
+        width: 180
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9295ce9290fe994ba752a2e6aae4863
+      internalID: -1599839672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_77
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 628
+        width: 168
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99001d471d37b54883689bc2b137ea9
+      internalID: 1369311097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_78
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 629
+        width: 62
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ce7becdca99cb64f80bfb6bc0133f4f
+      internalID: 89076231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_79
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 669
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6915143df1c2774ea139e5e59bdb6fe
+      internalID: 1010040152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_80
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 654
+        width: 5
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8946766dbfa552d42aa45626d27e8ab3
+      internalID: -299539924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_81
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 654
+        width: 5
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e759129b557e0d4d89d33f9c156fe35
+      internalID: 127943445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_82
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 630
+        width: 173
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab41fa844affb60409999e401f677498
+      internalID: -1511737081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_83
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 627
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4fe778990ef2c141b3667eba1741eee
+      internalID: 1531174057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 447
+        width: 248
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfe780a428b3fbf41b38b7867f205920
+      internalID: -1934311297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_85
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 496
+        width: 265
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 405e9e3e70e6959419a91e0206e02dc9
+      internalID: 632314798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_86
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 501
+        width: 166
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a196a93bdbb36f48af1d56bf448b305
+      internalID: 797839498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_87
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 523
+        width: 148
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7297eae11a130b941a7df04622746e67
+      internalID: 1285554613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_88
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 550
+        width: 167
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ea76b512f6884f49909aef140a2b430
+      internalID: 1173269758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_89
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 549
+        width: 134
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255ecc1dbbfa40c4ebdf04a8b2cd8fb2
+      internalID: -507837524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_90
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 497
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb64a6b23ad37e40b3e61d8acf780a8
+      internalID: 1192445769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_91
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 499
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2928812de38ac6a45ab6447ca1f8dea3
+      internalID: 1481353975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_92
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 497
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15684f55e279e5b40ae1c473cfb02e1c
+      internalID: -2078956617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_93
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 496
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98bac89d7a6a68048a4d1af08dd2e5a9
+      internalID: -190226238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_94
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 501
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81902dc8b7df7c4b82f39df1cade888
+      internalID: -1960883484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_95
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 507
+        width: 65
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d36d47aa6aec55459fac14325303594
+      internalID: -652741676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_96
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 497
+        width: 49
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1691bee8bf0b4ca42a00f4246677417d
+      internalID: 107691882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_97
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 498
+        width: 48
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 343e80675ae2d79469b1637a32fa6497
+      internalID: -2136540545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_98
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 498
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2981048b153d1104ba9391883a3b462c
+      internalID: -1070174617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_99
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 500
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd8c6135dd3e7fd40b1642bf88b114ad
+      internalID: -311851834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_100
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 508
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fe4fb581b984d749b893c730d9395b0
+      internalID: 1275143967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_101
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 306
+        width: 185
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb17a61c81d11d40af462e39afd61d2
+      internalID: 235849566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_102
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 375
+        width: 56
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fd753b4d6aa38a4e8f5bd49ada6f87e
+      internalID: -1094314720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_103
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 356
+        width: 155
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cde10e7effdbb4f44bc99e0ec308d9a6
+      internalID: -452878309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_104
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 354
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7c0e594bd701af48b5009e26d4f3d14
+      internalID: -1658535956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_105
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 411
+        width: 182
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca71df20191579e4a8420376146d6b13
+      internalID: -949414234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_106
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 382
+        width: 112
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40a2cdf811b83e349a0f8ba2d8756784
+      internalID: -9293403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_107
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 399
+        width: 117
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d85197acd2f3b014fa15df496337af66
+      internalID: -1044675095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_108
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 432
+        width: 153
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f555d46dbf99b449ac3dfbac741d5e
+      internalID: 1731577432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_109
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 307
+        width: 52
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9a2530f85f8564cbbc3939099b6237
+      internalID: -1408363396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_110
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 355
+        width: 110
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47db2afec7cf5e1499f06bff219e4dbd
+      internalID: -1924817345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_111
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 354
+        width: 53
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941d872a1642f97499ac875f8de13ba1
+      internalID: -1683066271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_112
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 354
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06832466b24c0e541b4e6d3cd2dff4ca
+      internalID: -2142221237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_113
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 354
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e652d3d7b9473f04c87a86f507c7b431
+      internalID: -1670814831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_114
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 366
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a9762bab54f384ab625072ddf38391
+      internalID: -1285411723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_115
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 356
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2508006e5a3f2d4c93435735e6e97f6
+      internalID: -2091308498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_116
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 358
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb6b297ac442254794478ef4779a83c
+      internalID: 203062967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_117
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 361
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 240665c23b3a97a42badd9b363a76d28
+      internalID: 1013582861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_118
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 347
+        width: 112
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6074a643e1c18684c8f2e12e2a6a2044
+      internalID: -1036118450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_119
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 360
+        width: 67
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 808700cd6b0ca704eb4af62c9543ffa0
+      internalID: 304422081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_120
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 221
+        width: 131
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79466e4fea632e64ead53f5891128a5b
+      internalID: 604012730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_121
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 328
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93624aefac7942240a8b864a8ba5d5ec
+      internalID: -1777342241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_122
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 251
+        width: 147
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 374fecb440616d44e95cf20463495901
+      internalID: -1053109085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_123
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 230
+        width: 105
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e174a1f6e365642aa6aefb85fa1e92
+      internalID: -2063576315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_124
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 264
+        width: 130
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ab266b0a08924e4785fd046e5cbd626
+      internalID: 1295117256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_125
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 283
+        width: 156
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f8b1621e2758a44b6cb6932b07cd7e
+      internalID: -1197547058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_126
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 256
+        width: 99
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0604a0e008235646a0ebc25b4f03775
+      internalID: -1622773773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_127
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 267
+        width: 82
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd94424bce9ef348b77a8621f5f4844
+      internalID: 1649846251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_128
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 221
+        width: 199
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf416fed82129041b376b83e267240e
+      internalID: -1789077176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_129
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 258
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e0359ebec91a647b77774d4a926dc2
+      internalID: 595764553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_130
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 303
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c3e668654c307645ae213d159a34f14
+      internalID: -1063255172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_131
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 280
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838f14b0838091c40a8791b2129da55b
+      internalID: -937574431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_132
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 258
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e353a6775b8f07444ad7cd535d2f2efa
+      internalID: 946074466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_133
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 191
+        width: 153
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df6820faec50144dac995296a0668d5
+      internalID: -882463185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_134
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 184
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd444078f1b8154aba264b34a5084f5
+      internalID: 1426407202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_135
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 218
+        width: 53
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c808f548ca3ef141be98c08bf582992
+      internalID: -1821176888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_136
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 218
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0d0c48dd4120914f93ba5448a941500
+      internalID: -1861031100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_137
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 218
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9209524f3dd7d174cb7481b54b9bb67b
+      internalID: -644500674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_138
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 220
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe68e7f8d8fb12942b823b53c5fe7949
+      internalID: 1906451656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_139
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 220
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6140d82cf5588d84fb423aaa514e8f8f
+      internalID: 1805453279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_140
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 220
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56271ec03047f040b2dc4cd6911440c
+      internalID: -1140791075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_141
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 222
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced0463ef44dad7459d459e5ab2aaaed
+      internalID: 600383392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_142
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 159
+        width: 91
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d290788fbcc49344b940ef36f3bcefc0
+      internalID: 1251164722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_143
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 192
+        width: 83
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0bb58b17e631f4f81b1d090305fb23
+      internalID: 589395364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_144
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 143
+        width: 200
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 080e799cda5c5fd4798d1be77c8cc3e6
+      internalID: -1669735167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_145
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 126
+        width: 146
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92dfca2eaf9576b4ea03470c628e8b2b
+      internalID: -666998897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_146
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 138
+        width: 162
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8d6cf703a0e524a959c8fe60111023
+      internalID: -130713452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_147
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 110
+        width: 106
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e1f896370f1dc241a27d7fb90fbe663
+      internalID: 323332625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_148
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 165
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d0ee032ea640d4bb4f87afc13ff8e1
+      internalID: 604059825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_149
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 102
+        width: 116
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11366722e5e651f40acfa4e84b273cf9
+      internalID: -677299345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_150
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 148
+        width: 31
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ef7f534bc29154981e26c58fbcd046
+      internalID: -2046909895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_151
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 89
+        width: 97
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72776b38d2d15f34fa9d4a316384c1d2
+      internalID: 28255115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_152
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 147
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44be7f44c7f2a404e828efb84f58aab3
+      internalID: -1824722854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_153
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 40
+        width: 124
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ed2ef2aeec1d5c469e76c8b48d03246
+      internalID: -425445468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_154
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 67
+        width: 67
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57b4c9eed036c24eb9bd0a8c3d57bc2
+      internalID: 593266071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_155
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 124
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caa0f813908c90841b1cd550f4554561
+      internalID: 250625103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_156
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 110
+        width: 33
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8b84da8e94a79418ea004ea6d548d5
+      internalID: -962109155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_157
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 109
+        width: 29
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4eb9b5a61b2135419bdf48b68e18b2c
+      internalID: 132092166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_158
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 101
+        width: 118
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f444cf35876979249a1e5b9dd0b61628
+      internalID: -396337261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_159
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 83
+        width: 62
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c27582f06ef0e45ad781d3a814f83f
+      internalID: 274894417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_160
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 2
+        width: 97
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f126005b2397f8148a2348d3497921c5
+      internalID: -1180675627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_161
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 50
+        width: 151
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcc587601755fb645ae16bd1a25e67cb
+      internalID: -1293799795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_162
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 71
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045f7b64c7b50dd408894d48448f9011
+      internalID: 1174161752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_163
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 14
+        width: 110
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea460afd9fe25648b003d4911fd2ccd
+      internalID: -2057915301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_164
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 64
+        width: 30
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36dedcdd60e92724d96a60a94f53240c
+      internalID: -292873052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_165
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 12
+        width: 105
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e129aaa330a09843b9c83a35d81c05a
+      internalID: -731632310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_166
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 53
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95863636f65908e4e877551ccf04adb4
+      internalID: -534457088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_167
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 11
+        width: 106
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4058b206e777284097e119afc659f7a
+      internalID: -890543310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_168
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 34
+        width: 88
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72bd520dbeac9424b8804e87820ef8c2
+      internalID: 1798182839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_169
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 13
+        width: 62
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa02697a92c3214bb590fcc93855f31
+      internalID: 1201030315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_170
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 7
+        width: 62
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ae46b7266baf34aa6c5acd19af73ad
+      internalID: 2083357270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_171
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 75
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b666720a2df104a85fd36c9e45c557
+      internalID: 1835859374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_172
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 4
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a2c94cbc855004bb37be9c0ba3ea4b
+      internalID: 1219219794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_173
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 9
+        width: 57
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f387d99ebeba34ca322a2fdc598cec
+      internalID: 618917884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_174
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 3
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d17890c0a738eab41b807779c43262e2
+      internalID: 818073810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_175
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 3
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526d6e5726a9ccb4faa443ffa05cb69b
+      internalID: 793346658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_176
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 3
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb541d6b4664ab49a5740b4b075e50c
+      internalID: -1479877214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_177
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 18
+        width: 48
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a56d1cb0dc5c84a419148cec3f219132
+      internalID: 342880297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_178
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 24
+        width: 33
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a89787be3ed9f0469c8b47d9c439c03
+      internalID: 1793453154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Generic-540p_179
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 14
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67018d048c61be8408cc64dfe08b2538
+      internalID: 1262828328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Generic-540p_0: -353281948
+      Generic-540p_1: -2140374145
+      Generic-540p_10: 536341682
+      Generic-540p_100: 1275143967
+      Generic-540p_101: 235849566
+      Generic-540p_102: -1094314720
+      Generic-540p_103: -452878309
+      Generic-540p_104: -1658535956
+      Generic-540p_105: -949414234
+      Generic-540p_106: -9293403
+      Generic-540p_107: -1044675095
+      Generic-540p_108: 1731577432
+      Generic-540p_109: -1408363396
+      Generic-540p_11: -130100195
+      Generic-540p_110: -1924817345
+      Generic-540p_111: -1683066271
+      Generic-540p_112: -2142221237
+      Generic-540p_113: -1670814831
+      Generic-540p_114: -1285411723
+      Generic-540p_115: -2091308498
+      Generic-540p_116: 203062967
+      Generic-540p_117: 1013582861
+      Generic-540p_118: -1036118450
+      Generic-540p_119: 304422081
+      Generic-540p_12: -480980265
+      Generic-540p_120: 604012730
+      Generic-540p_121: -1777342241
+      Generic-540p_122: -1053109085
+      Generic-540p_123: -2063576315
+      Generic-540p_124: 1295117256
+      Generic-540p_125: -1197547058
+      Generic-540p_126: -1622773773
+      Generic-540p_127: 1649846251
+      Generic-540p_128: -1789077176
+      Generic-540p_129: 595764553
+      Generic-540p_13: -1566811763
+      Generic-540p_130: -1063255172
+      Generic-540p_131: -937574431
+      Generic-540p_132: 946074466
+      Generic-540p_133: -882463185
+      Generic-540p_134: 1426407202
+      Generic-540p_135: -1821176888
+      Generic-540p_136: -1861031100
+      Generic-540p_137: -644500674
+      Generic-540p_138: 1906451656
+      Generic-540p_139: 1805453279
+      Generic-540p_14: -2083340489
+      Generic-540p_140: -1140791075
+      Generic-540p_141: 600383392
+      Generic-540p_142: 1251164722
+      Generic-540p_143: 589395364
+      Generic-540p_144: -1669735167
+      Generic-540p_145: -666998897
+      Generic-540p_146: -130713452
+      Generic-540p_147: 323332625
+      Generic-540p_148: 604059825
+      Generic-540p_149: -677299345
+      Generic-540p_15: 1400930087
+      Generic-540p_150: -2046909895
+      Generic-540p_151: 28255115
+      Generic-540p_152: -1824722854
+      Generic-540p_153: -425445468
+      Generic-540p_154: 593266071
+      Generic-540p_155: 250625103
+      Generic-540p_156: -962109155
+      Generic-540p_157: 132092166
+      Generic-540p_158: -396337261
+      Generic-540p_159: 274894417
+      Generic-540p_16: 463313407
+      Generic-540p_160: -1180675627
+      Generic-540p_161: -1293799795
+      Generic-540p_162: 1174161752
+      Generic-540p_163: -2057915301
+      Generic-540p_164: -292873052
+      Generic-540p_165: -731632310
+      Generic-540p_166: -534457088
+      Generic-540p_167: -890543310
+      Generic-540p_168: 1798182839
+      Generic-540p_169: 1201030315
+      Generic-540p_17: 797453291
+      Generic-540p_170: 2083357270
+      Generic-540p_171: 1835859374
+      Generic-540p_172: 1219219794
+      Generic-540p_173: 618917884
+      Generic-540p_174: 818073810
+      Generic-540p_175: 793346658
+      Generic-540p_176: -1479877214
+      Generic-540p_177: 342880297
+      Generic-540p_178: 1793453154
+      Generic-540p_179: 1262828328
+      Generic-540p_18: 1034906986
+      Generic-540p_19: 1312218276
+      Generic-540p_2: 1237478416
+      Generic-540p_20: -1942318781
+      Generic-540p_21: 2086462637
+      Generic-540p_22: -407547729
+      Generic-540p_23: 394694572
+      Generic-540p_24: -1905979944
+      Generic-540p_25: 81744975
+      Generic-540p_26: -1085449593
+      Generic-540p_27: -474784322
+      Generic-540p_28: 1878472994
+      Generic-540p_29: -566130528
+      Generic-540p_3: -826952992
+      Generic-540p_30: 954597422
+      Generic-540p_31: -37837323
+      Generic-540p_32: -34859204
+      Generic-540p_33: 173685301
+      Generic-540p_34: 1299404187
+      Generic-540p_35: 122628955
+      Generic-540p_36: 1687650737
+      Generic-540p_37: -1766360276
+      Generic-540p_38: -1000326413
+      Generic-540p_39: -679892029
+      Generic-540p_4: -1296892362
+      Generic-540p_40: 370254398
+      Generic-540p_41: -1741012148
+      Generic-540p_42: 247952772
+      Generic-540p_43: 598838542
+      Generic-540p_44: 430835188
+      Generic-540p_45: -607998276
+      Generic-540p_46: 1819346529
+      Generic-540p_47: -644122661
+      Generic-540p_48: 747006362
+      Generic-540p_49: 1634740502
+      Generic-540p_5: -1922111718
+      Generic-540p_50: -2067552923
+      Generic-540p_51: -658733121
+      Generic-540p_52: -702280231
+      Generic-540p_53: -15198262
+      Generic-540p_54: -92760209
+      Generic-540p_55: 1783877307
+      Generic-540p_56: 948548118
+      Generic-540p_57: -746075121
+      Generic-540p_58: 1545977891
+      Generic-540p_59: -993947582
+      Generic-540p_6: -1037212432
+      Generic-540p_60: 1641538359
+      Generic-540p_61: -1850776599
+      Generic-540p_62: 261306217
+      Generic-540p_63: -538024633
+      Generic-540p_64: -595710624
+      Generic-540p_65: 1401520911
+      Generic-540p_66: 498520253
+      Generic-540p_67: 999342949
+      Generic-540p_68: -65655529
+      Generic-540p_69: 1165559061
+      Generic-540p_7: 1456997952
+      Generic-540p_70: 989271917
+      Generic-540p_71: 97610324
+      Generic-540p_72: -768481280
+      Generic-540p_73: -167052061
+      Generic-540p_74: 273182642
+      Generic-540p_75: -1850553271
+      Generic-540p_76: -1599839672
+      Generic-540p_77: 1369311097
+      Generic-540p_78: 89076231
+      Generic-540p_79: 1010040152
+      Generic-540p_8: -2056869307
+      Generic-540p_80: -299539924
+      Generic-540p_81: 127943445
+      Generic-540p_82: -1511737081
+      Generic-540p_83: 1531174057
+      Generic-540p_84: -1934311297
+      Generic-540p_85: 632314798
+      Generic-540p_86: 797839498
+      Generic-540p_87: 1285554613
+      Generic-540p_88: 1173269758
+      Generic-540p_89: -507837524
+      Generic-540p_9: -1728771661
+      Generic-540p_90: 1192445769
+      Generic-540p_91: 1481353975
+      Generic-540p_92: -2078956617
+      Generic-540p_93: -190226238
+      Generic-540p_94: -1960883484
+      Generic-540p_95: -652741676
+      Generic-540p_96: 107691882
+      Generic-540p_97: -2136540545
+      Generic-540p_98: -1070174617
+      Generic-540p_99: -311851834
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

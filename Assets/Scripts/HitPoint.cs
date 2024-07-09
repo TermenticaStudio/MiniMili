@@ -16,6 +16,9 @@ public class HitPoint : MonoBehaviour, IDamagable
 
     public bool Damage(Player damageBy, float damage, bool ignoreDamageBy = false)
     {
+        if (health == null)
+            return false;
+
         if (!ignoreDamageBy)
             if (damageBy != null && owner == damageBy)
                 return false;
