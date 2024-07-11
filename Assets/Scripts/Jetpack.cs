@@ -12,7 +12,7 @@ public class Jetpack : MonoBehaviour
     [SerializeField] private float fallingMaxVelocity;
     [SerializeField] private JetpackFlame[] jetpackFlames;
 
-    private float initFuel;
+    private float currentFuel;
     //[SyncVar]
     private bool jetPackActive;
     private bool isChargingFuel;
@@ -31,7 +31,29 @@ public class Jetpack : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         playerHealth = GetComponent<Health>();
 
-        initFuel = jetPackFuel;
+        currentFuel = jetPackFuel;
+
+        PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
+        playerHealth.OnDie += OnDie;
+    }
+
+    private void OnDie()
+    {
+        currentFuel = 0;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
+        playerHealth.OnDie -= OnDie;
+    }
+
+    private void OnSpawnPlayer(Logic.Player.PlayerInfo obj)
+    {
+        if (!obj.IsLocal)
+            return;
+
+        currentFuel = jetPackFuel;
     }
 
     private void Update()
@@ -57,12 +79,12 @@ public class Jetpack : MonoBehaviour
         //if (!isLocalPlayer)
         //    return;
 
-        WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, jetPackFuel / initFuel));
+        WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, currentFuel / jetPackFuel));
     }
 
     private void JetpackMove()
     {
-        if (PlayerInput.Instance.GetMovement().y <= 0 || jetPackFuel == 0)
+        if (PlayerInput.Instance.GetMovement().y <= 0 || currentFuel == 0)
         {
             CmdDeactivateJetpack();
 
@@ -118,8 +140,8 @@ public class Jetpack : MonoBehaviour
         if (!isChargingFuel)
             return;
 
-        jetPackFuel += Time.deltaTime * fuelChargeMutliplier;
-        jetPackFuel = Mathf.Clamp(jetPackFuel, 0, initFuel);
+        currentFuel += Time.deltaTime * fuelChargeMutliplier;
+        currentFuel = Mathf.Clamp(currentFuel, 0, jetPackFuel);
     }
 
     private IEnumerator ChargeFuelCoroutine()
@@ -131,8 +153,8 @@ public class Jetpack : MonoBehaviour
 
     private void UseFuel()
     {
-        jetPackFuel -= Time.deltaTime * fuelUsageMultiplier;
-        jetPackFuel = Mathf.Clamp(jetPackFuel, 0, initFuel);
+        currentFuel -= Time.deltaTime * fuelUsageMultiplier;
+        currentFuel = Mathf.Clamp(currentFuel, 0, jetPackFuel);
     }
 
     private IEnumerator StartJetpackDelayed()
