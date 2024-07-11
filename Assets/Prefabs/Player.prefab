@@ -37702,7 +37702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwables:
   - {fileID: 4170813881994627455}
-  spawnPoint: {fileID: 969475723348625405}
+  spawnPoint: {fileID: 691504147687490086}
   handPivot: {fileID: 3720248886090000539}
   throwCurve:
     serializedVersion: 2
@@ -37737,7 +37737,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  power: 800
+  power: 700
   selectThrowableSFX: {fileID: 8300000, guid: b6cf4597476eada47b6f671e3adc2aed, type: 3}
 --- !u!1 &6012020632433189140
 GameObject:

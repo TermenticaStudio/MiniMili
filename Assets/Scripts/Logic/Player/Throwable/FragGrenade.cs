@@ -45,7 +45,8 @@ namespace Logic.Player.ThrowablesSystem
                 //ImpactCreator.CreateImpact(col, hit.point, hit.normal);
 
                 var damagable = col.GetComponent<IDamagable>();
-                damagable?.Damage(owner, damage, true);
+                var distance = Vector2.Distance(transform.position, hit.transform.position);
+                damagable?.Damage(owner, Mathf.Lerp(damage, damage / 4f, distance / range), true);
             }
 
             OnExplode?.Invoke();
