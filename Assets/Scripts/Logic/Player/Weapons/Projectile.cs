@@ -11,6 +11,7 @@ namespace Logic.Player.WeaponsSystem
         private Rigidbody2D rigid;
         private Vector2 initPos;
         private Player owner;
+        private ProjectileTrail trail;
 
         private bool isInit;
 
@@ -36,6 +37,7 @@ namespace Logic.Player.WeaponsSystem
             this.owner = owner;
 
             rigid = GetComponent<Rigidbody2D>();
+            trail = GetComponentInChildren<ProjectileTrail>();
 
             transform.SetPositionAndRotation(pos, rot);
             initPos = transform.position;
@@ -44,6 +46,8 @@ namespace Logic.Player.WeaponsSystem
             rigid.velocity = transform.right * speed;
             this.range = range;
             this.damage = damage;
+
+            trail?.StartTimer();
 
             isInit = true;
         }
