@@ -52,6 +52,15 @@ public class PlayerInput : MonoBehaviour
         throwButton.onClick.AddListener(ThrowInput);
     }
 
+    public void ResetInput()
+    {
+        movementJoystick.SetInput(Vector2.zero);
+        movementJoystick.SetHandlePosition(Vector2.zero);
+
+        aimJoystick.SetInput(Vector2.zero);
+        aimJoystick.SetHandlePosition(Vector2.zero);
+    }
+
     public Vector2 GetMovement()
     {
         return MovementJoystickDirection;

@@ -47,6 +47,8 @@ namespace Logic.Player
             CameraController.Instance.SetTarget(obj.transform);
             WeaponsManager.OnStartPlayer();
             Throwables.OnStartPlayer();
+            PlayerInput.Instance.ResetInput();
+            Aim.ResetAim();
         }
 
         private void OnUpdateHealth(float arg1, float arg2)

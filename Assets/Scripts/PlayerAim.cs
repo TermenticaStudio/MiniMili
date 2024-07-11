@@ -69,6 +69,11 @@ public class PlayerAim : MonoBehaviour
         }
     }
 
+    public void ResetAim()
+    {
+        lastAimDirection = Vector2.right;
+    }
+
     private void Flip(int value)
     {
         CmdFlip(value);
