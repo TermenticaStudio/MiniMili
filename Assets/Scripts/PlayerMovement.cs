@@ -3,19 +3,36 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Setting")]
-    [SerializeField] private float acceleration = 0.3f;
-    [SerializeField] private float maxSpeed = 1f;
+    [SerializeField] private float walkAcceleration = 0.8f;
+    [SerializeField] private float walkMaxSpeed = 3f;
+    [SerializeField] private float crawlAcceleration = 0.4f;
+    [SerializeField] private float crawlMaxSpeed = 1.5f;
     [SerializeField] private float deceleration = 2f;
     [SerializeField] private Animator feetAnimator;
+    [SerializeField] private CapsuleCollider2D characterCollider;
+    [SerializeField] private float standHeight = 1.9f;
+    [SerializeField] private float crawlHeight = 1.4f;
+    private bool isCrawling;
+    private bool canStand;
+
+    private float targetMaxSpeed;
+    private float targetAcceleration;
+    private float currentMaxSpeed;
+    private float currentAcceleration;
 
     private float speedAnimationInput;
     const string SPEED_ANIM = "Speed";
-
+    const string CRAWL_ANIM = "Crawl";
 
     [Header("Ground Checking")]
     [SerializeField] private Transform groundChecker;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float groundCheckRadius = 0.3f;
+
+    [Header("Ceiling Checking")]
+    [SerializeField] private Transform ceilChecker;
+    [SerializeField] private LayerMask ceilLayer;
+    [SerializeField] private float ceilCheckRadius = 0.1f;
 
     [Header("Footstep")]
     [SerializeField] private AudioSource footstepAS;
@@ -47,10 +64,26 @@ public class PlayerMovement : MonoBehaviour
         if (playerHealth.IsDead)
             return;
 
+        isCrawling = PlayerInput.Instance.GetMovement().y <= -0.4f;
+
+        canStand = !CheckCeiling();
+
+        if (!canStand && IsGrounded)
+            isCrawling = true;
+
+        SetSpeed();
+
+        characterCollider.size = new Vector2(characterCollider.size.x, isCrawling ? crawlHeight : standHeight);
+
+        currentMaxSpeed = Mathf.Lerp(currentMaxSpeed, targetMaxSpeed, Time.deltaTime * 5f);
+        currentAcceleration = Mathf.Lerp(currentAcceleration, targetAcceleration, Time.deltaTime * 5f);
+
+        feetAnimator.SetBool(CRAWL_ANIM, isCrawling);
         speedAnimationInput = Mathf.Lerp(speedAnimationInput, (playerAim.IsFlipped ? -1 : 1) * PlayerInput.Instance.GetMovement().x, Time.deltaTime * 5);
 
         feetAnimator.SetFloat(SPEED_ANIM, speedAnimationInput);
         IsGrounded = CheckGround();
+
         Footstep();
     }
 
@@ -80,8 +113,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Accelerate()
     {
-        rb.velocity += new Vector2(PlayerInput.Instance.GetMovement().x * acceleration, 0);
-        rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
+        rb.velocity += new Vector2(PlayerInput.Instance.GetMovement().x * currentAcceleration, 0);
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, currentMaxSpeed);
     }
 
     private void Decelerate()
@@ -89,9 +122,31 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, Time.deltaTime * deceleration);
     }
 
+    private void SetSpeed()
+    {
+        if (isCrawling)
+        {
+            targetMaxSpeed = crawlMaxSpeed;
+            targetAcceleration = crawlAcceleration;
+        }
+        else
+        {
+            targetMaxSpeed = walkMaxSpeed;
+            targetAcceleration = walkAcceleration;
+        }
+    }
+
     private bool CheckGround()
     {
         if (Physics2D.OverlapCircleAll(new Vector2(groundChecker.position.x, groundChecker.position.y), groundCheckRadius, groundLayer).Length > 0)
+            return true;
+
+        return false;
+    }
+
+    private bool CheckCeiling()
+    {
+        if (Physics2D.OverlapCircleAll(new Vector2(ceilChecker.position.x, ceilChecker.position.y), ceilCheckRadius, ceilLayer).Length > 0)
             return true;
 
         return false;
