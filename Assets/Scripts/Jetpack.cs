@@ -13,9 +13,9 @@ public class Jetpack : MonoBehaviour
     [SerializeField] private JetpackFlame[] jetpackFlames;
 
     private float currentFuel;
-    //[SyncVar]
     private bool jetPackActive;
     private bool isChargingFuel;
+    private float throttle;
     private Quaternion currentRotation;
 
     private Coroutine jetPackActivation;
@@ -58,15 +58,14 @@ public class Jetpack : MonoBehaviour
 
     private void Update()
     {
+        throttle = Mathf.Clamp01(PlayerInput.Instance.GetMovement().y);
+
         UpdateUI();
         JetpackParticles();
     }
 
     private void FixedUpdate()
     {
-        //if (!isLocalPlayer)
-        //    return;
-
         if (playerHealth.IsDead)
             return;
 
@@ -76,48 +75,28 @@ public class Jetpack : MonoBehaviour
 
     private void UpdateUI()
     {
-        //if (!isLocalPlayer)
-        //    return;
-
         WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, currentFuel / jetPackFuel));
     }
 
     private void JetpackMove()
     {
-        if (PlayerInput.Instance.GetMovement().y <= 0 || currentFuel == 0)
-        {
-            CmdDeactivateJetpack();
-
-            if (PlayerInput.Instance.GetMovement().y <= 0)
-            {
-                ChargeFuel();
-
-                if (chargeFuelDelay == null)
-                    chargeFuelDelay = StartCoroutine(ChargeFuelCoroutine());
-            }
-
-            if (jetPackActivation == null)
-                rigid.velocity = Vector2.ClampMagnitude(rigid.velocity, fallingMaxVelocity);
-
-            currentRotation = Quaternion.identity;
-            return;
-        }
-
-        chargeFuelDelay = null;
-
         if (playerMovement.IsGrounded)
         {
+            CmdDeactivateJetpack();
+            StartRefuel();
+            currentRotation = Quaternion.identity;
+
             if (PlayerInput.Instance.GetMovement().y < 0.8f)
                 return;
 
             rigid.AddForce(Vector2.up * jetPackLaunchForce, ForceMode2D.Impulse);
 
             if (jetPackActivation == null)
+            {
                 jetPackActivation = StartCoroutine(StartJetpackDelayed());
-        }
-        else if (jetPackActivation == null)
-        {
-            CmdActivateJetpack();
+            }
+
+            return;
         }
 
         if (jetPackActive)
@@ -131,7 +110,18 @@ public class Jetpack : MonoBehaviour
         }
         else
         {
+            StartRefuel();
             currentRotation = Quaternion.identity;
+        }
+
+        if (currentFuel == 0 || PlayerInput.Instance.GetMovement().y <= 0)
+        {
+            CmdDeactivateJetpack();
+        }
+        else
+        {
+            if (jetPackActivation == null)
+                CmdActivateJetpack();
         }
     }
 
@@ -146,14 +136,28 @@ public class Jetpack : MonoBehaviour
 
     private IEnumerator ChargeFuelCoroutine()
     {
-        isChargingFuel = false;
         yield return new WaitForSeconds(1f);
         isChargingFuel = true;
+        chargeFuelDelay = null;
+    }
+
+    private void StartRefuel()
+    {
+        if (isChargingFuel == false)
+        {
+            if (chargeFuelDelay == null)
+                chargeFuelDelay = StartCoroutine(ChargeFuelCoroutine());
+
+            return;
+        }
+
+        ChargeFuel();
     }
 
     private void UseFuel()
     {
-        currentFuel -= Time.deltaTime * fuelUsageMultiplier;
+        isChargingFuel = false;
+        currentFuel -= Time.deltaTime * fuelUsageMultiplier * throttle;
         currentFuel = Mathf.Clamp(currentFuel, 0, jetPackFuel);
     }
 
@@ -167,10 +171,9 @@ public class Jetpack : MonoBehaviour
     private void JetpackParticles()
     {
         foreach (var flame in jetpackFlames)
-            flame.SetPower(Mathf.Clamp01(PlayerInput.Instance.GetMovement().y));
+            flame.SetPower(throttle);
     }
 
-    //[Command]
     private void CmdActivateJetpack()
     {
         jetPackActive = true;
@@ -179,7 +182,6 @@ public class Jetpack : MonoBehaviour
             flame.ActivateFlame(true);
     }
 
-    //[Command]
     private void CmdDeactivateJetpack()
     {
         jetPackActive = false;
