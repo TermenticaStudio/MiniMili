@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioSource footstepAS;
     [SerializeField] private AudioClip[] footstepClips;
     [SerializeField] private float footstepDistance = 0.2f;
+    [SerializeField] private Vector2 pitchRandomness = new Vector2(0.8f, 1);
     private Vector2 lastFootstepPos;
 
     private Rigidbody2D rb;
@@ -111,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
         lastFootstepPos = transform.position;
         var currentClip = footstepClips[Random.Range(0, footstepClips.Length)];
         footstepAS.clip = currentClip;
+        footstepAS.pitch = Random.Range(pitchRandomness.x, pitchRandomness.y);
         footstepAS.Play();
     }
 }

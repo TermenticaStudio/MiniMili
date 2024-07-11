@@ -37506,7 +37506,7 @@ MonoBehaviour:
   jetPackLaunchForce: 100
   jetPackFuel: 5
   maxVelocity: 6
-  fuelUsageMultiplier: 0
+  fuelUsageMultiplier: 3
   fuelChargeMutliplier: 0.6
   fallingMaxVelocity: 10
   jetpackFlames:
@@ -37536,7 +37536,8 @@ MonoBehaviour:
   footstepAS: {fileID: 1549290341518965549}
   footstepClips:
   - {fileID: 8300000, guid: 02dd686af9b2e5441bbacd828d351ce0, type: 3}
-  footstepDistance: 1
+  footstepDistance: 0.9
+  pitchRandomness: {x: 0.8, y: 1}
 --- !u!114 &2770228535457082759
 MonoBehaviour:
   m_ObjectHideFlags: 0
