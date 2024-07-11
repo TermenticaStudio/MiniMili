@@ -157,7 +157,7 @@ public class Jetpack : MonoBehaviour
     private void UseFuel()
     {
         isChargingFuel = false;
-        currentFuel -= Time.deltaTime * fuelUsageMultiplier * throttle;
+        currentFuel -= Time.deltaTime * fuelUsageMultiplier * Mathf.Lerp(0.5f, 1, throttle);
         currentFuel = Mathf.Clamp(currentFuel, 0, jetPackFuel);
     }
 

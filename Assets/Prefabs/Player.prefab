@@ -37477,7 +37477,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 50
   m_LinearDrag: 0
-  m_AngularDrag: 0.8
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: dca45da61f996f149b9369e42658fec5, type: 2}
   m_IncludeLayers:
@@ -37506,7 +37506,7 @@ MonoBehaviour:
   jetPackLaunchForce: 100
   jetPackFuel: 5
   maxVelocity: 6
-  fuelUsageMultiplier: 3
+  fuelUsageMultiplier: 1.5
   fuelChargeMutliplier: 0.6
   fallingMaxVelocity: 10
   jetpackFlames:

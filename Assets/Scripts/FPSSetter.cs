@@ -8,4 +8,8 @@ public class FPSSetter : MonoBehaviour
     {
         Application.targetFrameRate = fps;
     }
+    private void Update()
+    {
+        Application.targetFrameRate = fps;
+    }
 }

@@ -56,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        SlipBrake();
+
         //if (!isLocalPlayer)
         //    return;
 
@@ -93,6 +95,17 @@ public class PlayerMovement : MonoBehaviour
             return true;
 
         return false;
+    }
+
+    private void SlipBrake()
+    {
+        if (PlayerInput.Instance.GetMovement().magnitude > 0.1f || !IsGrounded)
+        {
+            rb.drag = 0;
+            return;
+        }
+
+        rb.drag = 100;
     }
 
     private void Footstep()
