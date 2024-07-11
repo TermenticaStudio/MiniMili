@@ -107,7 +107,7 @@ public class Jetpack : MonoBehaviour
 
         if (playerMovement.IsGrounded)
         {
-            if (PlayerInput.Instance.GetMovement().y < 0.9f)
+            if (PlayerInput.Instance.GetMovement().y < 0.8f)
                 return;
 
             rigid.AddForce(Vector2.up * jetPackLaunchForce, ForceMode2D.Impulse);
