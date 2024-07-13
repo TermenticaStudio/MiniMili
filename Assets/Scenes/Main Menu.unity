@@ -704,6 +704,7 @@ GameObject:
   - component: {fileID: 378915724}
   - component: {fileID: 378915723}
   - component: {fileID: 378915722}
+  - component: {fileID: 378915725}
   m_Layer: 5
   m_Name: Avatar - Button
   m_TagString: Untagged
@@ -815,6 +816,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378915720}
   m_CullTransparentMesh: 1
+--- !u!114 &378915725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378915720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9817a1c11d90ad74db35a9c1c37fbe85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message:
+    Text: It's locked!
+    TextColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &390696334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,6 +1597,7 @@ GameObject:
   - component: {fileID: 637334543}
   - component: {fileID: 637334542}
   - component: {fileID: 637334541}
+  - component: {fileID: 637334544}
   m_Layer: 5
   m_Name: Practice - Button
   m_TagString: Untagged
@@ -1690,6 +1707,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637334539}
   m_CullTransparentMesh: 1
+--- !u!114 &637334544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637334539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9817a1c11d90ad74db35a9c1c37fbe85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message:
+    Text: Not implemented yet...
+    TextColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &643227291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,6 +2061,7 @@ GameObject:
   - component: {fileID: 713834802}
   - component: {fileID: 713834801}
   - component: {fileID: 713834800}
+  - component: {fileID: 713834803}
   m_Layer: 5
   m_Name: Team Deathmatch - Button
   m_TagString: Untagged
@@ -2138,6 +2171,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713834798}
   m_CullTransparentMesh: 1
+--- !u!114 &713834803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713834798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9817a1c11d90ad74db35a9c1c37fbe85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message:
+    Text: Not implemented yet...
+    TextColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &719200248
 GameObject:
   m_ObjectHideFlags: 0
@@ -4878,6 +4926,7 @@ GameObject:
   - component: {fileID: 1745317116}
   - component: {fileID: 1745317115}
   - component: {fileID: 1745317114}
+  - component: {fileID: 1745317117}
   m_Layer: 5
   m_Name: Armory - Button
   m_TagString: Untagged
@@ -4989,6 +5038,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745317112}
   m_CullTransparentMesh: 1
+--- !u!114 &1745317117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745317112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9817a1c11d90ad74db35a9c1c37fbe85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message:
+    Text: It's locked!
+    TextColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1758446082
 GameObject:
   m_ObjectHideFlags: 0

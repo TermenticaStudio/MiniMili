@@ -79,6 +79,7 @@ public class ContentPassword : MonoBehaviour
         }
         else
         {
+            InGameMessage.Instance.Notify(new MessageTexts.MessageContent("Wrong password!", Color.red));
             passwordField.text = string.Empty;
         }
     }

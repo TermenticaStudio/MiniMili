@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public static class MessageTexts
 {
+    [Serializable]
     public class MessageContent
     {
         public string Text;

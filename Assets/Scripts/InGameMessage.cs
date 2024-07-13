@@ -9,7 +9,15 @@ public class InGameMessage : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        transform.SetParent(null);
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
