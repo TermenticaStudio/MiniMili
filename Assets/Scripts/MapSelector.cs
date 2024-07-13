@@ -46,21 +46,26 @@ public class MapSelector : MonoBehaviour
 
     private void LoadGame()
     {
-        SceneManager.LoadScene(SelectedMapScene());
+        var map = GetSelectedMapInfo();
+
+        ContentPassword.Instance.Pass(map, () =>
+        {
+            SceneManager.LoadScene(map.SceneName);
+        });
     }
 
-    private string SelectedMapScene()
+    private MapInfoSO GetSelectedMapInfo()
     {
         foreach (var item in currentPreviews)
         {
             if (item.IsSelected && !string.IsNullOrEmpty(item.Info.SceneName))
-                return item.Info.SceneName;
+                return item.Info;
         }
 
         if (maps.Length == 0)
             throw new System.Exception("No map is available to select!");
 
         var randMap = maps[Random.Range(0, maps.Length)];
-        return randMap.SceneName;
+        return randMap;
     }
 }

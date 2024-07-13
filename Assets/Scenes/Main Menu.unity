@@ -2478,14 +2478,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
-    - target: {fileID: 4667741946596042740, guid: 1bddd523fcadd8f4795600e37590287b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4667741946596042740, guid: 1bddd523fcadd8f4795600e37590287b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 10.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7984707085426975744, guid: 1bddd523fcadd8f4795600e37590287b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

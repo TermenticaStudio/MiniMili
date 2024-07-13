@@ -1,0 +1,4483 @@
+fileFormatVersion: 2
+guid: 7d3483edc0928d54bb4a80dce00e65c4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tile64Moon_new copy_0
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1719.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffabb1b6018da3445a286759835bf5ec
+      internalID: -1884489342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_1
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1719.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 644f230b4e6a88d49bd9d289955f2992
+      internalID: 551285702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_2
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 1719.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 096a2e41674d75e4b9432846c4d40ecf
+      internalID: -1977923267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_3
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 1719.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a6ba634db07f54db0e1b058bf379f5
+      internalID: -1732367266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_4
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1719.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d1d775546749ef4c84d664b259363f7
+      internalID: 983293009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_5
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 1719.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81691eefa41c5844caa893ed64a3493a
+      internalID: 353494120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_6
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1719.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e265b131673a0439d166a69990b726
+      internalID: 127122891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_7
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 1719.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db79d0b12634cf44a2a94ba1e292b88
+      internalID: 331174865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_8
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 1719.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb514a870dfefa438ce3ccc57656d77
+      internalID: 126427821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_9
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 1719.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b6816da42c7e6e47bcf16ba7680f96b
+      internalID: -498500794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_10
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 1719.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6c7db8722f4344989bbecff42a1e01
+      internalID: -1616787896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14421397e2f4a1648b21ac5a3226dcf3
+      internalID: 1009528592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_12
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80d1340d017c10458a85cde310cdb80
+      internalID: -750588146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_13
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 566601ec2ac056040b494639471e5ae4
+      internalID: 1192759519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_14
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 660066af0b718de49a271bce8873dfbd
+      internalID: -44207893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_15
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 901a804852420c44fbf2b92819029287
+      internalID: 1146168178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_16
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8385f349f93ca5341849f829f01833f3
+      internalID: 159913181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_17
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2490f0f4ea0f6764ba914e4852c6bd50
+      internalID: 631528742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_18
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f801f8a2bcea614799b4eb6d901d1d6
+      internalID: 468222297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_19
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03c6c7a30472cfb47ba4a64af801ca48
+      internalID: -72803052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_20
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69fdb6cfaa635c42b51d767bddbbb10
+      internalID: -140990319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_21
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8298ad2fb334774f812f53804fd3da2
+      internalID: -194944205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_22
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b03ea141e40744ebe0ba081cc9a482
+      internalID: -585072905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_23
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5656e92ff215f6c48ae03559a0bf839f
+      internalID: -313939956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_24
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2d32a764bec554ea2ed4ad69a42441
+      internalID: 447205109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_25
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 1587.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538a08d0d98facc43b8a075952cf7478
+      internalID: 1518432102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 955f9f26bdfa61941b7c76345fda30a6
+      internalID: 639415294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_27
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12f86ccd41a07af42836ce510d32ca9c
+      internalID: -1046568213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_28
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db87fcd1c86d6754388e9c4860471495
+      internalID: 1016265836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_29
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a708edb30c6fa59438963bb9e2595b68
+      internalID: 1299943323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_30
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6962199d2b3583247b8785427aeef418
+      internalID: -1912021464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_31
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b1e83644c455ae46b9f324d13ccc04a
+      internalID: 1219605233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_32
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a2c70977fac01489fdac58147c94bb
+      internalID: 1209372273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_33
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c151eadf5b3c1947b303a6c7aa2cdf6
+      internalID: -1620390267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_34
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59463b3ff87cb884bb1f96fd6ffd3fb0
+      internalID: 509905647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_35
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 934241058c4d0914b86fb4e10082f228
+      internalID: -1051623718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_36
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59da75b2339d18249bba31500d538ab6
+      internalID: -360346761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_37
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd796fa14790a964d9f33d637945ab70
+      internalID: -1008109895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_38
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 815c4422ba8c9384080ebab68ac7373d
+      internalID: -846560989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_39
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a198bb7a2852054ab59087345475076
+      internalID: -254907508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_40
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 1455.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e593fca9b5a5fab4398df315475cb6b2
+      internalID: -1650315114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c81714de85410b4eb8da546bc6ed775
+      internalID: -126684782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_42
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f435eba65bd54e4c904445b2c57b555
+      internalID: -108421050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_43
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b01e719d9570e3458e2848ada996ab2
+      internalID: -1747911813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_44
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b94b64e292568c4994580ffe41d1e72
+      internalID: -770312913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_45
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94597576b2fd3c45a9d80d751ee433e
+      internalID: -439795772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_46
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc29f3be85396a648a485846eb3198f0
+      internalID: -898409575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_47
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6117f09b32c7a5448a6df3151da30eef
+      internalID: 257923116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_48
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df4ac79b30dd8246a3edff23839c23c
+      internalID: -1123826301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_49
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dacb85a73be3e25458be24c2b937e07c
+      internalID: 588305616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_50
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6276b63fbe15b40b163c525ee7eab6
+      internalID: 114998107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_51
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79459abae274f6840b4eaeb6d36587c0
+      internalID: -1995779840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_52
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353318f697a001447be2a497f13cd935
+      internalID: 1545996882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_53
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca513b5e261cd54469f200e7deafa20a
+      internalID: 1683044733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_54
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c48bfab52d1a2429c011b86775396b
+      internalID: 780033915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_55
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 1323.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87fb4abcf8363e9408c57bfa8f5b797b
+      internalID: 969662679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32750451070840f4e83085f70c59de6b
+      internalID: 1133128513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_57
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56bdc8f56596d6340acb8a3c7865ab0a
+      internalID: -461058904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_58
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408b4094651c6bd4c802c346e9c27eb3
+      internalID: -299821984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_59
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebb6ade579bdf9468498b4aceea11f8
+      internalID: 725006339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_60
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81756a4fc5f0ee44a8d98922a781a53b
+      internalID: -400485252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_61
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaaaaf8c782379441a7c341fa2846b0a
+      internalID: 1577652774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_62
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51759fe8c4f10404080ae0a1ccc61db7
+      internalID: -222337367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_63
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 648b8f8a5214a934ca3cebc1cb60bb00
+      internalID: -1094039909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_64
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92876fcf24dcad942b129679267c3d23
+      internalID: -790908441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_65
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1051c38ea35f8b4089a80d890fedd01
+      internalID: -1703218868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_66
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8e1fe3e83355b84d899ed071d24bdc9
+      internalID: 1320440001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_67
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d26fcd37076154b9692e743c8ad613
+      internalID: 1096369526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_68
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89d3e83fbd2f75488f74bf06a3cdc7b
+      internalID: 1933957950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_69
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2145fa9f8f8a95e4f8888cc00190c777
+      internalID: 956922801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_70
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 1191.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5e0eae6a13c2c4185060c2154f1329
+      internalID: 238350619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b947c47386608d147bd6708d4a8b371d
+      internalID: -1565112216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_72
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cef2436a175f4e449df96fe47202811
+      internalID: 1595296561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_73
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772aca385fc47cb439b54cfce08b1638
+      internalID: -1968718337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_74
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b93c4ca8bffa114d81e3cb1ba5e3b18
+      internalID: 706981299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_75
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9fa77dcc64e69c40b59f85d65d8626a
+      internalID: -2046408531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_76
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee8447ad4651e6945b09bc867c12ef96
+      internalID: -526069452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_77
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faafc28166ec4354f82300d32980b694
+      internalID: -1424844700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_78
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ea8e2348acb6854eb7b1f3f924bf71d
+      internalID: -1107726830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_79
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dfbe69a72e96a24b8c4cb1df0a1c261
+      internalID: -640142729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_80
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2d3fc906201ff48a62e34af1e224b9
+      internalID: 490729129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_81
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb4acb0223d772943be275d26a30a429
+      internalID: 1771313460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_82
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 091cfeb57f7b84841b617ad862020a4a
+      internalID: -427303452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_83
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b146ed041eaf1443a8e2c7d2ee31e17
+      internalID: -1393921706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_84
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c9ef8d86d438d4a86f38f7f6d54fef
+      internalID: -951310381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_85
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 1059.7334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb2f0a9300172b4fbad0866fc7156bc
+      internalID: -1748467053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f9587ab368c0e047bb265a5a2b87542
+      internalID: -1902094448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_87
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75ff4df6e93268149b007e359b0131d6
+      internalID: 663142801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_88
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17a3c41b1025cb8458489de75e575d34
+      internalID: -945901168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_89
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6357a64382fe60b40afd56c3c3afda34
+      internalID: -631442918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_90
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d187d56cadd92d4fad75bb5cb58f9a5
+      internalID: -1777553197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_91
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02091541ffd1c9d4e9a25313df96331e
+      internalID: -680302828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_92
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d183194588a9fc3408e08f94958dcfe4
+      internalID: -662438848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_93
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d11176a75ab58aa47875b47345aabfec
+      internalID: -586428421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_94
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4640c4ba8faf84744ab70ec3cb3cb9e6
+      internalID: -982553916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_95
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f2cad1504a9664db85ee736178dea2
+      internalID: 857948153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_96
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c0bf1b26f884e940bd8cf2019dfde03
+      internalID: -1064434279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_97
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcd6dcaf867c90d439b50084456be4cb
+      internalID: -266017000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_98
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ac7a8f0adb921948ae748a8c54dfbde
+      internalID: -1020091711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_99
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04518bac461a67b43bfb44f39b4dfce8
+      internalID: -1420968446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_100
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 927.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc1d9a57d107744899106163b8f9365
+      internalID: 745935047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_101
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bfcd319482c74b478c3fbf19c0c1d88
+      internalID: -1107678215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_102
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da3646398a2f4c42869d6b013d50715
+      internalID: 1648851113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_103
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ff3080177e22a84e8976b46caf5e12c
+      internalID: 857318006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_104
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630edef616c0b8e488b944a1a12f1bae
+      internalID: -1304573435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_105
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b76d27e15af754a9b9c2114899b3a9
+      internalID: -1485687156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_106
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4db93c9f3c1b41448e0fd633a1a5c56
+      internalID: -1145454498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_107
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd81c954f1669f45b7de32a7f39f7d6
+      internalID: 912921198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_108
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1d8d17e17386a048b853edb976743e7
+      internalID: 1520960238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_109
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f8b3068fb5aee4daf857135242938c
+      internalID: 474180620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_110
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8df415f72cfc34c954e799eb66ade9
+      internalID: 1481274272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_111
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef0520db559b124da1220c8d54013a7
+      internalID: -1143778609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_112
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecb349b681bfe8043b6b64abcfbc4fd6
+      internalID: 314374557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_113
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e436f5423c983543b09d398d89d8adb
+      internalID: -957190690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_114
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f03a1d850fedae4e86d4ef7c0cb01e4
+      internalID: -1716695233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_115
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 795.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28560ed735375c845938455aed190ee8
+      internalID: 1779742078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_116
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 626fb2edfdca3654096f951dd69e66c1
+      internalID: 1580754788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_117
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7455b1ea608bdc4fa838beee6e8ac92
+      internalID: -998388573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_118
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d2b2278e6965194d81cdaf51fe6e2f0
+      internalID: 1282350893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_119
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0859b3e52b428e46bf4c34df77bd3c4
+      internalID: -582836485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_120
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bbd3e111a23f8842b72dbc3efa0e7d5
+      internalID: 844843248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_121
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63cfbf7d15241245b3a1f6c5410cd9e
+      internalID: 355532210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_122
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67458f0b27a32544c9c26de50032ba25
+      internalID: 686183552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_123
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148d2292999e622409a32347c616040d
+      internalID: 1371888808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_124
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf8a0d73fe5f6246b2879ae7457d074
+      internalID: 476339318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_125
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edaa9bf2c4d1d74429a301a28a575f50
+      internalID: 1945025912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_126
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8e9386896be854d9a6b28623a4e615
+      internalID: 1730025590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_127
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea2fbc92c9663d34c8639e75a3770c34
+      internalID: -751891764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_128
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7860f7f86a2e0ed4aa21cf8ebbb5c945
+      internalID: 679220332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_129
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17fbe5368cf941e43b4d7657d5bb6f29
+      internalID: -62497529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_130
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 663.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57a50cbd6faa4b49892ddce89e9c17b
+      internalID: 1245818481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_131
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7315dcfe92c1d648b0686303d02ee88
+      internalID: 2125328103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_132
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692e7f290a675314bb198b6563e4cc71
+      internalID: -1452103089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_133
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4decb39a1dd48dc4ea7bb9eaa461fc62
+      internalID: -1373325319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_134
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4daa75e1373d0554986437809e6df06c
+      internalID: 216375987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_135
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc1dc9bca009d5745a709fc8a2349e45
+      internalID: 1557033786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_136
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89913cdb476f5f2478449e9f347a03c7
+      internalID: -1418842404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_137
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a69f6d2d5409454996f932c6229036b
+      internalID: 773885542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_138
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87a7ad7b655f1a14d9485994bba73c0b
+      internalID: -488312748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_139
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282ced3ad2652eb4f9e12f5a49c6827b
+      internalID: 1603010768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_140
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2403b681964251249952064c45e46df2
+      internalID: 378349154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_141
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519dc5f627cac754d9b12477e0620ada
+      internalID: 29541084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_142
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aaed63be17ee2341b039dd835edebef
+      internalID: -1528381454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_143
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe6de7427ce7f54492f5f166025d7bf
+      internalID: -1703557778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_144
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94872fc76b2dcb14488743912307dc4a
+      internalID: -993192203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_145
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 531.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607e43d5f799098408122a1b5937ea2a
+      internalID: 661082444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_146
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 399.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e9e503ae9e8200498c7eea8b6b8f89b
+      internalID: 1218610999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_147
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 399.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 918fc2c031900d44d85ffe6f79745e26
+      internalID: -910442464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_148
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 399.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29bd0b6a4382e0142935833b2a188aac
+      internalID: 100987622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_149
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 399.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e7b0e0c4796d54aa51fd4701bcdb57
+      internalID: -1168480861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_150
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 399.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4998d73eeda5b414aa0d02a719fd9c6c
+      internalID: 970173001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_151
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 399.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f68cc25d88e03024f9ce036952b41c1a
+      internalID: -765374251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_152
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 399.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b8ea014ee7b1c4ab19a07bfdbc3a09
+      internalID: -502993692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_153
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5bfebdc76790204cbed4da666a2e730
+      internalID: -5933509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_154
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 601c89ec4c949ed4c85b80d2f08e2cf7
+      internalID: -1950130119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_155
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80dbfc9478438ed4f9bcd27483359f5e
+      internalID: -864173516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_156
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8658a7a6fe67d1d46a7a8ee9b549dff5
+      internalID: -2105333406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_157
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0ae596486b770242b9ffea029d1ed31
+      internalID: 1207640652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_158
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f5562016a6d2d46af3bc19516aaf8a
+      internalID: 283105771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_159
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c759774a23f262f4394e3db4c59ab964
+      internalID: -1914024531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_160
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48f7ecd3a9677104cacef811f925e0b8
+      internalID: 1860698413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_161
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f5ab27429106844ba99ee25c7989bb6
+      internalID: -470108951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_162
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deae7fae05e50c443a8baf5e8db077fb
+      internalID: -1670323658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_163
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6373db72e5a8cb429e85e3b090e2ea8
+      internalID: -641145789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_164
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c1764770fe002498ecacc3047aedca
+      internalID: 262373307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_165
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0726a4814fccd114986a3df02a2e0ccf
+      internalID: -1934258949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_166
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b6952255e400945b272e4755e61abb
+      internalID: -1247638577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_167
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 267.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223a3dee91e2a8441ab8ff49438a012c
+      internalID: 841352218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_168
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c7877f77798814d8c17c06e259f547
+      internalID: 182255878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_169
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be155c9acfc24bc459005fb83ca409e3
+      internalID: 1812545849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_170
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c060638a7c59a488d06e206d1ec2f3
+      internalID: -1576928244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_171
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d30c0380168a9c4baf8db016dc46be4
+      internalID: -387173037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_172
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cddb4067c6087fc43a44e3d0ce266642
+      internalID: 1953864683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_173
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67ebaa0142b0414ead8759f4219fddf
+      internalID: -282018500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_174
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22669b09abf73f24db7526be9b3689df
+      internalID: 1563203744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_175
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e64330ce362cb44419a4c8fa5a2be4ad
+      internalID: 822017861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_176
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3afb8f1008af32e46bf3c6a6411ff4c0
+      internalID: -100631203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_177
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0568f139892019f40ad2d826603b0dc5
+      internalID: 662890926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_178
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6011f31dca6acfa488c4bd767ed2657d
+      internalID: -1073640275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_179
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89519a7750000804d8e8c8b1b6f5073c
+      internalID: 747833327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_180
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b085db1b811749945954b6c5ade197c0
+      internalID: 1441093884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_181
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df2d749bc085de4d88fda38eff1d534
+      internalID: -1621164398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_182
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 135.73334
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672116f008fa5e442aca6cf9fab2cbbd
+      internalID: 1754200667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_183
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7aeddf33e99a64899ae90224a0fb28
+      internalID: -223407923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_184
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f104ebac98c6f4e8151a1f19abc542
+      internalID: 538062567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_185
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d3863d1964062446a50862ebc760976
+      internalID: -406220428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_186
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 759cd342ed5f6394897b16737d98afe3
+      internalID: 1046376642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_187
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba8e9b0a6d2074439a7fab061f3ba68
+      internalID: 399963910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_188
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0cc6908306604f4da0a310d9b7508f3
+      internalID: 670024345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_189
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3626b702fe1284b9b5f4106715a3ec
+      internalID: -366311060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_190
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d54c3058e1fbfe47ac1728b386f94a1
+      internalID: -754481444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_191
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dec8e82eab96b054b9aaa4c3dbe0dc37
+      internalID: 1038642849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_192
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1107b57347223d34b843452ab8ada880
+      internalID: -608657651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_193
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad0ef208b81ed8648a7ad8b33dd09bac
+      internalID: -756212902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_194
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72df1d3775c599744aa17351db9cd812
+      internalID: 1556691717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_195
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea14ce62b692d864480c077fe700d7af
+      internalID: 1013186311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_196
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa2ff4448abe034181baec4ad5cf16f
+      internalID: 1282994392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile64Moon_new copy_197
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 3.7333374
+        width: 132.26666
+        height: 132.26666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2da3af9c93fbdc49bf80a0601f508eb
+      internalID: -1103734993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      tile64Moon_new copy_0: -1884489342
+      tile64Moon_new copy_1: 551285702
+      tile64Moon_new copy_10: -1616787896
+      tile64Moon_new copy_100: 745935047
+      tile64Moon_new copy_101: -1107678215
+      tile64Moon_new copy_102: 1648851113
+      tile64Moon_new copy_103: 857318006
+      tile64Moon_new copy_104: -1304573435
+      tile64Moon_new copy_105: -1485687156
+      tile64Moon_new copy_106: -1145454498
+      tile64Moon_new copy_107: 912921198
+      tile64Moon_new copy_108: 1520960238
+      tile64Moon_new copy_109: 474180620
+      tile64Moon_new copy_11: 1009528592
+      tile64Moon_new copy_110: 1481274272
+      tile64Moon_new copy_111: -1143778609
+      tile64Moon_new copy_112: 314374557
+      tile64Moon_new copy_113: -957190690
+      tile64Moon_new copy_114: -1716695233
+      tile64Moon_new copy_115: 1779742078
+      tile64Moon_new copy_116: 1580754788
+      tile64Moon_new copy_117: -998388573
+      tile64Moon_new copy_118: 1282350893
+      tile64Moon_new copy_119: -582836485
+      tile64Moon_new copy_12: -750588146
+      tile64Moon_new copy_120: 844843248
+      tile64Moon_new copy_121: 355532210
+      tile64Moon_new copy_122: 686183552
+      tile64Moon_new copy_123: 1371888808
+      tile64Moon_new copy_124: 476339318
+      tile64Moon_new copy_125: 1945025912
+      tile64Moon_new copy_126: 1730025590
+      tile64Moon_new copy_127: -751891764
+      tile64Moon_new copy_128: 679220332
+      tile64Moon_new copy_129: -62497529
+      tile64Moon_new copy_13: 1192759519
+      tile64Moon_new copy_130: 1245818481
+      tile64Moon_new copy_131: 2125328103
+      tile64Moon_new copy_132: -1452103089
+      tile64Moon_new copy_133: -1373325319
+      tile64Moon_new copy_134: 216375987
+      tile64Moon_new copy_135: 1557033786
+      tile64Moon_new copy_136: -1418842404
+      tile64Moon_new copy_137: 773885542
+      tile64Moon_new copy_138: -488312748
+      tile64Moon_new copy_139: 1603010768
+      tile64Moon_new copy_14: -44207893
+      tile64Moon_new copy_140: 378349154
+      tile64Moon_new copy_141: 29541084
+      tile64Moon_new copy_142: -1528381454
+      tile64Moon_new copy_143: -1703557778
+      tile64Moon_new copy_144: -993192203
+      tile64Moon_new copy_145: 661082444
+      tile64Moon_new copy_146: 1218610999
+      tile64Moon_new copy_147: -910442464
+      tile64Moon_new copy_148: 100987622
+      tile64Moon_new copy_149: -1168480861
+      tile64Moon_new copy_15: 1146168178
+      tile64Moon_new copy_150: 970173001
+      tile64Moon_new copy_151: -765374251
+      tile64Moon_new copy_152: -502993692
+      tile64Moon_new copy_153: -5933509
+      tile64Moon_new copy_154: -1950130119
+      tile64Moon_new copy_155: -864173516
+      tile64Moon_new copy_156: -2105333406
+      tile64Moon_new copy_157: 1207640652
+      tile64Moon_new copy_158: 283105771
+      tile64Moon_new copy_159: -1914024531
+      tile64Moon_new copy_16: 159913181
+      tile64Moon_new copy_160: 1860698413
+      tile64Moon_new copy_161: -470108951
+      tile64Moon_new copy_162: -1670323658
+      tile64Moon_new copy_163: -641145789
+      tile64Moon_new copy_164: 262373307
+      tile64Moon_new copy_165: -1934258949
+      tile64Moon_new copy_166: -1247638577
+      tile64Moon_new copy_167: 841352218
+      tile64Moon_new copy_168: 182255878
+      tile64Moon_new copy_169: 1812545849
+      tile64Moon_new copy_17: 631528742
+      tile64Moon_new copy_170: -1576928244
+      tile64Moon_new copy_171: -387173037
+      tile64Moon_new copy_172: 1953864683
+      tile64Moon_new copy_173: -282018500
+      tile64Moon_new copy_174: 1563203744
+      tile64Moon_new copy_175: 822017861
+      tile64Moon_new copy_176: -100631203
+      tile64Moon_new copy_177: 662890926
+      tile64Moon_new copy_178: -1073640275
+      tile64Moon_new copy_179: 747833327
+      tile64Moon_new copy_18: 468222297
+      tile64Moon_new copy_180: 1441093884
+      tile64Moon_new copy_181: -1621164398
+      tile64Moon_new copy_182: 1754200667
+      tile64Moon_new copy_183: -223407923
+      tile64Moon_new copy_184: 538062567
+      tile64Moon_new copy_185: -406220428
+      tile64Moon_new copy_186: 1046376642
+      tile64Moon_new copy_187: 399963910
+      tile64Moon_new copy_188: 670024345
+      tile64Moon_new copy_189: -366311060
+      tile64Moon_new copy_19: -72803052
+      tile64Moon_new copy_190: -754481444
+      tile64Moon_new copy_191: 1038642849
+      tile64Moon_new copy_192: -608657651
+      tile64Moon_new copy_193: -756212902
+      tile64Moon_new copy_194: 1556691717
+      tile64Moon_new copy_195: 1013186311
+      tile64Moon_new copy_196: 1282994392
+      tile64Moon_new copy_197: -1103734993
+      tile64Moon_new copy_2: -1977923267
+      tile64Moon_new copy_20: -140990319
+      tile64Moon_new copy_21: -194944205
+      tile64Moon_new copy_22: -585072905
+      tile64Moon_new copy_23: -313939956
+      tile64Moon_new copy_24: 447205109
+      tile64Moon_new copy_25: 1518432102
+      tile64Moon_new copy_26: 639415294
+      tile64Moon_new copy_27: -1046568213
+      tile64Moon_new copy_28: 1016265836
+      tile64Moon_new copy_29: 1299943323
+      tile64Moon_new copy_3: -1732367266
+      tile64Moon_new copy_30: -1912021464
+      tile64Moon_new copy_31: 1219605233
+      tile64Moon_new copy_32: 1209372273
+      tile64Moon_new copy_33: -1620390267
+      tile64Moon_new copy_34: 509905647
+      tile64Moon_new copy_35: -1051623718
+      tile64Moon_new copy_36: -360346761
+      tile64Moon_new copy_37: -1008109895
+      tile64Moon_new copy_38: -846560989
+      tile64Moon_new copy_39: -254907508
+      tile64Moon_new copy_4: 983293009
+      tile64Moon_new copy_40: -1650315114
+      tile64Moon_new copy_41: -126684782
+      tile64Moon_new copy_42: -108421050
+      tile64Moon_new copy_43: -1747911813
+      tile64Moon_new copy_44: -770312913
+      tile64Moon_new copy_45: -439795772
+      tile64Moon_new copy_46: -898409575
+      tile64Moon_new copy_47: 257923116
+      tile64Moon_new copy_48: -1123826301
+      tile64Moon_new copy_49: 588305616
+      tile64Moon_new copy_5: 353494120
+      tile64Moon_new copy_50: 114998107
+      tile64Moon_new copy_51: -1995779840
+      tile64Moon_new copy_52: 1545996882
+      tile64Moon_new copy_53: 1683044733
+      tile64Moon_new copy_54: 780033915
+      tile64Moon_new copy_55: 969662679
+      tile64Moon_new copy_56: 1133128513
+      tile64Moon_new copy_57: -461058904
+      tile64Moon_new copy_58: -299821984
+      tile64Moon_new copy_59: 725006339
+      tile64Moon_new copy_6: 127122891
+      tile64Moon_new copy_60: -400485252
+      tile64Moon_new copy_61: 1577652774
+      tile64Moon_new copy_62: -222337367
+      tile64Moon_new copy_63: -1094039909
+      tile64Moon_new copy_64: -790908441
+      tile64Moon_new copy_65: -1703218868
+      tile64Moon_new copy_66: 1320440001
+      tile64Moon_new copy_67: 1096369526
+      tile64Moon_new copy_68: 1933957950
+      tile64Moon_new copy_69: 956922801
+      tile64Moon_new copy_7: 331174865
+      tile64Moon_new copy_70: 238350619
+      tile64Moon_new copy_71: -1565112216
+      tile64Moon_new copy_72: 1595296561
+      tile64Moon_new copy_73: -1968718337
+      tile64Moon_new copy_74: 706981299
+      tile64Moon_new copy_75: -2046408531
+      tile64Moon_new copy_76: -526069452
+      tile64Moon_new copy_77: -1424844700
+      tile64Moon_new copy_78: -1107726830
+      tile64Moon_new copy_79: -640142729
+      tile64Moon_new copy_8: 126427821
+      tile64Moon_new copy_80: 490729129
+      tile64Moon_new copy_81: 1771313460
+      tile64Moon_new copy_82: -427303452
+      tile64Moon_new copy_83: -1393921706
+      tile64Moon_new copy_84: -951310381
+      tile64Moon_new copy_85: -1748467053
+      tile64Moon_new copy_86: -1902094448
+      tile64Moon_new copy_87: 663142801
+      tile64Moon_new copy_88: -945901168
+      tile64Moon_new copy_89: -631442918
+      tile64Moon_new copy_9: -498500794
+      tile64Moon_new copy_90: -1777553197
+      tile64Moon_new copy_91: -680302828
+      tile64Moon_new copy_92: -662438848
+      tile64Moon_new copy_93: -586428421
+      tile64Moon_new copy_94: -982553916
+      tile64Moon_new copy_95: 857948153
+      tile64Moon_new copy_96: -1064434279
+      tile64Moon_new copy_97: -266017000
+      tile64Moon_new copy_98: -1020091711
+      tile64Moon_new copy_99: -1420968446
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
