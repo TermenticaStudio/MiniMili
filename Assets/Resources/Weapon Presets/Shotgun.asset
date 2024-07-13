@@ -88,7 +88,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a2d0dd0ff42fd3a4c959971b77a95fe6, type: 3}
   reloadSFX: {fileID: 8300000, guid: ab008130c5b96cf498ddf047ba249234, type: 3}
   dryFire: {fileID: 8300000, guid: dff2c1270151cc7418a88ca96081c590, type: 3}
-  changeZoom: {fileID: 0}
-  melee: {fileID: 0}
+  changeZoom: {fileID: 8300000, guid: ab008130c5b96cf498ddf047ba249234, type: 3}
+  melee: {fileID: 8300000, guid: e277e84b9b5523a40b40a04e318c6bc9, type: 3}
   icon: {fileID: 448083920, guid: b09f052f833e8e948adff4f04a4d2521, type: 3}
   name: Shotgun

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -9,11 +10,13 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private Button pauseBtn;
     [SerializeField] private Button unpauseBtn;
+    [SerializeField] private Button returnMenuBtn;
 
     private void Start()
     {
         pauseBtn.onClick.AddListener(Pause);
         unpauseBtn.onClick.AddListener(Unpause);
+        returnMenuBtn.onClick.AddListener(ReturnMenu);
 
         Unpause();
     }
@@ -30,5 +33,13 @@ public class PauseMenu : MonoBehaviour
 
         if (freezeTime)
             Time.timeScale = 0;
+    }
+
+    private void ReturnMenu()
+    {
+        if (freezeTime)
+            Time.timeScale = 1;
+
+        SceneManager.LoadScene("Main Menu");
     }
 }

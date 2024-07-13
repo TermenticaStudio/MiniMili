@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float speedAnimationInput;
     const string SPEED_ANIM = "Speed";
-    const string CRAWL_ANIM = "Crawl";
+    const string DIR_ANIM = "Dir";
 
     [Header("Ground Checking")]
     [SerializeField] private Transform groundChecker;
@@ -42,25 +42,22 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 lastFootstepPos;
 
     private Rigidbody2D rb;
-    private Health playerHealth;
     private PlayerAim playerAim;
+    private Health playerHealth;
 
     public bool IsGrounded { get; private set; }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerHealth = GetComponent<Health>();
         playerAim = GetComponent<PlayerAim>();
+        playerHealth = GetComponent<Health>();
 
         lastFootstepPos = transform.position;
     }
 
     private void Update()
     {
-        //if (!isLocalPlayer)
-        //    return;
-
         if (playerHealth.IsDead)
             return;
 
@@ -78,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         currentMaxSpeed = Mathf.Lerp(currentMaxSpeed, targetMaxSpeed, Time.deltaTime * 5f);
         currentAcceleration = Mathf.Lerp(currentAcceleration, targetAcceleration, Time.deltaTime * 5f);
 
-        feetAnimator.SetBool(CRAWL_ANIM, isCrawling);
+        feetAnimator.SetFloat(DIR_ANIM, isCrawling ? -1 : 0);
         speedAnimationInput = Mathf.Lerp(speedAnimationInput, (playerAim.IsFlipped ? -1 : 1) * PlayerInput.Instance.GetMovement().x, Time.deltaTime * 5);
 
         feetAnimator.SetFloat(SPEED_ANIM, speedAnimationInput);
@@ -90,9 +87,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         SlipBrake();
-
-        //if (!isLocalPlayer)
-        //    return;
 
         if (playerHealth.IsDead)
             return;
