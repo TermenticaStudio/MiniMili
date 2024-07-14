@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         if (playerHealth.IsDead)
             return;
 
-        isCrawling = PlayerInput.Instance.GetMovement().y <= -0.4f;
+        isCrawling = PlayerInput.Instance.GetMovement().y <= -0.4f && IsGrounded;
 
         canStand = !CheckCeiling();
 

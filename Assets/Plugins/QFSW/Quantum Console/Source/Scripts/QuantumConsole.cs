@@ -95,7 +95,7 @@ namespace QFSW.QC
         [SerializeField] private TextMeshProUGUI _consoleSuggestionText;
         [SerializeField] private TextMeshProUGUI _suggestionPopupText;
         [SerializeField] private TextMeshProUGUI _jobCounterText;
-        
+
         /// <summary>
         /// The maximum number of logs that may be stored in the log storage before old logs are removed.
         /// </summary>
@@ -459,8 +459,8 @@ namespace QFSW.QC
 
         private void UpdateSuggestionText()
         {
-            Color suggestionColor = _theme 
-                ? _theme.SuggestionColor 
+            Color suggestionColor = _theme
+                ? _theme.SuggestionColor
                 : Color.gray;
 
             StringBuilder buffer = _stringBuilderPool.GetStringBuilder();
@@ -868,7 +868,7 @@ namespace QFSW.QC
             _logStorage.AddLog(TruncateLog(log));
             RequireFlush();
         }
-        
+
         protected void RequireFlush()
         {
             _consoleRequiresFlush = true;
@@ -943,6 +943,7 @@ namespace QFSW.QC
                 {
                     if (Instance == null)
                     {
+                        transform.SetParent(null);
                         Instance = this;
                         DontDestroyOnLoad(gameObject);
                     }
@@ -1032,7 +1033,7 @@ namespace QFSW.QC
         protected virtual ILogStorage CreateLogStorage() => new LogStorage(_maxStoredLogs);
         protected virtual ILogQueue CreateLogQueue() => new LogQueue(_maxStoredLogs);
         protected virtual SuggestionStack CreateSuggestionStack() => new SuggestionStack();
-        
+
         /// <summary>
         /// Toggles the Quantum Console.
         /// </summary>
@@ -1093,23 +1094,23 @@ namespace QFSW.QC
             {
                 condition += $"\n{stackTrace}";
             }
-           
+
             if (_theme)
             {
                 switch (type)
                 {
                     case LogType.Warning:
-                    {
-                        condition = ColorExtensions.ColorText(condition, _theme.WarningColor);
-                        break;
-                    }
-                    case LogType.Error: 
+                        {
+                            condition = ColorExtensions.ColorText(condition, _theme.WarningColor);
+                            break;
+                        }
+                    case LogType.Error:
                     case LogType.Assert:
                     case LogType.Exception:
-                    {
-                        condition = ColorExtensions.ColorText(condition, _theme.ErrorColor);
-                        break;
-                    }
+                        {
+                            condition = ColorExtensions.ColorText(condition, _theme.ErrorColor);
+                            break;
+                        }
                 }
             }
 
