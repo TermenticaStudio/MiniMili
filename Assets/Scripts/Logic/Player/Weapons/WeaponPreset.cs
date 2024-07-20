@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 
 namespace Logic.Player.WeaponsSystem
@@ -36,11 +37,13 @@ namespace Logic.Player.WeaponsSystem
         [FoldoutGroup(SETTINGS_GROUP)]
         public int clipsCount;
         [FoldoutGroup(SETTINGS_GROUP)]
-        public ZoomPreset[] zooms;
+        public ZoomSetting[] zooms;
         [FoldoutGroup(SETTINGS_GROUP)]
         public bool isOwnedByDefault;
         [FoldoutGroup(SETTINGS_GROUP)]
         public PickupWeapon pickup;
+        [FoldoutGroup(SETTINGS_GROUP)]
+        public GameObject aimLine;
 
         [FoldoutGroup(PRE_FIRE_GROUP)]
         [LabelText("Enable")] public bool enablePreFire;
@@ -97,5 +100,14 @@ namespace Logic.Player.WeaponsSystem
         [FoldoutGroup(INFO_GROUP)]
         public new string name;
         public string Name { get => name; }
+
+        [Serializable]
+        public class ZoomSetting
+        {
+            public float aimLineDistance;
+            public Vector2 aimLineScale;
+            public float cameraOffset;
+            public ZoomPreset zoomPreset;
+        }
     }
 }

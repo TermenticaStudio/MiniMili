@@ -41,15 +41,17 @@ namespace Logic.Player.WeaponsSystem
         private Coroutine fireCoroutine;
         private Coroutine reloadCoroutine;
         private bool isDryFiring;
-        private ZoomPreset currentZoom;
+        private WeaponPreset.ZoomSetting currentZoom;
         private WeaponsManager weaponsManager;
         private PlayerAim playerAim;
         private Player player;
+        private Transform recoilExludedProjectilePoint;
 
         private Transform defaultParent;
         private Vector3 defaultPos;
         private bool preFirePending;
         private bool isMeleeing;
+        private Transform currentAimLine;
 
         public int CurrentAmmoCount { get; private set; }
         public int CurrentClipsCount { get; private set; }
@@ -68,6 +70,11 @@ namespace Logic.Player.WeaponsSystem
             playerAim = GetComponentInParent<PlayerAim>();
             player = GetComponentInParent<Player>();
 
+            var nonRecoilPoint = new GameObject(preset.Name + " Non-Recoil Projectile Point");
+            nonRecoilPoint.transform.SetPositionAndRotation(projectileSpawnPoint.transform.position, projectileSpawnPoint.transform.rotation);
+            nonRecoilPoint.transform.SetParent(recoilPivot.parent);
+            recoilExludedProjectilePoint = nonRecoilPoint.transform;
+
             defaultParent = transform.parent;
             defaultPos = transform.localPosition;
 
@@ -75,6 +82,7 @@ namespace Logic.Player.WeaponsSystem
             player.Health.OnDie += OnPlayerDie;
 
             OnRevivePlayer();
+            InitAimLine();
             SetAsDeactive();
         }
 
@@ -99,6 +107,16 @@ namespace Logic.Player.WeaponsSystem
                 player.Health.OnRevive -= OnRevivePlayer;
                 player.Health.OnDie -= OnPlayerDie;
             }
+        }
+
+        private void Update()
+        {
+            UpdateAimLine();
+        }
+
+        private void FixedUpdate()
+        {
+            FixedUpdateAimLine();
         }
 
         private void OnRevivePlayer()
@@ -290,11 +308,11 @@ namespace Logic.Player.WeaponsSystem
             SelectZoom(preset.zooms[currentZoomIndex]);
         }
 
-        private void SelectZoom(ZoomPreset zoomPreset)
+        private void SelectZoom(WeaponPreset.ZoomSetting zoomPreset)
         {
             currentZoom = zoomPreset;
-            WeaponInfoUI.Instance.SetZoomText(currentZoom.Zoom);
-            CameraZoomController.Instance.SetLensSize(currentZoom.LensSize);
+            WeaponInfoUI.Instance.SetZoomText(currentZoom.zoomPreset.Zoom);
+            CameraZoomController.Instance.SetLensSize(currentZoom.zoomPreset.LensSize);
             AudioManager.Instance.PlaySFX(preset.changeZoom);
         }
 
@@ -327,6 +345,9 @@ namespace Logic.Player.WeaponsSystem
             IsActive = true;
             gameObject.SetActive(true);
             GetInHand();
+
+            if (currentAimLine)
+                currentAimLine.gameObject.SetActive(true);
         }
 
         public void SetAsDeactive()
@@ -337,6 +358,9 @@ namespace Logic.Player.WeaponsSystem
                 Holster();
             else
                 gameObject.SetActive(false);
+
+            if (currentAimLine)
+                currentAimLine.gameObject.SetActive(false);
         }
 
         public void OwnWeapon()
@@ -414,5 +438,37 @@ namespace Logic.Player.WeaponsSystem
         }
 
         public bool CanMelee() => preset.melee && !isMeleeing;
+
+        private void InitAimLine()
+        {
+            if (!preset.aimLine)
+                return;
+
+            currentAimLine = Instantiate(preset.aimLine, recoilExludedProjectilePoint.transform.position, recoilExludedProjectilePoint.transform.rotation, player.transform).transform;
+        }
+
+        private void UpdateAimLine()
+        {
+            player.SetCameraLookPos(recoilExludedProjectilePoint.TransformPoint(recoilExludedProjectilePoint.localPosition + Vector3.right * currentZoom.cameraOffset));
+
+            if (!currentAimLine)
+                return;
+
+            currentAimLine.localScale = currentZoom.aimLineScale;
+        }
+
+        private void FixedUpdateAimLine()
+        {
+            if (!currentAimLine)
+                return;
+
+            var finalRotation = recoilExludedProjectilePoint.rotation;
+            if (playerAim.IsFlipped)
+                finalRotation *= Quaternion.Euler(0, 0, 180);
+
+            var finalPosition = recoilExludedProjectilePoint.TransformPoint(recoilExludedProjectilePoint.localPosition + Vector3.right * currentZoom.aimLineDistance);
+
+            currentAimLine.SetPositionAndRotation(finalPosition, finalRotation);
+        }
     }
 }

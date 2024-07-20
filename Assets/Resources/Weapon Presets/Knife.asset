@@ -22,11 +22,13 @@ MonoBehaviour:
   clipSize: 30
   clipsCount: 15
   zooms:
-  - {fileID: 11400000, guid: 0447a5cd0f9b8934ca1917c91305bc7a, type: 2}
-  - {fileID: 11400000, guid: 33dd425356c441c408e1f288b4815213, type: 2}
-  - {fileID: 11400000, guid: 3661d7f74ea27b345b59c0076df87ef3, type: 2}
+  - aimLineDistance: 0
+    aimLineScale: {x: 0, y: 0}
+    cameraOffset: 0
+    zoomPreset: {fileID: 11400000, guid: 0447a5cd0f9b8934ca1917c91305bc7a, type: 2}
   isOwnedByDefault: 0
   pickup: {fileID: 3896976634062838338, guid: 4f4f42150883a5d4b8ca46f0a5ac811b, type: 3}
+  aimLine: {fileID: 4509361674881920342, guid: 2d37fca0dcde6e649bc1ce3a2c5500be, type: 3}
   enablePreFire: 0
   preFireDuration: 1
   projectile: {fileID: 4575455049484285622, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}

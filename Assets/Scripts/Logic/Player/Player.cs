@@ -8,6 +8,10 @@ namespace Logic.Player
     [RequireComponent(typeof(WeaponsManager))]
     public class Player : MonoBehaviour
     {
+        [SerializeField] private Transform cameraLook;
+        [SerializeField] private float cameraLerpSpeedMul = 5f;
+        private Vector3 targetCamLook;
+
         public string Id { get; set; }
 
         public Health Health { get; private set; }
@@ -40,11 +44,20 @@ namespace Logic.Player
             Health.OnUpdateHealth -= OnUpdateHealth;
         }
 
+        private void Update()
+        {
+            if (!cameraLook)
+                return;
+
+            cameraLook.transform.position = Vector3.Lerp(cameraLook.transform.position, targetCamLook, Time.deltaTime * cameraLerpSpeedMul);
+        }
+
         private void OnSpawn(PlayerInfo obj)
         {
             Health.Revive();
             Info.SetPlayerName(PlayerPrefs.GetString("PLAYER_NAME"));
-            CameraController.Instance.SetTarget(obj.transform);
+            CameraController.Instance.SetTarget(cameraLook);
+            SetCameraLookPos(transform.position);
             WeaponsManager.OnStartPlayer();
             Throwables.OnStartPlayer();
             PlayerInput.Instance.ResetInput();
@@ -69,6 +82,14 @@ namespace Logic.Player
 
             PlayerSpawnHandler.Instance.RequestForPlayerRespawn(Info);
             CameraController.Instance.SetTarget(null);
+        }
+
+        public void SetCameraLookPos(Vector3 pos, bool force = false)
+        {
+            targetCamLook = pos;
+
+            if (force)
+                cameraLook.position = targetCamLook;
         }
     }
 }
