@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 59352887}
   - component: {fileID: 59352886}
   - component: {fileID: 59352885}
+  - component: {fileID: 59352888}
   m_Layer: 0
   m_Name: Crawling
   m_TagString: Untagged
@@ -515,9 +516,23 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.021416, y: -51.23}
+  m_AnchoredPosition: {x: -30.015293, y: -51.22893}
   m_SizeDelta: {x: 9.9687, y: 3.5669}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &59352888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59352884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0047a3453f9a6fc408da46c9773262c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxMovement: {x: 0.02, y: 0.01}
 --- !u!1 &98459330
 GameObject:
   m_ObjectHideFlags: 0
@@ -7276,8 +7291,9 @@ GameObject:
   - component: {fileID: 945266566}
   - component: {fileID: 945266568}
   - component: {fileID: 945266567}
+  - component: {fileID: 945266569}
   m_Layer: 0
-  m_Name: Crawling (1)
+  m_Name: Items
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7299,7 +7315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.248, y: -48.7689}
+  m_AnchoredPosition: {x: -1.224, y: -48.794}
   m_SizeDelta: {x: 8.1531, y: 1.8455}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &945266567
@@ -7436,6 +7452,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &945266569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945266565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0047a3453f9a6fc408da46c9773262c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxMovement: {x: 0.02, y: 0.01}
 --- !u!1001 &953888262
 PrefabInstance:
   m_ObjectHideFlags: 0
