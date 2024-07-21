@@ -162,7 +162,7 @@ public class WeaponInfoUI : MonoBehaviour
         weaponNameText.text = weapon.Preset.Name;
         weaponIconImage.sprite = weapon.Preset.Icon;
 
-        meleeBtn.SetActive(weapon.CanMelee());
+        meleeBtn.SetActive(weapon.HaveMelee());
 
         clipCountText.gameObject.SetActive(weapon.Preset.isFirearm);
         ammoCountText.gameObject.SetActive(weapon.Preset.isFirearm);

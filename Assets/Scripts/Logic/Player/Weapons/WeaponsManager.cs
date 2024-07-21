@@ -156,6 +156,11 @@ namespace Logic.Player.WeaponsSystem
             OnChangeWeapon?.Invoke(weapon);
         }
 
+        public void RefreshWeapon()
+        {
+            UpdateWeaponUI(activeWeapon);
+        }
+
         public void StartReload(float time)
         {
             OnReloadWeapon?.Invoke(time);

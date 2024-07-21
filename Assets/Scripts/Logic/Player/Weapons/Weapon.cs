@@ -437,7 +437,9 @@ namespace Logic.Player.WeaponsSystem
             }
         }
 
-        public bool CanMelee() => preset.melee && !isMeleeing;
+        public bool CanMelee() => HaveMelee() && !isMeleeing;
+
+        public bool HaveMelee() => preset.enableMelee;
 
         private void InitAimLine()
         {
