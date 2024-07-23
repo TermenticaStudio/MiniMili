@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerAim playerAim;
     private Health playerHealth;
+    private bool overrideMovementVelocity;
 
     public bool IsGrounded { get; private set; }
 
@@ -60,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerHealth.IsDead)
             return;
+
+        SlipBrake();
 
         isCrawling = PlayerInput.Instance.GetMovement().y <= -0.4f && IsGrounded;
 
@@ -81,24 +84,20 @@ public class PlayerMovement : MonoBehaviour
         feetAnimator.SetFloat(SPEED_ANIM, speedAnimationInput);
         IsGrounded = CheckGround();
 
-        if (IsGrounded)
-            rb.gravityScale = 0;
-        else
-            rb.gravityScale = 1;
-
         Footstep();
     }
 
     private void FixedUpdate()
     {
-        SlipBrake();
-
         if (playerHealth.IsDead)
             return;
 
         rb.freezeRotation = IsGrounded;
 
         if (!IsGrounded)
+            return;
+
+        if (overrideMovementVelocity)
             return;
 
         if (Mathf.Abs(PlayerInput.Instance.GetMovement().x) <= 0.1f)
@@ -125,12 +124,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isCrawling)
         {
-            targetMaxSpeed = crawlMaxSpeed;
+            targetMaxSpeed = crawlMaxSpeed * Mathf.Abs(PlayerInput.Instance.GetMovement().x);
             targetAcceleration = crawlAcceleration;
         }
         else
         {
-            targetMaxSpeed = walkMaxSpeed;
+            targetMaxSpeed = walkMaxSpeed * Mathf.Abs(PlayerInput.Instance.GetMovement().x);
             targetAcceleration = walkAcceleration;
         }
     }
@@ -192,5 +191,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (ceilChecker)
             Gizmos.DrawWireSphere(ceilChecker.position, ceilCheckRadius);
+    }
+
+
+    public void OverrideMovementVelocity(bool value)
+    {
+        overrideMovementVelocity = value;
     }
 }

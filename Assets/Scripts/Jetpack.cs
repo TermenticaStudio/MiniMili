@@ -5,6 +5,7 @@ public class Jetpack : MonoBehaviour
 {
     [SerializeField] private float jetPackForce;
     [SerializeField] private float jetPackLaunchForce;
+    [SerializeField] private float launchDelay = 0.65f;
     [SerializeField] private float jetPackFuel = 10;
     [SerializeField] private float maxVelocity;
     [SerializeField] private float fuelUsageMultiplier = 2f;
@@ -16,7 +17,7 @@ public class Jetpack : MonoBehaviour
     private bool jetPackActive;
     private bool isChargingFuel;
     private float throttle;
-    private Quaternion currentRotation;
+    private Quaternion targetRotation;
 
     private Coroutine jetPackActivation;
     private Coroutine chargeFuelDelay;
@@ -58,10 +59,17 @@ public class Jetpack : MonoBehaviour
 
     private void Update()
     {
+        if (playerHealth.IsDead)
+            return;
+
         throttle = Mathf.Clamp01(PlayerInput.Instance.GetMovement().y);
+
+        playerMovement.OverrideMovementVelocity(jetPackActive || jetPackActivation != null);
 
         UpdateUI();
         JetpackParticles();
+        JetpackMove();
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
     }
 
     private void FixedUpdate()
@@ -69,8 +77,11 @@ public class Jetpack : MonoBehaviour
         if (playerHealth.IsDead)
             return;
 
-        JetpackMove();
-        rigid.SetRotation(Quaternion.Lerp(transform.rotation, currentRotation, Time.deltaTime * 5f));
+        if (jetPackActive)
+        {
+            rigid.AddForce((Vector2.up * jetPackForce * PlayerInput.Instance.GetMovement().y) + (Vector2.right * (jetPackForce / 2f) * PlayerInput.Instance.GetMovement().x), ForceMode2D.Force);
+            rigid.velocity = Vector2.ClampMagnitude(rigid.velocity, maxVelocity);
+        }
     }
 
     private void UpdateUI()
@@ -80,38 +91,32 @@ public class Jetpack : MonoBehaviour
 
     private void JetpackMove()
     {
+        if (jetPackActivation != null)
+            return;
+
         if (playerMovement.IsGrounded)
         {
             CmdDeactivateJetpack();
             StartRefuel();
-            currentRotation = Quaternion.identity;
+            targetRotation = Quaternion.identity;
 
             if (PlayerInput.Instance.GetMovement().y < 0.8f)
                 return;
 
-            rigid.AddForce(Vector2.up * jetPackLaunchForce, ForceMode2D.Impulse);
-
             if (jetPackActivation == null)
-            {
                 jetPackActivation = StartCoroutine(StartJetpackDelayed());
-            }
-
-            return;
         }
 
         if (jetPackActive)
         {
             UseFuel();
-            rigid.AddForce((Vector2.up * jetPackForce * PlayerInput.Instance.GetMovement().y) + (Vector2.right * (jetPackForce / 2f) * PlayerInput.Instance.GetMovement().x), ForceMode2D.Force);
-            rigid.velocity = Vector2.ClampMagnitude(rigid.velocity, maxVelocity);
-
             var angle = Mathf.Atan2(PlayerInput.Instance.GetMovement().y, PlayerInput.Instance.GetMovement().x) * Mathf.Rad2Deg;
-            currentRotation = Quaternion.Euler(0f, 0f, angle - 90);
+            targetRotation = Quaternion.Euler(0f, 0f, angle - 90);
         }
         else
         {
             StartRefuel();
-            currentRotation = Quaternion.identity;
+            targetRotation = Quaternion.identity;
         }
 
         if (currentFuel == 0 || PlayerInput.Instance.GetMovement().y <= 0)
@@ -163,7 +168,10 @@ public class Jetpack : MonoBehaviour
 
     private IEnumerator StartJetpackDelayed()
     {
-        yield return new WaitForSeconds(0.65f);
+        rigid.drag = 0;
+        rigid.velocity = Vector3.zero;
+        rigid.AddForce(transform.up * jetPackLaunchForce, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(launchDelay);
         CmdActivateJetpack();
         jetPackActivation = null;
     }
