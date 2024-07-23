@@ -81,7 +81,7 @@ namespace Logic.Player
             }
 
             PlayerSpawnHandler.Instance.RequestForPlayerRespawn(Info);
-            CameraController.Instance.SetTarget(null);
+            //CameraController.Instance.SetTarget(null);
         }
 
         public void SetCameraLookPos(Vector3 pos, bool force = false)

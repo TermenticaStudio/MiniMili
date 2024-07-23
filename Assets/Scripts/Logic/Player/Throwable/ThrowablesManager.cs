@@ -24,13 +24,24 @@ namespace Logic.Player.ThrowablesSystem
         public event Action<Throwable> OnChangeThrowable;
 
         private Player player;
+        private bool isInitiated;
 
         private void Start()
         {
+            Init();
+        }
+
+        private void Init()
+        {
+            if (isInitiated)
+                return;
+
             player = GetComponent<Player>();
 
             foreach (var item in throwables)
                 item.Init(player, this);
+
+            isInitiated = true;
         }
 
         private void Update()
@@ -47,6 +58,8 @@ namespace Logic.Player.ThrowablesSystem
 
         public void OnStartPlayer()
         {
+            Init();
+
             var startThrowable = GetNextOwnedThrowable();
 
             if (startThrowable == null)

@@ -128,7 +128,7 @@ namespace Logic.Player.WeaponsSystem
 
         public void CmdSwitchWeapon()
         {
-            if (activeWeaponIndex == weapons.Length - 1)
+            if (IsLastOwnedWeapon())
             {
                 activeWeaponIndex = 0;
                 activeWeaponIndex = GetNextOwnedWeaponIndex();
@@ -156,6 +156,16 @@ namespace Logic.Player.WeaponsSystem
             }
 
             return -1;
+        }
+
+        private bool IsLastOwnedWeapon()
+        {
+            var lastWeapon = weapons.Last(x => x == activeWeapon);
+
+            if (lastWeapon == null || activeWeapon == null)
+                return false;
+
+            return lastWeapon == activeWeapon;
         }
 
         public void DeactivateWeapon(Weapon weapon)
