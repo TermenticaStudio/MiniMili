@@ -91,6 +91,10 @@ public class PlayerSpawnHandler : MonoBehaviour
 
         var spawnPoint = GetStartPosition(player);
         player.transform.SetPositionAndRotation(spawnPoint.position, Quaternion.identity);
+
+        if (player.TryGetComponent<Rigidbody2D>(out var rb))
+            rb.velocity = Vector2.zero;
+
         player.UseRespawn();
 
         OnSpawnPlayer?.Invoke(player);
