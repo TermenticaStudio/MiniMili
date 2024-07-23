@@ -168,6 +168,7 @@ public class Jetpack : MonoBehaviour
 
     private IEnumerator StartJetpackDelayed()
     {
+        playerMovement.OverrideMovementVelocity(true);
         rigid.drag = 0;
         rigid.velocity = Vector3.zero;
         rigid.AddForce(transform.up * jetPackLaunchForce, ForceMode2D.Impulse);
