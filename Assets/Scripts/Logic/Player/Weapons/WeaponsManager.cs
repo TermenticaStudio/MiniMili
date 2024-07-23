@@ -23,17 +23,30 @@ namespace Logic.Player.WeaponsSystem
 
         private Player player;
         private PickupWeapon availableWeaponToReplace;
+        private bool isInited;
 
         private void Start()
         {
+            Init();
+        }
+
+        private void Init()
+        {
+            if (isInited)
+                return;
+
             player = GetComponent<Player>();
 
             foreach (var weapon in weapons)
                 weapon.Init();
+
+            isInited = true;
         }
 
         public void OnStartPlayer()
         {
+            Init();
+
             activeWeaponIndex = -1;
             activeWeaponIndex = GetNextOwnedWeaponIndex();
 
@@ -102,6 +115,15 @@ namespace Logic.Player.WeaponsSystem
         public void SelectLastWeapon()
         {
             UpdateActiveWeapon(0, lastActiveWeapon);
+        }
+
+        public void RefillWeapon()
+        {
+            if (activeWeapon == null)
+                return;
+
+            activeWeapon.SetAmmo(new PickupWeapon.Ammo(activeWeapon.Preset.clipsCount, activeWeapon.Preset.clipSize));
+            UpdateUI();
         }
 
         public void CmdSwitchWeapon()

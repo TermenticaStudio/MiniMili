@@ -49,6 +49,8 @@ namespace Logic.Player.WeaponsSystem
         [LabelText("Enable")] public bool enablePreFire;
         [FoldoutGroup(PRE_FIRE_GROUP), ShowIf("@enablePreFire")]
         public float preFireDuration = 1f;
+        [FoldoutGroup(PRE_FIRE_GROUP), ShowIf("@enablePreFire")]
+        public bool preFirePerShot;
 
         [FoldoutGroup(PROJECTILE_GROUP)]
         public Projectile projectile;

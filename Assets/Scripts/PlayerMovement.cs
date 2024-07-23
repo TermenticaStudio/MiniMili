@@ -81,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
         feetAnimator.SetFloat(SPEED_ANIM, speedAnimationInput);
         IsGrounded = CheckGround();
 
+        if (IsGrounded)
+            rb.gravityScale = 0;
+        else
+            rb.gravityScale = 1;
+
         Footstep();
     }
 
@@ -176,5 +181,16 @@ public class PlayerMovement : MonoBehaviour
         footstepAS.clip = currentClip;
         footstepAS.pitch = Random.Range(pitchRandomness.x, pitchRandomness.y);
         footstepAS.Play();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+
+        if (groundChecker)
+            Gizmos.DrawWireSphere(groundChecker.position, groundCheckRadius);
+
+        if (ceilChecker)
+            Gizmos.DrawWireSphere(ceilChecker.position, ceilCheckRadius);
     }
 }

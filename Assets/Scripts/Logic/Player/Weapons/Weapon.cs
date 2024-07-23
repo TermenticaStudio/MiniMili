@@ -139,15 +139,26 @@ namespace Logic.Player.WeaponsSystem
                 fireCoroutine = StartCoroutine(FireCoroutine());
         }
 
+        private bool isFireInitiated;
+
         private IEnumerator FireCoroutine()
         {
             if (IsReloadNeeded())
                 yield break;
 
-            yield return PreFire();
+            if (!isFireInitiated)
+            {
+                if (!preset.preFirePerShot)
+                    yield return PreFire();
+            }
+
+            isFireInitiated = true;
 
             for (int b = 0; b < FireCount(); b++)
             {
+                if (preset.preFirePerShot)
+                    yield return PreFire();
+
                 CurrentAmmoCount--;
                 weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount, ClipSize);
 
@@ -225,16 +236,17 @@ namespace Logic.Player.WeaponsSystem
         public void CancelFire()
         {
             isDryFiring = false;
-
-            if (fireCoroutine != null)
-                StopCoroutine(fireCoroutine);
-
-            fireCoroutine = null;
+            isFireInitiated = false;
 
             if (preFirePending)
             {
                 OnEndPreFire?.Invoke();
                 preFirePending = false;
+
+                if (fireCoroutine != null)
+                    StopCoroutine(fireCoroutine);
+
+                fireCoroutine = null;
             }
         }
 
@@ -253,6 +265,8 @@ namespace Logic.Player.WeaponsSystem
                 DryFire();
                 return;
             }
+
+            CancelFire();
 
             if (reloadCoroutine == null)
                 reloadCoroutine = StartCoroutine(ReloadCoroutine());

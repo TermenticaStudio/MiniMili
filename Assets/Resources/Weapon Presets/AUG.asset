@@ -22,17 +22,17 @@ MonoBehaviour:
   clipSize: 30
   clipsCount: 10
   zooms:
-  - aimLineDistance: 0
-    aimLineScale: {x: 0, y: 0}
-    cameraOffset: 0
+  - aimLineDistance: 1.1
+    aimLineScale: {x: 0.8, y: 0.8}
+    cameraOffset: 1
     zoomPreset: {fileID: 11400000, guid: 0447a5cd0f9b8934ca1917c91305bc7a, type: 2}
-  - aimLineDistance: 0
-    aimLineScale: {x: 0, y: 0}
-    cameraOffset: 0
+  - aimLineDistance: 1.5
+    aimLineScale: {x: 1, y: 1}
+    cameraOffset: 2
     zoomPreset: {fileID: 11400000, guid: 33dd425356c441c408e1f288b4815213, type: 2}
-  - aimLineDistance: 0
-    aimLineScale: {x: 0, y: 0}
-    cameraOffset: 0
+  - aimLineDistance: 2.2
+    aimLineScale: {x: 1.3, y: 1.3}
+    cameraOffset: 3
     zoomPreset: {fileID: 11400000, guid: 3661d7f74ea27b345b59c0076df87ef3, type: 2}
   isOwnedByDefault: 0
   pickup: {fileID: 6627926755546591444, guid: 8bb58c0b266f64b458e8bcc73f6add26, type: 3}

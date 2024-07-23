@@ -32291,7 +32291,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  groundCheckRadius: 0.1
+  groundCheckRadius: 0.15
   ceilChecker: {fileID: 8597408513434402173}
   ceilLayer:
     serializedVersion: 2

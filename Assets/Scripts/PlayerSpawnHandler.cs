@@ -18,6 +18,7 @@ public class PlayerSpawnHandler : MonoBehaviour
     [SerializeField] private GameObject respawnUI;
     [SerializeField] private TextMeshProUGUI respawnTimerText;
 
+    public Player LocalPlayer { get; private set; }
     public static PlayerSpawnHandler Instance;
 
     public event Action<PlayerInfo> OnSpawnPlayer;
@@ -54,6 +55,7 @@ public class PlayerSpawnHandler : MonoBehaviour
         OnSpawnPlayer?.Invoke(instance);
 
         InGameMessage.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Joined), instance.GetPlayerName());
+        LocalPlayer = instance.GetComponent<Player>();
     }
 
     public void RequestForPlayerRespawn(PlayerInfo player)

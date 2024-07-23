@@ -15,10 +15,8 @@ namespace GameDebug.WeaponDebug
             valueField.text = value.ToString();
             valueField.onEndEdit.AddListener(newValue =>
             {
-                if (string.IsNullOrEmpty(newValue))
-                    return;
-
-                onChange?.Invoke(Convert.ToSingle(newValue));
+                if (!string.IsNullOrEmpty(newValue) && float.TryParse(newValue, out var num))
+                    onChange?.Invoke(num);
             });
         }
     }

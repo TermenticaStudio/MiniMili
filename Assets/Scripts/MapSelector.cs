@@ -26,7 +26,11 @@ public class MapSelector : MonoBehaviour
             Destroy(obj.gameObject);
 
         var randomMap = Instantiate(mapPreviewPrefab, mapsHolder.transform);
-        randomMap.Init(new MapInfoSO("Random", randomMapSprite, null), OnChangeMap);
+
+        var randomMapSO = ScriptableObject.CreateInstance<MapInfoSO>();
+        randomMapSO.Setup("Random", randomMapSprite, null);
+
+        randomMap.Init(randomMapSO, OnChangeMap);
         currentPreviews.Add(randomMap);
         randomMap.Select();
 

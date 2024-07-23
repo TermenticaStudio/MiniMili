@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Presets/Map Info")]
 public class MapInfoSO : ScriptableObject, IEncryptedContent
 {
-    public MapInfoSO(string title, Sprite preview, string sceneName)
+    public void Setup(string title, Sprite preview, string sceneName)
     {
         Title = title;
         Preview = preview;

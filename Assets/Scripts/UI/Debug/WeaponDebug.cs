@@ -14,6 +14,7 @@ namespace GameDebug.WeaponDebug
         [SerializeField] private Image weaponImage;
         [SerializeField] private TextMeshProUGUI weaponName;
         [SerializeField] private Transform fieldsHolder;
+        [SerializeField] private Button fillGunBtn;
         [SerializeField] private WeaponDebugNumericField numericFieldPrefab;
         [SerializeField] private WeaponDebugBoolField booleanFieldPrefab;
         [SerializeField] private WeaponDebugVector2Field vector2FieldPrefab;
@@ -27,8 +28,12 @@ namespace GameDebug.WeaponDebug
 
         private void Start()
         {
-            playerSpawnHandler = FindObjectOfType<PlayerSpawnHandler>();
-            playerSpawnHandler.OnSpawnPlayer += OnSpawnPlayer;
+            PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
+        }
+
+        private void OnDisable()
+        {
+            PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
         }
 
         private void OnDestroy()
@@ -55,6 +60,8 @@ namespace GameDebug.WeaponDebug
                 return;
 
             player.WeaponsManager.OnChangeWeapon += OnChangeWeapon;
+            fillGunBtn.onClick.RemoveAllListeners();
+            fillGunBtn.onClick.AddListener(player.WeaponsManager.RefillWeapon);
         }
 
         private void OnChangeWeapon(Weapon obj)
