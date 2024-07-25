@@ -5,6 +5,7 @@ using Feature.Notifier;
 using Feature.OverlapDetector;
 using Feature.Player.Aim;
 using Feature.Player.Movement;
+using Feature.Player.Stabilizer;
 using Logic.Player.ThrowablesSystem;
 using Logic.Player.WeaponsSystem;
 using UnityEngine;
@@ -22,6 +23,7 @@ namespace Logic.Player
         [SerializeField] private OverlapDetectorController groundDetector;
         [SerializeField] private OverlapDetectorController ceilDetector;
         [SerializeField] private FlipController flipController;
+        [SerializeField] private StabilizerController stabilizerController;
         private Vector3 _targetCamLook;
 
         public string Id { get; set; }
@@ -48,6 +50,7 @@ namespace Logic.Player
             Aim.InjectFlipController(flipController);
             movement.InjectFlipController(flipController);
             Throwables.InjectFlipController(flipController);
+            stabilizerController.InjectGroundDetector(groundDetector);
 
             PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawn;
 
@@ -70,6 +73,7 @@ namespace Logic.Player
                 jetpack.FeedDirectionInput(PlayerInput.Instance.GetMovement());
                 movement.FeedDirectionInput(PlayerInput.Instance.GetMovement());
                 Aim.FeedDirectionInput(PlayerInput.Instance.GetAim());
+                stabilizerController.FeedDirectionInput(PlayerInput.Instance.GetMovement());
             }
 
             if (!cameraLook)

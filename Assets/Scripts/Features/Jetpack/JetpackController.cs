@@ -31,7 +31,6 @@ namespace Feature.Jetpack
         private float _currentFuel;
         private bool _isChargingFuel;
         private bool _isChargingFuelActivating;
-        private Quaternion _targetRotation;
         private Vector2 _directionInput;
         private Rigidbody2D _rigid;
         private OverlapDetectorController _groundDetector;
@@ -53,8 +52,6 @@ namespace Feature.Jetpack
             StartRefuel();
             ChargeFuel();
             UseFuel();
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, _targetRotation, Time.deltaTime * 5f);
         }
 
         private void FixedUpdate()
@@ -84,23 +81,12 @@ namespace Feature.Jetpack
             if (_isGrounded)
             {
                 DeactivateJetpack();
-                _targetRotation = Quaternion.identity;
 
                 if (_directionInput.y < 0.8f)
                     return;
 
                 if (!_isJetpackActivating)
                     StartCoroutine(StartJetpackDelayed());
-            }
-
-            if (_isJetPackActive)
-            {
-                var angle = Mathf.Atan2(_directionInput.y, _directionInput.x) * Mathf.Rad2Deg;
-                _targetRotation = Quaternion.Euler(0f, 0f, angle - 90);
-            }
-            else
-            {
-                _targetRotation = Quaternion.identity;
             }
 
             if (_currentFuel == 0 || _directionInput.y <= 0)
