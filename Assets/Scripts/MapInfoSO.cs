@@ -1,3 +1,4 @@
+using Feature.ContentPassword;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Presets/Map Info")]

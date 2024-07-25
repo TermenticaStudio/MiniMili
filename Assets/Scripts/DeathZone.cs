@@ -1,14 +1,15 @@
+using Feature.Health;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
     [SerializeField] private float damagePerSecond;
-    private List<Health> players = new();
+    private List<HealthController> damagables = new();
 
     private void Update()
     {
-        foreach (var player in players)
+        foreach (var player in damagables)
         {
             player.Damage(damagePerSecond * Time.deltaTime, null);
         }
@@ -16,23 +17,23 @@ public class DeathZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var playerH = collision.gameObject.GetComponent<Health>();
+        var playerH = collision.gameObject.GetComponent<HealthController>();
 
         if (playerH == null)
             return;
 
-        if (!players.Contains(playerH))
-            players.Add(playerH);
+        if (!damagables.Contains(playerH))
+            damagables.Add(playerH);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        var playerH = collision.gameObject.GetComponent<Health>();
+        var playerH = collision.gameObject.GetComponent<HealthController>();
 
         if (playerH == null)
             return;
 
-        if (players.Contains(playerH))
-            players.Remove(playerH);
+        if (damagables.Contains(playerH))
+            damagables.Remove(playerH);
     }
 }

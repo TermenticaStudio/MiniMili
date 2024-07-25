@@ -1,3 +1,4 @@
+using Feature.Audio;
 using UnityEngine;
 
 namespace Logic.Player.ThrowablesSystem

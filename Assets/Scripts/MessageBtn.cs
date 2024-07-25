@@ -1,3 +1,4 @@
+using Feature.Notifier;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,6 @@ public class MessageBtn : MonoBehaviour
     private void Start()
     {
         btn = GetComponent<Button>();
-        btn.onClick.AddListener(() => InGameMessage.Instance.Notify(message));
+        btn.onClick.AddListener(() => NotifyManager.Instance.Notify(message));
     }
 }

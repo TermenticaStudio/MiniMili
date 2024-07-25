@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 3364972}
   - component: {fileID: 3364973}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3364971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &16520250
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 16520252}
   - component: {fileID: 16520251}
   m_Layer: 0
-  m_Name: Pause Menu [Script]
+  m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,37 +337,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24467227}
   m_CullTransparentMesh: 1
---- !u!1 &98459330
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 98459331}
-  m_Layer: 0
-  m_Name: Texts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &98459331
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98459330}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1006794768}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &99456158
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +426,7 @@ GameObject:
   - component: {fileID: 101808959}
   - component: {fileID: 101808960}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +456,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 101808958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &102559834
@@ -503,7 +472,7 @@ GameObject:
   - component: {fileID: 102559836}
   - component: {fileID: 102559835}
   m_Layer: 5
-  m_Name: Background UI
+  m_Name: BackgroundUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -603,7 +572,7 @@ GameObject:
   - component: {fileID: 109125424}
   - component: {fileID: 109125425}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -633,7 +602,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 109125423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &112786841
@@ -646,7 +615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 112786842}
   m_Layer: 0
-  m_Name: Spawn Points
+  m_Name: SpawnPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -660,8 +629,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112786841}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1515.4156, y: 475.34024, z: -2.864653}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1533.6156, y: 404.64026, z: -2.864653}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -677,7 +646,7 @@ Transform:
   - {fileID: 2010893062}
   - {fileID: 3364972}
   - {fileID: 2144529683}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1006794768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &124138773
 GameObject:
@@ -824,7 +793,7 @@ GameObject:
   - component: {fileID: 124354039}
   - component: {fileID: 124354040}
   m_Layer: 0
-  m_Name: Object Spawner [Script]
+  m_Name: ObjectSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -915,7 +884,7 @@ GameObject:
   - component: {fileID: 141338246}
   - component: {fileID: 141338247}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -945,7 +914,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 141338245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &176136522
@@ -2496,7 +2465,7 @@ GameObject:
   - component: {fileID: 485228437}
   - component: {fileID: 485228438}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2526,7 +2495,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 485228436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &493873420
@@ -2653,7 +2622,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3453,7 +3422,7 @@ GameObject:
   - component: {fileID: 685704616}
   - component: {fileID: 685704615}
   m_Layer: 0
-  m_Name: Weapon Info [Script]
+  m_Name: WeaponInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7086,7 +7055,7 @@ GameObject:
   - component: {fileID: 893492464}
   - component: {fileID: 893492465}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7116,7 +7085,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 893492463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &933316160
@@ -7457,7 +7426,7 @@ Transform:
   m_Children:
   - {fileID: 1557136301}
   - {fileID: 1126345143}
-  - {fileID: 98459331}
+  - {fileID: 112786842}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1013989844
@@ -7472,7 +7441,7 @@ GameObject:
   - component: {fileID: 1013989846}
   - component: {fileID: 1013989845}
   m_Layer: 0
-  m_Name: Death Zone [Script]
+  m_Name: DeathZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8063,7 +8032,7 @@ GameObject:
   - component: {fileID: 1159513892}
   - component: {fileID: 1159513891}
   m_Layer: 0
-  m_Name: Player Input [Script]
+  m_Name: PlayerInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8116,7 +8085,7 @@ GameObject:
   - component: {fileID: 1171185881}
   - component: {fileID: 1171185882}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8146,7 +8115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1171185880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1194731048
@@ -8408,7 +8377,7 @@ GameObject:
   - component: {fileID: 1262020394}
   - component: {fileID: 1262020395}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8438,7 +8407,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1262020393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1346523537
@@ -8555,7 +8524,7 @@ GameObject:
   - component: {fileID: 1400968355}
   - component: {fileID: 1400968356}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8585,7 +8554,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1400968354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1420336465
@@ -9785,7 +9754,7 @@ GameObject:
   - component: {fileID: 1704177531}
   - component: {fileID: 1704177530}
   m_Layer: 0
-  m_Name: Player Spawn Handler [Script]
+  m_Name: PlayerSpawnHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10595,7 +10564,7 @@ GameObject:
   - component: {fileID: 1859376539}
   - component: {fileID: 1859376540}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10625,7 +10594,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1859376538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1890186290
@@ -10639,7 +10608,7 @@ GameObject:
   - component: {fileID: 1890186292}
   - component: {fileID: 1890186291}
   m_Layer: 0
-  m_Name: FPS Setter [Script]
+  m_Name: FPSSetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10979,7 +10948,7 @@ GameObject:
   - component: {fileID: 1967851993}
   - component: {fileID: 1967851992}
   m_Layer: 0
-  m_Name: Objects Pool [Script]
+  m_Name: ObjectsPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11269,7 +11238,7 @@ GameObject:
   - component: {fileID: 2010893062}
   - component: {fileID: 2010893063}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11299,7 +11268,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2010893061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2026937292
@@ -11629,7 +11598,7 @@ GameObject:
   - component: {fileID: 2144529683}
   - component: {fileID: 2144529684}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11659,7 +11628,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2144529682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: ad44c6a6aa591a740a892af610b080c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6048017047234995654
@@ -11786,7 +11755,6 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 431445247}
   - {fileID: 1809436303}
-  - {fileID: 112786842}
   - {fileID: 102559838}
   - {fileID: 1006794768}
   - {fileID: 6708870181442340680}

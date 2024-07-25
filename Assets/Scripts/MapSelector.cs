@@ -1,3 +1,4 @@
+using Feature.ContentPassword;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -52,7 +53,7 @@ public class MapSelector : MonoBehaviour
     {
         var map = GetSelectedMapInfo();
 
-        ContentPassword.Instance.Pass(map, () =>
+        ContentPasswordController.Instance.Pass(map, () =>
         {
             SceneManager.LoadScene(map.SceneName);
         });

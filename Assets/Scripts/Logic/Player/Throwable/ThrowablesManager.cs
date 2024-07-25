@@ -1,3 +1,5 @@
+using Feature.Audio;
+using Feature.Flip;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -18,13 +20,14 @@ namespace Logic.Player.ThrowablesSystem
         public Transform SpawnPoint { get => spawnPoint; }
         public Transform HandPivot { get => handPivot; }
         public AnimationCurve ThrowCurve { get => throwCurve; }
-        public Vector3 ThrowDirection { get => SpawnPoint.right * (player.Aim.IsFlipped ? -1 : 1); }
+        public Vector3 ThrowDirection { get => SpawnPoint.right * (IsFlipped() ? -1 : 1); }
 
         public event Action<int> OnUpdateThrowableCount;
         public event Action<Throwable> OnChangeThrowable;
 
         private Player player;
         private bool isInitiated;
+        private FlipController flipController;
 
         private void Start()
         {
@@ -176,6 +179,16 @@ namespace Logic.Player.ThrowablesSystem
             }
 
             throwable.Pickup();
+        }
+
+        public void InjectFlipController(FlipController controller)
+        {
+            flipController = controller;
+        }
+
+        private bool IsFlipped()
+        {
+            return flipController && flipController.IsFlipped;
         }
     }
 }

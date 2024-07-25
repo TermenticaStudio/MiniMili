@@ -1,4 +1,6 @@
 using DG.Tweening;
+using Feature.Audio;
+using Feature.Flip;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -43,9 +45,9 @@ namespace Logic.Player.WeaponsSystem
         private bool isDryFiring;
         private WeaponPreset.ZoomSetting currentZoom;
         private WeaponsManager weaponsManager;
-        private PlayerAim playerAim;
         private Player player;
         private Transform recoilExludedProjectilePoint;
+        private FlipController flipController;
 
         private Transform defaultParent;
         private Vector3 defaultPos;
@@ -67,7 +69,6 @@ namespace Logic.Player.WeaponsSystem
         public void Init()
         {
             weaponsManager = GetComponentInParent<WeaponsManager>();
-            playerAim = GetComponentInParent<PlayerAim>();
             player = GetComponentInParent<Player>();
 
             var nonRecoilPoint = new GameObject(preset.Name + " Non-Recoil Projectile Point");
@@ -162,7 +163,7 @@ namespace Logic.Player.WeaponsSystem
                 CurrentAmmoCount--;
                 weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount, ClipSize);
 
-                muzzle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(playerAim.IsFlipped ? 1 : 0, 0, 0);
+                muzzle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(IsFlipped() ? 1 : 0, 0, 0);
                 muzzle.Play();
 
                 shellDrop.Emit(1);
@@ -173,7 +174,7 @@ namespace Logic.Player.WeaponsSystem
                     AudioManager.Instance.Play2DSFX(clip, transform.position);
                 }
 
-                projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, playerAim.IsFlipped ? 180 : 0);
+                projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, IsFlipped() ? 180 : 0);
 
                 for (int i = 0; i < preset.projectileCountPerShot; i++)
                 {
@@ -430,7 +431,7 @@ namespace Logic.Player.WeaponsSystem
             });
 
             AudioManager.Instance.Play2DSFX(preset.melee, transform.position);
-            player.Rigidbody.AddForce(preset.meleeForce * new Vector2(playerAim.IsFlipped ? -1 : 1, 1), ForceMode2D.Impulse);
+            player.Rigidbody.AddForce(preset.meleeForce * new Vector2(IsFlipped() ? -1 : 1, 1), ForceMode2D.Impulse);
 
             var cols = Physics2D.OverlapCircleAll(transform.position, preset.meleeRange);
 
@@ -479,12 +480,23 @@ namespace Logic.Player.WeaponsSystem
                 return;
 
             var finalRotation = recoilExludedProjectilePoint.rotation;
-            if (playerAim.IsFlipped)
+
+            if (IsFlipped())
                 finalRotation *= Quaternion.Euler(0, 0, 180);
 
             var finalPosition = recoilExludedProjectilePoint.TransformPoint(recoilExludedProjectilePoint.localPosition + Vector3.right * currentZoom.aimLineDistance);
 
             currentAimLine.SetPositionAndRotation(finalPosition, finalRotation);
+        }
+
+        public void InjectFlipController(FlipController controller)
+        {
+            flipController = controller;
+        }
+
+        private bool IsFlipped()
+        {
+            return flipController && flipController.IsFlipped;
         }
     }
 }

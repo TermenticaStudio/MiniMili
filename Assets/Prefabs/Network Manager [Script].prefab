@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5528390450650346261}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.16422465, y: 0.7353211, z: 1.4473423}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5528390450650346266
 MonoBehaviour:
@@ -52,8 +52,8 @@ MonoBehaviour:
   sendRate: 60
   autoStartServerBuild: 0
   autoConnectClientBuild: 0
-  offlineScene: Assets/Scenes/Menu.unity
-  onlineScene: Assets/Scenes/Demo.unity
+  offlineScene: 
+  onlineScene: 
   transport: {fileID: 5528390450650346264}
   networkAddress: localhost
   maxConnections: 100
@@ -80,6 +80,7 @@ MonoBehaviour:
   evaluationMethod: 0
   evaluationInterval: 3
   timeInterpolationGui: 0
+  lanDiscovery: {fileID: 0}
 --- !u!114 &5528390450650346264
 MonoBehaviour:
   m_ObjectHideFlags: 0

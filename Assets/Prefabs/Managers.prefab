@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 4311209328856155668}
   - component: {fileID: 2818819509764092576}
   m_Layer: 0
-  m_Name: Audio Manager [Singleton]
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 745171279824845135}
   - component: {fileID: 2779824089480544551}
   m_Layer: 0
-  m_Name: Content password
+  m_Name: ContentPassword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1834,7 +1834,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8417429109260819195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50e6a0ab4acb1fa48bd84140a814cb45, type: 3}
+  m_Script: {fileID: 11500000, guid: 503a91665c28ca24993aefa65a6eee67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   message: {fileID: 6942068660119107944, guid: 95130cab038cac945894c071cc5cb577, type: 3}
@@ -1850,7 +1850,7 @@ GameObject:
   - component: {fileID: 8869340754623256253}
   - component: {fileID: 2532037219334931101}
   m_Layer: 5
-  m_Name: In Game Message
+  m_Name: Notify Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

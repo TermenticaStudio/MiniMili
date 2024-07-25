@@ -1,3 +1,4 @@
+using Feature.Notifier;
 using Logic.Player;
 using Mirror;
 using System;
@@ -54,7 +55,7 @@ public class PlayerSpawnHandler : MonoBehaviour
         instance.IsLocal = true;
         OnSpawnPlayer?.Invoke(instance);
 
-        InGameMessage.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Joined), instance.GetPlayerName());
+        NotifyManager.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Joined), instance.GetPlayerName());
         LocalPlayer = instance.GetComponent<Player>();
     }
 
@@ -102,14 +103,14 @@ public class PlayerSpawnHandler : MonoBehaviour
 
     public Transform GetStartPosition(PlayerInfo player = null)
     {
-        var spawnPoints = FindObjectsOfType<NetworkStartPosition>();
+        var spawnPoints = FindObjectsOfType<SpawnPoint>();
 
         var allPlayers = FindObjectsOfType<PlayerInfo>().ToList();
 
         if (player != null)
             allPlayers.Remove(player);
 
-        NetworkStartPosition farest = null;
+        SpawnPoint farest = null;
         var longestDistance = 0f;
 
         foreach (var spawnPoint in spawnPoints)
