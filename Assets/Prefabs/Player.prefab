@@ -2068,7 +2068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jetPackForce: 1200
   jetPackLaunchForce: 250
-  launchDelay: 0.5
+  launchDelay: 0.4
   flyingMaxVelocity: 6
   fallingMaxVelocity: 10
   jetPackFuel: 5
