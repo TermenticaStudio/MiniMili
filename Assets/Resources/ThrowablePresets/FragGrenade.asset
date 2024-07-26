@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef02d69f76b3d414abbc84c109559ddf, type: 3}
+  m_Name: FragGrenade
+  m_EditorClassIdentifier: 
+  ThrowObject: {fileID: 5097558410401670349, guid: 03fe49ee1b1ef6f47a79231d289814de, type: 3}
+  isOwnedByDefault: 1
+  startCount: 5
+  pickup: {fileID: 6236578740458584401, guid: f30d90eacc57d354fa7d4cae0ce79412, type: 3}
+  ThrowSFX: {fileID: 8300000, guid: 56c49d33c2a112f489d3eee247447bff, type: 3}
+  Id: FRAG_G
+  Icon: {fileID: -245166877, guid: b09f052f833e8e948adff4f04a4d2521, type: 3}
+  Name: Frag Grenade

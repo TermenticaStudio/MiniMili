@@ -1,3 +1,4 @@
+using Feature.ContentPassword;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,7 +27,11 @@ public class MapSelector : MonoBehaviour
             Destroy(obj.gameObject);
 
         var randomMap = Instantiate(mapPreviewPrefab, mapsHolder.transform);
-        randomMap.Init(new MapInfoSO("Random", randomMapSprite, null), OnChangeMap);
+
+        var randomMapSO = ScriptableObject.CreateInstance<MapInfoSO>();
+        randomMapSO.Setup("Random", randomMapSprite, null);
+
+        randomMap.Init(randomMapSO, OnChangeMap);
         currentPreviews.Add(randomMap);
         randomMap.Select();
 
@@ -48,7 +53,7 @@ public class MapSelector : MonoBehaviour
     {
         var map = GetSelectedMapInfo();
 
-        ContentPassword.Instance.Pass(map, () =>
+        ContentPasswordController.Instance.Pass(map, () =>
         {
             SceneManager.LoadScene(map.SceneName);
         });

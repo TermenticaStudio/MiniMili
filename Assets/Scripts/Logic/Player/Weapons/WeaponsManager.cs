@@ -1,3 +1,4 @@
+using Feature.Audio;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -23,17 +24,30 @@ namespace Logic.Player.WeaponsSystem
 
         private Player player;
         private PickupWeapon availableWeaponToReplace;
+        private bool isInited;
 
         private void Start()
         {
+            Init();
+        }
+
+        private void Init()
+        {
+            if (isInited)
+                return;
+
             player = GetComponent<Player>();
 
             foreach (var weapon in weapons)
                 weapon.Init();
+
+            isInited = true;
         }
 
         public void OnStartPlayer()
         {
+            Init();
+
             activeWeaponIndex = -1;
             activeWeaponIndex = GetNextOwnedWeaponIndex();
 
@@ -104,9 +118,18 @@ namespace Logic.Player.WeaponsSystem
             UpdateActiveWeapon(0, lastActiveWeapon);
         }
 
+        public void RefillWeapon()
+        {
+            if (activeWeapon == null)
+                return;
+
+            activeWeapon.SetAmmo(new PickupWeapon.Ammo(activeWeapon.Preset.clipsCount, activeWeapon.Preset.clipSize));
+            UpdateUI();
+        }
+
         public void CmdSwitchWeapon()
         {
-            if (activeWeaponIndex == weapons.Length - 1)
+            if (IsLastOwnedWeapon())
             {
                 activeWeaponIndex = 0;
                 activeWeaponIndex = GetNextOwnedWeaponIndex();
@@ -134,6 +157,16 @@ namespace Logic.Player.WeaponsSystem
             }
 
             return -1;
+        }
+
+        private bool IsLastOwnedWeapon()
+        {
+            var lastWeapon = weapons.Last(x => x == activeWeapon);
+
+            if (lastWeapon == null || activeWeapon == null)
+                return false;
+
+            return lastWeapon == activeWeapon;
         }
 
         public void DeactivateWeapon(Weapon weapon)

@@ -10,7 +10,7 @@ public class ProjectileTrail : MonoBehaviour
 
     private TrailRenderer trailRenderer;
 
-    private void Start()
+    private void OnEnable()
     {
         trailRenderer = GetComponent<TrailRenderer>();
     }

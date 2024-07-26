@@ -1,7 +1,7 @@
 using Logic.Player;
 using UnityEngine;
 
-public class HealthBox : MonoBehaviour
+public class HealthBox : PickupObject
 {
     [SerializeField] private float healthAmount = 50;
 

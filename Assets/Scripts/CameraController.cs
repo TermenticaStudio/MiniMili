@@ -1,4 +1,5 @@
 using Cinemachine;
+using Feature.Audio;
 using UnityEngine;
 
 [RequireComponent(typeof(CinemachineVirtualCamera))]

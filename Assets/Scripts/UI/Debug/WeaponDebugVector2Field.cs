@@ -32,11 +32,11 @@ namespace GameDebug.WeaponDebug
             var xF = 0f;
             var yF = 0f;
 
-            if (!string.IsNullOrEmpty(x))
-                xF = Convert.ToSingle(x);
+            if (!string.IsNullOrEmpty(x) && float.TryParse(x, out var numX))
+                xF = numX;
 
-            if (!string.IsNullOrEmpty(y))
-                yF = Convert.ToSingle(y);
+            if (!string.IsNullOrEmpty(y) && float.TryParse(y, out var numY))
+                yF = numY;
 
             return new Vector2(xF, yF);
         }

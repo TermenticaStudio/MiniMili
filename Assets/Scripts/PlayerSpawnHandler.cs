@@ -1,3 +1,4 @@
+using Feature.Notifier;
 using Logic.Player;
 using Mirror;
 using System;
@@ -18,6 +19,7 @@ public class PlayerSpawnHandler : MonoBehaviour
     [SerializeField] private GameObject respawnUI;
     [SerializeField] private TextMeshProUGUI respawnTimerText;
 
+    public Player LocalPlayer { get; private set; }
     public static PlayerSpawnHandler Instance;
 
     public event Action<PlayerInfo> OnSpawnPlayer;
@@ -53,7 +55,8 @@ public class PlayerSpawnHandler : MonoBehaviour
         instance.IsLocal = true;
         OnSpawnPlayer?.Invoke(instance);
 
-        InGameMessage.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Joined), instance.GetPlayerName());
+        NotifyManager.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Joined), instance.GetPlayerName());
+        LocalPlayer = instance.GetComponent<Player>();
     }
 
     public void RequestForPlayerRespawn(PlayerInfo player)
@@ -89,6 +92,10 @@ public class PlayerSpawnHandler : MonoBehaviour
 
         var spawnPoint = GetStartPosition(player);
         player.transform.SetPositionAndRotation(spawnPoint.position, Quaternion.identity);
+
+        if (player.TryGetComponent<Rigidbody2D>(out var rb))
+            rb.velocity = Vector2.zero;
+
         player.UseRespawn();
 
         OnSpawnPlayer?.Invoke(player);
@@ -96,14 +103,14 @@ public class PlayerSpawnHandler : MonoBehaviour
 
     public Transform GetStartPosition(PlayerInfo player = null)
     {
-        var spawnPoints = FindObjectsOfType<NetworkStartPosition>();
+        var spawnPoints = FindObjectsOfType<SpawnPoint>();
 
         var allPlayers = FindObjectsOfType<PlayerInfo>().ToList();
 
         if (player != null)
             allPlayers.Remove(player);
 
-        NetworkStartPosition farest = null;
+        SpawnPoint farest = null;
         var longestDistance = 0f;
 
         foreach (var spawnPoint in spawnPoints)

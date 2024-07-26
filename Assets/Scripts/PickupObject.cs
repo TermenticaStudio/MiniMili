@@ -1,3 +1,4 @@
+using Feature.Audio;
 using UnityEngine;
 
 public class PickupObject : MonoBehaviour
