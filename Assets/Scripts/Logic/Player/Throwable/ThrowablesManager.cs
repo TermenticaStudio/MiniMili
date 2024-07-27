@@ -40,6 +40,7 @@ namespace Logic.Player.ThrowablesSystem
                 return;
 
             player = GetComponent<Player>();
+            flipController = player.Flip;
 
             foreach (var item in throwables)
                 item.Init(player, this);

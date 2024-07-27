@@ -70,6 +70,7 @@ namespace Logic.Player.WeaponsSystem
         {
             weaponsManager = GetComponentInParent<WeaponsManager>();
             player = GetComponentInParent<Player>();
+            flipController = player.Flip;
 
             var nonRecoilPoint = new GameObject(preset.Name + " Non-Recoil Projectile Point");
             nonRecoilPoint.transform.SetPositionAndRotation(projectileSpawnPoint.transform.position, projectileSpawnPoint.transform.rotation);

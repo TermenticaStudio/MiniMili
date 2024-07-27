@@ -2066,15 +2066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6729d5d9f5dd93b4d89370f0cbd01638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jetPackForce: 1200
-  jetPackLaunchForce: 250
-  launchDelay: 0.4
-  flyingMaxVelocity: 6
-  fallingMaxVelocity: 10
-  jetPackFuel: 5
-  fuelUsageMultiplier: 1
-  fuelChargeMutliplier: 0.6
-  refuelDelay: 1
+  data: {fileID: 11400000, guid: bebc175fe881e9b448a2e5cbe55e6a8f, type: 2}
   jetpackFlames:
   - {fileID: 1579858763657881504}
   - {fileID: 1678567682137902983}
@@ -2090,14 +2082,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0f2221ff79ea644a86ae38a152aeae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkForce: 2
-  walkMaxSpeed: 3
-  crawlForce: 1
-  crawlMaxSpeed: 1.5
+  data: {fileID: 11400000, guid: dc9c3ca7a1275244c809e844cf67f0c7, type: 2}
   feetAnimator: {fileID: 8680397635143224419}
   characterCollider: {fileID: 4499679875049350696}
-  standHeight: 1.9
-  crawlHeight: 1.4
   footstepAS: {fileID: 1549290341518965549}
   footstepClips:
   - {fileID: 8300000, guid: 02dd686af9b2e5441bbacd828d351ce0, type: 3}

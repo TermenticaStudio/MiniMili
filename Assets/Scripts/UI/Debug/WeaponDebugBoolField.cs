@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GameDebug.WeaponDebug
+namespace GameDebug.Debug
 {
     public class WeaponDebugBoolField : MonoBehaviour
     {

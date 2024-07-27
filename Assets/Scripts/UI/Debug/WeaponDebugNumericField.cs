@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-namespace GameDebug.WeaponDebug
+namespace GameDebug.Debug
 {
     public class WeaponDebugNumericField : MonoBehaviour
     {

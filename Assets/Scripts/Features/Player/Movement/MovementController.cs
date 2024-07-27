@@ -7,34 +7,30 @@ namespace Feature.Player.Movement
     [RequireComponent(typeof(Rigidbody2D))]
     public class MovementController : MonoBehaviour
     {
-        [Header("Movement Setting")]
-        [SerializeField] private float walkForce = 0.8f;
-        [SerializeField] private float walkMaxSpeed = 3f;
-        [SerializeField] private float crawlForce = 0.4f;
-        [SerializeField] private float crawlMaxSpeed = 1.5f;
+        [SerializeField] private MovementData data;
+
+        public MovementData Data { get => data; }
+
         [SerializeField] private Animator feetAnimator;
         [SerializeField] private CapsuleCollider2D characterCollider;
-        [SerializeField] private float standHeight = 1.9f;
-        [SerializeField] private float crawlHeight = 1.4f;
-        private bool isCrawling;
+        private bool _isCrawling;
+        private float _targetMaxSpeed;
+        private float _targetAcceleration;
+        private float _currentMaxSpeed;
+        private float _currentAcceleration;
 
-        private float targetMaxSpeed;
-        private float targetAcceleration;
-        private float currentMaxSpeed;
-        private float currentAcceleration;
-
-        private float speedAnimationInput;
-        const string SPEED_ANIM = "Speed";
-        const string DIR_ANIM = "Dir";
+        private float _speedAnimationInput;
+        private const string _SPEED_ANIM = "Speed";
+        private const string _DIR_ANIM = "Dir";
 
         [Header("Footstep")]
         [SerializeField] private AudioSource footstepAS;
         [SerializeField] private AudioClip[] footstepClips;
         [SerializeField] private float footstepDistance = 0.2f;
         [SerializeField] private Vector2 pitchRandomness = new Vector2(0.8f, 1);
-        private Vector2 lastFootstepPos;
+        private Vector2 _lastFootstepPos;
 
-        private Rigidbody2D rb;
+        private Rigidbody2D _rb;
         private OverlapDetectorController _groundDetector;
         private OverlapDetectorController _ceilDetector;
         private FlipController _flipController;
@@ -44,9 +40,9 @@ namespace Feature.Player.Movement
 
         private void Start()
         {
-            rb = GetComponent<Rigidbody2D>();
+            _rb = GetComponent<Rigidbody2D>();
 
-            lastFootstepPos = transform.position;
+            _lastFootstepPos = transform.position;
         }
 
         private void Update()
@@ -55,29 +51,29 @@ namespace Feature.Player.Movement
             CheckGround();
             CheckCeiling();
 
-            isCrawling = _directionInput.y <= -0.4f && _isGrounded;
+            _isCrawling = _directionInput.y <= -0.4f && _isGrounded;
 
             if (_isCeilingAbove && _isGrounded)
-                isCrawling = true;
+                _isCrawling = true;
 
             SetSpeed();
 
-            characterCollider.size = new Vector2(characterCollider.size.x, isCrawling ? crawlHeight : standHeight);
+            characterCollider.size = new Vector2(characterCollider.size.x, _isCrawling ? data.crawlHeight : data.standHeight);
 
-            currentMaxSpeed = Mathf.Lerp(currentMaxSpeed, targetMaxSpeed, Time.deltaTime * 5f);
-            currentAcceleration = Mathf.Lerp(currentAcceleration, targetAcceleration, Time.deltaTime * 5f);
+            _currentMaxSpeed = Mathf.Lerp(_currentMaxSpeed, _targetMaxSpeed, Time.deltaTime * 5f);
+            _currentAcceleration = Mathf.Lerp(_currentAcceleration, _targetAcceleration, Time.deltaTime * 5f);
 
-            feetAnimator.SetFloat(DIR_ANIM, isCrawling ? -1 : 0);
-            speedAnimationInput = Mathf.Lerp(speedAnimationInput, (IsFlipped() ? -1 : 1) * _directionInput.x, Time.deltaTime * 5);
+            feetAnimator.SetFloat(_DIR_ANIM, _isCrawling ? -1 : 0);
+            _speedAnimationInput = Mathf.Lerp(_speedAnimationInput, (IsFlipped() ? -1 : 1) * _directionInput.x, Time.deltaTime * 5);
 
-            feetAnimator.SetFloat(SPEED_ANIM, speedAnimationInput);
+            feetAnimator.SetFloat(_SPEED_ANIM, _speedAnimationInput);
 
             Footstep();
         }
 
         private void FixedUpdate()
         {
-            rb.freezeRotation = _isGrounded;
+            _rb.freezeRotation = _isGrounded;
 
             if (!_isGrounded)
                 return;
@@ -87,23 +83,23 @@ namespace Feature.Player.Movement
 
         private void Move()
         {
-            if (rb.velocity.magnitude > currentMaxSpeed)
+            if (_rb.velocity.magnitude > _currentMaxSpeed)
                 return;
 
-            rb.AddForce(new Vector2(_directionInput.x * currentAcceleration * 1000f, 0));
+            _rb.AddForce(new Vector2(_directionInput.x * _currentAcceleration * 1000f, 0));
         }
 
         private void SetSpeed()
         {
-            if (isCrawling)
+            if (_isCrawling)
             {
-                targetMaxSpeed = crawlMaxSpeed * Mathf.Abs(_directionInput.x);
-                targetAcceleration = crawlForce;
+                _targetMaxSpeed = data.crawlMaxSpeed * Mathf.Abs(_directionInput.x);
+                _targetAcceleration = data.crawlForce;
             }
             else
             {
-                targetMaxSpeed = walkMaxSpeed * Mathf.Abs(_directionInput.x);
-                targetAcceleration = walkForce;
+                _targetMaxSpeed = data.walkMaxSpeed * Mathf.Abs(_directionInput.x);
+                _targetAcceleration = data.walkForce;
             }
         }
 
@@ -111,11 +107,11 @@ namespace Feature.Player.Movement
         {
             if (_directionInput.magnitude > 0.1f || !_isGrounded)
             {
-                rb.drag = 0;
+                _rb.drag = 0;
                 return;
             }
 
-            rb.drag = 100;
+            _rb.drag = 100;
         }
 
         private void Footstep()
@@ -129,10 +125,10 @@ namespace Feature.Player.Movement
             if (footstepClips.Length == 0)
                 return;
 
-            if (Vector2.Distance(transform.position, lastFootstepPos) < footstepDistance)
+            if (Vector2.Distance(transform.position, _lastFootstepPos) < footstepDistance)
                 return;
 
-            lastFootstepPos = transform.position;
+            _lastFootstepPos = transform.position;
             var currentClip = footstepClips[Random.Range(0, footstepClips.Length)];
             footstepAS.clip = currentClip;
             footstepAS.pitch = Random.Range(pitchRandomness.x, pitchRandomness.y);

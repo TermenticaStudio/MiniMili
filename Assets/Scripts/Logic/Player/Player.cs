@@ -34,6 +34,9 @@ namespace Logic.Player
         public WeaponsManager WeaponsManager { get; private set; }
         public ThrowablesManager Throwables { get; private set; }
         public AimController Aim { get; private set; }
+        public JetpackController Jetpack { get => jetpack; }
+        public MovementController Movement { get => movement; }
+        public FlipController Flip { get => flipController; }
 
         private void Start()
         {

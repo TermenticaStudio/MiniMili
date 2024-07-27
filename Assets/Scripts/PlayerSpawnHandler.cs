@@ -103,14 +103,14 @@ public class PlayerSpawnHandler : MonoBehaviour
 
     public Transform GetStartPosition(PlayerInfo player = null)
     {
-        var spawnPoints = FindObjectsOfType<SpawnPoint>();
+        var spawnPoints = FindObjectsOfType<PlayerSpawnPoint>();
 
         var allPlayers = FindObjectsOfType<PlayerInfo>().ToList();
 
         if (player != null)
             allPlayers.Remove(player);
 
-        SpawnPoint farest = null;
+        PlayerSpawnPoint farest = null;
         var longestDistance = 0f;
 
         foreach (var spawnPoint in spawnPoints)

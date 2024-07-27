@@ -7,21 +7,12 @@ namespace Feature.Jetpack
     [RequireComponent(typeof(Rigidbody2D))]
     public class JetpackController : MonoBehaviour
     {
-        [Header("Config")]
-        [SerializeField] private float jetPackForce;
-        [SerializeField] private float jetPackLaunchForce;
-        [SerializeField] private float launchDelay = 0.65f;
-        [SerializeField] private float flyingMaxVelocity;
-        [SerializeField] private float fallingMaxVelocity;
-
-        [Header("Fuel")]
-        [SerializeField] private float jetPackFuel = 10;
-        [SerializeField] private float fuelUsageMultiplier = 2f;
-        [SerializeField] private float fuelChargeMutliplier = 1f;
-        [SerializeField] private float refuelDelay = 1;
+        [SerializeField] private JetpackData data;
 
         [Header("VFX")]
         [SerializeField] private JetpackFlameController[] jetpackFlames;
+
+        public JetpackData Data { get => data; }
 
         private bool _enableJetpack;
         private bool _isJetPackActive;
@@ -57,20 +48,20 @@ namespace Feature.Jetpack
         private void FixedUpdate()
         {
             if (_isJetPackActive)
-                _rigid.AddForce((Vector2.up * jetPackForce * _directionInput.y) + (Vector2.right * (jetPackForce / 2f) * _directionInput.x), ForceMode2D.Force);
+                _rigid.AddForce((Vector2.up * data.jetPackForce * _directionInput.y) + (Vector2.right * (data.jetPackForce / 2f) * _directionInput.x), ForceMode2D.Force);
 
             if (!_isGrounded)
             {
                 if (_isJetPackActive || _isJetpackActivating)
-                    _rigid.velocity = Vector2.ClampMagnitude(_rigid.velocity, flyingMaxVelocity);
+                    _rigid.velocity = Vector2.ClampMagnitude(_rigid.velocity, data.flyingMaxVelocity);
                 else
-                    _rigid.velocity = Vector2.ClampMagnitude(_rigid.velocity, fallingMaxVelocity);
+                    _rigid.velocity = Vector2.ClampMagnitude(_rigid.velocity, data.fallingMaxVelocity);
             }
         }
 
         private void UpdateUI()
         {
-            WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, _currentFuel / jetPackFuel));
+            WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, _currentFuel / data.jetPackFuel));
         }
 
         private void JetpackMove()
@@ -111,14 +102,14 @@ namespace Feature.Jetpack
             if (!_isChargingFuel)
                 return;
 
-            _currentFuel += Time.deltaTime * fuelChargeMutliplier;
-            _currentFuel = Mathf.Clamp(_currentFuel, 0, jetPackFuel);
+            _currentFuel += Time.deltaTime * data.fuelChargeMutliplier;
+            _currentFuel = Mathf.Clamp(_currentFuel, 0, data.jetPackFuel);
         }
 
         private IEnumerator StartRefuelCoroutine()
         {
             _isChargingFuelActivating = true;
-            yield return new WaitForSeconds(refuelDelay);
+            yield return new WaitForSeconds(data.refuelDelay);
             _isChargingFuel = true;
             _isChargingFuelActivating = false;
         }
@@ -143,15 +134,15 @@ namespace Feature.Jetpack
                 return;
 
             _isChargingFuel = false;
-            _currentFuel -= Time.deltaTime * fuelUsageMultiplier * Mathf.Lerp(0.5f, 1, _throttle);
-            _currentFuel = Mathf.Clamp(_currentFuel, 0, jetPackFuel);
+            _currentFuel -= Time.deltaTime * data.fuelUsageMultiplier * Mathf.Lerp(0.5f, 1, _throttle);
+            _currentFuel = Mathf.Clamp(_currentFuel, 0, data.jetPackFuel);
         }
 
         private IEnumerator StartJetpackDelayed()
         {
-            _rigid.AddForce(transform.up * jetPackLaunchForce, ForceMode2D.Impulse);
+            _rigid.AddForce(transform.up * data.jetPackLaunchForce, ForceMode2D.Impulse);
             _isJetpackActivating = true;
-            yield return new WaitForSeconds(launchDelay);
+            yield return new WaitForSeconds(data.launchDelay);
             ActivateJetpack();
             _isJetpackActivating = false;
         }
@@ -185,7 +176,7 @@ namespace Feature.Jetpack
 
         public void ResetFuel()
         {
-            _currentFuel = jetPackFuel;
+            _currentFuel = data.jetPackFuel;
         }
 
         public void PurgeFuel()

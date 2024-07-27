@@ -31,6 +31,7 @@ MonoBehaviour:
   aimLine: {fileID: 4509361674881920342, guid: 2d37fca0dcde6e649bc1ce3a2c5500be, type: 3}
   enablePreFire: 0
   preFireDuration: 1
+  preFirePerShot: 0
   projectile: {fileID: 4575455049484285622, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
   projectileCountPerShot: 3
   minMaxAngleBetweenPerShot: {x: -10, y: 10}
