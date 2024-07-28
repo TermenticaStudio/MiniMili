@@ -1,5 +1,5 @@
+using Feature.SceneLoader;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -40,6 +40,6 @@ public class PauseMenu : MonoBehaviour
         if (freezeTime)
             Time.timeScale = 1;
 
-        SceneManager.LoadScene("Main Menu");
+        SceneController.Instance.LoadScene("Menu", "MainMenu");
     }
 }

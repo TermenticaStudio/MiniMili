@@ -1,3 +1,4 @@
+using Feature.SceneLoader;
 using QFSW.QC;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,17 @@ public class ObjectSpawner : MonoBehaviour
         Instance = this;
     }
 
-    void Start()
+    private void Start()
+    {
+        SceneController.Instance.OnSceneLoaded += Init;
+    }
+
+    private void OnDestroy()
+    {
+        SceneController.Instance.OnSceneLoaded -= Init;
+    }
+
+    private void Init()
     {
         spawnPoints = FindObjectsOfType<ObjectSpawnPoint>();
         InvokeRepeating(nameof(SpawnRandomItem), 0, spawnItemDelay);

@@ -1,4 +1,5 @@
 using Feature.Notifier;
+using Feature.SceneLoader;
 using Logic.Player;
 using Mirror;
 using System;
@@ -32,7 +33,12 @@ public class PlayerSpawnHandler : MonoBehaviour
 
     private void Start()
     {
-        SpawnPlayer();
+        SceneController.Instance.OnSceneLoaded += SpawnPlayer;
+    }
+
+    private void OnDestroy()
+    {
+        SceneController.Instance.OnSceneLoaded -= SpawnPlayer;
     }
 
     // [ClientRpc]
@@ -49,7 +55,10 @@ public class PlayerSpawnHandler : MonoBehaviour
         var instance = FindObjectOfType<PlayerInfo>();
 
         if (instance == null)
-            instance = Instantiate(player, GetStartPosition());
+            instance = Instantiate(player, null);
+
+        var spawnPoint = GetStartPosition(player);
+        player.transform.SetPositionAndRotation(spawnPoint.position, Quaternion.identity);
 
         instance.SetRespawnCount(respawnCount);
         instance.IsLocal = true;

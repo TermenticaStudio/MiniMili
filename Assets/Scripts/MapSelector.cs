@@ -1,7 +1,7 @@
 using Feature.ContentPassword;
+using Feature.SceneLoader;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MapSelector : MonoBehaviour
@@ -55,7 +55,7 @@ public class MapSelector : MonoBehaviour
 
         ContentPasswordController.Instance.Pass(map, () =>
         {
-            SceneManager.LoadScene(map.SceneName);
+            SceneController.Instance.LoadGameScene(map.Title, map.SceneName);
         });
     }
 
