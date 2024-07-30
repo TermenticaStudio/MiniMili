@@ -23,16 +23,4 @@ public class PlayerSpawnPoint : MonoBehaviour
 
         return false;
     }
-
-    public bool IsPointInCameraSight()
-    {
-        var cam = Camera.main;
-
-        var directionToObject = transform.position - cam.transform.position;
-
-        if (Vector3.Angle(cam.transform.forward, directionToObject) > cam.fieldOfView)
-            return false;
-
-        return true;
-    }
 }

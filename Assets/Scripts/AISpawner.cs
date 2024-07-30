@@ -39,7 +39,7 @@ public class AISpawner : MonoBehaviour
     private void SpawnAI()
     {
         var ai = aiControllers[Random.Range(0, aiControllers.Length)];
-        var availablePoints = _spawnPoints.Where(x => x.PlayerInArea() == false && x.IsPointInCameraSight() == false).ToList();
+        var availablePoints = _spawnPoints.Where(x => x.PlayerInArea() == false && CameraSightChecker.IsObjectInCameraSight(x.gameObject) == false).ToList();
         var spawnPoint = availablePoints[Random.Range(0, availablePoints.Count)];
         var instance = Instantiate(ai, spawnPoint.transform.position, Quaternion.identity, null);
 
