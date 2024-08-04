@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: MP5_1
   isFirearm: 1
-  fireRate: 800
+  fireRate: 1300
   fireMode: 0
   firePerBurst: 0
   burstCooldown: 0
-  accuracy: 0.9
-  clipSize: 40
-  clipsCount: 10
+  accuracy: 0.6
+  minRanAccuracyDegree: -30
+  maxRanAccuracyDegree: 30
+  clipSize: 50
+  clipsCount: 5
   zooms:
   - aimLineDistance: 1.2
     aimLineScale: {x: 0.8, y: 0.8}
@@ -34,24 +36,25 @@ MonoBehaviour:
     aimLineScale: {x: 1.3, y: 1.3}
     cameraOffset: 3
     zoomPreset: {fileID: 11400000, guid: 3661d7f74ea27b345b59c0076df87ef3, type: 2}
-  isOwnedByDefault: 1
+  isOwnedByDefault: 0
   pickup: {fileID: 7533069550697133666, guid: 083176b1bbbb2624eaacf8cb62afe300, type: 3}
   aimLine: {fileID: 4509361674881920342, guid: 2d37fca0dcde6e649bc1ce3a2c5500be, type: 3}
   enablePreFire: 0
   preFireDuration: 1
+  preFirePerShot: 0
   projectile: {fileID: 4575455049484285622, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
   projectileCountPerShot: 1
   minMaxAngleBetweenPerShot: {x: -10, y: 10}
-  projectileSpeed: 20
+  projectileSpeed: 70
   projectileRange: 20
   projectileDamage: 5
-  recoilPower: 10
+  recoilPower: 15
   autoReload: 1
-  reloadTime: 1
-  enableMelee: 0
-  meleeForce: {x: 0, y: 0}
-  meleeDamage: 0
-  meleeRange: 0
+  reloadTime: 2
+  enableMelee: 1
+  meleeForce: {x: 200, y: 50}
+  meleeDamage: 35
+  meleeRange: 1
   meleeRotationCurve:
     serializedVersion: 2
     m_Curve:

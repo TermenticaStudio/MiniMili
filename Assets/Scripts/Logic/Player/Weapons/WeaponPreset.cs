@@ -30,8 +30,10 @@ namespace Logic.Player.WeaponsSystem
         public float burstCooldown = 0.3f;
         [FoldoutGroup(SETTINGS_GROUP)]
         [Range(0, 1)] public float accuracy = 1;
-        public const float minRanAccuracyDegree = -15;
-        public const float maxRanAccuracyDegree = 15;
+        [FoldoutGroup(SETTINGS_GROUP)]
+        public float minRanAccuracyDegree = -15;
+        [FoldoutGroup(SETTINGS_GROUP)]
+        public float maxRanAccuracyDegree = 15;
         [FoldoutGroup(SETTINGS_GROUP)]
         public int clipSize;
         [FoldoutGroup(SETTINGS_GROUP)]

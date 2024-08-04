@@ -185,8 +185,8 @@ namespace Logic.Player.WeaponsSystem
                         rot *= Quaternion.Euler(Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
 
                     // Accuracy
-                    var minRan = Mathf.Lerp(WeaponPreset.minRanAccuracyDegree, 0, preset.accuracy);
-                    var maxRan = Mathf.Lerp(WeaponPreset.maxRanAccuracyDegree, 0, preset.accuracy);
+                    var minRan = Mathf.Lerp(preset.minRanAccuracyDegree, 0, preset.accuracy);
+                    var maxRan = Mathf.Lerp(preset.maxRanAccuracyDegree, 0, preset.accuracy);
                     rot *= Quaternion.Euler(Vector3.forward * Random.Range(minRan, maxRan));
                     //
 
