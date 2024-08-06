@@ -32,7 +32,7 @@ namespace Logic.Player.WeaponsSystem
             base.OnDisable();
         }
 
-        public void Init(Player owner, Vector3 pos, Quaternion rot, float speed, float range, float damage)
+        public void Init(Player owner, Vector3 pos, Quaternion rot, float speed, float range, float damage, float trailLength)
         {
             this.owner = owner;
 
@@ -47,7 +47,7 @@ namespace Logic.Player.WeaponsSystem
             this.range = range;
             this.damage = damage;
 
-            trail?.StartTimer();
+            trail?.StartTimer(speed, trailLength);
 
             isInit = true;
         }

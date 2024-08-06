@@ -66,6 +66,8 @@ namespace Logic.Player.WeaponsSystem
         public float projectileRange;
         [FoldoutGroup(PROJECTILE_GROUP)]
         public float projectileDamage;
+        [FoldoutGroup(PROJECTILE_GROUP)]
+        public float projectileLength = 3f;
 
         [FoldoutGroup(RECOIL_GROUP)]
         public float recoilPower;

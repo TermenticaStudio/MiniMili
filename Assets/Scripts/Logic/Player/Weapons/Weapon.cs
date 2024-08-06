@@ -257,7 +257,7 @@ namespace Logic.Player.WeaponsSystem
         private void CreateProjectile(Quaternion rot)
         {
             var projectilePr = PrefabPool.Instance.Get("Bullet").GetComponent<Projectile>();
-            projectilePr.Init(player, projectileSpawnPoint.position, rot, preset.projectileSpeed, preset.projectileRange, preset.projectileDamage);
+            projectilePr.Init(player, projectileSpawnPoint.position, rot, preset.projectileSpeed, preset.projectileRange, preset.projectileDamage, preset.projectileLength);
         }
 
         public void Reload()
