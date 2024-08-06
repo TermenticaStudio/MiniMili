@@ -467,7 +467,7 @@ namespace Logic.Player.WeaponsSystem
 
         private void UpdateAimLine()
         {
-            player.SetCameraLookPos(recoilExludedProjectilePoint.TransformPoint(recoilExludedProjectilePoint.localPosition + Vector3.right * currentZoom.cameraOffset));
+            player.SetAimLookPos(recoilExludedProjectilePoint.TransformPoint(recoilExludedProjectilePoint.localPosition + Vector3.right * currentZoom.cameraOffset));
 
             if (!currentAimLine)
                 return;

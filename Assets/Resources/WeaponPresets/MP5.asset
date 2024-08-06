@@ -36,7 +36,7 @@ MonoBehaviour:
     aimLineScale: {x: 1.3, y: 1.3}
     cameraOffset: 3
     zoomPreset: {fileID: 11400000, guid: 3661d7f74ea27b345b59c0076df87ef3, type: 2}
-  isOwnedByDefault: 0
+  isOwnedByDefault: 1
   pickup: {fileID: 7533069550697133666, guid: 083176b1bbbb2624eaacf8cb62afe300, type: 3}
   aimLine: {fileID: 4509361674881920342, guid: 2d37fca0dcde6e649bc1ce3a2c5500be, type: 3}
   enablePreFire: 0

@@ -2213,7 +2213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraLook: {fileID: 6957991046967468506}
-  cameraLerpSpeedMul: 5
+  cameraLerpSpeedMul: 1.5
   jetpack: {fileID: 1280482133780406628}
   movement: {fileID: 3968693195276155090}
   groundDetector: {fileID: 2665705185336515010}

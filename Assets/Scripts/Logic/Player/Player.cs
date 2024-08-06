@@ -25,6 +25,8 @@ namespace Logic.Player
         [SerializeField] private FlipController flipController;
         [SerializeField] private StabilizerController stabilizerController;
         private Vector3 _targetCamLook;
+        private Vector3 _targetAim;
+        private Vector3 _currentAim;
 
         public string Id { get; set; }
 
@@ -78,11 +80,17 @@ namespace Logic.Player
                 Aim.FeedDirectionInput(PlayerInput.Instance.GetAim());
                 stabilizerController.FeedDirectionInput(PlayerInput.Instance.GetMovement());
             }
+            SetCameraLookPos(transform.position);
 
+            _currentAim = Vector3.Lerp(_currentAim, _targetAim, Time.deltaTime * cameraLerpSpeedMul);
+        }
+
+        private void LateUpdate()
+        {
             if (!cameraLook)
                 return;
 
-            cameraLook.transform.position = Vector3.Lerp(cameraLook.transform.position, _targetCamLook, Time.deltaTime * cameraLerpSpeedMul);
+            cameraLook.transform.position = _targetCamLook + _currentAim;
         }
 
         private void OnSpawn(PlayerInfo obj)
@@ -121,12 +129,17 @@ namespace Logic.Player
             //CameraController.Instance.SetTarget(null);
         }
 
-        public void SetCameraLookPos(Vector3 pos, bool force = false)
+        private void SetCameraLookPos(Vector3 pos, bool force = false)
         {
-            _targetCamLook = pos;
+            _targetCamLook = new Vector3(pos.x, pos.y, -10);
 
             if (force)
                 cameraLook.position = _targetCamLook;
+        }
+
+        public void SetAimLookPos(Vector3 pos)
+        {
+            _targetAim = pos - transform.position;
         }
     }
 }
