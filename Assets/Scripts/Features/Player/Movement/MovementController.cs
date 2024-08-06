@@ -111,7 +111,7 @@ namespace Feature.Player.Movement
                 return;
             }
 
-            _rb.drag = 100;
+            _rb.drag = 50;
         }
 
         private void Footstep()

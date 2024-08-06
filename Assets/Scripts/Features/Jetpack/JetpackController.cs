@@ -125,6 +125,9 @@ namespace Feature.Jetpack
             if (_isChargingFuelActivating)
                 return;
 
+            if (_directionInput.y > 0.8f)
+                return;
+
             StartCoroutine(StartRefuelCoroutine());
         }
 
