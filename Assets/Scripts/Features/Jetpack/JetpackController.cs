@@ -73,7 +73,7 @@ namespace Feature.Jetpack
             {
                 DeactivateJetpack();
 
-                if (_directionInput.y < 0.8f)
+                if (!IsEnoughVerticalInput())
                     return;
 
                 if (!_isJetpackActivating)
@@ -86,7 +86,7 @@ namespace Feature.Jetpack
             }
             else
             {
-                if (!_isJetpackActivating)
+                if (!_isJetpackActivating && IsEnoughVerticalInput())
                     ActivateJetpack();
             }
         }
@@ -125,7 +125,7 @@ namespace Feature.Jetpack
             if (_isChargingFuelActivating)
                 return;
 
-            if (_directionInput.y > 0.8f)
+            if (IsEnoughVerticalInput())
                 return;
 
             StartCoroutine(StartRefuelCoroutine());
@@ -212,5 +212,7 @@ namespace Feature.Jetpack
 
             _isGrounded = _groundDetector.IsOverlapped;
         }
+
+        private bool IsEnoughVerticalInput() => _directionInput.y >= 0.8f;
     }
 }
