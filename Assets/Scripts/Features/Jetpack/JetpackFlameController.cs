@@ -9,6 +9,7 @@ namespace Feature.Jetpack
         [SerializeField] private Vector3 minPowerSize;
         [SerializeField] private Vector3 maxPowerSize;
         private bool _isActive = true;
+        private bool _isPreLaunch;
 
         [Header("Smoke")]
         [SerializeField] private ParticleSystem smoke;
@@ -36,7 +37,7 @@ namespace Feature.Jetpack
 
         private void Update()
         {
-            _currentSmokeSize = Vector2.Lerp(_currentSmokeSize, _isActive ? _smokeTargetSize : Vector2.zero, Time.deltaTime * (_isActive ? 5f : 1f));
+            _currentSmokeSize = Vector2.Lerp(_currentSmokeSize, (_isActive || _isPreLaunch) ? _smokeTargetSize : Vector2.zero, Time.deltaTime * (_isActive ? 5f : 1f));
             flameSFX.volume = Mathf.Lerp(flameSFX.volume, _isActive ? _targetVol : 0, Time.deltaTime * 5f);
 
             SetSmokeSize(_currentSmokeSize);
@@ -51,6 +52,7 @@ namespace Feature.Jetpack
             em.enabled = value;
 
             _isActive = value;
+            _isPreLaunch = false;
             flameTrail.emitting = value;
         }
 
@@ -67,9 +69,19 @@ namespace Feature.Jetpack
             SetSFXPower(amount);
         }
 
-        private void SetSmokePower(float amount)
+        public void ActivatePreFire()
+        {
+            SetSmokePower(1f, true);
+            flameTrail.emitting = true;
+            _isPreLaunch = true;
+        }
+
+        private void SetSmokePower(float amount, bool force = false)
         {
             _smokeTargetSize = Vector2.Lerp(Vector2.zero, _smokeSize, amount);
+
+            if (force)
+                _currentSmokeSize = _smokeTargetSize;
         }
 
         private void SetSmokeSize(Vector2 size)

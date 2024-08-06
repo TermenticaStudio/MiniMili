@@ -145,6 +145,10 @@ namespace Feature.Jetpack
         {
             _rigid.AddForce(transform.up * data.jetPackLaunchForce, ForceMode2D.Impulse);
             _isJetpackActivating = true;
+
+            foreach (var flame in jetpackFlames)
+                flame.ActivatePreFire();
+
             yield return new WaitForSeconds(data.launchDelay);
             ActivateJetpack();
             _isJetpackActivating = false;
