@@ -19,6 +19,8 @@ MonoBehaviour:
   firePerBurst: 3
   burstCooldown: 0.2
   accuracy: 1
+  minRanAccuracyDegree: -15
+  maxRanAccuracyDegree: 15
   clipSize: 12
   clipsCount: 10
   zooms:
@@ -39,12 +41,14 @@ MonoBehaviour:
   aimLine: {fileID: 4509361674881920342, guid: 2d37fca0dcde6e649bc1ce3a2c5500be, type: 3}
   enablePreFire: 0
   preFireDuration: 1
+  preFirePerShot: 0
   projectile: {fileID: 4575455049484285622, guid: a6302737e8074584c8f06fa9394d75d4, type: 3}
   projectileCountPerShot: 5
   minMaxAngleBetweenPerShot: {x: -10, y: 10}
   projectileSpeed: 20
   projectileRange: 10
   projectileDamage: 3
+  projectileLength: 8
   recoilPower: 15
   autoReload: 1
   reloadTime: 1

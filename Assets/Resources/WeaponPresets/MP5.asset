@@ -48,6 +48,7 @@ MonoBehaviour:
   projectileSpeed: 70
   projectileRange: 20
   projectileDamage: 5
+  projectileLength: 3
   recoilPower: 15
   autoReload: 1
   reloadTime: 2
