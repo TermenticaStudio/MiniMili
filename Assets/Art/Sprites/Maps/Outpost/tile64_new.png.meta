@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -123,6 +129,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -4024,234 +4031,233 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tile64_new_117: -428189401
-      tile64_new_113: -513969075
-      tile64_new_46: 602974719
-      tile64_new_68: 1584998547
-      tile64_new_214: 223184035
-      tile64_new_197: 1412383718
-      tile64_new_76: 2141080311
-      tile64_new_142: -374620891
-      tile64_new_124: -1195138552
-      tile64_new_195: -1312837421
+      tile64_new_0: -191149729
+      tile64_new_1: -1355154543
       tile64_new_10: -308689255
-      tile64_new_14: 1574149971
-      tile64_new_158: 861006841
-      tile64_new_22: 835816513
-      tile64_new_54: -1319179264
-      tile64_new_149: 107164598
-      tile64_new_9: -144086366
-      tile64_new_29: 1429115248
-      tile64_new_211: -2045355140
       tile64_new_100: -1725460659
-      tile64_new_78: -226682206
-      tile64_new_189: 1753561500
-      tile64_new_50: -1298471402
-      tile64_new_135: -1221902532
-      tile64_new_126: 1021195513
-      tile64_new_47: 1435569758
-      tile64_new_3: -762698307
-      tile64_new_38: -713085793
-      tile64_new_173: 1961282260
-      tile64_new_161: 876955916
-      tile64_new_224: 1888639486
-      tile64_new_219: 525937772
-      tile64_new_55: 1313863044
-      tile64_new_73: -1570555730
-      tile64_new_155: 860065019
-      tile64_new_205: -1722214652
-      tile64_new_85: -222947219
-      tile64_new_194: 1281464289
-      tile64_new_63: 1200865781
-      tile64_new_69: 526512693
+      tile64_new_101: -855504651
+      tile64_new_102: 1186338459
       tile64_new_103: -949987508
-      tile64_new_82: -988102336
-      tile64_new_190: 708332863
-      tile64_new_168: 693776503
-      tile64_new_191: -1891481427
-      tile64_new_42: -1333381502
-      tile64_new_125: -1481346866
-      tile64_new_81: 307106566
-      tile64_new_5: 543264717
-      tile64_new_112: 1551761799
-      tile64_new_39: -1220547115
-      tile64_new_33: -947555381
-      tile64_new_23: 794097004
-      tile64_new_4: -294961579
-      tile64_new_176: 707472701
-      tile64_new_52: 724061122
-      tile64_new_115: -825717095
-      tile64_new_206: 802426471
-      tile64_new_77: 1596078846
-      tile64_new_32: -955932443
-      tile64_new_58: -17704906
-      tile64_new_19: -1768664666
-      tile64_new_43: -233174538
-      tile64_new_28: 1888287192
-      tile64_new_88: 972640425
-      tile64_new_129: 1544802595
-      tile64_new_187: -1147786510
-      tile64_new_111: 237009874
-      tile64_new_202: -2051260126
-      tile64_new_116: -1606989656
-      tile64_new_143: -1873557183
-      tile64_new_216: 739497595
-      tile64_new_36: -1053481327
-      tile64_new_110: -103492
-      tile64_new_65: 2122120399
-      tile64_new_64: 907618885
-      tile64_new_139: -1467216200
-      tile64_new_53: 1583899250
-      tile64_new_119: -1871373509
-      tile64_new_60: 2144784676
+      tile64_new_104: 1179743113
+      tile64_new_105: -1042606965
+      tile64_new_106: -1436720815
+      tile64_new_107: 1842970869
+      tile64_new_108: -1433659897
       tile64_new_109: -280716529
-      tile64_new_75: -1102703964
-      tile64_new_99: -615491666
-      tile64_new_91: -1396025015
-      tile64_new_137: 1673540296
-      tile64_new_171: -1391763704
-      tile64_new_15: -1793826418
-      tile64_new_74: -1796038585
-      tile64_new_220: 1654360560
-      tile64_new_98: 222110878
-      tile64_new_196: -63089825
-      tile64_new_34: 883039773
-      tile64_new_199: 1716564181
-      tile64_new_218: -979927931
-      tile64_new_185: -1792731409
-      tile64_new_18: 800456157
-      tile64_new_193: -506041742
-      tile64_new_51: -1959048132
-      tile64_new_136: 1574710876
-      tile64_new_167: -2036159321
-      tile64_new_83: -1539196603
-      tile64_new_184: -65844375
-      tile64_new_172: -365125138
-      tile64_new_157: 656963928
-      tile64_new_217: 2026191185
-      tile64_new_2: 689036154
-      tile64_new_223: -1675548792
-      tile64_new_174: 2042332834
-      tile64_new_122: 743181173
-      tile64_new_178: 81648546
-      tile64_new_203: 322254716
-      tile64_new_79: -1324635498
+      tile64_new_11: -1945005133
+      tile64_new_110: -103492
+      tile64_new_111: 237009874
+      tile64_new_112: 1551761799
+      tile64_new_113: -513969075
+      tile64_new_114: 1334309464
+      tile64_new_115: -825717095
+      tile64_new_116: -1606989656
+      tile64_new_117: -428189401
+      tile64_new_118: 1879503221
+      tile64_new_119: -1871373509
+      tile64_new_12: -2029785791
       tile64_new_120: -1248000453
-      tile64_new_188: -1550084933
-      tile64_new_186: 1528711931
+      tile64_new_121: -1253856852
+      tile64_new_122: 743181173
+      tile64_new_123: 1647457031
+      tile64_new_124: -1195138552
+      tile64_new_125: -1481346866
+      tile64_new_126: 1021195513
+      tile64_new_127: 109650213
+      tile64_new_128: -1810068929
+      tile64_new_129: 1544802595
+      tile64_new_13: 1622451131
+      tile64_new_130: -1300428202
+      tile64_new_131: -31646074
+      tile64_new_132: 1094569815
+      tile64_new_133: -1421052218
+      tile64_new_134: 1662997783
+      tile64_new_135: -1221902532
+      tile64_new_136: 1574710876
+      tile64_new_137: 1673540296
+      tile64_new_138: -1594216410
+      tile64_new_139: -1467216200
+      tile64_new_14: 1574149971
+      tile64_new_140: 1694201428
+      tile64_new_141: 714030547
+      tile64_new_142: -374620891
+      tile64_new_143: -1873557183
+      tile64_new_144: -1299602281
+      tile64_new_145: 1905459474
+      tile64_new_146: 919306752
+      tile64_new_147: 1195305043
+      tile64_new_148: -435224548
+      tile64_new_149: 107164598
+      tile64_new_15: -1793826418
+      tile64_new_150: 1454180385
+      tile64_new_151: 1920800914
+      tile64_new_152: 1440942750
       tile64_new_153: -1023783059
       tile64_new_154: -1714832960
-      tile64_new_132: 1094569815
-      tile64_new_166: -1456086907
-      tile64_new_118: 1879503221
-      tile64_new_93: -425086121
-      tile64_new_24: 87482268
-      tile64_new_37: 2113944442
-      tile64_new_56: -1328286745
-      tile64_new_147: 1195305043
-      tile64_new_160: 1076452185
-      tile64_new_152: 1440942750
-      tile64_new_106: -1436720815
-      tile64_new_13: 1622451131
-      tile64_new_1: -1355154543
-      tile64_new_114: 1334309464
-      tile64_new_31: 487993020
-      tile64_new_97: 621563569
-      tile64_new_141: 714030547
-      tile64_new_8: -775002680
-      tile64_new_138: -1594216410
-      tile64_new_183: 1517943555
-      tile64_new_26: 1099858152
-      tile64_new_70: 744420860
-      tile64_new_45: -677226927
-      tile64_new_40: 1008299025
-      tile64_new_151: 1920800914
-      tile64_new_62: -765221957
-      tile64_new_86: -434746354
-      tile64_new_179: -1514901951
-      tile64_new_41: -1117069232
-      tile64_new_150: 1454180385
-      tile64_new_177: -1603980483
-      tile64_new_90: -1798372351
+      tile64_new_155: 860065019
       tile64_new_156: 772020313
-      tile64_new_72: -1688226483
-      tile64_new_181: -540892971
-      tile64_new_148: -435224548
-      tile64_new_133: -1421052218
-      tile64_new_61: 1273088850
-      tile64_new_92: -1406182522
-      tile64_new_131: -31646074
-      tile64_new_108: -1433659897
-      tile64_new_170: 2136385496
-      tile64_new_204: 1861988807
-      tile64_new_48: -2047555292
-      tile64_new_16: 1150476232
-      tile64_new_80: 14083798
-      tile64_new_59: -141606296
-      tile64_new_66: -1969903652
-      tile64_new_89: 2056865832
-      tile64_new_21: -1041244704
-      tile64_new_209: 531438653
-      tile64_new_6: -1686703682
-      tile64_new_121: -1253856852
-      tile64_new_84: 717687626
-      tile64_new_96: 128935684
-      tile64_new_102: 1186338459
-      tile64_new_71: -2120020081
-      tile64_new_212: 795869634
-      tile64_new_130: -1300428202
+      tile64_new_157: 656963928
+      tile64_new_158: 861006841
       tile64_new_159: 1888486485
-      tile64_new_145: 1905459474
-      tile64_new_163: 979658922
-      tile64_new_213: 2147222128
-      tile64_new_165: -104148106
-      tile64_new_198: -1794521282
-      tile64_new_140: 1694201428
-      tile64_new_107: 1842970869
-      tile64_new_30: 1803350167
-      tile64_new_94: 176654486
-      tile64_new_192: 718433405
-      tile64_new_169: 761759787
-      tile64_new_27: -1447709142
-      tile64_new_7: 2084186832
+      tile64_new_16: 1150476232
+      tile64_new_160: 1076452185
+      tile64_new_161: 876955916
       tile64_new_162: 1775920429
-      tile64_new_200: -1526069743
-      tile64_new_182: 1421768753
-      tile64_new_208: -1166421972
-      tile64_new_201: -1987656863
-      tile64_new_144: -1299602281
-      tile64_new_180: 1141984210
-      tile64_new_123: 1647457031
-      tile64_new_0: -191149729
+      tile64_new_163: 979658922
       tile64_new_164: 1465333281
-      tile64_new_215: 723356664
-      tile64_new_127: 109650213
-      tile64_new_25: 108038564
-      tile64_new_105: -1042606965
-      tile64_new_134: 1662997783
-      tile64_new_101: -855504651
-      tile64_new_146: 919306752
-      tile64_new_67: 1032654758
-      tile64_new_49: -192345733
-      tile64_new_207: 1034710729
-      tile64_new_128: -1810068929
-      tile64_new_175: 1911776539
-      tile64_new_35: -423344670
-      tile64_new_222: 246607650
-      tile64_new_221: -564294523
-      tile64_new_44: 913199120
-      tile64_new_210: -21912687
-      tile64_new_57: 1839112589
-      tile64_new_12: -2029785791
-      tile64_new_20: -1329715340
-      tile64_new_104: 1179743113
-      tile64_new_95: 1124700050
-      tile64_new_11: -1945005133
+      tile64_new_165: -104148106
+      tile64_new_166: -1456086907
+      tile64_new_167: -2036159321
+      tile64_new_168: 693776503
+      tile64_new_169: 761759787
       tile64_new_17: 403582108
+      tile64_new_170: 2136385496
+      tile64_new_171: -1391763704
+      tile64_new_172: -365125138
+      tile64_new_173: 1961282260
+      tile64_new_174: 2042332834
+      tile64_new_175: 1911776539
+      tile64_new_176: 707472701
+      tile64_new_177: -1603980483
+      tile64_new_178: 81648546
+      tile64_new_179: -1514901951
+      tile64_new_18: 800456157
+      tile64_new_180: 1141984210
+      tile64_new_181: -540892971
+      tile64_new_182: 1421768753
+      tile64_new_183: 1517943555
+      tile64_new_184: -65844375
+      tile64_new_185: -1792731409
+      tile64_new_186: 1528711931
+      tile64_new_187: -1147786510
+      tile64_new_188: -1550084933
+      tile64_new_189: 1753561500
+      tile64_new_19: -1768664666
+      tile64_new_190: 708332863
+      tile64_new_191: -1891481427
+      tile64_new_192: 718433405
+      tile64_new_193: -506041742
+      tile64_new_194: 1281464289
+      tile64_new_195: -1312837421
+      tile64_new_196: -63089825
+      tile64_new_197: 1412383718
+      tile64_new_198: -1794521282
+      tile64_new_199: 1716564181
+      tile64_new_2: 689036154
+      tile64_new_20: -1329715340
+      tile64_new_200: -1526069743
+      tile64_new_201: -1987656863
+      tile64_new_202: -2051260126
+      tile64_new_203: 322254716
+      tile64_new_204: 1861988807
+      tile64_new_205: -1722214652
+      tile64_new_206: 802426471
+      tile64_new_207: 1034710729
+      tile64_new_208: -1166421972
+      tile64_new_209: 531438653
+      tile64_new_21: -1041244704
+      tile64_new_210: -21912687
+      tile64_new_211: -2045355140
+      tile64_new_212: 795869634
+      tile64_new_213: 2147222128
+      tile64_new_214: 223184035
+      tile64_new_215: 723356664
+      tile64_new_216: 739497595
+      tile64_new_217: 2026191185
+      tile64_new_218: -979927931
+      tile64_new_219: 525937772
+      tile64_new_22: 835816513
+      tile64_new_220: 1654360560
+      tile64_new_221: -564294523
+      tile64_new_222: 246607650
+      tile64_new_223: -1675548792
+      tile64_new_224: 1888639486
+      tile64_new_23: 794097004
+      tile64_new_24: 87482268
+      tile64_new_25: 108038564
+      tile64_new_26: 1099858152
+      tile64_new_27: -1447709142
+      tile64_new_28: 1888287192
+      tile64_new_29: 1429115248
+      tile64_new_3: -762698307
+      tile64_new_30: 1803350167
+      tile64_new_31: 487993020
+      tile64_new_32: -955932443
+      tile64_new_33: -947555381
+      tile64_new_34: 883039773
+      tile64_new_35: -423344670
+      tile64_new_36: -1053481327
+      tile64_new_37: 2113944442
+      tile64_new_38: -713085793
+      tile64_new_39: -1220547115
+      tile64_new_4: -294961579
+      tile64_new_40: 1008299025
+      tile64_new_41: -1117069232
+      tile64_new_42: -1333381502
+      tile64_new_43: -233174538
+      tile64_new_44: 913199120
+      tile64_new_45: -677226927
+      tile64_new_46: 602974719
+      tile64_new_47: 1435569758
+      tile64_new_48: -2047555292
+      tile64_new_49: -192345733
+      tile64_new_5: 543264717
+      tile64_new_50: -1298471402
+      tile64_new_51: -1959048132
+      tile64_new_52: 724061122
+      tile64_new_53: 1583899250
+      tile64_new_54: -1319179264
+      tile64_new_55: 1313863044
+      tile64_new_56: -1328286745
+      tile64_new_57: 1839112589
+      tile64_new_58: -17704906
+      tile64_new_59: -141606296
+      tile64_new_6: -1686703682
+      tile64_new_60: 2144784676
+      tile64_new_61: 1273088850
+      tile64_new_62: -765221957
+      tile64_new_63: 1200865781
+      tile64_new_64: 907618885
+      tile64_new_65: 2122120399
+      tile64_new_66: -1969903652
+      tile64_new_67: 1032654758
+      tile64_new_68: 1584998547
+      tile64_new_69: 526512693
+      tile64_new_7: 2084186832
+      tile64_new_70: 744420860
+      tile64_new_71: -2120020081
+      tile64_new_72: -1688226483
+      tile64_new_73: -1570555730
+      tile64_new_74: -1796038585
+      tile64_new_75: -1102703964
+      tile64_new_76: 2141080311
+      tile64_new_77: 1596078846
+      tile64_new_78: -226682206
+      tile64_new_79: -1324635498
+      tile64_new_8: -775002680
+      tile64_new_80: 14083798
+      tile64_new_81: 307106566
+      tile64_new_82: -988102336
+      tile64_new_83: -1539196603
+      tile64_new_84: 717687626
+      tile64_new_85: -222947219
+      tile64_new_86: -434746354
       tile64_new_87: 599337273
-  spritePackingTag: 
+      tile64_new_88: 972640425
+      tile64_new_89: 2056865832
+      tile64_new_9: -144086366
+      tile64_new_90: -1798372351
+      tile64_new_91: -1396025015
+      tile64_new_92: -1406182522
+      tile64_new_93: -425086121
+      tile64_new_94: 176654486
+      tile64_new_95: 1124700050
+      tile64_new_96: 128935684
+      tile64_new_97: 621563569
+      tile64_new_98: 222110878
+      tile64_new_99: -615491666
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

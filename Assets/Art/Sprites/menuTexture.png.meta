@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -123,6 +129,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -5809,279 +5816,278 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      menuTexture_101: 623577775
-      menuTexture_224: -1026314477
-      menuTexture_186: -1522109037
-      menuTexture_66: 688983264
-      menuTexture_187: 568592345
-      menuTexture_100: -1280297883
-      menuTexture_216: 115666110
-      menuTexture_147: 1651281772
-      menuTexture_76: 154077855
-      menuTexture_228: -1479396014
-      menuTexture_31: -291589114
-      menuTexture_174: 1841552853
-      menuTexture_60: 2112262740
-      menuTexture_10: 758689133
-      menuTexture_85: -1553016843
-      menuTexture_175: -1386853070
-      menuTexture_177: -173335250
-      menuTexture_219: 1035425253
-      menuTexture_151: 614415346
-      menuTexture_149: -793497814
-      menuTexture_89: -1606590442
-      menuTexture_185: -1679270707
-      menuTexture_154: 407560475
-      menuTexture_67: -1306150721
-      menuTexture_139: 614155468
-      menuTexture_15: -206420946
-      menuTexture_83: -895116202
-      menuTexture_128: 1013916171
-      menuTexture_114: -1124180286
-      menuTexture_12: -1352633656
-      menuTexture_170: -1046093277
-      menuTexture_143: -2121469716
-      menuTexture_88: -1338559774
-      menuTexture_156: 1349164655
-      menuTexture_259: -172583820
-      menuTexture_109: -1169531948
-      menuTexture_6: 1784399588
-      menuTexture_267: -1143897456
-      menuTexture_110: -612319979
-      menuTexture_55: -685857347
-      menuTexture_210: 783037614
-      menuTexture_253: 1246564509
-      menuTexture_131: -170762172
-      menuTexture_265: -12687512
-      menuTexture_17: -142352127
-      menuTexture_189: -487683023
-      menuTexture_5: 2102503837
-      menuTexture_80: 1326324252
-      menuTexture_104: -1527979246
-      menuTexture_2: 873553151
-      menuTexture_178: 1322025279
-      menuTexture_46: -1014352179
-      menuTexture_73: 1357789012
-      menuTexture_169: 1526869344
-      menuTexture_249: 534195767
-      menuTexture_240: 1480491813
-      menuTexture_238: 1353782950
-      menuTexture_142: -1633314835
-      menuTexture_16: 646430840
-      menuTexture_179: -281731769
-      menuTexture_105: -459573215
-      menuTexture_141: -1106595492
-      menuTexture_94: -133569712
-      menuTexture_148: -2067523956
-      menuTexture_194: 1013402781
-      menuTexture_63: -723765897
-      menuTexture_95: -252509871
-      menuTexture_20: -755296544
-      menuTexture_92: 807061084
-      menuTexture_91: 620673884
-      menuTexture_1: -59021348
-      menuTexture_227: -1301497223
-      menuTexture_138: 1046577351
-      menuTexture_81: 470245671
-      menuTexture_161: 530728843
-      menuTexture_254: -1113915623
-      menuTexture_145: 328116204
-      menuTexture_135: -1442253148
-      menuTexture_52: 1170205103
-      menuTexture_77: 1830460457
-      menuTexture_87: 1022143842
-      menuTexture_239: -1800989690
-      menuTexture_263: 401556620
-      menuTexture_245: -563881913
-      menuTexture_167: -1282132050
-      menuTexture_172: -855802688
-      menuTexture_197: -214971951
-      menuTexture_248: 1832899291
-      menuTexture_120: 1211622408
-      menuTexture_213: 1769514828
-      menuTexture_157: -304395600
-      menuTexture_255: 377037769
-      menuTexture_28: 300908637
-      menuTexture_163: -1260428773
-      menuTexture_37: 1569289218
-      menuTexture_188: -460483811
-      menuTexture_235: 714283
-      menuTexture_57: -1552029062
-      menuTexture_264: -2127413917
-      menuTexture_124: -1522013201
-      menuTexture_27: -2031030521
-      menuTexture_78: 588341877
-      menuTexture_262: -1429748486
-      menuTexture_71: 81145188
-      menuTexture_19: -530268997
-      menuTexture_242: 1017644178
-      menuTexture_214: -846491698
-      menuTexture_21: 520785695
-      menuTexture_246: 1979050869
-      menuTexture_102: -1961150320
-      menuTexture_118: -779980705
-      menuTexture_160: -2095291731
-      menuTexture_111: 1869665601
-      menuTexture_127: -87615111
-      menuTexture_236: -1472441607
-      menuTexture_223: 1982446037
-      menuTexture_209: 1804998371
-      menuTexture_144: 1864966424
-      menuTexture_126: -274205226
-      menuTexture_98: 842685982
-      menuTexture_56: -2089740956
-      menuTexture_266: 416505272
-      menuTexture_45: -2134659918
-      menuTexture_168: -400890984
-      menuTexture_182: 139216301
-      menuTexture_183: 1796958258
-      menuTexture_181: -1018488979
-      menuTexture_176: -562220377
-      menuTexture_222: 1354638475
-      menuTexture_137: 137322955
-      menuTexture_53: -650515979
-      menuTexture_122: 2037861383
-      menuTexture_196: 130131466
-      menuTexture_195: 1755676142
-      menuTexture_244: -857305017
-      menuTexture_152: 1713460370
-      menuTexture_258: -1254828198
-      menuTexture_51: 1323735655
-      menuTexture_65: 1259354692
-      menuTexture_113: 12354809
-      menuTexture_198: -1070187175
-      menuTexture_74: -1053102617
-      menuTexture_205: 1484921796
-      menuTexture_155: -715482731
-      menuTexture_247: -1724909206
-      menuTexture_29: -1581078034
-      menuTexture_260: -422667485
-      menuTexture_112: -2112089955
-      menuTexture_199: -1170838903
-      menuTexture_35: 859772354
-      menuTexture_69: -1558230754
-      menuTexture_96: -882536740
-      menuTexture_207: 1993999151
-      menuTexture_68: 448083920
-      menuTexture_90: 1932880738
-      menuTexture_184: -324300018
-      menuTexture_9: -551977259
-      menuTexture_217: -203748743
-      menuTexture_30: -927709317
-      menuTexture_241: -1938014012
-      menuTexture_13: 1217680713
-      menuTexture_33: 737080503
-      menuTexture_211: -1163727577
       menuTexture_0: 541419239
-      menuTexture_140: 1294891528
-      menuTexture_84: -1515963860
-      menuTexture_256: -191342906
-      menuTexture_8: -1283328275
-      menuTexture_150: -1108197505
-      menuTexture_215: 844947879
-      menuTexture_121: -2037286298
-      menuTexture_192: -330104717
-      menuTexture_232: -1939290036
-      menuTexture_180: 1701610573
-      menuTexture_204: 925648218
-      menuTexture_269: -7024638
-      menuTexture_230: 384212610
-      menuTexture_70: -953362994
-      menuTexture_146: -876259982
-      menuTexture_130: -1513265240
-      menuTexture_26: 1482122346
-      menuTexture_200: -1251804332
-      menuTexture_171: -1441580570
-      menuTexture_108: -837248026
-      menuTexture_261: 593020042
-      menuTexture_23: -1786173408
-      menuTexture_39: 1888632525
-      menuTexture_40: 729864331
-      menuTexture_36: -117224355
-      menuTexture_115: 1055776199
-      menuTexture_44: 89790824
-      menuTexture_125: 560314818
-      menuTexture_212: -796110441
-      menuTexture_268: 846039864
-      menuTexture_218: -2145588191
-      menuTexture_25: 516905701
-      menuTexture_158: 248728437
-      menuTexture_165: -2037560296
+      menuTexture_1: -59021348
+      menuTexture_10: 758689133
+      menuTexture_100: -1280297883
+      menuTexture_101: 623577775
+      menuTexture_102: -1961150320
       menuTexture_103: 1818741810
-      menuTexture_129: -1858375245
-      menuTexture_49: 1720328464
-      menuTexture_202: 1255725587
-      menuTexture_93: -602615112
-      menuTexture_136: -1042230442
-      menuTexture_50: 2054087915
-      menuTexture_153: -220479707
-      menuTexture_229: -1475657315
-      menuTexture_117: 1005708835
+      menuTexture_104: -1527979246
+      menuTexture_105: -459573215
       menuTexture_106: 1865378694
-      menuTexture_257: 343001708
-      menuTexture_132: 1864625471
-      menuTexture_225: 929308263
-      menuTexture_43: -518035745
-      menuTexture_75: -1722223342
-      menuTexture_58: -2067539239
-      menuTexture_203: 2081547637
-      menuTexture_99: -1540400256
-      menuTexture_226: -856160547
-      menuTexture_41: -50422367
-      menuTexture_201: -911164598
-      menuTexture_62: 975081628
-      menuTexture_42: -245166877
-      menuTexture_116: -2065648076
-      menuTexture_32: -1712553836
-      menuTexture_123: -1859448494
-      menuTexture_190: 568573386
-      menuTexture_47: 1435479847
-      menuTexture_64: 193121026
-      menuTexture_61: -1763950741
-      menuTexture_220: 239029295
-      menuTexture_14: 1517429689
-      menuTexture_250: -1427435109
-      menuTexture_22: 1744008543
       menuTexture_107: -394526155
-      menuTexture_18: -1318875113
-      menuTexture_4: -2107961663
-      menuTexture_231: 283398254
-      menuTexture_38: -1340245643
-      menuTexture_237: 1241524133
-      menuTexture_251: 1542802449
-      menuTexture_162: -1191546580
-      menuTexture_3: 547744551
-      menuTexture_34: -224282900
-      menuTexture_59: -318039370
+      menuTexture_108: -837248026
+      menuTexture_109: -1169531948
       menuTexture_11: 425766734
+      menuTexture_110: -612319979
+      menuTexture_111: 1869665601
+      menuTexture_112: -2112089955
+      menuTexture_113: 12354809
+      menuTexture_114: -1124180286
+      menuTexture_115: 1055776199
+      menuTexture_116: -2065648076
+      menuTexture_117: 1005708835
+      menuTexture_118: -779980705
       menuTexture_119: -1869972542
-      menuTexture_234: -519379101
-      menuTexture_82: -25273501
-      menuTexture_79: -1412621686
-      menuTexture_193: 700360388
-      menuTexture_86: 1105414867
-      menuTexture_97: -1635909835
+      menuTexture_12: -1352633656
+      menuTexture_120: 1211622408
+      menuTexture_121: -2037286298
+      menuTexture_122: 2037861383
+      menuTexture_123: -1859448494
+      menuTexture_124: -1522013201
+      menuTexture_125: 560314818
+      menuTexture_126: -274205226
+      menuTexture_127: -87615111
+      menuTexture_128: 1013916171
+      menuTexture_129: -1858375245
+      menuTexture_13: 1217680713
+      menuTexture_130: -1513265240
+      menuTexture_131: -170762172
+      menuTexture_132: 1864625471
       menuTexture_133: 943571735
       menuTexture_134: -698762233
-      menuTexture_233: 1804018430
-      menuTexture_191: 152197090
-      menuTexture_243: 1389320155
-      menuTexture_164: -2024208953
-      menuTexture_7: -1726651100
-      menuTexture_24: -1631663738
-      menuTexture_166: -1517838899
-      menuTexture_208: 2111865151
-      menuTexture_252: 993548692
-      menuTexture_173: 1428484475
-      menuTexture_72: -1050107884
+      menuTexture_135: -1442253148
+      menuTexture_136: -1042230442
+      menuTexture_137: 137322955
+      menuTexture_138: 1046577351
+      menuTexture_139: 614155468
+      menuTexture_14: 1517429689
+      menuTexture_140: 1294891528
+      menuTexture_141: -1106595492
+      menuTexture_142: -1633314835
+      menuTexture_143: -2121469716
+      menuTexture_144: 1864966424
+      menuTexture_145: 328116204
+      menuTexture_146: -876259982
+      menuTexture_147: 1651281772
+      menuTexture_148: -2067523956
+      menuTexture_149: -793497814
+      menuTexture_15: -206420946
+      menuTexture_150: -1108197505
+      menuTexture_151: 614415346
+      menuTexture_152: 1713460370
+      menuTexture_153: -220479707
+      menuTexture_154: 407560475
+      menuTexture_155: -715482731
+      menuTexture_156: 1349164655
+      menuTexture_157: -304395600
+      menuTexture_158: 248728437
       menuTexture_159: 173850670
+      menuTexture_16: 646430840
+      menuTexture_160: -2095291731
+      menuTexture_161: 530728843
+      menuTexture_162: -1191546580
+      menuTexture_163: -1260428773
+      menuTexture_164: -2024208953
+      menuTexture_165: -2037560296
+      menuTexture_166: -1517838899
+      menuTexture_167: -1282132050
+      menuTexture_168: -400890984
+      menuTexture_169: 1526869344
+      menuTexture_17: -142352127
+      menuTexture_170: -1046093277
+      menuTexture_171: -1441580570
+      menuTexture_172: -855802688
+      menuTexture_173: 1428484475
+      menuTexture_174: 1841552853
+      menuTexture_175: -1386853070
+      menuTexture_176: -562220377
+      menuTexture_177: -173335250
+      menuTexture_178: 1322025279
+      menuTexture_179: -281731769
+      menuTexture_18: -1318875113
+      menuTexture_180: 1701610573
+      menuTexture_181: -1018488979
+      menuTexture_182: 139216301
+      menuTexture_183: 1796958258
+      menuTexture_184: -324300018
+      menuTexture_185: -1679270707
+      menuTexture_186: -1522109037
+      menuTexture_187: 568592345
+      menuTexture_188: -460483811
+      menuTexture_189: -487683023
+      menuTexture_19: -530268997
+      menuTexture_190: 568573386
+      menuTexture_191: 152197090
+      menuTexture_192: -330104717
+      menuTexture_193: 700360388
+      menuTexture_194: 1013402781
+      menuTexture_195: 1755676142
+      menuTexture_196: 130131466
+      menuTexture_197: -214971951
+      menuTexture_198: -1070187175
+      menuTexture_199: -1170838903
+      menuTexture_2: 873553151
+      menuTexture_20: -755296544
+      menuTexture_200: -1251804332
+      menuTexture_201: -911164598
+      menuTexture_202: 1255725587
+      menuTexture_203: 2081547637
+      menuTexture_204: 925648218
+      menuTexture_205: 1484921796
       menuTexture_206: 213752802
-      menuTexture_54: -688342248
+      menuTexture_207: 1993999151
+      menuTexture_208: 2111865151
+      menuTexture_209: 1804998371
+      menuTexture_21: 520785695
+      menuTexture_210: 783037614
+      menuTexture_211: -1163727577
+      menuTexture_212: -796110441
+      menuTexture_213: 1769514828
+      menuTexture_214: -846491698
+      menuTexture_215: 844947879
+      menuTexture_216: 115666110
+      menuTexture_217: -203748743
+      menuTexture_218: -2145588191
+      menuTexture_219: 1035425253
+      menuTexture_22: 1744008543
+      menuTexture_220: 239029295
       menuTexture_221: -1149520400
+      menuTexture_222: 1354638475
+      menuTexture_223: 1982446037
+      menuTexture_224: -1026314477
+      menuTexture_225: 929308263
+      menuTexture_226: -856160547
+      menuTexture_227: -1301497223
+      menuTexture_228: -1479396014
+      menuTexture_229: -1475657315
+      menuTexture_23: -1786173408
+      menuTexture_230: 384212610
+      menuTexture_231: 283398254
+      menuTexture_232: -1939290036
+      menuTexture_233: 1804018430
+      menuTexture_234: -519379101
+      menuTexture_235: 714283
+      menuTexture_236: -1472441607
+      menuTexture_237: 1241524133
+      menuTexture_238: 1353782950
+      menuTexture_239: -1800989690
+      menuTexture_24: -1631663738
+      menuTexture_240: 1480491813
+      menuTexture_241: -1938014012
+      menuTexture_242: 1017644178
+      menuTexture_243: 1389320155
+      menuTexture_244: -857305017
+      menuTexture_245: -563881913
+      menuTexture_246: 1979050869
+      menuTexture_247: -1724909206
+      menuTexture_248: 1832899291
+      menuTexture_249: 534195767
+      menuTexture_25: 516905701
+      menuTexture_250: -1427435109
+      menuTexture_251: 1542802449
+      menuTexture_252: 993548692
+      menuTexture_253: 1246564509
+      menuTexture_254: -1113915623
+      menuTexture_255: 377037769
+      menuTexture_256: -191342906
+      menuTexture_257: 343001708
+      menuTexture_258: -1254828198
+      menuTexture_259: -172583820
+      menuTexture_26: 1482122346
+      menuTexture_260: -422667485
+      menuTexture_261: 593020042
+      menuTexture_262: -1429748486
+      menuTexture_263: 401556620
+      menuTexture_264: -2127413917
+      menuTexture_265: -12687512
+      menuTexture_266: 416505272
+      menuTexture_267: -1143897456
+      menuTexture_268: 846039864
+      menuTexture_269: -7024638
+      menuTexture_27: -2031030521
+      menuTexture_28: 300908637
+      menuTexture_29: -1581078034
+      menuTexture_3: 547744551
+      menuTexture_30: -927709317
+      menuTexture_31: -291589114
+      menuTexture_32: -1712553836
+      menuTexture_33: 737080503
+      menuTexture_34: -224282900
+      menuTexture_35: 859772354
+      menuTexture_36: -117224355
+      menuTexture_37: 1569289218
+      menuTexture_38: -1340245643
+      menuTexture_39: 1888632525
+      menuTexture_4: -2107961663
+      menuTexture_40: 729864331
+      menuTexture_41: -50422367
+      menuTexture_42: -245166877
+      menuTexture_43: -518035745
+      menuTexture_44: 89790824
+      menuTexture_45: -2134659918
+      menuTexture_46: -1014352179
+      menuTexture_47: 1435479847
       menuTexture_48: 252332403
-  spritePackingTag: 
+      menuTexture_49: 1720328464
+      menuTexture_5: 2102503837
+      menuTexture_50: 2054087915
+      menuTexture_51: 1323735655
+      menuTexture_52: 1170205103
+      menuTexture_53: -650515979
+      menuTexture_54: -688342248
+      menuTexture_55: -685857347
+      menuTexture_56: -2089740956
+      menuTexture_57: -1552029062
+      menuTexture_58: -2067539239
+      menuTexture_59: -318039370
+      menuTexture_6: 1784399588
+      menuTexture_60: 2112262740
+      menuTexture_61: -1763950741
+      menuTexture_62: 975081628
+      menuTexture_63: -723765897
+      menuTexture_64: 193121026
+      menuTexture_65: 1259354692
+      menuTexture_66: 688983264
+      menuTexture_67: -1306150721
+      menuTexture_68: 448083920
+      menuTexture_69: -1558230754
+      menuTexture_7: -1726651100
+      menuTexture_70: -953362994
+      menuTexture_71: 81145188
+      menuTexture_72: -1050107884
+      menuTexture_73: 1357789012
+      menuTexture_74: -1053102617
+      menuTexture_75: -1722223342
+      menuTexture_76: 154077855
+      menuTexture_77: 1830460457
+      menuTexture_78: 588341877
+      menuTexture_79: -1412621686
+      menuTexture_8: -1283328275
+      menuTexture_80: 1326324252
+      menuTexture_81: 470245671
+      menuTexture_82: -25273501
+      menuTexture_83: -895116202
+      menuTexture_84: -1515963860
+      menuTexture_85: -1553016843
+      menuTexture_86: 1105414867
+      menuTexture_87: 1022143842
+      menuTexture_88: -1338559774
+      menuTexture_89: -1606590442
+      menuTexture_9: -551977259
+      menuTexture_90: 1932880738
+      menuTexture_91: 620673884
+      menuTexture_92: 807061084
+      menuTexture_93: -602615112
+      menuTexture_94: -133569712
+      menuTexture_95: -252509871
+      menuTexture_96: -882536740
+      menuTexture_97: -1635909835
+      menuTexture_98: 842685982
+      menuTexture_99: -1540400256
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
