@@ -10010,6 +10010,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0d0a05bfd54e240ade94f66bfde1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   preset: {fileID: 11400000, guid: c7f367cc9850bc647a8422b9d1000d68, type: 2}
   holsterPos: {fileID: 0}
   defaultLayer: Player
@@ -10019,3 +10022,4 @@ MonoBehaviour:
   muzzle: {fileID: 8144783010111195479}
   shellDrop: {fileID: 4399303239417543361}
   sfxSource: {fileID: 3195511587741776129}
+  isThisOwned: 0

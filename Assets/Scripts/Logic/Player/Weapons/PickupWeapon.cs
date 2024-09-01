@@ -1,14 +1,17 @@
+using Logic.Player.WeaponsSystem;
+using Mirror;
 using System;
 using UnityEngine;
 
 namespace Logic.Player.WeaponsSystem
 {
+    [Serializable]
     public class PickupWeapon : PickupObject
     {
         [SerializeField] private WeaponPreset preset;
 
-        private Ammo ammoLeft;
-        private bool isDropped;
+        public Ammo ammoLeft;
+        public bool isDropped;
 
         public string ID { get => preset.id; }
 

@@ -59,6 +59,6 @@ public class ObjectSpawner : MonoBehaviour
             return;
         }
 
-        Instance.Spawn(id, PlayerSpawnHandler.Instance.LocalPlayer.transform.position);
+     //   Instance.Spawn(id, PlayerSpawnHandler.Instance.LocalPlayer.transform.position);
     }
 }

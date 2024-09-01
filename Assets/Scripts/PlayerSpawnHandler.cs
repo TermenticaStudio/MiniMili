@@ -8,9 +8,8 @@ using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PlayerSpawnHandler : MonoBehaviour
+public class PlayerSpawnHandler : NetworkBehaviour
 {
-    [SerializeField] private PlayerInfo player;
     [SerializeField] private float respawnTimer = 5;
     [SerializeField] private int respawnCount = 3;
 
@@ -18,11 +17,10 @@ public class PlayerSpawnHandler : MonoBehaviour
     [SerializeField] private float displayRespawnDelay = 2;
     [SerializeField] private GameObject respawnUI;
     [SerializeField] private TextMeshProUGUI respawnTimerText;
-
-    public Player LocalPlayer { get; private set; }
     public static PlayerSpawnHandler Instance;
 
-    public event Action<PlayerInfo> OnSpawnPlayer;
+    [SerializeField]
+    private PickupObject[] pickups;
 
     private void Awake()
     {
@@ -32,33 +30,38 @@ public class PlayerSpawnHandler : MonoBehaviour
 
     private void Start()
     {
-        SpawnPlayer();
+        //SpawnPlayer();
     }
 
     // [ClientRpc]
-    public void SpawnPlayerRpc(NetworkIdentity identity)
+   /* public void SpawnPlayerRpc(NetworkIdentity identity)
     {
         if (!identity.isLocalPlayer)
             return;
 
         OnSpawnPlayer?.Invoke(identity.GetComponent<PlayerInfo>());
-    }
+    }*/
 
-    public void SpawnPlayer()
+    public void SpawnPlayer(PlayerInfo instance)
     {
-        var instance = FindObjectOfType<PlayerInfo>();
+   //     var instance = FindObjectOfType<PlayerInfo>();
 
-        if (instance == null)
-            instance = Instantiate(player, GetStartPosition());
+      /*  if (instance == null)
+            instance = Instantiate(player, GetStartPosition());*/
 
         instance.SetRespawnCount(respawnCount);
         instance.IsLocal = true;
-        OnSpawnPlayer?.Invoke(instance);
-
+        Debug.Log("Triggering player spawn event");
+      //  OnSpawnPlayer.Invoke(instance);
         NotifyManager.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Joined), instance.GetPlayerName());
-        LocalPlayer = instance.GetComponent<Player>();
     }
-
+    [Command(requiresAuthority = false)]
+    public void SpawnPickup(Vector3 pos)
+    {
+        Debug.Log("spawning pickups");
+        var go = Instantiate(pickups[Random.Range(0, pickups.Length)].gameObject, pos, Quaternion.identity);
+        NetworkServer.Spawn(go);
+    }
     public void RequestForPlayerRespawn(PlayerInfo player)
     {
         RespawnPlayer(player);
@@ -98,7 +101,7 @@ public class PlayerSpawnHandler : MonoBehaviour
 
         player.UseRespawn();
 
-        OnSpawnPlayer?.Invoke(player);
+   //     GameEvents.OnLocalPlayerSpawn?.Invoke(player);
     }
 
     public Transform GetStartPosition(PlayerInfo player = null)

@@ -47,7 +47,7 @@ public class WeaponInfoUI : MonoBehaviour
 
     private void Start()
     {
-        PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
+        GameEvents.OnLocalPlayerSpawn += OnSpawnPlayer;
 
         OnWeaponNearby(null, null);
         reloadIndicator.SetActive(false);
@@ -55,23 +55,23 @@ public class WeaponInfoUI : MonoBehaviour
 
     private void OnDisable()
     {
-        if (PlayerSpawnHandler.Instance == null)
+        if (GameEvents.Instance == null)
             return;
 
-        PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
+        GameEvents.OnLocalPlayerSpawn -= OnSpawnPlayer;
 
         UnsubscribeThrowablesEvents();
         UnsubscribeWeaponsEvents();
     }
 
-    private void OnSpawnPlayer(PlayerInfo info)
+    private void OnSpawnPlayer()
     {
-        player = info.GetComponent<Player>();
+        player = Player.localPlayer.GetComponent<Player>();
 
         SubscribeThrowablesEvents();
         SubscribeWeaponsEvents();
 
-        SetRespawnsLeftText(info.RespawnsLeft);
+        SetRespawnsLeftText(player.GetComponent<PlayerInfo>().RespawnsLeft);
     }
 
     private void SubscribeWeaponsEvents()

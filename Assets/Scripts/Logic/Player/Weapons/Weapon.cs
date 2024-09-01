@@ -1,6 +1,8 @@
 using DG.Tweening;
 using Feature.Audio;
 using Feature.Flip;
+using Logic.Player.WeaponsSystem;
+using Mirror;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -62,6 +64,7 @@ namespace Logic.Player.WeaponsSystem
         public string ID { get => preset.id; }
         public bool IsActive { get; private set; }
         public WeaponPreset Preset { get => preset; }
+        public FlipController Flip { get => flipController; }
 
         public event Action OnStartPreFire;
         public event Action OnEndPreFire;
@@ -70,6 +73,7 @@ namespace Logic.Player.WeaponsSystem
         {
             weaponsManager = GetComponentInParent<WeaponsManager>();
             player = GetComponentInParent<Player>();
+            flipController = player.Flip;
 
             var nonRecoilPoint = new GameObject(preset.Name + " Non-Recoil Projectile Point");
             nonRecoilPoint.transform.SetPositionAndRotation(projectileSpawnPoint.transform.position, projectileSpawnPoint.transform.rotation);
@@ -112,6 +116,11 @@ namespace Logic.Player.WeaponsSystem
 
         private void Update()
         {
+            if (player == null)
+            {
+                Init();
+                return;
+            }
             UpdateAimLine();
         }
 
@@ -184,8 +193,8 @@ namespace Logic.Player.WeaponsSystem
                         rot *= Quaternion.Euler(Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
 
                     // Accuracy
-                    var minRan = Mathf.Lerp(WeaponPreset.minRanAccuracyDegree, 0, preset.accuracy);
-                    var maxRan = Mathf.Lerp(WeaponPreset.maxRanAccuracyDegree, 0, preset.accuracy);
+                    var minRan = Mathf.Lerp(preset.minRanAccuracyDegree, 0, preset.accuracy);
+                    var maxRan = Mathf.Lerp(preset.maxRanAccuracyDegree, 0, preset.accuracy);
                     rot *= Quaternion.Euler(Vector3.forward * Random.Range(minRan, maxRan));
                     //
 
@@ -256,7 +265,7 @@ namespace Logic.Player.WeaponsSystem
         private void CreateProjectile(Quaternion rot)
         {
             var projectilePr = PrefabPool.Instance.Get("Bullet").GetComponent<Projectile>();
-            projectilePr.Init(player, projectileSpawnPoint.position, rot, preset.projectileSpeed, preset.projectileRange, preset.projectileDamage);
+            projectilePr.Init(player, projectileSpawnPoint.position, rot, preset.projectileSpeed, preset.projectileRange, preset.projectileDamage, preset.projectileLength);
         }
 
         public void Reload()
@@ -466,7 +475,7 @@ namespace Logic.Player.WeaponsSystem
 
         private void UpdateAimLine()
         {
-            player.SetCameraLookPos(recoilExludedProjectilePoint.TransformPoint(recoilExludedProjectilePoint.localPosition + Vector3.right * currentZoom.cameraOffset));
+            player.SetAimLookPos(recoilExludedProjectilePoint.TransformPoint(recoilExludedProjectilePoint.localPosition + Vector3.right * currentZoom.cameraOffset));
 
             if (!currentAimLine)
                 return;

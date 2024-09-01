@@ -1,11 +1,12 @@
 using Feature.Flip;
 using Feature.OverlapDetector;
+using Mirror;
 using UnityEngine;
 
 namespace Feature.Player.Movement
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class MovementController : MonoBehaviour
+    public class MovementController : NetworkBehaviour
     {
         [Header("Movement Setting")]
         [SerializeField] private float walkForce = 0.8f;
@@ -51,6 +52,7 @@ namespace Feature.Player.Movement
 
         private void Update()
         {
+            if (!isLocalPlayer) return;
             SlipBrake();
             CheckGround();
             CheckCeiling();
@@ -67,10 +69,9 @@ namespace Feature.Player.Movement
             currentMaxSpeed = Mathf.Lerp(currentMaxSpeed, targetMaxSpeed, Time.deltaTime * 5f);
             currentAcceleration = Mathf.Lerp(currentAcceleration, targetAcceleration, Time.deltaTime * 5f);
 
-            feetAnimator.SetFloat(DIR_ANIM, isCrawling ? -1 : 0);
             speedAnimationInput = Mathf.Lerp(speedAnimationInput, (IsFlipped() ? -1 : 1) * _directionInput.x, Time.deltaTime * 5);
 
-            feetAnimator.SetFloat(SPEED_ANIM, speedAnimationInput);
+            CmdUpdateAnimator(speedAnimationInput, isCrawling ? -1 : 0);
 
             Footstep();
         }
@@ -84,7 +85,20 @@ namespace Feature.Player.Movement
 
             Move();
         }
+        [Command]
+        private void CmdUpdateAnimator(float speed, float dir)
+        {
+            // Update animator parameters on the server
+            RpcUpdateAnimator(speed, dir);
+        }
 
+        [ClientRpc]
+        private void RpcUpdateAnimator(float speed, float dir)
+        {
+            // Update animator parameters on all clients
+            feetAnimator.SetFloat(SPEED_ANIM, speed);
+            feetAnimator.SetFloat(DIR_ANIM, dir);
+        }
         private void Move()
         {
             if (rb.velocity.magnitude > currentMaxSpeed)

@@ -1,36 +1,29 @@
 using Feature.OverlapDetector;
 using System.Collections;
 using UnityEngine;
+using Mirror;
 
 namespace Feature.Jetpack
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class JetpackController : MonoBehaviour
+    public class JetpackController : NetworkBehaviour
     {
-        [Header("Config")]
-        [SerializeField] private float jetPackForce;
-        [SerializeField] private float jetPackLaunchForce;
-        [SerializeField] private float launchDelay = 0.65f;
-        [SerializeField] private float flyingMaxVelocity;
-        [SerializeField] private float fallingMaxVelocity;
-
-        [Header("Fuel")]
-        [SerializeField] private float jetPackFuel = 10;
-        [SerializeField] private float fuelUsageMultiplier = 2f;
-        [SerializeField] private float fuelChargeMutliplier = 1f;
-        [SerializeField] private float refuelDelay = 1;
+        [SerializeField] private JetpackData data;
 
         [Header("VFX")]
         [SerializeField] private JetpackFlameController[] jetpackFlames;
 
-        private bool _enableJetpack;
-        private bool _isJetPackActive;
-        private bool _isJetpackActivating;
-        private float _throttle;
-        private bool _isGrounded;
-        private float _currentFuel;
-        private bool _isChargingFuel;
-        private bool _isChargingFuelActivating;
+        public JetpackData Data { get => data; }
+
+        [SyncVar] private bool _enableJetpack;
+        [SyncVar] private bool _isJetPackActive;
+        [SyncVar] private bool _isJetpackActivating;
+        [SyncVar] private float _throttle;
+        [SyncVar] private bool _isGrounded;
+        [SyncVar] private float _currentFuel;
+        [SyncVar] private bool _isChargingFuel;
+        [SyncVar] private bool _isChargingFuelActivating;
+
         private Vector2 _directionInput;
         private Rigidbody2D _rigid;
         private OverlapDetectorController _groundDetector;
@@ -43,46 +36,54 @@ namespace Feature.Jetpack
 
         private void Update()
         {
+            if (!isLocalPlayer) return;
+
             _throttle = Mathf.Clamp01(_directionInput.y);
 
-            CheckGround();
+            CmdCheckGround();
             UpdateUI();
-            JetpackParticles();
-            JetpackMove();
-            StartRefuel();
-            ChargeFuel();
-            UseFuel();
+            CmdJetpackParticles();
+            CmdJetpackMove();
+            CmdStartRefuel();
+            CmdChargeFuel();
+            CmdUseFuel();
         }
 
         private void FixedUpdate()
         {
+            if (!isServer) return;
+
             if (_isJetPackActive)
-                _rigid.AddForce((Vector2.up * jetPackForce * _directionInput.y) + (Vector2.right * (jetPackForce / 2f) * _directionInput.x), ForceMode2D.Force);
+                _rigid.AddForce((Vector2.up * data.jetPackForce * _directionInput.y) + (Vector2.right * (data.jetPackForce / 2f) * _directionInput.x), ForceMode2D.Force);
 
             if (!_isGrounded)
             {
                 if (_isJetPackActive || _isJetpackActivating)
-                    _rigid.velocity = Vector2.ClampMagnitude(_rigid.velocity, flyingMaxVelocity);
+                    _rigid.velocity = Vector2.ClampMagnitude(_rigid.velocity, data.flyingMaxVelocity);
                 else
-                    _rigid.velocity = Vector2.ClampMagnitude(_rigid.velocity, fallingMaxVelocity);
+                    _rigid.velocity = Vector2.ClampMagnitude(_rigid.velocity, data.fallingMaxVelocity);
             }
         }
 
         private void UpdateUI()
         {
-            WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, _currentFuel / jetPackFuel));
+            if (isLocalPlayer)
+            {
+                WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, _currentFuel / data.jetPackFuel));
+            }
         }
 
-        private void JetpackMove()
+        [Command]
+        private void CmdJetpackMove()
         {
             if (_isJetpackActivating)
                 return;
 
             if (_isGrounded)
             {
-                DeactivateJetpack();
+                RpcDeactivateJetpack();
 
-                if (_directionInput.y < 0.8f)
+                if (!IsEnoughVerticalInput())
                     return;
 
                 if (!_isJetpackActivating)
@@ -91,16 +92,17 @@ namespace Feature.Jetpack
 
             if (_currentFuel == 0 || _directionInput.y <= 0)
             {
-                DeactivateJetpack();
+                RpcDeactivateJetpack();
             }
             else
             {
-                if (!_isJetpackActivating)
-                    ActivateJetpack();
+                if (!_isJetpackActivating && IsEnoughVerticalInput())
+                    RpcActivateJetpack();
             }
         }
 
-        private void ChargeFuel()
+        [Command]
+        private void CmdChargeFuel()
         {
             if (!_enableJetpack)
                 return;
@@ -111,19 +113,12 @@ namespace Feature.Jetpack
             if (!_isChargingFuel)
                 return;
 
-            _currentFuel += Time.deltaTime * fuelChargeMutliplier;
-            _currentFuel = Mathf.Clamp(_currentFuel, 0, jetPackFuel);
+            _currentFuel += Time.deltaTime * data.fuelChargeMutliplier;
+            _currentFuel = Mathf.Clamp(_currentFuel, 0, data.jetPackFuel);
         }
 
-        private IEnumerator StartRefuelCoroutine()
-        {
-            _isChargingFuelActivating = true;
-            yield return new WaitForSeconds(refuelDelay);
-            _isChargingFuel = true;
-            _isChargingFuelActivating = false;
-        }
-
-        private void StartRefuel()
+        [Command]
+        private void CmdStartRefuel()
         {
             if (_isJetPackActive)
                 return;
@@ -134,35 +129,41 @@ namespace Feature.Jetpack
             if (_isChargingFuelActivating)
                 return;
 
+            if (IsEnoughVerticalInput())
+                return;
+
             StartCoroutine(StartRefuelCoroutine());
         }
-
-        private void UseFuel()
+        private IEnumerator StartRefuelCoroutine()
+        {
+            _isChargingFuelActivating = true;
+            yield return new WaitForSeconds(data.refuelDelay);
+            _isChargingFuel = true;
+            _isChargingFuelActivating = false;
+        }
+        [Command]
+        private void CmdUseFuel()
         {
             if (!_isJetPackActive)
                 return;
 
             _isChargingFuel = false;
-            _currentFuel -= Time.deltaTime * fuelUsageMultiplier * Mathf.Lerp(0.5f, 1, _throttle);
-            _currentFuel = Mathf.Clamp(_currentFuel, 0, jetPackFuel);
+            _currentFuel -= Time.deltaTime * data.fuelUsageMultiplier * Mathf.Lerp(0.5f, 1, _throttle);
+            _currentFuel = Mathf.Clamp(_currentFuel, 0, data.jetPackFuel);
         }
 
         private IEnumerator StartJetpackDelayed()
         {
-            _rigid.AddForce(transform.up * jetPackLaunchForce, ForceMode2D.Impulse);
+            _rigid.AddForce(transform.up * data.jetPackLaunchForce, ForceMode2D.Impulse);
             _isJetpackActivating = true;
-            yield return new WaitForSeconds(launchDelay);
-            ActivateJetpack();
+
+            yield return new WaitForSeconds(data.launchDelay);
+            RpcActivateJetpack();
             _isJetpackActivating = false;
         }
 
-        private void JetpackParticles()
-        {
-            foreach (var flame in jetpackFlames)
-                flame.SetPower(_throttle);
-        }
-
-        private void ActivateJetpack()
+        [ClientRpc]
+        private void RpcActivateJetpack()
         {
             _isJetPackActive = true;
 
@@ -170,7 +171,8 @@ namespace Feature.Jetpack
                 flame.ActivateFlame(true);
         }
 
-        private void DeactivateJetpack()
+        [ClientRpc]
+        private void RpcDeactivateJetpack()
         {
             _isJetPackActive = false;
 
@@ -178,14 +180,30 @@ namespace Feature.Jetpack
                 flame.ActivateFlame(false);
         }
 
+        [Command]
+        private void CmdJetpackParticles()
+        {
+            RpcJetpackParticles(_throttle);
+        }
+
+        [ClientRpc]
+        private void RpcJetpackParticles(float throttle)
+        {
+            foreach (var flame in jetpackFlames)
+                flame.SetPower(throttle);
+        }
+
         public void FeedDirectionInput(Vector2 input)
         {
-            _directionInput = input;
+            if (isLocalPlayer)
+            {
+                _directionInput = input;
+            }
         }
 
         public void ResetFuel()
         {
-            _currentFuel = jetPackFuel;
+            _currentFuel = data.jetPackFuel;
         }
 
         public void PurgeFuel()
@@ -195,12 +213,18 @@ namespace Feature.Jetpack
 
         public void EnableJetpack()
         {
-            _enableJetpack = true;
+            if (isLocalPlayer)
+            {
+                _enableJetpack = true;
+            }
         }
 
         public void DisableJetpack()
         {
-            _enableJetpack = false;
+            if (isLocalPlayer)
+            {
+                _enableJetpack = false;
+            }
         }
 
         public void InjectGroundDetector(OverlapDetectorController groundDetector)
@@ -208,7 +232,8 @@ namespace Feature.Jetpack
             _groundDetector = groundDetector;
         }
 
-        private void CheckGround()
+        [Command]
+        private void CmdCheckGround()
         {
             if (_groundDetector == null)
             {
@@ -218,5 +243,7 @@ namespace Feature.Jetpack
 
             _isGrounded = _groundDetector.IsOverlapped;
         }
+
+        private bool IsEnoughVerticalInput() => _directionInput.y >= 0.8f;
     }
 }

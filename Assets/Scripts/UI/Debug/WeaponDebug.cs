@@ -28,12 +28,12 @@ namespace GameDebug.WeaponDebug
 
         private void Start()
         {
-            PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawnPlayer;
+            GameEvents.OnLocalPlayerSpawn += OnSpawnPlayer;
         }
 
         private void OnDisable()
         {
-            PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawnPlayer;
+            GameEvents.OnLocalPlayerSpawn -= OnSpawnPlayer;
         }
 
         private void OnDestroy()
@@ -44,18 +44,19 @@ namespace GameDebug.WeaponDebug
 #endif
 
             if (playerSpawnHandler)
-                playerSpawnHandler.OnSpawnPlayer -= OnSpawnPlayer;
+                GameEvents.OnLocalPlayerSpawn -= OnSpawnPlayer;
 
             if (player)
                 player.WeaponsManager.OnChangeWeapon -= OnChangeWeapon;
         }
 
-        private void OnSpawnPlayer(Logic.Player.PlayerInfo obj)
+        private void OnSpawnPlayer()
         {
-            if (!obj.IsLocal)
+            
+            if (!Player.localPlayer.isLocalPlayer)
                 return;
 
-            player = obj.GetComponent<Player>();
+            player = Player.localPlayer;
             if (!player)
                 return;
 

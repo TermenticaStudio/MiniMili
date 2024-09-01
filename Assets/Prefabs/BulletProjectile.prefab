@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 6392235276684912867}
   - component: {fileID: 8233390101066202617}
   - component: {fileID: 4575455049484285622}
+  - component: {fileID: 6013808034945957368}
   m_Layer: 7
   m_Name: BulletProjectile
   m_TagString: Untagged
@@ -356,3 +357,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee1ff1d26cd96644a70ff7a68f2b9a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6013808034945957368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392235276684912869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 2662232769
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0

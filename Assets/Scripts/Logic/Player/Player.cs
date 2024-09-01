@@ -8,13 +8,16 @@ using Feature.Player.Movement;
 using Feature.Player.Stabilizer;
 using Logic.Player.ThrowablesSystem;
 using Logic.Player.WeaponsSystem;
+using Mirror;
+using Mirror.Examples.MultipleMatch;
+using System;
 using UnityEngine;
 
 namespace Logic.Player
 {
     [RequireComponent(typeof(HealthController), typeof(PlayerInfo), typeof(Rigidbody2D))]
     [RequireComponent(typeof(WeaponsManager))]
-    public class Player : MonoBehaviour
+    public class Player : NetworkBehaviour
     {
         [SerializeField] private Transform cameraLook;
         [SerializeField] private float cameraLerpSpeedMul = 5f;
@@ -33,10 +36,46 @@ namespace Logic.Player
         public Rigidbody2D Rigidbody { get; private set; }
         public WeaponsManager WeaponsManager { get; private set; }
         public ThrowablesManager Throwables { get; private set; }
+        public FlipController Flip { get => flipController; }
         public AimController Aim { get; private set; }
-
-        private void Start()
+        public static Player localPlayer;
+        private Vector3 _targetAim;
+        private Vector3 _currentAim;
+        private void OnEnable()
         {
+            Setup();
+            GameEvents.OnLocalPlayerSpawn += SetupEvents;
+        }
+
+        private void SetupEvents()
+        {
+            Health.OnDie += OnDie;
+            Health.OnUpdateHealth += OnUpdateHealth;
+        }
+
+        private void OnDisable()
+        {
+            Health.OnDie -= OnDie;
+            Health.OnUpdateHealth -= OnUpdateHealth;
+            GameEvents.OnLocalPlayerSpawn -= SetupEvents;
+        }
+
+        private void Update()
+        {
+            if (!Health.IsDead && isOwned)
+            {
+                jetpack.FeedDirectionInput(PlayerInput.Instance.GetMovement());
+                movement.FeedDirectionInput(PlayerInput.Instance.GetMovement());
+                Aim.FeedDirectionInput(PlayerInput.Instance.GetAim());
+                stabilizerController.FeedDirectionInput(PlayerInput.Instance.GetMovement());
+            }
+            if (!cameraLook)
+                return;
+            SetCameraLookPos(transform.position);
+
+            _currentAim = Vector3.Lerp(_currentAim, _targetAim, Time.deltaTime * cameraLerpSpeedMul);
+        }
+        private void Setup(){
             Health = GetComponent<HealthController>();
             Info = GetComponent<PlayerInfo>();
             Rigidbody = GetComponent<Rigidbody2D>();
@@ -44,6 +83,22 @@ namespace Logic.Player
             Throwables = GetComponent<ThrowablesManager>();
             Aim = GetComponent<AimController>();
 
+            Health.Revive();
+            Aim.ResetAim();
+            jetpack.EnableJetpack();
+            jetpack.ResetFuel();
+
+        }
+        public override void OnStartLocalPlayer()
+        {
+            Debug.Log("My player is " + gameObject.name);
+            localPlayer = this;
+            if(Info == null){
+                Setup();
+            }
+            Info.IsLocal = true;
+            CameraController.Instance.SetTarget(cameraLook);
+            Info.SetPlayerName(PlayerPrefs.GetString("PLAYER_NAME"));
             movement.InjectGroundDetector(groundDetector);
             movement.InjectCeilDetector(ceilDetector);
             jetpack.InjectGroundDetector(groundDetector);
@@ -51,49 +106,13 @@ namespace Logic.Player
             movement.InjectFlipController(flipController);
             Throwables.InjectFlipController(flipController);
             stabilizerController.InjectGroundDetector(groundDetector);
-
-            PlayerSpawnHandler.Instance.OnSpawnPlayer += OnSpawn;
-
+            Throwables.OnStartPlayer();
+            WeaponsManager.OnStartPlayer();
+            SetCameraLookPos(transform.position);
+            PlayerInput.Instance.ResetInput();
             Health.OnDie += OnDie;
             Health.OnUpdateHealth += OnUpdateHealth;
-        }
-
-        private void OnDisable()
-        {
-            PlayerSpawnHandler.Instance.OnSpawnPlayer -= OnSpawn;
-
-            Health.OnDie -= OnDie;
-            Health.OnUpdateHealth -= OnUpdateHealth;
-        }
-
-        private void Update()
-        {
-            if (!Health.IsDead)
-            {
-                jetpack.FeedDirectionInput(PlayerInput.Instance.GetMovement());
-                movement.FeedDirectionInput(PlayerInput.Instance.GetMovement());
-                Aim.FeedDirectionInput(PlayerInput.Instance.GetAim());
-                stabilizerController.FeedDirectionInput(PlayerInput.Instance.GetMovement());
-            }
-
-            if (!cameraLook)
-                return;
-
-            cameraLook.transform.position = Vector3.Lerp(cameraLook.transform.position, _targetCamLook, Time.deltaTime * cameraLerpSpeedMul);
-        }
-
-        private void OnSpawn(PlayerInfo obj)
-        {
-            Health.Revive();
-            Info.SetPlayerName(PlayerPrefs.GetString("PLAYER_NAME"));
-            CameraController.Instance.SetTarget(cameraLook);
-            SetCameraLookPos(transform.position);
-            WeaponsManager.OnStartPlayer();
-            Throwables.OnStartPlayer();
-            PlayerInput.Instance.ResetInput();
-            Aim.ResetAim();
-            jetpack.EnableJetpack();
-            jetpack.ResetFuel();
+            GameEvents.OnLocalPlayerSpawn();
         }
 
         private void OnUpdateHealth(float arg1, float arg2)
@@ -124,6 +143,10 @@ namespace Logic.Player
 
             if (force)
                 cameraLook.position = _targetCamLook;
+        }
+         public void SetAimLookPos(Vector3 pos)
+        {
+            _targetAim = pos - transform.position;
         }
     }
 }

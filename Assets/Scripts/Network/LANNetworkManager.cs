@@ -15,7 +15,7 @@ public class LANNetworkManager : NetworkManager
         var player = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         NetworkServer.AddPlayerForConnection(conn, player);
 
-        PlayerSpawnHandler.Instance.SpawnPlayerRpc(conn.identity);
+      //  PlayerSpawnHandler.Instance.SpawnPlayerRpc(conn.identity);
     }
 
     public override Transform GetStartPosition()

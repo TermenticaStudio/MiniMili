@@ -4994,6 +4994,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0d0a05bfd54e240ade94f66bfde1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   preset: {fileID: 11400000, guid: 923b7f98bf18945499263afbe14c1fbe, type: 2}
   holsterPos: {fileID: 0}
   defaultLayer: Player
@@ -5003,6 +5006,7 @@ MonoBehaviour:
   muzzle: {fileID: 7046449982953881048}
   shellDrop: {fileID: 647670608769412845}
   sfxSource: {fileID: 7381832533692907107}
+  isThisOwned: 0
 --- !u!1 &4449961610143595811
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8030805868059344438}
   - component: {fileID: 6627926755546591444}
   - component: {fileID: 7176227886592834167}
+  - component: {fileID: 3752278721178233023}
   m_Layer: 10
   m_Name: AUG_Pickup
   m_TagString: Untagged
@@ -76,6 +77,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickSFX: {fileID: 8300000, guid: ab008130c5b96cf498ddf047ba249234, type: 3}
   preset: {fileID: 11400000, guid: 3e1a1f2e5be43274fb2eaa43edd54afe, type: 2}
+  ammoLeft:
+    ClipLeft: 0
+    AmmoLeft: 0
+  isDropped: 0
 --- !u!60 &7176227886592834167
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -129,6 +134,23 @@ PolygonCollider2D:
       - {x: 0.91278994, y: 0.09797311}
       - {x: 0.8981495, y: 0.1880855}
   m_UseDelaunayMesh: 0
+--- !u!114 &3752278721178233023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639695285180200254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 241182723
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
 --- !u!1 &6189592683880918136
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,10 +15,12 @@ public class ProjectileTrail : MonoBehaviour
         trailRenderer = GetComponent<TrailRenderer>();
     }
 
-    public void StartTimer()
+    public void StartTimer(float speed, float length)
     {
         trailRenderer?.Clear();
-        DOVirtual.Float(minTime, maxTime, duration, value =>
+        var finalTime = length / speed;
+
+        DOVirtual.Float(finalTime / 1.5f, finalTime, duration, value =>
         {
             trailRenderer.time = value;
         });
