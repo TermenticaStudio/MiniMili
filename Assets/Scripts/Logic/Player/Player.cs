@@ -10,6 +10,7 @@ using Logic.Player.ThrowablesSystem;
 using Logic.Player.WeaponsSystem;
 using Mirror;
 using Mirror.Examples.MultipleMatch;
+using Mirror.Examples.Shooter;
 using System;
 using UnityEngine;
 
@@ -38,13 +39,22 @@ namespace Logic.Player
         public ThrowablesManager Throwables { get; private set; }
         public FlipController Flip { get => flipController; }
         public AimController Aim { get; private set; }
-        public static Player localPlayer;
+        public SceneObjectsContainer sceneObjectsContainer;
         private Vector3 _targetAim;
         private Vector3 _currentAim;
-        private void OnEnable()
+
+
+        void Awake()
         {
-            Setup();
-            GameEvents.OnLocalPlayerSpawn += SetupEvents;
+             sceneObjectsContainer = FindObjectOfType<SceneObjectsContainer>();
+        }
+        private void Start()
+        {
+            SetupComponents();
+            if(!isLocalPlayer)
+            {
+                MultiSetup();
+            }
         }
 
         private void SetupEvents()
@@ -57,7 +67,6 @@ namespace Logic.Player
         {
             Health.OnDie -= OnDie;
             Health.OnUpdateHealth -= OnUpdateHealth;
-            GameEvents.OnLocalPlayerSpawn -= SetupEvents;
         }
 
         private void Update()
@@ -67,38 +76,35 @@ namespace Logic.Player
                 jetpack.FeedDirectionInput(PlayerInput.Instance.GetMovement());
                 movement.FeedDirectionInput(PlayerInput.Instance.GetMovement());
                 Aim.FeedDirectionInput(PlayerInput.Instance.GetAim());
+                if (cameraLook)
+                {
+                    SetCameraLookPos(transform.position);
+                }
                 stabilizerController.FeedDirectionInput(PlayerInput.Instance.GetMovement());
+                _currentAim = Vector3.Lerp(_currentAim, _targetAim, Time.deltaTime * cameraLerpSpeedMul);
             }
-            if (!cameraLook)
-                return;
-            SetCameraLookPos(transform.position);
 
-            _currentAim = Vector3.Lerp(_currentAim, _targetAim, Time.deltaTime * cameraLerpSpeedMul);
         }
-        private void Setup(){
+        private void SetupComponents(){
             Health = GetComponent<HealthController>();
             Info = GetComponent<PlayerInfo>();
             Rigidbody = GetComponent<Rigidbody2D>();
             WeaponsManager = GetComponent<WeaponsManager>();
             Throwables = GetComponent<ThrowablesManager>();
             Aim = GetComponent<AimController>();
-
-            Health.Revive();
-            Aim.ResetAim();
             jetpack.EnableJetpack();
             jetpack.ResetFuel();
-
+            Info.SetPlayerName();
         }
-        public override void OnStartLocalPlayer()
+        private void LocalSetup()
         {
-            Debug.Log("My player is " + gameObject.name);
-            localPlayer = this;
-            if(Info == null){
-                Setup();
+            if (Info == null)
+            {
+                SetupComponents();
             }
-            Info.IsLocal = true;
-            CameraController.Instance.SetTarget(cameraLook);
-            Info.SetPlayerName(PlayerPrefs.GetString("PLAYER_NAME"));
+            Health.Revive();
+            Aim.ResetAim();
+            SetupEvents();
             movement.InjectGroundDetector(groundDetector);
             movement.InjectCeilDetector(ceilDetector);
             jetpack.InjectGroundDetector(groundDetector);
@@ -109,10 +115,29 @@ namespace Logic.Player
             Throwables.OnStartPlayer();
             WeaponsManager.OnStartPlayer();
             SetCameraLookPos(transform.position);
+            CameraController.Instance.SetTarget(cameraLook);
             PlayerInput.Instance.ResetInput();
-            Health.OnDie += OnDie;
             Health.OnUpdateHealth += OnUpdateHealth;
+            Info.IsLocal = true;
             GameEvents.OnLocalPlayerSpawn();
+        }
+        private void MultiSetup()
+        {
+            movement.InjectGroundDetector(groundDetector);
+            movement.InjectCeilDetector(ceilDetector);
+            jetpack.InjectGroundDetector(groundDetector);
+            Aim.InjectFlipController(flipController);
+            movement.InjectFlipController(flipController);
+            Throwables.InjectFlipController(flipController);
+            stabilizerController.InjectGroundDetector(groundDetector);
+            Throwables.OnStartPlayer();
+            WeaponsManager.OnStartPlayer();
+
+        }
+        public override void OnStartLocalPlayer()
+        {
+            if (sceneObjectsContainer) { sceneObjectsContainer.localPlayer = this; }
+            LocalSetup();
         }
 
         private void OnUpdateHealth(float arg1, float arg2)

@@ -2212,15 +2212,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  jetPackForce: 1200
-  jetPackLaunchForce: 250
-  launchDelay: 0.4
-  flyingMaxVelocity: 6
-  fallingMaxVelocity: 10
-  jetPackFuel: 5
-  fuelUsageMultiplier: 1
-  fuelChargeMutliplier: 0.6
-  refuelDelay: 1
+  data: {fileID: 11400000, guid: 49f528417f39eac4bb792244297dab03, type: 2}
   jetpackFlames:
   - {fileID: 1579858763657881504}
   - {fileID: 1678567682137902983}

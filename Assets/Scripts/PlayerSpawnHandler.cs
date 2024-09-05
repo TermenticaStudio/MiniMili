@@ -55,7 +55,7 @@ public class PlayerSpawnHandler : NetworkBehaviour
       //  OnSpawnPlayer.Invoke(instance);
         NotifyManager.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Joined), instance.GetPlayerName());
     }
-    [Command(requiresAuthority = false)]
+    
     public void SpawnPickup(Vector3 pos)
     {
         Debug.Log("spawning pickups");

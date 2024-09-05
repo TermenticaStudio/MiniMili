@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
+    path: Assets/Third-Party/Mirror/Examples/Shooter/Scenes/MirrorShooterMenu.unity
+    guid: f843e8da2b8164427b050eebd0f5aebe
+  - enabled: 0
     path: Assets/Scenes/InitializeOnline.unity
     guid: 4919478eeae2602408be0fb5397baf57
   - enabled: 0

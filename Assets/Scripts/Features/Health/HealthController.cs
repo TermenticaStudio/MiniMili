@@ -1,11 +1,12 @@
 using Feature.Audio;
+using Mirror;
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Feature.Health
 {
-    public class HealthController : MonoBehaviour
+    public class HealthController : NetworkBehaviour
     {
         [SerializeField] private float health;
         [SerializeField] private bool canRegenerateHealth;
@@ -69,20 +70,26 @@ namespace Feature.Health
         }
 
         public bool IsHealthFull() => currentHealth == health;
-
+        [Server]
         public void Damage(float amount, Logic.Player.Player damageBy)
         {
             if (isDead)
                 return;
 
             currentHealth -= amount;
-            OnUpdateHealth?.Invoke(currentHealth, health);
+            RpcDamage();
             LastDamageBy = damageBy;
 
             if (currentHealth <= 0)
                 Die();
         }
+        [ClientRpc]
+        private void RpcDamage()
+        {
+            OnUpdateHealth?.Invoke(currentHealth, health);
 
+        }
+        [Server]
         private void Die()
         {
             if (isDead)
@@ -90,7 +97,15 @@ namespace Feature.Health
 
             currentHealth = 0;
             isDead = true;
+            RpcDie();
 
+            if (destroyOnDie)
+                NetworkServer.UnSpawn(gameObject);
+               // Destroy(gameObject);
+        }
+        [ClientRpc]
+        private void RpcDie()
+        {
             if (deathSFX.Length > 0)
             {
                 var randomClip = deathSFX[Random.Range(0, deathSFX.Length)];
@@ -100,8 +115,6 @@ namespace Feature.Health
             OnUpdateHealth?.Invoke(currentHealth, health);
             OnDie?.Invoke();
 
-            if (destroyOnDie)
-                Destroy(gameObject);
         }
     }
 }

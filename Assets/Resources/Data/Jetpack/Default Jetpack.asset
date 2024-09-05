@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef7ace2a59e83b438e51499f95149ff, type: 3}
   m_Name: Default Jetpack
   m_EditorClassIdentifier: 
-  jetPackForce: 0
-  jetPackLaunchForce: 0
-  launchDelay: 0.65
-  flyingMaxVelocity: 0
-  fallingMaxVelocity: 0
-  jetPackFuel: 10
-  fuelUsageMultiplier: 2
-  fuelChargeMutliplier: 1
+  jetPackForce: 1300
+  jetPackLaunchForce: 350
+  launchDelay: 0.5
+  flyingMaxVelocity: 6
+  fallingMaxVelocity: 9
+  jetPackFuel: 5
+  fuelUsageMultiplier: 1
+  fuelChargeMutliplier: 0.6
   refuelDelay: 1

@@ -42,7 +42,16 @@ namespace Logic.Player
             else
                 ShowName();
         }
+        public void SetPlayerName()
+        {
+            currentName = GetPlayerName();
+            nameText.text = currentName;
 
+            if (IsLocal)
+                HideName();
+            else
+                ShowName();
+        }
         public string GetPlayerName()
         {
             return IsLocal ? "You" : currentName;

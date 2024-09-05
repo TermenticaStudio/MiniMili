@@ -34,11 +34,12 @@ namespace Logic.Player.WeaponsSystem
                  Init();
                  OnStartPlayer();
              }*/
-            Init();
-            if (activeWeaponIndex != -1)
-            {
-                SelectWeapon(weapons[activeWeaponIndex].ID);
-            }
+            /*  Init();
+              if (activeWeaponIndex != -1)
+              {
+                  SelectWeapon(weapons[activeWeaponIndex].ID);
+              }*/
+          //  Init();
         }
 
         private void Init()
@@ -58,24 +59,38 @@ namespace Logic.Player.WeaponsSystem
         public void OnStartPlayer()
         {
             Debug.Log("starting player");
-            Init();
-            CmdUpdateActiveWeaponServer();
+            if (!isInited)
+            {
+                Init();
+            }
+            if (isLocalPlayer)
+            {
+                CmdUpdateActiveWeaponServer();
+            }
+            else
+            {
+                SelectWeapon(weapons[activeWeaponIndex].ID);
+            }
             if (isServerOnly)
             {
                 Debug.Log("this is player in server");
             }
             //    UpdateActiveWeapon(0, activeWeaponIndex);
         }
-        [Command]
+        [Command(requiresAuthority = false)]
         private void CmdUpdateActiveWeaponServer()
         {
             activeWeaponIndex = GetNextOwnedWeaponIndex();
+
             if (activeWeaponIndex == -1)
             {
                 Debug.Log("No weapon to select");
                 return;
             }
-
+            if (isServerOnly)
+            {
+                SelectWeapon(weapons[activeWeaponIndex].ID);
+            }
         }
         /*    [ClientRpc]
             private void UpdateActiveWeapon(int newIndex)
@@ -99,7 +114,7 @@ namespace Logic.Player.WeaponsSystem
                 CmdPickupWeapon(availableWeaponToReplace.GetNetworkIdentity());
 
             if (PlayerInput.Instance.IsShooting)
-                activeWeapon?.Fire();
+                CmdShoot(Quaternion.Euler(activeWeapon.projectileSpawnPoint.eulerAngles));
             else
                 activeWeapon?.CancelFire();
 
@@ -116,6 +131,7 @@ namespace Logic.Player.WeaponsSystem
         [Command]
         private void CmdSwitchWeapon()
         {
+            Debug.Log("switching weapon...");
             if (IsLastOwnedWeapon())
             {
                 activeWeaponIndex = 0;
@@ -125,7 +141,10 @@ namespace Logic.Player.WeaponsSystem
             {
                 activeWeaponIndex = GetNextOwnedWeaponIndex();
             }
-
+            if(isServer)
+            {
+                SelectWeapon(weapons[activeWeaponIndex].ID);
+            }
             if (activeWeaponIndex == -1)
             {
                 Debug.Log("No weapon to select");
@@ -194,9 +213,11 @@ namespace Logic.Player.WeaponsSystem
             activeWeapon.Recoil(100);
 
             if (isLocalPlayer)
+            {
                 AudioManager.Instance.Play2DSFX(selectWeaponSFX, transform.position);
 
-            UpdateUI();
+                UpdateUI();
+            }
         }
         [Command]
         public void CmdPickupWeapon(NetworkIdentity pickupWeaponObject)
@@ -229,14 +250,37 @@ namespace Logic.Player.WeaponsSystem
         }
 
         [ClientRpc]
-        private void RpcSelectWeapon(NetworkIdentity weaponObject)
-        {
-            SelectWeapon(weaponObject.GetComponent<Weapon>());
-        }
-        [ClientRpc]
         private void RpcSelectWeapon(string weaponID)
         {
             SelectWeapon(weaponID);
+        }
+        [Command]
+        private void CmdShoot(Quaternion rot)
+        {
+            activeWeapon?.Fire(rot);
+            if (isServerOnly)
+            {
+            }
+            RpcShoot(rot);
+        }
+        [ClientRpc]
+        private void RpcShoot(Quaternion rot)
+        {
+            activeWeapon?.Fire(rot);
+        }
+        [Command]
+        private void CmdCancelShoot()
+        {
+            if (isServerOnly)
+            {
+                activeWeapon?.CancelFire();
+            }
+            RpcCancelShoot();
+        }
+        [ClientRpc]
+        private void RpcCancelShoot()
+        {
+            activeWeapon?.CancelFire();
         }
         private int GetNextOwnedWeaponIndex()
         {

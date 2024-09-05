@@ -3,7 +3,7 @@ using Mirror;
 using System;
 using UnityEngine;
 [Serializable]
-public class PickupObject : MonoBehaviour
+public class PickupObject : NetworkBehaviour
 {
     [SerializeField] private AudioClip pickSFX;
 
@@ -14,6 +14,6 @@ public class PickupObject : MonoBehaviour
     }
     public NetworkIdentity GetNetworkIdentity()
     {
-        return GetComponent<NetworkIdentity>();
+        return netIdentity;
     }
 }

@@ -3,6 +3,7 @@ using Feature.Audio;
 using Feature.Flip;
 using Logic.Player.WeaponsSystem;
 using Mirror;
+using Mirror.Examples.Shooter;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -30,7 +31,8 @@ namespace Logic.Player.WeaponsSystem
         [SerializeField] private string holsterLayer;
 
         [FoldoutGroup(PROJECTILE_GROUP)]
-        [SerializeField] private Transform projectileSpawnPoint;
+        [SerializeField] public Transform projectileSpawnPoint;
+        [SerializeField] private GameObject projectile;
 
         [FoldoutGroup(RECOIL_GROUP)]
         [SerializeField] private Transform recoilPivot;
@@ -55,6 +57,7 @@ namespace Logic.Player.WeaponsSystem
         private Vector3 defaultPos;
         private bool preFirePending;
         private bool isMeleeing;
+        private SceneObjectsContainer sceneObjectsContainer;
         private Transform currentAimLine;
 
         public int CurrentAmmoCount { get; private set; }
@@ -71,6 +74,7 @@ namespace Logic.Player.WeaponsSystem
 
         public void Init()
         {
+            sceneObjectsContainer = FindObjectOfType<SceneObjectsContainer>();
             weaponsManager = GetComponentInParent<WeaponsManager>();
             player = GetComponentInParent<Player>();
             flipController = player.Flip;
@@ -140,18 +144,18 @@ namespace Logic.Player.WeaponsSystem
             ResetZoom();
         }
 
-        public void Fire()
+        public void Fire(Quaternion rot)
         {
             if (!preset.isFirearm)
                 return;
 
             if (fireCoroutine == null && reloadCoroutine == null)
-                fireCoroutine = StartCoroutine(FireCoroutine());
+                fireCoroutine = StartCoroutine(FireCoroutine(rot));
         }
 
         private bool isFireInitiated;
 
-        private IEnumerator FireCoroutine()
+        private IEnumerator FireCoroutine(Quaternion rot)
         {
             if (IsReloadNeeded())
                 yield break;
@@ -182,24 +186,12 @@ namespace Logic.Player.WeaponsSystem
                     var clip = preset.fireSFXs[Random.Range(0, preset.fireSFXs.Length)];
                     AudioManager.Instance.Play2DSFX(clip, transform.position);
                 }
-
-                projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, IsFlipped() ? 180 : 0);
-
-                for (int i = 0; i < preset.projectileCountPerShot; i++)
+                if (player.isLocalPlayer)
                 {
-                    var rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles);
-
-                    if (preset.projectileCountPerShot > 1)
-                        rot *= Quaternion.Euler(Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
-
-                    // Accuracy
-                    var minRan = Mathf.Lerp(preset.minRanAccuracyDegree, 0, preset.accuracy);
-                    var maxRan = Mathf.Lerp(preset.maxRanAccuracyDegree, 0, preset.accuracy);
-                    rot *= Quaternion.Euler(Vector3.forward * Random.Range(minRan, maxRan));
-                    //
-
-                    CreateProjectile(rot);
+                    projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, IsFlipped() ? 180 : 0);
                 }
+                CreateProjectile(rot);
+
 
                 Recoil();
 
@@ -261,11 +253,32 @@ namespace Logic.Player.WeaponsSystem
         }
 
         private int FireCount() => preset.fireMode == FireMode.Burst ? preset.firePerBurst : 1;
-
-        private void CreateProjectile(Quaternion rot)
+        public void CreateProjectile(Quaternion rot)
         {
-            var projectilePr = PrefabPool.Instance.Get("Bullet").GetComponent<Projectile>();
-            projectilePr.Init(player, projectileSpawnPoint.position, rot, preset.projectileSpeed, preset.projectileRange, preset.projectileDamage, preset.projectileLength);
+            for (int i = 0; i < preset.projectileCountPerShot; i++)
+            {
+
+                if (preset.projectileCountPerShot > 1)
+                    rot *= Quaternion.Euler(Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
+
+                // Accuracy
+                var minRan = Mathf.Lerp(preset.minRanAccuracyDegree, 0, preset.accuracy);
+                var maxRan = Mathf.Lerp(preset.maxRanAccuracyDegree, 0, preset.accuracy);
+                rot *= Quaternion.Euler(Vector3.forward * Random.Range(minRan, maxRan));
+                //
+
+                CreateProjectileInternal(rot);
+
+            }
+        }
+        private void CreateProjectileInternal(Quaternion rot)
+        {
+            var projectilePr = PrefabPool.Instance.Get("Bullet");
+            //var projectilePr = Instantiate(projectile, projectileSpawnPoint.position, rot);
+            projectilePr.GetComponent<Projectile>().Init(player, projectileSpawnPoint.position, rot, preset.projectileSpeed, preset.projectileRange, preset.projectileDamage, preset.projectileLength);
+           NetworkServer.Spawn(projectilePr.gameObject);
+            
+
         }
 
         public void Reload()
@@ -469,8 +482,10 @@ namespace Logic.Player.WeaponsSystem
         {
             if (!preset.aimLine)
                 return;
-
-            currentAimLine = Instantiate(preset.aimLine, recoilExludedProjectilePoint.transform.position, recoilExludedProjectilePoint.transform.rotation, player.transform).transform;
+            if (player.isLocalPlayer)
+            {
+                currentAimLine = Instantiate(preset.aimLine, recoilExludedProjectilePoint.transform.position, recoilExludedProjectilePoint.transform.rotation, player.transform).transform;
+            }
         }
 
         private void UpdateAimLine()

@@ -88,8 +88,14 @@ namespace Feature.Player.Movement
         [Command]
         private void CmdUpdateAnimator(float speed, float dir)
         {
+            if (isServerOnly) 
+            {
+                feetAnimator.SetFloat(SPEED_ANIM, speed);
+                feetAnimator.SetFloat(DIR_ANIM, dir);
+            }
             // Update animator parameters on the server
             RpcUpdateAnimator(speed, dir);
+
         }
 
         [ClientRpc]

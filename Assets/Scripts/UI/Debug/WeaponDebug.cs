@@ -52,11 +52,10 @@ namespace GameDebug.WeaponDebug
 
         private void OnSpawnPlayer()
         {
-            
-            if (!Player.localPlayer.isLocalPlayer)
-                return;
-
-            player = Player.localPlayer;
+            if (!player)
+            {
+                player = FindObjectOfType<SceneObjectsContainer>().localPlayer;
+            }
             if (!player)
                 return;
 

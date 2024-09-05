@@ -1,3 +1,5 @@
+using Mirror;
+using Mono.CSharp;
 using UnityEngine;
 
 namespace Logic.Player.WeaponsSystem
@@ -5,6 +7,7 @@ namespace Logic.Player.WeaponsSystem
     [RequireComponent(typeof(Rigidbody2D))]
     public class Projectile : PoolObject
     {
+        private Collider myCollider;
         private float range;
         private float damage;
 
@@ -14,7 +17,23 @@ namespace Logic.Player.WeaponsSystem
         private ProjectileTrail trail;
 
         private bool isInit;
+        private void OnEnable()
+        {
+            if(myCollider == null)
+            {
+                myCollider = GetComponent<Collider>();
+            }
+        }
+        private void Start()
+        {
+            if (isInit)
+            {
+                foreach (Collider co in owner.GetComponentsInChildren<Collider>())
+                    Physics.IgnoreCollision(myCollider, co);
+            }
 
+
+        }
         private void Update()
         {
             if (!isInit)
@@ -35,9 +54,10 @@ namespace Logic.Player.WeaponsSystem
         public void Init(Player owner, Vector3 pos, Quaternion rot, float speed, float range, float damage, float trailLength)
         {
             this.owner = owner;
-
             rigid = GetComponent<Rigidbody2D>();
             trail = GetComponentInChildren<ProjectileTrail>();
+            foreach (Collider co in owner.GetComponentsInChildren<Collider>())
+                Physics.IgnoreCollision(myCollider, co);
 
             transform.SetPositionAndRotation(pos, rot);
             initPos = transform.position;
@@ -49,26 +69,38 @@ namespace Logic.Player.WeaponsSystem
 
             trail?.StartTimer(speed, trailLength);
 
+
             isInit = true;
         }
-
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (!isInit)
                 return;
+            if (FindObjectOfType<SceneObjectsContainer>().isServer)
+            {
+                //ImpactCreator.CreateImpact(collision.collider, collision.GetContact(0).point, collision.GetContact(0).point - (Vector2)transform.position);
 
+                var damagable = collision.gameObject.GetComponent<IDamagable>();
+
+                if (damagable != null)
+                    damagable.Damage(owner, damage);
+                    
+                       
+            }
             ImpactCreator.CreateImpact(collision.collider, collision.GetContact(0).point, collision.GetContact(0).point - (Vector2)transform.position);
             DestroySelf();
 
-            var damagable = collision.gameObject.GetComponent<IDamagable>();
-
-            if (damagable != null)
-                damagable.Damage(owner, damage);
+            
         }
-
+        [Server]
         private void DestroySelf()
         {
-            gameObject.SetActive(false);
+     /*       if (FindObjectOfType<SceneObjectsContainer>().isServer)
+            {
+                NetworkServer.UnSpawn(gameObject);
+            }*/
+            NetworkServer.UnSpawn(gameObject);
+            Release();
         }
     }
 }

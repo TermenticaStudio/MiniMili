@@ -5,7 +5,7 @@ using Mirror;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupDetector : MonoBehaviour
+public class PickupDetector : NetworkBehaviour
 {
     private WeaponsManager weaponsManager;
     private ThrowablesManager playerThrowables;
@@ -35,10 +35,8 @@ public class PickupDetector : MonoBehaviour
         }
 
         var weapon = nearItem.GetComponent<PickupWeapon>();
-        if (weapon != null)
-        {
-            weaponsManager.NotifyWeaponNearby(weapon.GetNetworkIdentity());
-        }
+        weaponsManager.NotifyWeaponNearby(weapon.GetNetworkIdentity());
+
         var throwable = nearItem.GetComponent<ThrowablePickup>();
         playerThrowables.NotifyThrowableNearby(throwable);
     }
@@ -77,8 +75,7 @@ public class PickupDetector : MonoBehaviour
     {
         return pickupables.Count > 0;
     }
-    [ServerCallback]
-
+    [ClientCallback]
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var pickup = collision.GetComponent<PickupObject>();
@@ -91,8 +88,7 @@ public class PickupDetector : MonoBehaviour
 
         UpdateNearestItemNotification();
     }
-    [ServerCallback]
-
+    [ClientCallback]
     private void OnTriggerExit2D(Collider2D collision)
     {
         var pickup = collision.GetComponent<PickupObject>();

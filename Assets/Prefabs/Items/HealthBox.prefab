@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 9080015041595512257}
   - component: {fileID: 6911422354462308552}
   - component: {fileID: 3571033682194786523}
+  - component: {fileID: -1716585929821933542}
   m_Layer: 11
   m_Name: HealthBox
   m_TagString: Untagged
@@ -222,6 +223,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4801bd81da21b4986a2eeb6f599440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  pickSFX: {fileID: 0}
   healthAmount: 50
 --- !u!50 &3571033682194786523
 Rigidbody2D:
@@ -250,3 +255,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-1716585929821933542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7111174551364621120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 1631334373
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0

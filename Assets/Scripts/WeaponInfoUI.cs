@@ -66,7 +66,7 @@ public class WeaponInfoUI : MonoBehaviour
 
     private void OnSpawnPlayer()
     {
-        player = Player.localPlayer.GetComponent<Player>();
+        player = FindObjectOfType<SceneObjectsContainer>().localPlayer;
 
         SubscribeThrowablesEvents();
         SubscribeWeaponsEvents();

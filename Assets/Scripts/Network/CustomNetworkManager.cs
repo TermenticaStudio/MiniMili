@@ -8,12 +8,15 @@ public class CustomNetworkManager : NetworkManager
     public override void OnServerAddPlayer(NetworkConnectionToClient conn)
     {
         GameObject gO = Instantiate(playerPrefab);
+        gO.name = conn.connectionId.ToString();
         Player player = gO.GetComponent<Player>();
         PlayerInfo playerInfo = gO.GetComponent<PlayerInfo>();
-
         gO.transform.position = GetStartPosition().position;
 
         NetworkServer.AddPlayerForConnection(conn, gO);
-       // PlayerSpawnHandler.Instance.SpawnPickup(GetStartPosition().position);
+    }
+    public override void OnStartServer()
+    {
+        PlayerSpawnHandler.Instance.SpawnPickup(GetStartPosition().position);
     }
 }

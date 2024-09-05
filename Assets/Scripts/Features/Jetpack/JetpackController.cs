@@ -1,7 +1,7 @@
 using Feature.OverlapDetector;
+using Mirror;
 using System.Collections;
 using UnityEngine;
-using Mirror;
 
 namespace Feature.Jetpack
 {
@@ -15,15 +15,14 @@ namespace Feature.Jetpack
 
         public JetpackData Data { get => data; }
 
-        [SyncVar] private bool _enableJetpack;
-        [SyncVar] private bool _isJetPackActive;
-        [SyncVar] private bool _isJetpackActivating;
-        [SyncVar] private float _throttle;
-        [SyncVar] private bool _isGrounded;
-        [SyncVar] private float _currentFuel;
-        [SyncVar] private bool _isChargingFuel;
-        [SyncVar] private bool _isChargingFuelActivating;
-
+        private bool _enableJetpack;
+        private bool _isJetPackActive;
+        private bool _isJetpackActivating;
+        private float _throttle;
+        private bool _isGrounded;
+        private float _currentFuel;
+        private bool _isChargingFuel;
+        private bool _isChargingFuelActivating;
         private Vector2 _directionInput;
         private Rigidbody2D _rigid;
         private OverlapDetectorController _groundDetector;
@@ -36,23 +35,22 @@ namespace Feature.Jetpack
 
         private void Update()
         {
-            if (!isLocalPlayer) return;
+            if (isLocalPlayer)
+            {
+                _throttle = Mathf.Clamp01(_directionInput.y);
 
-            _throttle = Mathf.Clamp01(_directionInput.y);
-
-            CmdCheckGround();
-            UpdateUI();
-            CmdJetpackParticles();
-            CmdJetpackMove();
-            CmdStartRefuel();
-            CmdChargeFuel();
-            CmdUseFuel();
+                CheckGround();
+                UpdateUI();
+                JetpackParticles();
+                JetpackMove();
+                StartRefuel();
+                ChargeFuel();
+                UseFuel();
+            }
         }
 
         private void FixedUpdate()
         {
-            if (!isServer) return;
-
             if (_isJetPackActive)
                 _rigid.AddForce((Vector2.up * data.jetPackForce * _directionInput.y) + (Vector2.right * (data.jetPackForce / 2f) * _directionInput.x), ForceMode2D.Force);
 
@@ -67,21 +65,17 @@ namespace Feature.Jetpack
 
         private void UpdateUI()
         {
-            if (isLocalPlayer)
-            {
-                WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, _currentFuel / data.jetPackFuel));
-            }
+            WeaponInfoUI.Instance.SetJetpackFuel(Mathf.Lerp(0, 1, _currentFuel / data.jetPackFuel));
         }
 
-        [Command]
-        private void CmdJetpackMove()
+        private void JetpackMove()
         {
             if (_isJetpackActivating)
                 return;
 
             if (_isGrounded)
             {
-                RpcDeactivateJetpack();
+                DeactivateJetpack();
 
                 if (!IsEnoughVerticalInput())
                     return;
@@ -92,17 +86,16 @@ namespace Feature.Jetpack
 
             if (_currentFuel == 0 || _directionInput.y <= 0)
             {
-                RpcDeactivateJetpack();
+                DeactivateJetpack();
             }
             else
             {
                 if (!_isJetpackActivating && IsEnoughVerticalInput())
-                    RpcActivateJetpack();
+                    ActivateJetpack();
             }
         }
 
-        [Command]
-        private void CmdChargeFuel()
+        private void ChargeFuel()
         {
             if (!_enableJetpack)
                 return;
@@ -117,8 +110,15 @@ namespace Feature.Jetpack
             _currentFuel = Mathf.Clamp(_currentFuel, 0, data.jetPackFuel);
         }
 
-        [Command]
-        private void CmdStartRefuel()
+        private IEnumerator StartRefuelCoroutine()
+        {
+            _isChargingFuelActivating = true;
+            yield return new WaitForSeconds(data.refuelDelay);
+            _isChargingFuel = true;
+            _isChargingFuelActivating = false;
+        }
+
+        private void StartRefuel()
         {
             if (_isJetPackActive)
                 return;
@@ -134,15 +134,8 @@ namespace Feature.Jetpack
 
             StartCoroutine(StartRefuelCoroutine());
         }
-        private IEnumerator StartRefuelCoroutine()
-        {
-            _isChargingFuelActivating = true;
-            yield return new WaitForSeconds(data.refuelDelay);
-            _isChargingFuel = true;
-            _isChargingFuelActivating = false;
-        }
-        [Command]
-        private void CmdUseFuel()
+
+        private void UseFuel()
         {
             if (!_isJetPackActive)
                 return;
@@ -157,48 +150,91 @@ namespace Feature.Jetpack
             _rigid.AddForce(transform.up * data.jetPackLaunchForce, ForceMode2D.Impulse);
             _isJetpackActivating = true;
 
+            foreach (var flame in jetpackFlames)
+                flame.ActivatePreFire();
+            CmdActivatePrefire();
             yield return new WaitForSeconds(data.launchDelay);
-            RpcActivateJetpack();
+            ActivateJetpack();
             _isJetpackActivating = false;
         }
-
-        [ClientRpc]
-        private void RpcActivateJetpack()
-        {
-            _isJetPackActive = true;
-
-            foreach (var flame in jetpackFlames)
-                flame.ActivateFlame(true);
-        }
-
-        [ClientRpc]
-        private void RpcDeactivateJetpack()
-        {
-            _isJetPackActive = false;
-
-            foreach (var flame in jetpackFlames)
-                flame.ActivateFlame(false);
-        }
-
         [Command]
-        private void CmdJetpackParticles()
+        private void CmdActivatePrefire()
         {
-            RpcJetpackParticles(_throttle);
+            RpcActivatePrefire();
         }
-
-        [ClientRpc]
+        [ClientRpc(includeOwner = false)]
+        private void RpcActivatePrefire()
+        {
+            foreach (var flame in jetpackFlames)
+                flame.ActivatePreFire();
+        }
+        private void JetpackParticles()
+        {
+            if (isLocalPlayer)
+            {
+                CmdJetpackParticles(_throttle);
+            }
+            foreach (var flame in jetpackFlames)
+                flame.SetPower(_throttle);
+        }
+        [Command]
+        private void CmdJetpackParticles(float throttle)
+        {
+            RpcJetpackParticles(throttle);
+        }
+        [ClientRpc(includeOwner = false)]
         private void RpcJetpackParticles(float throttle)
         {
             foreach (var flame in jetpackFlames)
                 flame.SetPower(throttle);
         }
-
-        public void FeedDirectionInput(Vector2 input)
+        private void ActivateJetpack()
         {
             if (isLocalPlayer)
             {
-                _directionInput = input;
+                CmdActivateJetpack();
             }
+            _isJetPackActive = true;
+            foreach (var flame in jetpackFlames)
+                flame.ActivateFlame(true);
+        }
+        [Command]
+        private void CmdActivateJetpack()
+        {
+            RpcActivateJetpack();
+        }
+        [ClientRpc(includeOwner = false)]
+        private void RpcActivateJetpack()
+        {
+            foreach (var flame in jetpackFlames)
+                flame.ActivateFlame(true);
+        }
+        [Command]
+        private void CmdDeactivateJetpack()
+        {
+            RpcDeactivateJetpack();
+        }
+        [ClientRpc(includeOwner = false)]
+        private void RpcDeactivateJetpack()
+        {
+            foreach (var flame in jetpackFlames)
+                flame.ActivateFlame(false);
+        }
+        private void DeactivateJetpack()
+        {
+            
+            _isJetPackActive = false;
+            if (isLocalPlayer)
+            {
+                CmdDeactivateJetpack();
+            }
+            foreach (var flame in jetpackFlames)
+                flame.ActivateFlame(false);
+        }
+
+        public void FeedDirectionInput(Vector2 input)
+        {
+            _directionInput = input;
         }
 
         public void ResetFuel()
@@ -213,18 +249,12 @@ namespace Feature.Jetpack
 
         public void EnableJetpack()
         {
-            if (isLocalPlayer)
-            {
-                _enableJetpack = true;
-            }
+            _enableJetpack = true;
         }
 
         public void DisableJetpack()
         {
-            if (isLocalPlayer)
-            {
-                _enableJetpack = false;
-            }
+            _enableJetpack = false;
         }
 
         public void InjectGroundDetector(OverlapDetectorController groundDetector)
@@ -232,8 +262,7 @@ namespace Feature.Jetpack
             _groundDetector = groundDetector;
         }
 
-        [Command]
-        private void CmdCheckGround()
+        private void CheckGround()
         {
             if (_groundDetector == null)
             {
