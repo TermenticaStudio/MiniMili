@@ -1,4 +1,5 @@
 using Feature.Audio;
+using Logic.Player;
 using Mirror;
 using System;
 using UnityEngine;
@@ -77,15 +78,17 @@ namespace Feature.Health
                 return;
 
             currentHealth -= amount;
-            RpcDamage();
-            LastDamageBy = damageBy;
+            RpcDamage(amount, damageBy.netIdentity);
 
             if (currentHealth <= 0)
                 Die();
         }
         [ClientRpc]
-        private void RpcDamage()
+        private void RpcDamage(float amount, NetworkIdentity damageBy)
         {
+            currentHealth -= amount;
+            LastDamageBy = damageBy.GetComponent<Logic.Player.Player>();
+
             OnUpdateHealth?.Invoke(currentHealth, health);
 
         }
@@ -111,6 +114,8 @@ namespace Feature.Health
                 var randomClip = deathSFX[Random.Range(0, deathSFX.Length)];
                 AudioManager.Instance.Play2DSFX(randomClip, transform.position);
             }
+            currentHealth = 0;
+            isDead = true;
 
             OnUpdateHealth?.Invoke(currentHealth, health);
             OnDie?.Invoke();

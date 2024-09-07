@@ -84,11 +84,11 @@ namespace Logic.Player.WeaponsSystem
 
                 if (damagable != null)
                     damagable.Damage(owner, damage);
-                    
-                       
+
+                DestroySelf();
+
             }
             ImpactCreator.CreateImpact(collision.collider, collision.GetContact(0).point, collision.GetContact(0).point - (Vector2)transform.position);
-            DestroySelf();
 
             
         }

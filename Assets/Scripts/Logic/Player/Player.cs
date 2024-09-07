@@ -13,6 +13,7 @@ using Mirror.Examples.MultipleMatch;
 using Mirror.Examples.Shooter;
 using System;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Logic.Player
 {
@@ -42,7 +43,7 @@ namespace Logic.Player
         public SceneObjectsContainer sceneObjectsContainer;
         private Vector3 _targetAim;
         private Vector3 _currentAim;
-
+        public bool componentsSetuped;
 
         void Awake()
         {
@@ -50,11 +51,14 @@ namespace Logic.Player
         }
         private void Start()
         {
+
             SetupComponents();
-            if(!isLocalPlayer)
+            if (!isLocalPlayer)
             {
                 MultiSetup();
             }
+
+
         }
 
         private void SetupEvents()
@@ -95,16 +99,35 @@ namespace Logic.Player
             jetpack.EnableJetpack();
             jetpack.ResetFuel();
             Info.SetPlayerName();
+            componentsSetuped = true;
         }
         private void LocalSetup()
         {
-            if (Info == null)
+            /*            if (Info == null)
+                        {
+                            SetupComponents();
+                        }
+                        Health.Revive();
+                        Aim.ResetAim();
+                        SetupEvents();
+                        movement.InjectGroundDetector(groundDetector);
+                        movement.InjectCeilDetector(ceilDetector);
+                        jetpack.InjectGroundDetector(groundDetector);
+                        Aim.InjectFlipController(flipController);
+                        movement.InjectFlipController(flipController);
+                        Throwables.InjectFlipController(flipController);
+                        stabilizerController.InjectGroundDetector(groundDetector);
+                        Throwables.OnStartPlayer();
+                        WeaponsManager.OnStartPlayer();
+            */
+            if (!componentsSetuped)
             {
                 SetupComponents();
             }
             Health.Revive();
             Aim.ResetAim();
             SetupEvents();
+
             movement.InjectGroundDetector(groundDetector);
             movement.InjectCeilDetector(ceilDetector);
             jetpack.InjectGroundDetector(groundDetector);
@@ -114,15 +137,20 @@ namespace Logic.Player
             stabilizerController.InjectGroundDetector(groundDetector);
             Throwables.OnStartPlayer();
             WeaponsManager.OnStartPlayer();
-            SetCameraLookPos(transform.position);
+
             CameraController.Instance.SetTarget(cameraLook);
+            SetCameraLookPos(transform.position);
             PlayerInput.Instance.ResetInput();
             Health.OnUpdateHealth += OnUpdateHealth;
             Info.IsLocal = true;
             GameEvents.OnLocalPlayerSpawn();
         }
-        private void MultiSetup()
+        public void MultiSetup()
         {
+            if(!componentsSetuped)
+            {
+                SetupComponents();
+            }
             movement.InjectGroundDetector(groundDetector);
             movement.InjectCeilDetector(ceilDetector);
             jetpack.InjectGroundDetector(groundDetector);
@@ -132,6 +160,8 @@ namespace Logic.Player
             stabilizerController.InjectGroundDetector(groundDetector);
             Throwables.OnStartPlayer();
             WeaponsManager.OnStartPlayer();
+            Health.Revive();
+            Aim.ResetAim();
 
         }
         public override void OnStartLocalPlayer()

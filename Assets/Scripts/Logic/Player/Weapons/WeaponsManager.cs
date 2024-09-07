@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 using Mirror;
+using UnityEngine.Assertions;
 
 namespace Logic.Player.WeaponsSystem
 {
@@ -29,17 +30,23 @@ namespace Logic.Player.WeaponsSystem
 
         private void Start()
         {
-            /* if (isLocalPlayer)
-             {
-                 Init();
-                 OnStartPlayer();
-             }*/
-            /*  Init();
-              if (activeWeaponIndex != -1)
-              {
-                  SelectWeapon(weapons[activeWeaponIndex].ID);
-              }*/
-          //  Init();
+            /*   if (isLocalPlayer)
+               {
+                   Init();
+                   OnStartPlayer();
+               }
+               else
+               {*/
+ /*           if (!isInited)
+            {
+                Init();  // Ensure this runs on both client and server
+            }*/
+           /* if (activeWeaponIndex != -1)
+                {
+                    SelectWeapon(weapons[activeWeaponIndex].ID);
+                }*/
+            
+            //  Init();
         }
 
         private void Init()
@@ -63,17 +70,11 @@ namespace Logic.Player.WeaponsSystem
             {
                 Init();
             }
-            if (isLocalPlayer)
+            activeWeaponIndex = GetNextOwnedWeaponIndex();
+            if (activeWeaponIndex == -1)
             {
-                CmdUpdateActiveWeaponServer();
-            }
-            else
-            {
-                SelectWeapon(weapons[activeWeaponIndex].ID);
-            }
-            if (isServerOnly)
-            {
-                Debug.Log("this is player in server");
+                Debug.Log("No weapon to select");
+                return;
             }
             //    UpdateActiveWeapon(0, activeWeaponIndex);
         }
@@ -99,8 +100,14 @@ namespace Logic.Player.WeaponsSystem
             }*/
         void OnWeaponChange(int oldIndex, int newIndex)
         {
-            Debug.Log("synced weapon is this " + weapons[newIndex]);
-                SelectWeapon(weapons[newIndex].ID);   
+            Assert.IsNotNull(weapons[newIndex]);
+            if (newIndex != oldIndex && weapons[newIndex] != null)
+            {
+                SelectWeapon(weapons[newIndex]);
+            }else if (newIndex == oldIndex)
+            {
+                Debug.Log("this new weapon is same as old no need to change anything");
+            }
         }
         private void Update()
         {
@@ -186,10 +193,16 @@ namespace Logic.Player.WeaponsSystem
                 DeactivateWeapon(activeWeapon);
 
             var existWeapon = weapons.SingleOrDefault(x => x.ID == weaponID && x.IsOwned);
+            if (existWeapon == null)
+            {
+                Debug.LogError("Weapon with ID " + weaponID + " not found or not owned!");
+                return;
+            }
+
             Debug.Log("Selecting " + existWeapon.name);
             if (!existWeapon)
             {
-                throw new Exception("no weapon found to activate");
+                Debug.Log("no weapon found");
             }
             activeWeapon = existWeapon;
             activeWeapon.SelectLastZoom();

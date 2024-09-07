@@ -10628,11 +10628,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wrap: {fileID: 1834743000}
-  latency: 234
+  latency: 840
   jitter: 0.02
   jitterSpeed: 1
-  unreliableLoss: 2
-  unreliableScramble: 2
+  unreliableLoss: 58
+  unreliableScramble: 19
 --- !u!1 &1859376538
 GameObject:
   m_ObjectHideFlags: 0
