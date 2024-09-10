@@ -5,7 +5,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+[DefaultExecutionOrder(2000)]
 public class WeaponInfoUI : MonoBehaviour
 {
     public static WeaponInfoUI Instance;
@@ -159,6 +159,7 @@ public class WeaponInfoUI : MonoBehaviour
 
     private void OnChangeWeapon(Weapon weapon)
     {
+        if (weapon == null) return;
         weaponNameText.text = weapon.Preset.Name;
         weaponIconImage.sprite = weapon.Preset.Icon;
 

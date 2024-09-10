@@ -1,9 +1,6 @@
 using DG.Tweening;
 using Feature.Audio;
 using Feature.Flip;
-using Logic.Player.WeaponsSystem;
-using Mirror;
-using Mirror.Examples.Shooter;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -31,8 +28,7 @@ namespace Logic.Player.WeaponsSystem
         [SerializeField] private string holsterLayer;
 
         [FoldoutGroup(PROJECTILE_GROUP)]
-        [SerializeField] public Transform projectileSpawnPoint;
-        [SerializeField] private GameObject projectile;
+        [SerializeField] private Transform projectileSpawnPoint;
 
         [FoldoutGroup(RECOIL_GROUP)]
         [SerializeField] private Transform recoilPivot;
@@ -57,7 +53,6 @@ namespace Logic.Player.WeaponsSystem
         private Vector3 defaultPos;
         private bool preFirePending;
         private bool isMeleeing;
-        private SceneObjectsContainer sceneObjectsContainer;
         private Transform currentAimLine;
 
         public int CurrentAmmoCount { get; private set; }
@@ -67,14 +62,12 @@ namespace Logic.Player.WeaponsSystem
         public string ID { get => preset.id; }
         public bool IsActive { get; private set; }
         public WeaponPreset Preset { get => preset; }
-        public FlipController Flip { get => flipController; }
 
         public event Action OnStartPreFire;
         public event Action OnEndPreFire;
 
-        public void Init()
+        public void Init(bool isLocalPlayer)
         {
-            sceneObjectsContainer = FindObjectOfType<SceneObjectsContainer>();
             weaponsManager = GetComponentInParent<WeaponsManager>();
             player = GetComponentInParent<Player>();
             flipController = player.Flip;
@@ -91,7 +84,10 @@ namespace Logic.Player.WeaponsSystem
             player.Health.OnDie += OnPlayerDie;
 
             OnRevivePlayer();
-            InitAimLine();
+            if (isLocalPlayer)
+            {
+                InitAimLine();
+            }
             SetAsDeactive();
         }
 
@@ -120,11 +116,6 @@ namespace Logic.Player.WeaponsSystem
 
         private void Update()
         {
-            if (player == null)
-            {
-                Init();
-                return;
-            }
             UpdateAimLine();
         }
 
@@ -144,70 +135,147 @@ namespace Logic.Player.WeaponsSystem
             ResetZoom();
         }
 
-        public void Fire(Quaternion rot)
+        public void Fire(bool isLocalPlayer, float passedTime, bool isServer)
         {
             if (!preset.isFirearm)
                 return;
 
             if (fireCoroutine == null && reloadCoroutine == null)
-                fireCoroutine = StartCoroutine(FireCoroutine(rot));
+                fireCoroutine = StartCoroutine(FireCoroutine(isLocalPlayer, passedTime, isServer));
         }
-
         private bool isFireInitiated;
 
-        private IEnumerator FireCoroutine(Quaternion rot)
+        private IEnumerator FireCoroutine(bool isLocalPlayer, float passedTime, bool isServer)
         {
-            if (IsReloadNeeded())
-                yield break;
-
-            if (!isFireInitiated)
+            if (isLocalPlayer)
             {
-                if (!preset.preFirePerShot)
-                    yield return PreFire();
-            }
+                if (IsReloadNeeded())
+                    yield break;
 
-            isFireInitiated = true;
-
-            for (int b = 0; b < FireCount(); b++)
-            {
-                if (preset.preFirePerShot)
-                    yield return PreFire();
-
-                CurrentAmmoCount--;
-                weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount, ClipSize);
-
-                muzzle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(IsFlipped() ? 1 : 0, 0, 0);
-                muzzle.Play();
-
-                shellDrop.Emit(1);
-
-                if (preset.fireSFXs.Length > 0)
+                if (!isFireInitiated)
                 {
-                    var clip = preset.fireSFXs[Random.Range(0, preset.fireSFXs.Length)];
-                    AudioManager.Instance.Play2DSFX(clip, transform.position);
+                    if (!preset.preFirePerShot)
+                        yield return PreFire();
                 }
-                if (player.isLocalPlayer)
+
+                isFireInitiated = true;
+
+                for (int b = 0; b < FireCount(); b++)
                 {
-                    projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, IsFlipped() ? 180 : 0);
-                }
-                CreateProjectile(rot);
+                    if (preset.preFirePerShot)
+                        yield return PreFire();
 
+                    CurrentAmmoCount--;
+                    weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount, ClipSize);
 
-                Recoil();
+                    muzzle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(IsFlipped() ? 1 : 0, 0, 0);
+                    muzzle.Play();
 
-                yield return new WaitForSeconds(60f / preset.fireRate);
+                    shellDrop.Emit(1);
 
-                if (preset.fireMode == FireMode.Burst)
-                {
-                    if (b == FireCount() - 1)
+                    if (preset.fireSFXs.Length > 0)
                     {
-                        yield return new WaitForSeconds(preset.burstCooldown);
+                        var clip = preset.fireSFXs[Random.Range(0, preset.fireSFXs.Length)];
+                        AudioManager.Instance.Play2DSFX(clip, transform.position);
+                    }
+
+                    projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, IsFlipped() ? 180 : 0);
+
+                    for (int i = 0; i < preset.projectileCountPerShot; i++)
+                    {
+                        var rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles);
+
+                        if (preset.projectileCountPerShot > 1)
+                            rot *= Quaternion.Euler(Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
+
+                        // Accuracy
+                        var minRan = Mathf.Lerp(preset.minRanAccuracyDegree, 0, preset.accuracy);
+                        var maxRan = Mathf.Lerp(preset.maxRanAccuracyDegree, 0, preset.accuracy);
+                        rot *= Quaternion.Euler(Vector3.forward * Random.Range(minRan, maxRan));
+                        //
+
+                        CreateProjectile(rot, passedTime);
+                    }
+
+                    Recoil();
+
+                    yield return new WaitForSeconds(60f / preset.fireRate);
+
+                    if (preset.fireMode == FireMode.Burst)
+                    {
+                        if (b == FireCount() - 1)
+                        {
+                            yield return new WaitForSeconds(preset.burstCooldown);
+                        }
                     }
                 }
-            }
 
-            fireCoroutine = null;
+                fireCoroutine = null;
+            }
+            else
+            {
+                if (!isFireInitiated)
+                {
+                    if (!preset.preFirePerShot)
+                        yield return PreFire();
+                }
+
+                isFireInitiated = true;
+
+                for (int b = 0; b < FireCount(); b++)
+                {
+                    if (preset.preFirePerShot)
+                        yield return PreFire();
+
+                  //  CurrentAmmoCount--;
+                  //  weaponsManager.UpdateAmmoCountUI(CurrentAmmoCount, ClipSize);
+
+                    muzzle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(IsFlipped() ? 1 : 0, 0, 0);
+                    muzzle.Play();
+
+                    shellDrop.Emit(1);
+
+                    if (preset.fireSFXs.Length > 0)
+                    {
+                        var clip = preset.fireSFXs[Random.Range(0, preset.fireSFXs.Length)];
+                        AudioManager.Instance.Play2DSFX(clip, transform.position);
+                    }
+
+                    projectileSpawnPoint.localRotation = Quaternion.Euler(0, 0, IsFlipped() ? 180 : 0);
+
+                    for (int i = 0; i < preset.projectileCountPerShot; i++)
+                    {
+                        var rot = Quaternion.Euler(projectileSpawnPoint.eulerAngles);
+
+                        if (preset.projectileCountPerShot > 1)
+                            rot *= Quaternion.Euler(Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
+
+                        // Accuracy
+                        var minRan = Mathf.Lerp(preset.minRanAccuracyDegree, 0, preset.accuracy);
+                        var maxRan = Mathf.Lerp(preset.maxRanAccuracyDegree, 0, preset.accuracy);
+                        rot *= Quaternion.Euler(Vector3.forward * Random.Range(minRan, maxRan));
+                        //
+
+                        CreateProjectile(rot, passedTime);
+                    }
+
+                    Recoil();
+
+                    yield return new WaitForSeconds(60f / preset.fireRate);
+
+                    if (preset.fireMode == FireMode.Burst)
+                    {
+                        if (b == FireCount() - 1)
+                        {
+                            yield return new WaitForSeconds(preset.burstCooldown);
+                        }
+                    }
+                }
+
+                fireCoroutine = null;
+            }
         }
+
 
         private IEnumerator PreFire()
         {
@@ -253,32 +321,11 @@ namespace Logic.Player.WeaponsSystem
         }
 
         private int FireCount() => preset.fireMode == FireMode.Burst ? preset.firePerBurst : 1;
-        public void CreateProjectile(Quaternion rot)
+
+        private void CreateProjectile(Quaternion rot, float passedTime)
         {
-            for (int i = 0; i < preset.projectileCountPerShot; i++)
-            {
-
-                if (preset.projectileCountPerShot > 1)
-                    rot *= Quaternion.Euler(Vector3.forward * Random.Range(preset.minMaxAngleBetweenPerShot.x, preset.minMaxAngleBetweenPerShot.y));
-
-                // Accuracy
-                var minRan = Mathf.Lerp(preset.minRanAccuracyDegree, 0, preset.accuracy);
-                var maxRan = Mathf.Lerp(preset.maxRanAccuracyDegree, 0, preset.accuracy);
-                rot *= Quaternion.Euler(Vector3.forward * Random.Range(minRan, maxRan));
-                //
-
-                CreateProjectileInternal(rot);
-
-            }
-        }
-        private void CreateProjectileInternal(Quaternion rot)
-        {
-            var projectilePr = PrefabPool.Instance.Get("Bullet");
-            //var projectilePr = Instantiate(projectile, projectileSpawnPoint.position, rot);
-            projectilePr.GetComponent<Projectile>().Init(player, projectileSpawnPoint.position, rot, preset.projectileSpeed, preset.projectileRange, preset.projectileDamage, preset.projectileLength);
-           NetworkServer.Spawn(projectilePr.gameObject);
-            
-
+            var projectilePr = PrefabPool.Instance.Get("Bullet").GetComponent<Projectile>();
+            projectilePr.Init(player, projectileSpawnPoint.position, rot, preset.projectileSpeed, preset.projectileRange, preset.projectileDamage, preset.projectileLength, passedTime);
         }
 
         public void Reload()
@@ -482,10 +529,8 @@ namespace Logic.Player.WeaponsSystem
         {
             if (!preset.aimLine)
                 return;
-            if (player.isLocalPlayer)
-            {
-                currentAimLine = Instantiate(preset.aimLine, recoilExludedProjectilePoint.transform.position, recoilExludedProjectilePoint.transform.rotation, player.transform).transform;
-            }
+
+            currentAimLine = Instantiate(preset.aimLine, recoilExludedProjectilePoint.transform.position, recoilExludedProjectilePoint.transform.rotation, player.transform).transform;
         }
 
         private void UpdateAimLine()

@@ -891,6 +891,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb859fc30c4bea40af21eafc35a59e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!58 &6960581097825010486
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2231,14 +2234,9 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  walkForce: 2
-  walkMaxSpeed: 3
-  crawlForce: 1
-  crawlMaxSpeed: 1.5
+  data: {fileID: 11400000, guid: eeef54d5f3b1f8b41acb09a3cf4027b1, type: 2}
   feetAnimator: {fileID: 8680397635143224419}
   characterCollider: {fileID: 4499679875049350696}
-  standHeight: 1.9
-  crawlHeight: 1.4
   footstepAS: {fileID: 1549290341518965549}
   footstepClips:
   - {fileID: 8300000, guid: 02dd686af9b2e5441bbacd828d351ce0, type: 3}
@@ -2295,6 +2293,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d3293a436937f4e95a0b829bea027c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   health: 100
   canRegenerateHealth: 1
   regeneratePerSecond: 15
@@ -2380,6 +2381,8 @@ MonoBehaviour:
   ceilDetector: {fileID: 5059385104488632014}
   flipController: {fileID: 7156889553137407417}
   stabilizerController: {fileID: 5281510675629748832}
+  sceneObjectsContainer: {fileID: 0}
+  componentsSetuped: 0
 --- !u!114 &489561945455204393
 MonoBehaviour:
   m_ObjectHideFlags: 0

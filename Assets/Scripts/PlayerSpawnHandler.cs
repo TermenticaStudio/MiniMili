@@ -17,30 +17,28 @@ public class PlayerSpawnHandler : NetworkBehaviour
     [SerializeField] private float displayRespawnDelay = 2;
     [SerializeField] private GameObject respawnUI;
     [SerializeField] private TextMeshProUGUI respawnTimerText;
-    public static PlayerSpawnHandler Instance;
+   // public static PlayerSpawnHandler Instance;
 
     [SerializeField]
     private PickupObject[] pickups;
 
-    private void Awake()
-    {
-        Instance = this;
-        HideRespawnTimer();
-    }
 
     private void Start()
     {
+       // Instance = this;
+        HideRespawnTimer();
+
         //SpawnPlayer();
     }
 
     // [ClientRpc]
-   /* public void SpawnPlayerRpc(NetworkIdentity identity)
-    {
-        if (!identity.isLocalPlayer)
-            return;
+    /* public void SpawnPlayerRpc(NetworkIdentity identity)
+     {
+         if (!identity.isLocalPlayer)
+             return;
 
-        OnSpawnPlayer?.Invoke(identity.GetComponent<PlayerInfo>());
-    }*/
+         OnSpawnPlayer?.Invoke(identity.GetComponent<PlayerInfo>());
+     }*/
 
     public void SpawnPlayer(PlayerInfo instance)
     {

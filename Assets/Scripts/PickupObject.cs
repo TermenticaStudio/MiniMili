@@ -10,7 +10,11 @@ public class PickupObject : NetworkBehaviour
     public virtual void Pickup()
     {
         AudioManager.Instance.PlaySFX(pickSFX);
-        Destroy(gameObject);
+        if (isServer)
+        {
+            NetworkServer.UnSpawn(gameObject);
+           // Destroy(gameObject);
+        }
     }
     public NetworkIdentity GetNetworkIdentity()
     {

@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3661096154007871507}
   - component: {fileID: 5097558410401670349}
   - component: {fileID: 209583897056360523}
+  - component: {fileID: 1606635241348905667}
+  - component: {fileID: -8438538072815906913}
   m_Layer: 11
   m_Name: FragGrenade
   m_TagString: Untagged
@@ -111,6 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e55c6fdc05055e439a0b664e122bfc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   throwSFX: {fileID: 8300000, guid: e277e84b9b5523a40b40a04e318c6bc9, type: 3}
   vfx: {fileID: 7346023326219005234, guid: c336118b06af4734091fe0a5a915b046, type: 3}
   explosionSFX: {fileID: 8300000, guid: aeddf4af074fe1143900019a88de20f1, type: 3}
@@ -185,6 +190,46 @@ MonoBehaviour:
     m_DissipationDistance: 50
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0.05, y: 0.05, z: 0}
+--- !u!114 &1606635241348905667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728690272340689166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 910013346
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
+--- !u!114 &-8438538072815906913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728690272340689166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2cbc52526ea384ba280d13cd1a57b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 1826748328149775865}
+  clientAuthority: 0
+  syncVelocity: 1
+  clearVelocity: 0
+  velocitySensitivity: 0.1
+  syncAngularVelocity: 1
+  clearAngularVelocity: 0
+  angularVelocitySensitivity: 0.1
 --- !u!1 &1883294915115892246
 GameObject:
   m_ObjectHideFlags: 0

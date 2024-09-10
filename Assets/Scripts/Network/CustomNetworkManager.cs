@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class CustomNetworkManager : NetworkManager
 {
-    
+    public SceneObjectsContainer SceneObjectsContainer;
+  
     public override void OnServerAddPlayer(NetworkConnectionToClient conn)
     {
         GameObject gO = Instantiate(playerPrefab);
         gO.name = conn.connectionId.ToString();
         Player player = gO.GetComponent<Player>();
-        player.MultiSetup();
+     //   player.MultiSetup();
         PlayerInfo playerInfo = gO.GetComponent<PlayerInfo>();
         gO.transform.position = GetStartPosition().position;
 
         NetworkServer.AddPlayerForConnection(conn, gO);
+        if (SceneObjectsContainer.spawnHandler != null)
+        {
+            SceneObjectsContainer.spawnHandler.SpawnPickup(GetStartPosition().position);
+        }
     }
-    public override void OnStartServer()
-    {
-        PlayerSpawnHandler.Instance.SpawnPickup(GetStartPosition().position);
-    }
+   
 }

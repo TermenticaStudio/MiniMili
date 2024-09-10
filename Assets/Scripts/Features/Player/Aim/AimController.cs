@@ -1,9 +1,10 @@
 using Feature.Flip;
+using Mirror;
 using UnityEngine;
 
 namespace Feature.Player.Aim
 {
-    public class AimController : MonoBehaviour
+    public class AimController : NetworkBehaviour
     {
         [SerializeField] private Transform rightHand;
 
@@ -18,10 +19,12 @@ namespace Feature.Player.Aim
         private Vector2 _lastAimDirection;
         private Vector2 _directionInput;
         private FlipController _flipController;
-
         private void Update()
         {
-            Aim();
+            if (isLocalPlayer)
+            {
+                Aim();
+            }
         }
 
         private void Aim()
@@ -39,9 +42,9 @@ namespace Feature.Player.Aim
                 var dot = Vector2.Dot(rightHand.right, Vector2.right);
 
                 if (dot < 0)
-                    _flipController.Flip(-1);
+                    SetFlip(-1);
                 else
-                    _flipController.Flip(1);
+                    SetFlip(1);
 
                 // Fix rotation if player is flipped
                 if (_flipController.IsFlipped)
@@ -56,7 +59,24 @@ namespace Feature.Player.Aim
                 }
             }
         }
-
+        private void SetFlip(int flip)
+        {
+            _flipController.Flip(flip);
+            ServerSetFlip(flip);
+        }
+        [Command(requiresAuthority = false)]
+        private void ServerSetFlip(int flip)
+        {
+            ClientsSetFlip(flip);
+        }
+        [ClientRpc(includeOwner = false)]
+        private void ClientsSetFlip(int flip)
+        {
+            if (_flipController != null)
+            {
+                _flipController.Flip(flip);
+            }
+        }
         public void ResetAim()
         {
             _lastAimDirection = Vector2.right;

@@ -4,9 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneObjectsContainer : NetworkBehaviour
+public class SceneObjectsContainer : MonoBehaviour
 {
     public Player localPlayer;
-
-
+    public PlayerSpawnHandler spawnHandler;
+    public bool IsServer { 
+        get
+        {
+            return NetworkManager.singleton.mode == NetworkManagerMode.ServerOnly || NetworkManager.singleton.mode == NetworkManagerMode.Host;
+        } 
+    }
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ebdcc5c2c67a840a08037fc20aca78, type: 3}
+  m_Name: Default Data
+  m_EditorClassIdentifier: 
+  walkForce: 2
+  walkMaxSpeed: 3
+  crawlForce: 1
+  crawlMaxSpeed: 1.5
+  standHeight: 1.9
+  crawlHeight: 1.4

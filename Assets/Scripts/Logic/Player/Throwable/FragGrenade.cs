@@ -1,4 +1,5 @@
 using Feature.Audio;
+using Mirror;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,7 +15,7 @@ namespace Logic.Player.ThrowablesSystem
         [SerializeField] private float fuzeTimer = 5f;
 
         [SerializeField] private UnityEvent OnExplode;
-
+        [Server]
         public override void Throw(Player owner, Vector3 direction, float power)
         {
             base.Throw(owner, direction, power);
@@ -29,10 +30,9 @@ namespace Logic.Player.ThrowablesSystem
         private IEnumerator ExplodeCoroutine()
         {
             yield return new WaitForSeconds(fuzeTimer);
+            Debug.Log("on explode server");
 
-            AudioManager.Instance.Play2DSFX(explosionSFX, transform.position);
-            Instantiate(vfx, transform.position, Quaternion.identity, null);
-
+            OnExplodeClients();
             var cols = Physics2D.OverlapCircleAll(transform.position, range);
 
             foreach (var col in cols)
@@ -48,10 +48,18 @@ namespace Logic.Player.ThrowablesSystem
                 var damagable = col.GetComponent<IDamagable>();
                 var distance = Vector2.Distance(transform.position, hit.transform.position);
                 damagable?.Damage(owner, Mathf.Lerp(damage, damage / 4f, distance / range), true);
-            }
 
+            }
+            yield return new WaitForSeconds(.2f);
+            NetworkServer.UnSpawn(gameObject);
+        }
+        [ClientRpc]
+        private void OnExplodeClients()
+        {
+            Debug.Log("on explode client");
+            AudioManager.Instance.Play2DSFX(explosionSFX, transform.position);
+            Instantiate(vfx, transform.position, Quaternion.identity, null);
             OnExplode?.Invoke();
-            Destroy(gameObject);
         }
     }
 }

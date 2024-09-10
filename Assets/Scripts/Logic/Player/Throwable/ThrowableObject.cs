@@ -1,10 +1,11 @@
 using Feature.Audio;
+using Mirror;
 using UnityEngine;
 
 namespace Logic.Player.ThrowablesSystem
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class ThrowableObject : MonoBehaviour
+    public class ThrowableObject : NetworkBehaviour
     {
         [SerializeField] private AudioClip throwSFX;
 

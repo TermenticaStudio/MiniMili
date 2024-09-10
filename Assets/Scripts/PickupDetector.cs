@@ -1,11 +1,10 @@
 using Logic.Player;
 using Logic.Player.ThrowablesSystem;
 using Logic.Player.WeaponsSystem;
-using Mirror;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PickupDetector : NetworkBehaviour
+[DefaultExecutionOrder(10)]
+public class PickupDetector : MonoBehaviour
 {
     private WeaponsManager weaponsManager;
     private ThrowablesManager playerThrowables;
@@ -15,13 +14,17 @@ public class PickupDetector : NetworkBehaviour
 
     private void Start()
     {
+        Setup();
+    }
+    private void Setup()
+    {
         player = GetComponentInParent<Player>();
         weaponsManager = GetComponentInParent<WeaponsManager>();
         playerThrowables = GetComponentInParent<ThrowablesManager>();
     }
-
     private void UpdateNearestItemNotification()
     {
+        if (player == null) Setup();
         if (player.Health.IsDead)
             return;
 
@@ -35,7 +38,7 @@ public class PickupDetector : NetworkBehaviour
         }
 
         var weapon = nearItem.GetComponent<PickupWeapon>();
-        weaponsManager.NotifyWeaponNearby(weapon.GetNetworkIdentity());
+        weaponsManager.NotifyWeaponNearby(weapon);
 
         var throwable = nearItem.GetComponent<ThrowablePickup>();
         playerThrowables.NotifyThrowableNearby(throwable);
@@ -75,7 +78,7 @@ public class PickupDetector : NetworkBehaviour
     {
         return pickupables.Count > 0;
     }
-    [ClientCallback]
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var pickup = collision.GetComponent<PickupObject>();
@@ -88,7 +91,7 @@ public class PickupDetector : NetworkBehaviour
 
         UpdateNearestItemNotification();
     }
-    [ClientCallback]
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         var pickup = collision.GetComponent<PickupObject>();

@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Feature.Audio;
+using Mirror;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -56,16 +57,23 @@ namespace Logic.Player.ThrowablesSystem
             }
         }
 
-        public void ThrowObject()
+        public void ThrowObject(bool isServer, bool isLocalPlayer)
         {
             if (CurrentCount <= 0)
                 return;
 
             CurrentCount--;
-            playerThrowables.UpdateCountUI(CurrentCount);
-
-            var instance = Instantiate(preset.ThrowObject, playerThrowables.SpawnPoint.position, Quaternion.identity, null);
-            instance.Throw(player, playerThrowables.ThrowDirection, playerThrowables.Power);
+            if (isLocalPlayer)
+            {
+                playerThrowables.UpdateCountUI(CurrentCount);
+            }
+            if (isServer)
+            {
+                var instance = Instantiate(preset.ThrowObject, playerThrowables.SpawnPoint.position, Quaternion.identity, null);
+                instance.Throw(player, playerThrowables.ThrowDirection, playerThrowables.Power);
+            
+                NetworkServer.Spawn(instance.gameObject);
+            }
             AudioManager.Instance.Play2DSFX(preset.ThrowSFX, transform.position);
 
             DOVirtual.Float(0, 1, 1, value =>

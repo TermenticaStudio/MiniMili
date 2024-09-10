@@ -1,12 +1,13 @@
 using Feature.Audio;
 using Feature.Flip;
+using Mirror;
 using System;
 using System.Linq;
 using UnityEngine;
 
 namespace Logic.Player.ThrowablesSystem
 {
-    public class ThrowablesManager : MonoBehaviour
+    public class ThrowablesManager : NetworkBehaviour
     {
         [SerializeField] private Throwable[] throwables;
         [SerializeField] private Transform spawnPoint;
@@ -51,14 +52,24 @@ namespace Logic.Player.ThrowablesSystem
         {
             if (player.Health.IsDead)
                 return;
-
+            if (!isLocalPlayer) return;
             if (PlayerInput.Instance.IsThrowing)
-                ActiveThrowable?.ThrowObject();
+                ThrowObject();
 
             if (PlayerInput.Instance.IsSwitchingThrowables)
                 SwitchThrowables();
         }
-
+        [Command]
+        private void ThrowObject()
+        {
+            ActiveThrowable?.ThrowObject(isServer, false);
+            ClientsThrowObject();
+        }
+        [ClientRpc]
+        private void ClientsThrowObject()
+        {
+            ActiveThrowable?.ThrowObject(false, isLocalPlayer);
+        }
         public void OnStartPlayer()
         {
             Init();
