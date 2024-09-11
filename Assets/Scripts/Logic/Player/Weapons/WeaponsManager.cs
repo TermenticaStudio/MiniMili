@@ -32,6 +32,7 @@ namespace Logic.Player.WeaponsSystem
         private Player player;
         private PickupWeapon availableWeaponToReplace;
         private bool isInited;
+        public static bool reloadCheat;
 
         private void Start()
         {
@@ -112,7 +113,6 @@ namespace Logic.Player.WeaponsSystem
 
         private void UpdateActiveWeapon(int oldIndex, int newIndex)
         {
-            Debug.Log("updating active weapon");
             // SelectWeapon(weapons[newIndex]);
             if (isServerOnly)
             {
@@ -136,7 +136,6 @@ namespace Logic.Player.WeaponsSystem
         [ClientRpc]
         private void RpcUpdateActiveWeaponForOthers(int newIndex)
         {
-            Debug.Log("RpcUpdateActiveWeaponForOthers");
             SelectWeapon(weapons[newIndex]);
         }
         public void SelectNoWeapon()
@@ -152,7 +151,6 @@ namespace Logic.Player.WeaponsSystem
             if (activeWeapon != null)
                 DeactivateWeapon(activeWeapon);
 
-            Debug.Log("SelectWeapon");
             activeWeapon = weapon;
             activeWeapon.SelectLastZoom();
             activeWeapon.SetAsActive();
@@ -166,6 +164,10 @@ namespace Logic.Player.WeaponsSystem
         private void ClientFire()
         {
             activeWeapon?.Fire(true, 0, isServer);
+            if(activeWeapon?.IsReloading == true && !reloadCheat)
+            {
+                return;
+            }
             if (isServer) {
                 ObserversFire(0);
             }
@@ -173,6 +175,13 @@ namespace Logic.Player.WeaponsSystem
                 ServerFire((uint)NetworkTime.time);
             }
 
+        }
+        [QFSW.QC.Command(aliasOverride:"no-reload")]
+
+        private static void ToggleReloadCheat()
+        {
+            Debug.Log($"reloading cheat is now {!reloadCheat}");
+            reloadCheat = !reloadCheat;
         }
         private void ClientCancelFire()
         {

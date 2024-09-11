@@ -11871,10 +11871,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4777927401771705448, guid: 1bddd523fcadd8f4795600e37590287b, type: 3}
       propertyPath: _supportedState
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4777927401771705448, guid: 1bddd523fcadd8f4795600e37590287b, type: 3}
       propertyPath: _activateOnStartup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777927401771705448, guid: 1bddd523fcadd8f4795600e37590287b, type: 3}
+      propertyPath: _enableAutocomplete
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4890058683953985090, guid: 1bddd523fcadd8f4795600e37590287b, type: 3}

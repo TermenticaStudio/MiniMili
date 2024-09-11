@@ -40,6 +40,8 @@ namespace Logic.Player.WeaponsSystem
 
         [FoldoutGroup(SFX_GROUP), SerializeField] private AudioSource sfxSource;
 
+        public bool IsReloading => reloadCoroutine != null;
+
         private Coroutine fireCoroutine;
         private Coroutine reloadCoroutine;
         private bool isDryFiring;
@@ -291,6 +293,7 @@ namespace Logic.Player.WeaponsSystem
 
         private bool IsReloadNeeded()
         {
+            if (WeaponsManager.reloadCheat) return false;
             if (CurrentAmmoCount != 0)
                 return false;
 

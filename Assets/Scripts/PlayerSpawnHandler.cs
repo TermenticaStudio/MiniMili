@@ -49,14 +49,12 @@ public class PlayerSpawnHandler : NetworkBehaviour
 
         instance.SetRespawnCount(respawnCount);
         instance.IsLocal = true;
-        Debug.Log("Triggering player spawn event");
       //  OnSpawnPlayer.Invoke(instance);
         NotifyManager.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Joined), instance.GetPlayerName());
     }
     
     public void SpawnPickup(Vector3 pos)
     {
-        Debug.Log("spawning pickups");
         var go = Instantiate(pickups[Random.Range(0, pickups.Length)].gameObject, pos, Quaternion.identity);
         NetworkServer.Spawn(go);
     }
