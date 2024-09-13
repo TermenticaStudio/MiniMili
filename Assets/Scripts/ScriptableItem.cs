@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Utilities;
 
 [CreateAssetMenu(menuName="uSurvival Item/General", order=999)]
 public class ScriptableItem : ScriptableObject

@@ -1,4 +1,7 @@
 using Feature.ContentPassword;
+using Mirror;
+using Nakama;
+using Nakama.Helpers;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +9,8 @@ using UnityEngine.UI;
 
 public class MapSelector : MonoBehaviour
 {
+    [SerializeField, Scene] private string menuScene;
+    [SerializeField, Scene] private string lobbyScene;
     [SerializeField] private MapInfoSO[] maps;
     [SerializeField] private MapPreview mapPreviewPrefab;
     [SerializeField] private Transform mapsHolder;
@@ -19,6 +24,18 @@ public class MapSelector : MonoBehaviour
         LoadMaps();
 
         startGameBtn.onClick.AddListener(LoadGame);
+        MatchManager.Instance.onMatchJoin += onMatchJoin;
+        MatchManager.Instance.onMatchLeave += onMatchLeave;
+    }
+
+    private void onMatchLeave()
+    {
+        SceneManager.LoadScene(menuScene);
+    }
+
+    private void onMatchJoin()
+    {
+        SceneManager.LoadScene(lobbyScene);
     }
 
     private void LoadMaps()
@@ -51,12 +68,13 @@ public class MapSelector : MonoBehaviour
 
     private void LoadGame()
     {
-        var map = GetSelectedMapInfo();
+        MatchManager.Instance.JoinMatchAsync();
+        /*var map = GetSelectedMapInfo();
 
         ContentPasswordController.Instance.Pass(map, () =>
         {
             SceneManager.LoadScene(map.SceneName);
-        });
+        });*/
     }
 
     private MapInfoSO GetSelectedMapInfo()

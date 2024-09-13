@@ -55,8 +55,7 @@ public class WeaponInfoUI : MonoBehaviour
 
     private void OnDisable()
     {
-        if (GameEvents.Instance == null)
-            return;
+    
 
         GameEvents.OnLocalPlayerSpawn -= OnSpawnPlayer;
 

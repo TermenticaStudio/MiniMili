@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace Nakama.Helpers
 {
     public class NakamaAutoLogin : MonoBehaviour
     {
         #region FIELDS
-
+        public bool test;
         [SerializeField] private float retryTime = 5f;
 
         #endregion
@@ -25,7 +26,14 @@ namespace Nakama.Helpers
 
         private void TryLogin()
         {
-            NakamaManager.Instance.LoginWithUdid();
+            if (test)
+            {
+                NakamaManager.Instance.LoginWithCustomId(System.Guid.NewGuid().ToString());
+            }
+            else
+            {
+                NakamaManager.Instance.LoginWithDevice();
+            }
         }
 
         private void LoginFailed()

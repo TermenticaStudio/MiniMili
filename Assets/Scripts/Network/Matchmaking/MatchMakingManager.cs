@@ -3,7 +3,6 @@ using Nakama.Helpers;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Code = Nakama.Helpers.Code;
 
 public class MatchMakingManager : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class MatchMakingManager : MonoBehaviour
     private const string JoinOrCreateMatchRpc = "JoinOrCreateMatchRpc";
     private const string LogFormat = "{0} with code {1}:\n{2}";
     private const string ReceivedDataLog = "Received data";
-    private Dictionary<Nakama.Helpers.Code, Action<MultiplayerMessage>> onReceiveData = new Dictionary<Nakama.Helpers.Code, Action<MultiplayerMessage>>();
+    private Dictionary<MessageCode, Action<MultiplayerMessage>> onReceiveData = new Dictionary<MessageCode, Action<MultiplayerMessage>>();
     private IMatch match = null;
     [SerializeField] private bool enableLog = false;
     #endregion
@@ -56,6 +55,6 @@ public class MatchMakingManager : MonoBehaviour
     }
     private void LogData(string description, long dataCode, string json)
     {
-        Debug.Log(string.Format(LogFormat, description, (Code)dataCode, json));
+        Debug.Log(string.Format(LogFormat, description, (MessageCode)dataCode, json));
     }
 }

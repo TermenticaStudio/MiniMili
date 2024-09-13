@@ -186,7 +186,7 @@ namespace Logic.Player
                 NotifyManager.Instance.Notify(MessageTexts.GetMessageContent(MessageTexts.MessageType.Kill), Info.GetPlayerName(), Health.LastDamageBy.Info.GetPlayerName());
             }
             GetComponent<NetworkTransform>().enabled = false;
-            FindObjectOfType<SceneObjectsContainer>().spawnHandler.RequestForPlayerRespawn(Info);
+            PlayerSpawnHandler.RequestForPlayerRespawn(Info);
             jetpack.PurgeFuel();
             jetpack.DisableJetpack();
             //CameraController.Instance.SetTarget(null);

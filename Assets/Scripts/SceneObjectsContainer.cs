@@ -7,7 +7,6 @@ using UnityEngine;
 public class SceneObjectsContainer : MonoBehaviour
 {
     public Player localPlayer;
-    public PlayerSpawnHandler spawnHandler;
     public bool IsServer { 
         get
         {

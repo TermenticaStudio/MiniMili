@@ -11,7 +11,7 @@
 
         #region PROPERTIES
 
-        public Code DataCode { get; private set; }
+        public MessageCode DataCode { get; private set; }
         public string SessionId { get; private set; }
         public string UserId { get; private set; }
         public string Username { get; private set; }
@@ -22,8 +22,8 @@
 
         public MultiplayerMessage(IMatchState matchState)
         {
-            DataCode = (Code)matchState.OpCode;
-            DataCode = (Code)matchState.OpCode;
+            DataCode = (MessageCode)matchState.OpCode;
+            DataCode = (MessageCode)matchState.OpCode;
             if (matchState.UserPresence != null)
             {
                 UserId = matchState.UserPresence.UserId;
@@ -48,13 +48,15 @@
 
         #endregion
     }
-    public enum Code
-    {
-        Players = 0,
-        PlayerJoined = 1,
-        PlayerInput = 2,
-        PlayerWon = 3,
-        Draw = 4,
-        ChangeScene = 5
-    }
+    
+}
+public enum MessageCode
+{
+    LobbyUpdatePlayers = 0,
+    LobbyPlayerJoined = 1,
+    lobbyCountdownChangeState = 2,
+    PlayerWon = 3,
+    Draw = 4,
+    ChangeScene = 5,
+    ChatMessage = 6
 }

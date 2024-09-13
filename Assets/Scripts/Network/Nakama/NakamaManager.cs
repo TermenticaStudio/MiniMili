@@ -59,7 +59,6 @@ namespace Nakama.Helpers
             client = new Client(connectionData.Scheme, connectionData.Host, connectionData.Port, connectionData.ServerKey, UnityWebRequestAdapter.Instance);
             LoginAsync(connectionData, client.AuthenticateDeviceAsync(udid));
         }
-
         public void LoginWithDevice()
         {
             client = new Client(connectionData.Scheme, connectionData.Host, connectionData.Port, connectionData.ServerKey, UnityWebRequestAdapter.Instance);

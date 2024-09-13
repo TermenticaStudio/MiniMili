@@ -43,7 +43,6 @@ namespace GameDebug.WeaponDebug
                 JsonUtility.FromJsonOverwrite(origCopy, currentWeaponPreset);
 #endif
 
-            if (playerSpawnHandler)
                 GameEvents.OnLocalPlayerSpawn -= OnSpawnPlayer;
 
             if (player)

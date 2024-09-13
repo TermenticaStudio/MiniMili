@@ -2,8 +2,7 @@
 using UnityEngine;
 using Nakama.Helpers;
 
-namespace NinjaBattle.General
-{
+
     public class SetDisplayName : MonoBehaviour
     {
         #region FIELDS
@@ -32,15 +31,21 @@ namespace NinjaBattle.General
         private void OnDestroy()
         {
             inputField.onValueChanged.RemoveListener(ValueChanged);
+        if (nakamaUserManager != null)
+        {
             nakamaUserManager.onLoaded -= ObtainName;
+        }
         }
 
         private void ObtainName()
         {
-            if (string.IsNullOrEmpty(nakamaUserManager.DisplayName))
-                inputField.text = firstPart[Random.Range(0, firstPart.Length)] + secondPart[Random.Range(0, secondPart.Length)];
-            else
-                inputField.text = nakamaUserManager.DisplayName;
+        if (string.IsNullOrEmpty(nakamaUserManager.DisplayName))
+        {
+            inputField.text = firstPart[Random.Range(0, firstPart.Length)] + secondPart[Random.Range(0, secondPart.Length)];
+            UpdateName();
+        }
+        else
+            inputField.text = nakamaUserManager.DisplayName;
         }
 
         private void ValueChanged(string newValue)
@@ -57,4 +62,4 @@ namespace NinjaBattle.General
 
         #endregion
     }
-}
+

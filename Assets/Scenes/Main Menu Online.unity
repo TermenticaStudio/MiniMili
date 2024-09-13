@@ -4014,6 +4014,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd7e0655da845e459f9e5e9346c7e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuScene: Assets/Scenes/Main Menu Online.unity
+  lobbyScene: Assets/Scenes/LobbyOnline.unity
   maps:
   - {fileID: 11400000, guid: b8a4e9e68560ac14eabef1347d1c743d, type: 2}
   - {fileID: 11400000, guid: 101aa70a35727f4478d2b8b013e207e2, type: 2}

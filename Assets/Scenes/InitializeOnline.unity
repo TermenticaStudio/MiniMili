@@ -593,6 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6309dbaa14d6ec46a86f11d7dac14ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  test: 1
   retryTime: 5
 --- !u!4 &1448574352
 Transform:
