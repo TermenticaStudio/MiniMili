@@ -10478,6 +10478,7 @@ GameObject:
   - component: {fileID: 1834743000}
   - component: {fileID: 1834742999}
   - component: {fileID: 1834743003}
+  - component: {fileID: 1834743004}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -10615,6 +10616,27 @@ MonoBehaviour:
   jitterSpeed: 1
   unreliableLoss: 58
   unreliableScramble: 19
+--- !u!114 &1834743004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834742998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7db1740fc066b45aa82a8f401e19c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableActiveDiscovery: 1
+  BroadcastAddress: 
+  serverBroadcastListenPort: 47777
+  ActiveDiscoveryInterval: 3
+  transport: {fileID: 1834743000}
+  OnServerFound:
+    m_PersistentCalls:
+      m_Calls: []
+  secretHandshake: 6229829106909308773
 --- !u!1 &1859376538
 GameObject:
   m_ObjectHideFlags: 0

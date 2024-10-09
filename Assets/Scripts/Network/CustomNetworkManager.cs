@@ -5,7 +5,18 @@ using UnityEngine;
 public class CustomNetworkManager : NetworkManager
 {
     public SceneObjectsContainer SceneObjectsContainer;
-  
+    private void Start()
+    {
+        GetComponent<LanDiscovery>().StartDiscovery();
+    }
+
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+        GetComponent<LanDiscovery>().AdvertiseServer();
+    }
+    
+
     public override void OnServerAddPlayer(NetworkConnectionToClient conn)
     {
         GameObject gO = Instantiate(playerPrefab);

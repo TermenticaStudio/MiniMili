@@ -157,6 +157,7 @@ public class LanDiscovery : NetworkDiscoveryBase<ClientRequest, ServerResponse>
         response.uri = realUri.Uri;
         discoveredServers[response.serverId] = response;
         OnServerFound.Invoke(response);
+        FindObjectOfType<NetworkManager>().StartClient(response.uri);
     }
 
     #endregion
